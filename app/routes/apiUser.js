@@ -1,7 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const ApiControllerUsuarios = require("../controller/ApiControllerUsuarios")
+const ApiControllerAdmin = require("../controller/ApiControllerUsuarios")
 
-router.post("/login", ApiControllerUsuarios.confirmLogin)
+router.get("/todosUsuarios", ApiControllerAdmin.allUsers);
+router.get("/dellUser/:id", ApiControllerAdmin.dellUser);
+
+router.post("/login", ApiControllerAdmin.confirmLogin);
+router.post("/novoUser", ApiControllerAdmin.addUser);
 
 module.exports = router

@@ -3,8 +3,6 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const logger = require('morgan');
-const axios = require('axios')
-
 
 const app = express();
 
@@ -23,11 +21,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Controllers
 const indexRouter = require('./routes/index');
 const adminRouter = require('./routes/admin');
-const apiRouter = require('./routes/apiUser')
+const apiRouter = require('./routes/apiUser');
+const produtosRouter = require('./routes/apiProdutos')
 
 // Rotas
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
+app.use('/apiProdutos', produtosRouter)
 app.use('/api', apiRouter)
 
 // catch 404 and forward to error handler
