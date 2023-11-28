@@ -30,7 +30,7 @@ class AdminController{
     }
 
     adicionarProduto(req, res) {
-        res.render('admin/produtos/adicionarProduto')
+        res.render('admin/produtos/editarProduto')
 
     }
 
