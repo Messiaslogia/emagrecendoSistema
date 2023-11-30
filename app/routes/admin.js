@@ -25,5 +25,11 @@ router.get('/adicionarDivida', AdminController.adicionarDivida)
 // GET Pedidos listing
 router.get('/pedidos', AdminController.pedidosIndex);
 router.get('/efetuarPedido', AdminController.efetuarPedido);
+router.get('/pedidosConcluidos', AdminController.pedidosConcluidos)
+router.get('/aprovarPedido', AdminController.aprovarPedido)
+router.get('/pedidoEnviado', AdminController.pedidoEnviado)
+
+
+
 
 module.exports = router;

@@ -71,8 +71,20 @@ class AdminController{
     }
 
     efetuarPedido(req, res){
-        res.render('admin/pedidos/adicionarPedido')
-    }s
+        res.render('admin/pedidos/efetuarPedido/index')
+    }
+
+    pedidosConcluidos(req, res){
+        res.render('admin/pedidos/pedidosConcluidos/index')
+    }
+
+    aprovarPedido(req, res){
+        res.render('admin/pedidos/aprovacao/index')
+    }
+
+    pedidoEnviado(req, res){
+        res.render('admin/pedidos/pedidoEnviado/index')
+    }
     // END PEDIDOS
 
    
