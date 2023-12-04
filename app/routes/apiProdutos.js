@@ -4,7 +4,8 @@ const ApiControllerProdutos = require("../controller/ApiProdutosController")
 
 
 router.get("/todosProdutos", ApiControllerProdutos.allProdutos);
-
+router.get("/valorTotal", ApiControllerProdutos.valorTotalProdutos);
+router.get("/todoEstoque", ApiControllerProdutos.estoqueTotal);
 
 
 

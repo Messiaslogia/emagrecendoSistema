@@ -8,8 +8,8 @@ const urls = "http://localhost:200/users/"
 let usersList = [];
 
 // Controller
-class ApiControllerUsuarios{
-    addUser( req, res ){
+class ApiControllerUsuarios {
+    addUser(req, res) {
         let id_user = cache.get('id_gerente')
         let newUser = {
             name: req.body.nome,
@@ -20,9 +20,9 @@ class ApiControllerUsuarios{
             cpf: req.body.cpf,
             phone: req.body.phone
         }
-        
 
-        if(id_user != null && id_user != ''){
+
+        if (id_user != null && id_user != '') {
             axios.post(`${urls}newUser`, newUser)
                 .then(resp => {
                     axios.post(`${urls}usuarioInfo`, {
@@ -40,13 +40,13 @@ class ApiControllerUsuarios{
                     console.log(err);
                     res.json(false)
                 })
-        }else{
+        } else {
             console.log('Sem permição para cadastrar usuário')
             res.json(false)
         }
     }
 
-    confirmLogin( req, res ){
+    confirmLogin(req, res) {
         let user = {
             email: req.body.email,
             senha: req.body.senha
@@ -56,43 +56,43 @@ class ApiControllerUsuarios{
             email: `${user.email}`,
             password: `${user.senha}`
         })
-        .then(resp => {
-            switch(resp.data.funcao){
-                case 'Gerente':
-                    cache.set('id_gerente', `${resp.data.id_usuario}`)
-                    return res.redirect(307, '/admin/financeiro');
-                
-                case 'Afiliado':
-                    cache.set('id_afiliado', `${resp.data.id_usuario}`);
-                    return  console.log("Corno");
+            .then(resp => {
+                switch (resp.data.funcao) {
+                    case 'Gerente':
+                        cache.set('id_gerente', `${resp.data.id_usuario}`)
+                        return res.redirect(307, '/admin/financeiro');
 
-                case 'Distribuidor':
-                    cache.set('id_distribuidor', `${resp.data.id_usuario}`);
-                    return  console.log('OK');
+                    case 'Afiliado':
+                        cache.set('id_afiliado', `${resp.data.id_usuario}`);
+                        return console.log("Corno");
 
-                case 'Vendedor':
-                    cache.set('id_vendedor', `${resp.data.id_usuario}`);
-                    return  console.log("Outro Corno");
+                    case 'Distribuidor':
+                        cache.set('id_distribuidor', `${resp.data.id_usuario}`);
+                        return console.log('OK');
 
-                case 'Representante':
-                    cache.set('id_representante', `${resp.data.id_usuario}`);
-                    return  console.log("Outro corno 2");
+                    case 'Vendedor':
+                        cache.set('id_vendedor', `${resp.data.id_usuario}`);
+                        return console.log("Outro Corno");
 
-                default:
-                    return  console.log("Corno não encontrado");
-            }
-        })
-        .catch(err => {
-            console.log(err)
-        })
+                    case 'Representante':
+                        cache.set('id_representante', `${resp.data.id_usuario}`);
+                        return console.log("Outro corno 2");
+
+                    default:
+                        return console.log("Corno não encontrado");
+                }
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
-    dellUser( req, res ){
+    dellUser(req, res) {
         let id_user = cache.get('id_gerente')
         let usuario = req.params.id;
 
 
-        if(id_user != null && id_user != ''){
+        if (id_user != null && id_user != '') {
             axios.post(`${urls}deleteUser`, {
                 id: usuario
             })
@@ -100,34 +100,34 @@ class ApiControllerUsuarios{
                     let id = parseInt(usuario)
 
                     // Tirando o usuário do array global
-                    const arrayModificado = usersList.filter( userFromList =>  userFromList.id_usuario !== id );
-                    usersList = arrayModificado                    
+                    const arrayModificado = usersList.filter(userFromList => userFromList.id_usuario !== id);
+                    usersList = arrayModificado
                     res.redirect('/admin/usuarios')
                 })
                 .catch(err => {
                     res.json(false)
                 })
-        }else{
+        } else {
             console.log('Sem permição para deletar usuário')
             res.json(false)
         }
-        
+
     }
 
-    allUsers( req, res ){
+    allUsers(req, res) {
         let id_gerente = cache.get('id_gerente');
 
-        if(usersList.length > 0 ){
+        if (usersList.length > 0) {
             res.json(usersList)
-        }else{
-            if(id_gerente != null && id_gerente != ''){
+        } else {
+            if (id_gerente != null && id_gerente != '') {
                 axios.post(`${urls}allUsers`, {
                     id: id_gerente
                 })
                     .then(resp => {
                         console.log("Tabela consultada com sucesso!");
                         let data = resp.data;
-                        data.forEach( element => {
+                        data.forEach(element => {
                             usersList.push(element);
                         });
                         res.json(resp.data)
@@ -136,10 +136,35 @@ class ApiControllerUsuarios{
                         console.log(err);
                         res.json(false);
                     })
-            }else{
+            } else {
                 console.log("Tentativa de consulta indevida");
                 res.json(false);
             };
+        }
+    }
+
+    clientesTotais(req, res) {
+        let id_gerente = cache.get('id_gerente');
+        let clientes = 0;
+
+        if (id_gerente != null && id_gerente != '') {
+            axios.post(`${urls}allUsers`, {
+                id: id_gerente
+            })
+                .then(resp => {
+                    console.log("Tabela consultada com sucesso!");
+                    let data = resp.data;
+                    data.forEach(element => {
+                        if (element.funcao == "Cliente") {
+                            clientes++
+                        }
+                    });
+                    res.json(clientes)
+                })
+                .catch(err => {
+                    console.log(err);
+                    res.json(false);
+                })
         }
     }
 }

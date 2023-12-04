@@ -9,8 +9,8 @@ const urls = "http://localhost:200/produtos/"
 // Variáveis Globais
 let produtosList = [];
 
-class ProductController{
-    addProduto( req, res ){
+class ProductController {
+    addProduto(req, res) {
         try {
             const imagemProduto = req.file
             let id_gerente = cache.get('id_gerente');
@@ -32,64 +32,70 @@ class ProductController{
                 !novo_produto.data ||
                 !novo_produto.hora) {
                 return res.status(400).send('Nenhuma imagem selecionada ou Campos inválidos.');
-            }else {
+            } else {
                 novo_produto.img = `${imagemProduto.destination}/${imagemProduto.filename}`
             }
-            axios.post(`${urls}adicionarProdutos`, novo_produto)
-                .then(resp => {
-                    axios.post(`${urls}consultarProdutos`, {
-                        id: resp.data
-                    })
-                        .then(resp => {
-                            produtosList.push(resp.data[0]);
-                            res.redirect('/admin/produtos');
+
+
+            if (id_gerente != null && id_gerente != '') {
+                axios.post(`${urls}adicionarProdutos`, novo_produto)
+                    .then(resp => {
+                        axios.post(`${urls}consultarProdutos`, {
+                            id: resp.data
                         })
-                        .catch(err => console.log(err));
-                })
-                .catch(err => {
-                    console.log(err);
-                })
+                            .then(resp => {
+                                produtosList.push(resp.data[0]);
+                                res.redirect('/admin/produtos');
+                            })
+                            .catch(err => console.log(err));
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+            } else {
+                return res.json(false)
+            }
         } catch (error) {
             console.error(error);
-        return res.status(500).send('Erro ao adicionar produto.');
+            return res.status(500).send('Erro ao adicionar produto.');
         }
-        
-        
-    }
-    
 
-    dellProduto( req, res ){
+
+    }
+
+
+    dellProduto(req, res) {
         let id_gerente = cache.get('id_gerente');
         let id_produto = req.params.id;
 
-        if(id_gerente != null && id_gerente != ''){
+        if (id_gerente != null && id_gerente != '') {
             axios.post(`${urls}deletarProdutos`, {
                 id: id_produto
             })
                 .then(resp => {
                     let id = parseInt(id_produto);
-                    let listModificada = produtosList.filter( produto => produto.id_produto != id);
+                    let listModificada = produtosList.filter(produto => produto.id_produto != id);
                     produtosList = listModificada;
                     res.redirect('/admin/produtos');
                 })
                 .catch(err => {
                     console.log(err);
+                    res.json(false);
                 })
         }
     }
 
-    allProdutos( req, res ){
+    allProdutos(req, res) {
         let id_gerente = cache.get('id_gerente');
 
-        if(produtosList.length > 0 ){
+        if (produtosList.length > 0) {
             res.json(produtosList)
-        }else{
-            if(id_gerente != null && id_gerente != ''){
+        } else {
+            if (id_gerente != null && id_gerente != '') {
                 axios.get(`${urls}todosProdutos`)
                     .then(resp => {
                         let data = resp.data;
-                        console.log(data);
-                        data.forEach( produto => produtosList.push(produto));
+                        data.forEach(produto => produtosList.push(produto));
                         res.json(data);
                     })
                     .catch(err => {
@@ -100,8 +106,8 @@ class ProductController{
         }
     }
 
-    editProdutos( req, res ){
-        
+    editProdutos(req, res) {
+
     }
 
     uploadImagemProduto() {
@@ -126,6 +132,47 @@ class ProductController{
                 next();
             });
         };
+    }
+
+    valorTotalProdutos(req, res) {
+        let id_gerente = cache.get('id_gerente');
+        let valor = 0;
+
+        if (id_gerente != null && id_gerente != '') {
+            axios.get(`${urls}todosProdutos`)
+                .then(resp => {
+                    let data = resp.data;
+                    data.forEach(produto => {
+                        let valorDoProdutoTotal = produto.preco * produto.quantidade
+                        valor = valor + valorDoProdutoTotal
+                    });
+                    res.json(valor);
+                })
+                .catch(err => {
+                    console.log(err);
+                    res.json(false);
+                })
+        }
+    }
+
+    estoqueTotal(req, res) {
+        let id_gerente = cache.get('id_gerente');
+        let estoque = 0;
+
+        if (id_gerente != null && id_gerente != '') {
+            axios.get(`${urls}todosProdutos`)
+                .then(resp => {
+                    let data = resp.data;
+                    data.forEach(produto => {
+                        estoque = estoque + produto.quantidade
+                    });
+                    res.json(estoque);
+                })
+                .catch(err => {
+                    console.log(err);
+                    res.json(false);
+                })
+        }
     }
 
 }

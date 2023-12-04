@@ -22,13 +22,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 const indexRouter = require('./routes/index');
 const adminRouter = require('./routes/admin');
 const apiRouter = require('./routes/apiUser');
-const produtosRouter = require('./routes/apiProdutos')
+const produtosRouter = require('./routes/apiProdutos');
+const apiPagamentos = require('./routes/apiPagamentos');
+const apiDividas = require('./routes/apiDividas');
+
 
 // Rotas
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
-app.use('/apiProdutos', produtosRouter)
-app.use('/api', apiRouter)
+app.use('/apiProdutos', produtosRouter);
+app.use('/api', apiRouter);
+app.use('/apiDividas', apiDividas);
+app.use('/apiPagamentos', apiPagamentos);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

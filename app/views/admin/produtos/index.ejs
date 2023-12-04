@@ -224,10 +224,10 @@
                             </div>
                             <div class="text-end pt-1">
                                 <p class="text-sm mb-0 text-capitalize">Valor Total do Estoque</p>
-                                <h2 class="mt-3">$53k</h2>
+                                <h2 id="Total_ValorEmEstoque" class="mt-3"></h2>
                             </div>
                         </div>
-            
+                
                         <div class="card-footer p-3">
                             <p class="mb-0"></p>
                         </div>
@@ -244,7 +244,7 @@
                             </div>
                             <div class="text-end pt-1">
                                 <p class="text-sm mb-0 text-capitalize">Total em estoque</p>
-                                <h2 class="mt-3">2,300</h2>
+                                <h2 id="Total_Estoque" class="mt-3"></h2>
                             </div>
                         </div>
                         <div class="card-footer p-3">
@@ -339,12 +339,14 @@
 
 
     <!--   Core JS Files   -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../../javascripts/core/popper.min.js"></script>
     <script src="../../javascripts/core/bootstrap.min.js"></script>
     <script src="../../javascripts/plugins/perfect-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
     <script src="http://localhost:3000/javascripts_proprios/todosProdutos.js"></script>
+    <script src="http://localhost:3000/javascripts_proprios/total_estoque.js"></script>
 
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");
