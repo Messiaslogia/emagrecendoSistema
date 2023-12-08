@@ -1,5 +1,6 @@
 const axios = require('axios')
-const cache = require('../configs/cache')
+const cache = require('../configs/cache');
+const { use } = require('../routes');
 
 // Base da URL
 const urls = "http://localhost:200/users/"
@@ -60,7 +61,7 @@ class ApiControllerUsuarios {
                 switch (resp.data.funcao) {
                     case 'Gerente':
                         cache.set('id_gerente', `${resp.data.id_usuario}`)
-                        return res.redirect(307, '/admin/financeiro');
+                        return res.redirect(307, '/users');
 
                     case 'Afiliado':
                         cache.set('id_afiliado', `${resp.data.id_usuario}`);
@@ -114,15 +115,40 @@ class ApiControllerUsuarios {
 
     }
 
+    editUser(req, res) {
+        let id_gerente = cache.get('id_gerente');
+
+        let newUser = {
+            id: req.params.id,
+            nome: req.body.nome,
+            email: req.body.email,
+            password: req.body.senha,
+            cpf: req.body.cpf,
+            funcao: req.body.funcao,
+            regiao: req.body.regiao,
+            telefone: req.body.telefone
+        };
+
+        if (id_gerente != null && id_gerente != '') {
+            axios.post(`${urls}editUser`, newUser)
+                .then(resp => {
+                    console.log('truco')
+                    res.redirect('/admin/usuarios')
+                })
+                .catch(err => {
+                    console.log(err);
+                    res.json(false)
+                })
+        }
+    }
+
     allUsers(req, res) {
         let id_gerente = cache.get('id_gerente');
 
-        if (usersList.length > 0) {
-            res.json(usersList)
-        } else {
             if (id_gerente != null && id_gerente != '') {
                 axios.post(`${urls}allUsers`, {
-                    id: id_gerente
+                    id: id_gerente,
+                    page: req.body.page
                 })
                     .then(resp => {
                         console.log("Tabela consultada com sucesso!");
@@ -140,7 +166,6 @@ class ApiControllerUsuarios {
                 console.log("Tentativa de consulta indevida");
                 res.json(false);
             };
-        }
     }
 
     clientesTotais(req, res) {
@@ -166,6 +191,34 @@ class ApiControllerUsuarios {
                     res.json(false);
                 })
         }
+    }
+
+    consultUser(req, res) {
+        let id_gerente = cache.get('id_gerente');
+        let id_consult = req.params.id;
+
+        if (id_gerente != null && id_gerente != '') {
+            axios.post(`${urls}usuarioInfo`, {
+                id: id_consult
+            })
+                .then(resp => {
+                    res.json(resp.data)
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        }
+
+    }
+
+    todosUsuariosPedido(req, res){
+        axios.get(`${urls}allUsersPedidos`)
+        .then( users => {
+            res.json(users.data)
+        }).catch(err => {
+            console.log(err);
+            res.json(false)
+        })
     }
 }
 

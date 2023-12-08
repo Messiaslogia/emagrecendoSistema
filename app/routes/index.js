@@ -4,7 +4,7 @@ const LoginController = require("../controller/LoginController")
 
 /* GET home page. */
 router.get('/',LoginController.index);
-router.get('/users',LoginController.login)
+router.post('/users',LoginController.login)
 
 
 module.exports = router;

@@ -223,9 +223,11 @@
                                     Filtro
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li class="dropdown-item" onclick="filtragem('Todos')">Todos</li>
+                                    <li class="dropdown-item" onclick="filtragem('Afiliado')">Afiliados</li>
+                                    <li class="dropdown-item" onclick="filtragem('Distribuidor')">Distribuidores</li>
+                                    <li class="dropdown-item" onclick="filtragem('Vendedor')">Vendedores</li>
+                                    <li class="dropdown-item" onclick="filtragem('Usuarios')">Usuários</li>
                                 </ul>
                             </div>
                             <a href="/admin/adicionarUsuario" class="ms-3">
@@ -252,9 +254,9 @@
                             <span class="sr-only">Previous</span>
                         </a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="javascript:;">1</a></li>
-                    <li class="page-item active"><a class="page-link" href="javascript:;">2</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:;">3</a></li>
+                    <li id="pageInput" class="page-item active"><a class="page-link cursor-pointer" onclick="newPage(1, this)">1</a></li>
+                    <li id="pageInput" class="page-item"><a class="page-link cursor-pointer" onclick="newPage(2, this)">2</a></li>
+                    <li id="pageInput" class="page-item"><a class="page-link cursor-pointer" onclick="newPage(3, this)">3</a></li>
                     <li class="page-item">
                         <a class="page-link" href="javascript:;">
                             <span class="material-icons">
@@ -282,6 +284,7 @@
     <script src="../../javascripts_proprios/todosUsuários.js"></script>
     <script src="../../javascripts_proprios/deletandoUser.js"></script>
     <script src="http://localhost:3000/javascripts_proprios/usersListAdmin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");

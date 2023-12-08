@@ -63,7 +63,6 @@ class ProductController {
 
     }
 
-
     dellProduto(req, res) {
         let id_gerente = cache.get('id_gerente');
         let id_produto = req.params.id;
