@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (elemento.name) {
                 dadosAtuaisForm['pedido'] = numeroPedido;
                 dadosAtuaisForm[elemento.name] = elemento.value;
-
             }
         })
 
@@ -42,6 +41,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const quantidade = document.getElementById('Quantidade_input');
     const numeroPedido = gerarNumeroPedido();
 
+    // Modal
+    const bt_modal = document.querySelector('#Button_Modal');
+    const info_modal = document.querySelector('#Pedido_number')
+
     let formDataArray = [];
 
     // EVENTO PARA COLETAR OS DADOS AO CLICAR NO AVANCAR
@@ -53,6 +56,19 @@ document.addEventListener('DOMContentLoaded', function () {
     // EVENTO PARA ENVIAR OS DADOS AO CLICAR NO ENVIAR
     botaoEnviar.addEventListener('click', () => {
         const formData = coletaDadosForm();
-        console.log(formData)
+
+        formData.forEach(pedido => {
+            axios.post('http://localhost:3000/apiPedidos/addPedidos', pedido)
+                .then(resp => {
+                    console.log(resp.data)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        });
+
+        info_modal.innerHTML = `${formData[0].pedido}`
+        bt_modal.click();
+        console.log(formData);
     })
 })

@@ -11,7 +11,7 @@ function listaNomesProdutos(){
         .then( resp => {
             resp.data.forEach( produto => {
                 div_produtos.innerHTML += `
-                <option value="${produto.nome}">${produto.nome}</option>
+                <option value="${produto.id_produto}">${produto.nome}</option>
                 `
             })
         })
