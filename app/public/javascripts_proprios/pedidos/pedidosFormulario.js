@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function gerarNumeroPedido() {
         const dataAtual = new Date().toISOString().replace(/[-T:]/g, '').slice(0, -5);
         const numeroAleatorio = Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
-        return `PEDIDO-${dataAtual}-${numeroAleatorio}`;
+        return `${numeroAleatorio}`;
 
     }
 

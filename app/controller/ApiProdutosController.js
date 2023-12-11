@@ -85,12 +85,9 @@ class ProductController {
     }
 
     allProdutos(req, res) {
-        let id_gerente = cache.get('id_gerente');
-
         if (produtosList.length > 0) {
             res.json(produtosList)
         } else {
-            if (id_gerente != null && id_gerente != '') {
                 axios.get(`${urls}todosProdutos`)
                     .then(resp => {
                         let data = resp.data;
@@ -101,7 +98,6 @@ class ProductController {
                         console.log(err);
                         res.json(false);
                     })
-            }
         }
     }
 

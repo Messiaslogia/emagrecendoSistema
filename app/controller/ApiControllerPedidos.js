@@ -42,6 +42,18 @@ class ApiControllerPedidos {
             })
     }
 
+    dellPedidos( req, res ){
+        axios.post(`${urls}dellPedido`, {
+            pedidos: req.params.pedidos
+        })
+            .then(resp => {
+                res.redirect('/admin/aprovarPedido')
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false)
+            })
+    }
 }
 
 module.exports = new ApiControllerPedidos

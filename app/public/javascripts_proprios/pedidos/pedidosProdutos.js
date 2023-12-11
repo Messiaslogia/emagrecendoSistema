@@ -1,3 +1,4 @@
+
 const url = "http://localhost:3000/apiProdutos/todosProdutos";
 const div_produtos = document.getElementById('Produto_input')
 

@@ -19,10 +19,10 @@ function adquirirListProdutos(){
                         <td>
                             <div class="d-flex px-2 py-1">
                                 <div class="cursor-pointer">
-                                    <i class="material-icons cursor-pointer">info</i>
+                                    <i id="Info_pedidos" number_pedido="${pedido.numero_do_pedido}" class="material-icons cursor-pointer">info</i>
                                 </div>
                                 <div class="d-flex flex-colum justify-content-center">
-                                    <h6 class="mb-0 text-sm">${pedido.numero_do_pedido}</h6>
+                                    <h6 class="mb-0 text-sm" style="margin-left: 1rem">${pedido.numero_do_pedido}</h6>
                                 </div>
                             </div>
                         </td>
@@ -36,7 +36,7 @@ function adquirirListProdutos(){
                             <span class="text-secondary text-xs font-weight-bold">${pedido.data}</span>
                         </td>
                         <td class="align-middle">
-                            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiProdutos/dellProduto/${pedido.numero_do_pedido}"><i
+                            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiPedidos/dellPedidos/${pedido.numero_do_pedido}"><i
                                 class="material-icons text-sm me-2">delete</i>Deletar</a>
                             <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">edit</i>Editar</a>
                         </td>

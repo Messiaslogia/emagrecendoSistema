@@ -255,13 +255,12 @@
 
             </div>
 
-
             <div class="card my-4 me-4">
                 <div class="card-header pb-0 px-3 d-flex justify-content-between">
 
-                    <h6 class="mb-0">Infomações dos produtos:</h6>
-                    <a href="/admin/adicionarProduto"><button type="button" class="btn btn-primary btn-lg">Adicionar
-                            produto</button></a>
+                    <h6 class="mb-0">Infomações dos pedidos:</h6>
+                    <a href="/admin/efetuarPedido"><button type="button" class="btn btn-primary btn-lg">Adicionar
+                            pedido</button></a>
                 </div>
                 <div class="card-body px-0 pb-2">
                     <div class="table-responsive p-0">
@@ -296,6 +295,57 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- Modall -->
+        <div class="col-md-4">
+            <button id="Bt_modal" type="button" class="btn btn-block bg-gradient-warning mb-3" data-bs-toggle="modal" data-bs-target="#modal-notification" style="display:none;">Notification</button>
+            <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+              <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h6 class="modal-title font-weight-normal" id="modal-title-notification">Informações do pedido</h6>
+                    <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="py-3 text-center">
+                      <i id="Text_modal" class="material-icons h1 text-secondary">
+                        
+                      </i>
+                      <h4 id="Text_user" class="text-gradient text-info mt-4"></h4>
+                        <div class="table-responsive p-0">
+                            <table class="table align-items-center mb-0">
+                                <thead>
+                                    <tr>
+
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Produto
+                                        </th>
+
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Valor Total
+                                        </th>
+                                        <th
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                            Quantidade</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="Tabela_modal">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-link text-danger ml-auto" data-bs-dismiss="modal">Fechar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
         <nav aria-label="Page navigation example" class="me-4">
             <ul class="pagination justify-content-end">
@@ -347,6 +397,7 @@
 
 
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <!--   Core JS Files   -->
     <script src="../../javascripts/core/popper.min.js"></script>
@@ -355,6 +406,8 @@
     <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
     <script src="http://localhost:3000/javascripts_proprios/total_pedidos.js"></script>
+    <script src="http://localhost:3000/javascripts_proprios/pedidos/modalpedidos.js"></script>
+
 
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");
