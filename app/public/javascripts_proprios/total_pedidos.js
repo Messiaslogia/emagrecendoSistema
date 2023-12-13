@@ -1,9 +1,10 @@
 const container_users = document.querySelector('#Container_Users');
 const url = "http://localhost:3000/apiPedidos/todosPedidos";
 const div_pedidos = document.querySelector('#Tabela_de_pedidos')
-
+let status_pedido
 document.addEventListener('DOMContentLoaded', () => {
     adquirirListProdutos();
+
 });
 
 function adquirirListProdutos(){
@@ -12,7 +13,6 @@ function adquirirListProdutos(){
             return response.json()
         })
         .then( data => {
-            console.log(data)
             data.forEach( pedido => {
                 div_pedidos.innerHTML += `
                     <tr>
@@ -36,9 +36,14 @@ function adquirirListProdutos(){
                             <span class="text-secondary text-xs font-weight-bold">${pedido.data}</span>
                         </td>
                         <td class="align-middle">
+                                <select id="Pedido_input" number_pedido="" name="produto" class="form-control">
+                                    <option selected value="Em análise">Selecione o Produto</option>
+                                    <option value="Desaprovado">Selecione o Produto</option>
+                                    <option value="Aprovado">Selecione o Produto</option>
+                                    <option value="">Selecione o Produto</option>
+                                </select>
                             <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiPedidos/dellPedidos/${pedido.numero_do_pedido}"><i
                                 class="material-icons text-sm me-2">delete</i>Deletar</a>
-                            <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">edit</i>Editar</a>
                         </td>
                     </tr>
                 `
@@ -48,3 +53,5 @@ function adquirirListProdutos(){
             console.log(err)
         })
 }
+
+{/* <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">edit</i>Editar</a> */}

@@ -54,6 +54,29 @@ class ApiControllerPedidos {
                 res.json(false)
             })
     }
+
+    consultTotal( req, res ){
+        axios.get(`${urls}valorTotal`)
+            .then(resp => {
+                console.log(resp.data)
+
+                res.json(resp.data)
+            })
+            .catch(err => {
+
+            })
+    }
+
+    quantidadeTotal( req, res ){
+        axios.get(`${urls}quantidadeTotal`)
+            .then(resp => {
+                console.log(resp.data)
+                res.json(resp.data)
+            })
+            .catch( err => {
+                console.log(err)
+            })
+    }
 }
 
 module.exports = new ApiControllerPedidos
