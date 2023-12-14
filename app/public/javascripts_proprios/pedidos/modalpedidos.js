@@ -44,8 +44,7 @@ function criarModal(numeração){
                             <td class="align-middle text-center">
                                 <span class="text-secondary text-xs font-weight-bold">${pedido.quantidade}</span>
                             </td>
-                        </tr>
-                        `;
+                        </tr>`;
 
                             bt_modal.click();
                     })

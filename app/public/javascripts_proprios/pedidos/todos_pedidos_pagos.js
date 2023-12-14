@@ -1,6 +1,6 @@
 const container_users = document.querySelector('#Container_Users');
-const url = "http://localhost:3000/apiPedidos/todosPedidos";
-const div_pedidos = document.querySelector('#Tabela_de_pedidos')
+const url = "http://localhost:3000/apiPedidos/todosPedidosEntregues";
+const div_pedidos = document.querySelector('#Tabela_de_entregas')
 let status_pedido
 document.addEventListener('DOMContentLoaded', () => {
     adquirirListProdutos();
@@ -26,19 +26,20 @@ function adquirirListProdutos(){
                             </div>
                         </td>
                         <td>
-                            <p class="text-xs font-weight-bold mb-0">${pedido.status}</p>
+                            <p class="text-xs font-weight-bold mb-0">Pendente</p>
                         </td>
                         <td class="align-middle text-center text-sm">
-                            <span class="badge badge-sm bg-gradient-success">${pedido.quantidade}</span>
+                            <span class="badge badge-sm bg-gradient-success">PIX</span>
                         </td>
                         <td class="align-middle text-center">
                             <span class="text-secondary text-xs font-weight-bold">${pedido.data}</span>
                         </td>
                         <td class="align-middle" style="padding-left: 10rem">
                             <select id="Pedido_input" number_pedido="${pedido.numero_do_pedido}" name="produto" class="form-control">
-                                <option selected value="Em análise">Em análise</option>
-                                <option value="Desaprovado">Desaprovado</option>
-                                <option value="Aprovado">Aprovado</option>
+                                <option selected value="Em análise">Pendente</option>
+                                <option value="Devendo">Enviado</option>
+                                <option value="Devendo">Falha ao entregar</option>
+                                <option value="Pago!">Entregue!</option>
                             </select>
                             <a class="btn btn-link text-danger text-gradient mb-0" href="/apiPedidos/dellPedidos/${pedido.numero_do_pedido}">
                                 <i class="material-icons text-sm me-2">delete</i>

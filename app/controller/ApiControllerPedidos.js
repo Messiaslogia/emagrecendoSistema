@@ -16,6 +16,7 @@ class ApiControllerPedidos {
             id_usuario_FK: req.body.usuario,
             pedido: req.body.pedido,
             status: req.body.status,
+            valor: req.body.valor,
             data: req.body.dataProduto,
             hora: req.body.horaProduto,
             quantidade: req.body.quantidade  
@@ -35,6 +36,42 @@ class ApiControllerPedidos {
         axios.get(`${urls}allPedidos`)
             .then( resp => {
                 res.json(resp.data)
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false)
+            })
+    }
+
+    allPedidosAceitos( req, res ){
+        axios.get(`${urls}allPedidosAceitos`)
+            .then( resp => {
+                res.json(resp.data)
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false)
+            })
+    }
+
+    allPedidosEntregues( req, res ){
+        axios.get(`${urls}allPedidosEntregues`)
+            .then( resp => {
+                res.json(resp.data)
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false)
+            })
+    }
+
+    newStatus( req, res ){
+        axios.post(`${urls}atualizarStatus`, {
+            status: req.body.status,
+            pedido: req.body.pedido
+        })
+            .then(resp => {
+                res.json(true);
             })
             .catch(err => {
                 console.log(err);

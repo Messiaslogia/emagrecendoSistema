@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     adquirirListProdutos();
 });
 
-async function adquirirListProdutos(){
-    await fetch(url)
+function adquirirListProdutos(){
+    fetch(url)
         .then( resp => resp.json())
         .then( data => {
             data.forEach( produto => {
