@@ -68,7 +68,8 @@ class ApiControllerPedidos {
     newStatus( req, res ){
         axios.post(`${urls}atualizarStatus`, {
             status: req.body.status,
-            pedido: req.body.pedido
+            pedido: req.body.pedido,
+            pagamento: req.body.pagamento
         })
             .then(resp => {
                 res.json(true);
@@ -76,6 +77,42 @@ class ApiControllerPedidos {
             .catch(err => {
                 console.log(err);
                 res.json(false)
+            })
+    }
+
+    enviarProdutoIndex( req, res ){
+        let pedido = req.params.numero
+
+        res.render('admin/pedidos/enviarProduto/formEnviarProduto', {pedido})
+
+        // axios.post(`${urls}atualizarStatus`, {
+        //     numero: req.params.numero,
+        //     status: req.body.status,
+        //     pedido: req.body.pedido,
+        //     pagamento: req.body.pagamento
+        // })
+        //     .then(resp => {
+        //         res.json(true);
+        //     })
+        //     .catch(err => {
+        //         console.log(err);
+        //         res.json(false)
+        //     })
+    }
+
+    novaEntrega( req, res ){
+        axios.post(`${urls}novaEntrega`, {
+            numero: req.body.numero_do_pedido,
+            codigo: req.body.codigo_rastreio,
+            empresa: req.body.empresa,
+            data: req.body.dataEntrega,
+        })
+            .then(resp => {
+                res.redirect('/admin/pedidosConcluidos');
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false);
             })
     }
 
