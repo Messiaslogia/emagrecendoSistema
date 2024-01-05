@@ -222,8 +222,8 @@
         <div class="row justify-content-center">
             <div class="col-md-10 bg-light mt-4">
                 <!-- Default form register -->
-                <form class="text-center border border-light p-5" action="/api/novoUser" method="post" enctype="application/x-www-form-urlencoded">
-                
+                <form class="text-center border border-light p-5" action="/api/edit/<%= id %>" method="post" enctype="application/x-www-form-urlencoded">
+                    <input type="text" style="display: none;" value="<%= id %>" id="idUser">
                     <p class="h4 mb-4">Editar Usuário</p>
                 
                     <div class="form-row mb-4">
@@ -252,13 +252,11 @@
                     <!-- Região -->
                     <div class="">
                         <select id="Regiao_input" name="regiao" class="form-control mb-4" id="exampleFormControlSelect1">
-                            <option disabled selected value="">Selecione a Região</option>
                             <option>Norte</option>
                             <option>Nordeste</option>
                             <option>Centro-Oeste</option>
                             <option>Sudeste</option>
                             <option>Sul</option>
-                    
                         </select>
                     </div>
 
@@ -388,7 +386,7 @@
 
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!--   Core JS Files   -->
     <script src="../../javascripts/core/popper.min.js"></script>
     <script src="../../javascripts/core/bootstrap.min.js"></script>
@@ -396,6 +394,7 @@
     <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
     <script src="http://localhost:3000/javascripts_proprios/adicionar_usuarios.js"></script>
+    <script src="http://localhost:3000/javascripts_proprios/infoUser.js"></script>
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");
 

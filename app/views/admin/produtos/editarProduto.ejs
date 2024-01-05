@@ -226,8 +226,8 @@
                     <button type="button" id="Bt_submi">Enviar</button>
                 </form>
                 <!-- Default form register -->
-                <form class="text-center border border-light p-5" aenctype="multipart/form-data" id="productForm">
-        
+                <form class="text-center border border-light p-5" enctype="application/x-www-form-urlencoded" id="productForm" method="POST" action="/apiProdutos/editProduto/<%= id %>">
+                    <input type="text" value="<%= id %>" style="display: none;" name="id" id="idProduto">
                     <p class="h4 mb-4">Editar Produto</p>
         
                     <!-- First name -->
@@ -256,9 +256,9 @@
                         aria-describedby="defaultRegisterFormPhoneHelpBlock">
         
                     <!-- Imagem -->
-                    <input type="file" id="imageInput" name="imagemProduto" accept="image/png, image/jpeg">
+                    <!-- <input type="file" id="imageInput" name="imagemProduto" accept="image/png, image/jpeg"> -->
                     <!-- Sign up button -->
-                    <button id="Bt_submit" class="btn btn btn-success my-4 btn-block" type="button">Cadastrar</button>
+                    <button id="Bt_submit" class="btn btn btn-success my-4 btn-block" type="submit">Cadastrar</button>
                 </form>
         
         
@@ -373,7 +373,7 @@
 
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!--   Core JS Files   -->
     <script src="../../javascripts/core/popper.min.js"></script>
     <script src="../../javascripts/core/bootstrap.min.js"></script>
@@ -381,7 +381,8 @@
     <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../../javascripts_proprios/adicionar_Produto.js"></script>
+    <script src="../../javascripts_proprios/infoProduto.js"></script>
+
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");
 

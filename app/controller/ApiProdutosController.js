@@ -25,6 +25,9 @@ class ProductController {
                 hora: req.body.horaProduto
             };
 
+            console.log(novo_produto)
+
+
             if (!imagemProduto || !novo_produto.nome ||
                 !novo_produto.descricao ||
                 !novo_produto.quantidade ||
@@ -87,25 +90,61 @@ class ProductController {
     allProdutos(req, res) {
         let id_gerente = cache.get('id_gerente');
 
-        if (produtosList.length > 0) {
-            res.json(produtosList)
-        } else {
-            if (id_gerente != null && id_gerente != '') {
-                axios.get(`${urls}todosProdutos`)
-                    .then(resp => {
-                        let data = resp.data;
-                        data.forEach(produto => produtosList.push(produto));
-                        res.json(data);
-                    })
-                    .catch(err => {
-                        console.log(err);
-                        res.json(false);
-                    })
-            }
-        }
+        axios.post(`${urls}todosProdutos`, {
+            id: id_gerente,
+            page: req.body.page
+        })
+            .then(resp => {
+                let data = resp.data;
+                data.forEach(produto => produtosList.push(produto));
+                res.json(data);
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false);
+            })
+    }
+
+    todosProdutos(req, res){
+
+        axios.get(`${urls}todosProdutosForm`)
+            .then(resp => {
+                let data = resp.data;
+                data.forEach(produto => produtosList.push(produto));
+                res.json(data);
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false);
+            })
+    }
+
+    editIndex( req, res ){
+        let id = req.params.id;
+        res.render('admin/produtos/editarProduto', { id });
     }
 
     editProdutos(req, res) {
+        let novo_produto = {
+            id: req.params.id,
+            nome: req.body.nomeProduto,
+            descricao: req.body.descricaoProduto,
+            quantidade: req.body.quantidadeProduto,
+            preco: req.body.precoProduto,
+            data: req.body.dataProduto,
+            hora: req.body.horaProduto
+        };
+
+        console.log(novo_produto)
+
+        axios.post(`${urls}editarProdutos`, novo_produto)
+            .then((result) => {
+                console.log('Produto editado com sucesso!');
+                produtosList = []
+                res.redirect('/admin/produtos');
+            }).catch((err) => {
+                console.log(err);
+            });
 
     }
 
@@ -159,7 +198,9 @@ class ProductController {
         let estoque = 0;
 
         if (id_gerente != null && id_gerente != '') {
-            axios.get(`${urls}todosProdutos`)
+            axios.post(`${urls}todosProdutos`, {
+                page: 1
+            })
                 .then(resp => {
                     let data = resp.data;
                     data.forEach(produto => {
@@ -172,6 +213,19 @@ class ProductController {
                     res.json(false);
                 })
         }
+    }
+
+    consultProduto( req, res ){
+        let id_produto = req.params.id;
+
+        axios.post(`${urls}infoProduto`, {
+            id: id_produto
+        })
+            .then((result) => {
+                res.json(result.data);
+            }).catch((err) => {
+                console.log(err);
+            });
     }
 
 }

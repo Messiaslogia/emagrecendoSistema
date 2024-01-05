@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+#Pedido_input{
+  background-color:gainsboro;
+  text-align: center;
+}

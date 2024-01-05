@@ -21,8 +21,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Controllers
 const indexRouter = require('./routes/index');
 const adminRouter = require('./routes/admin');
-const apiRouter = require('./routes/apiUser');
 const produtosRouter = require('./routes/apiProdutos');
+
+// APIS Controllers
+const apiRouter = require('./routes/apiUser');
+const apiPedidos = require('./routes/apiPedidos');
 const apiPagamentos = require('./routes/apiPagamentos');
 const apiDividas = require('./routes/apiDividas');
 
@@ -30,9 +33,12 @@ const apiDividas = require('./routes/apiDividas');
 // Rotas
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
-app.use('/apiProdutos', produtosRouter);
+
+// API ROTAS
 app.use('/api', apiRouter);
 app.use('/apiDividas', apiDividas);
+app.use('/apiPedidos', apiPedidos);
+app.use('/apiProdutos', produtosRouter);
 app.use('/apiPagamentos', apiPagamentos);
 
 

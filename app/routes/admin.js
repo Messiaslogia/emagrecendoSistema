@@ -6,11 +6,13 @@ const AdminController = require("../controller/AdminController")
 
 /* GET admin listing. */
 router.get('/produtos', AdminController.produtoIndex);
-
 router.get('/usuarios', AdminController.usuariosIndex);
 
+
+// GET Index Adicionar Produto e Usuario
 router.get('/adicionarUsuario', AdminController.adicionarUsuario);
 router.get('/adicionarProduto', AdminController.adicionarProduto);
+
 
 // GET financeiro listing
 router.get('/financeiro', AdminController.financeiroIndex)
@@ -19,7 +21,6 @@ router.get('/vendas', AdminController.vendasIndex)
 router.get('/devedores', AdminController.devedoresIndex)
 router.get('/entregas', AdminController.entregasIndex)
 router.get('/adicionarDivida', AdminController.adicionarDivida)
-
 
 
 // GET Pedidos listing

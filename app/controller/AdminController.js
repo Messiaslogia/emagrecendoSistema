@@ -55,8 +55,7 @@ class AdminController{
     }
 
     adicionarProduto(req, res) {
-        res.render('admin/produtos/editarProduto')
-
+        res.render('admin/produtos/adicionarProduto')
     }
 
     adicionarNovoProduto(req, res){

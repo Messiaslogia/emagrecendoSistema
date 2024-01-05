@@ -12,9 +12,13 @@ document.getElementById('Bt_submit').addEventListener('click', function (event) 
 
     axios.post('/apiProdutos/adicionarProduto', formData)
         .then(response => {
+            
             alert('Imagem enviada com sucesso!');
+            window.location.href = 'http://localhost:3000/admin/produtos'
         })
         .catch(err => {
+            console.log(err)
+
             alert('Ocorreu um erro ao enviar a imagem.');
         });
 });

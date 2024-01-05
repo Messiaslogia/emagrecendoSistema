@@ -246,10 +246,13 @@
                         </div>
                     </div>
 
+                    <input id="Valor_Produto" name="valorProduto" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Valor do produto"
+                        aria-describedby="defaultRegisterFormPasswordHelpBlock" value="" readonly>
+
                     <!-- Status -->
                     <input id="Status_input" name="status" type="hidden" id="defaultRegisterFormPassword" class="form-control mb-4"
                         placeholder="" aria-describedby="defaultRegisterFormPasswordHelpBlock" value="desaprovado">
-                    
+
 
                     <!-- quantidade -->
                     <input id="Quantidade_input" name="quantidade" type="number" id="defaultRegisterFormPassword" class="form-control mb-4"
@@ -270,6 +273,35 @@
                 </form>
             </div>
         </div>
+        
+        <!-- Modal -->
+        <div class="col-md-4">
+            <button type="button" class="btn btn-block bg-gradient-warning mb-3" data-bs-toggle="modal" data-bs-target="#modal-notification" id="Button_Modal" style="display: none;">Notification</button>
+            <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+              <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h6 class="modal-title font-weight-normal" id="modal-title-notification">Informações do Pedido</h6>
+                    <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="py-3 text-center">
+                      <i id="Pedido_number" class="material-icons h1 text-secondary"></i>
+                      <h4 class="text-gradient text-success mt-4">Pedido feito com sucesso!</h4>
+                      <p>Aguarde a confirmação do seu pedido.</p>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="/admin/pedidos"><button type="button" class="btn btn-alert">Ok, voltar ao inicio!</button></a>
+                    <a href="/admin/efetuarPedido"><button type="button" class="btn btn-link text-danger ml-auto" data-bs-dismiss="modal">Fechar</button></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
 
         <footer class="footer py-4">
             <div class="container-fluid">

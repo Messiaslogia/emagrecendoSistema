@@ -65,26 +65,47 @@ class ApiControllerUsuarios {
 
                     case 'Afiliado':
                         cache.set('id_afiliado', `${resp.data.id_usuario}`);
-                        return console.log("Corno");
+                        return res.status(404).send("<script>alert('Função não cadastrada para utilização do sistema'); window.history.back();</script>")
 
                     case 'Distribuidor':
                         cache.set('id_distribuidor', `${resp.data.id_usuario}`);
-                        return console.log('OK');
+                        return res.redirect(307, '/distribuidores');
 
                     case 'Vendedor':
                         cache.set('id_vendedor', `${resp.data.id_usuario}`);
-                        return console.log("Outro Corno");
+                        return res.redirect(307, '/vendedores');
+
 
                     case 'Representante':
                         cache.set('id_representante', `${resp.data.id_usuario}`);
-                        return console.log("Outro corno 2");
+                        return res.status(404).send("<script>alert('Função não cadastrada para utilização do sistema'); window.history.back();</script>")
+
 
                     default:
-                        return console.log("Corno não encontrado");
+                        return res.status(404).send("<script>alert('Função não encontrado'); window.history.back();</script>")
                 }
             })
             .catch(err => {
-                console.log(err)
+                if (err.response) {
+
+                    if (err.response.status === 401) {
+                        return res.status(401).send('Credenciais Invalidas')
+                    } else if (err.response.status === 404) {
+                        return res.status(404).send("<script>alert('Usuário não encontrado'); window.history.back();</script>")
+                    } else {
+                        console.log(res.status(500) + 'Erro interno no servidor')
+                        return res.status(500)
+                    }
+                } else if (err.request) {
+                    // A requisição foi feita, mas não houve resposta do servidor
+                    console.log(res.status(500) + 'Sem resposta do servidor')
+                    return res.status(500).send('Sem resposta do servidor');
+                } else {
+                    // Ocorreu um erro durante a configuração da requisição
+                    console.log(res.status(500) + 'Erro ao enviar requisição')
+                    return res.status(500).send('Erro ao enviar requisição');
+                }
+
             })
     }
 
@@ -113,6 +134,12 @@ class ApiControllerUsuarios {
             res.json(false)
         }
 
+    }
+
+    editIndex( req, res ){
+        let id = req.params.id
+
+        res.render('admin/usuarios/editarUsuario', {id})
     }
 
     editUser(req, res) {

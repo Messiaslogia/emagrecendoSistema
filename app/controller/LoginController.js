@@ -1,14 +1,20 @@
-class LoginController{
+class LoginController {
 
-    index(req, res){
+    index(req, res) {
         res.render('login/login');
     }
 
-    login(req, res){
+    login(req, res) {
         res.render('admin/index');
-        // res.render('distribuidores/index');
-        // res.render('vendedores/index');
 
+    }
+
+    distribuidor(req, res) {
+        res.render('distribuidores/index')
+    }
+
+    vendedor(req, res) {
+        res.render('vendedores/index')
     }
 }
 
