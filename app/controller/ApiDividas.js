@@ -1,0 +1,110 @@
+const axios = require('axios')
+
+
+// Base da URL
+const urls = "http://localhost:200/dividas/"
+
+// Variáveis Globais
+
+
+class ApiControllerDividas {
+    dividasTotais(req, res) {
+        axios.get(`${urls}todasDividas`)
+            .then(resp => {
+                res.json(resp.data);
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false);
+            })
+    };
+
+    adicionarDivida(req, res) {
+        let data = new Date;
+        let mes = data.getMonth() + 1;
+        console.log(mes)
+
+        try {
+            let novaDivida = {
+                nome: req.body.nomeDivida,
+                descricao: req.body.descricaoDivida,
+                valor: req.body.valorDivida,
+                data: req.body.dataDivida,
+                hora: req.body.horaDivida,
+                mes: mes
+            }
+
+
+
+            axios.post(`${urls}novaDivida`, novaDivida)
+                .then(resp => {
+                    res.redirect('/admin/dividas');
+                })
+                .catch(err => console.log(err))
+        } catch (error) {
+            console.log(error)
+        }
+    };
+
+    deletarDivida(req, res) {
+        let divida = req.params.id;
+        axios.post(`${urls}deletarDividas`, {
+            id: divida
+        })
+            .then(resp => {
+                res.redirect('/admin/dividas');
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false);
+            })
+
+    };
+
+    editarDivida(req, res) {
+        let nova_divida = {
+            id: req.body.id,
+            nome: req.body.nomeDivida,
+            descricao: req.body.descricaoDivida,
+            valor: req.body.valorDivida,
+            data: req.body.dataDivida,
+            hora: req.body.horaDivida,
+        };
+
+        console.log(nova_divida)
+
+        axios.post(`${urls}editDividas`, nova_divida)
+            .then((result) => {
+                console.log('Produto editado com sucesso!');
+                // produtosList = []
+                res.redirect('/admin/dividas');
+            }).catch((err) => {
+                console.log(err);
+            });
+    }
+
+    editarDividaForm(req, res) {
+        let id = req.params.id;
+        console.log(id)
+        res.render('admin/financeiro/dividas/editarDivida', { id });
+    };
+
+    consultarDivida(req, res) {
+        let id_divida = req.params.id;
+
+        axios.post(`${urls}consultarDividas`, {
+            id: id_divida
+        })
+            .then((result) => {
+                res.json(result.data);
+            }).catch((err) => {
+                console.log(err);
+            });
+
+    }
+
+
+
+}
+
+module.exports = new ApiControllerDividas
