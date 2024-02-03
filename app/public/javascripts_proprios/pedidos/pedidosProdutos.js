@@ -32,9 +32,9 @@ div_produtos.addEventListener('change', function () {
     var valor = div_produtos.value
     axios.get(`http://localhost:3000/apiProdutos/consultProduto/${valor}`)
         .then((result) => {
-            div_valorProdutos.value = `R$ ${result.data[0].preco.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`;
-            div_valorDistribuidor.value = `R$ ${result.data[0].preco_distribuidor.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`;
-            div_valorRevenda.value = `R$ ${result.data[0].preco_revenda.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`
+            div_valorProdutos.value = `R$ ${result.data[0].preco}`;
+            div_valorDistribuidor.value = `R$ ${result.data[0].preco_distribuidor}`;
+            div_valorRevenda.value = `R$ ${result.data[0].preco_revenda}`
         }).catch((err) =>{
             console.log(err)
         })

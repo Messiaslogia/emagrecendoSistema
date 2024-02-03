@@ -13,19 +13,15 @@ document.addEventListener('DOMContentLoaded', function () {
         let dadosAtuaisForm = {};
         let dadosTeste = {};
         
-
-
-
         const elementosForm = document.querySelectorAll('#formPedido input, #formPedido select');
         const elementoValor = document.getElementById('Valor_Produto')
         const elementoQuantidade = document.getElementById('Quantidade_input')
 
         var valorQuantidade = elementoQuantidade.value
-        var valorProduto = elementoValor.value.replace(/[^\d,]/g, '').replace('R$ ', '')
+        var valorProduto = elementoValor.value.replace('R$ ', '')
 
         var valorFinalPedido = valorQuantidade * valorProduto
-
-
+        console.log(valorProduto)
 
 
         elementosForm.forEach(function (elemento) {
@@ -46,11 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
         horaInput.readOnly = true;
         produtoInput.value = '';
         quantidade.value = '';
-
-    
-
-        
-
 
         formDataArray.push(dadosAtuaisForm);
         return formDataArray;
@@ -91,9 +82,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // Adiciona a propriedade com a soma em cada objeto do array
         formData.forEach(objeto => {
             objeto.somaValorPedido = somaValorPedido;
+
         });
 
-        
 
         formData.forEach(pedido => {
             console.log(pedido);
@@ -108,6 +99,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
         info_modal.innerHTML = `${formData[0].pedido}`
         bt_modal.click();
-        
     })
 })
