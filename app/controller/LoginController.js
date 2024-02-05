@@ -18,7 +18,8 @@ class LoginController {
     }
 
     vendedor(req, res) {
-        res.render('vendedores/index')
+        var idDoVendedor = cache.get('id_vendedor')
+        res.render('vendedores/index', {idDoVendedor})
     }
 }
 

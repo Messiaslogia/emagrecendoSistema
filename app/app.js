@@ -23,6 +23,9 @@ const indexRouter = require('./routes/index');
 const adminRouter = require('./routes/admin');
 const distribuidorRouter = require('./routes/distribuidor');
 const produtosRouter = require('./routes/apiProdutos');
+const vendedores = require('./routes/vendedores');
+
+
 
 // APIS Controllers
 const apiRouter = require('./routes/apiUser');
@@ -36,6 +39,7 @@ const apiFinanceiro = require('./routes/apiFinanceiro');
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
 app.use('/distribuidor', distribuidorRouter);
+app.use('/vendedores', vendedores);
 
 
 // API ROTAS

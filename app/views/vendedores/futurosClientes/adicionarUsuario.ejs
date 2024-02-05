@@ -5,25 +5,28 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="../../images/logo.png">
-    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="icon" type="image/png" href="../../images/logo.png">
     <title>
-        Emagrecendo com Ela
+        Emagrecendo Com Ela
     </title>
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
     <!-- Nucleo Icons -->
-    <link href="stylesheets/nucleo-icons.css" rel="stylesheet" />
+    <link href="../stylesheets/nucleo-icons.css" rel="stylesheet" />
     <link href="stylesheets/nucleo-svg.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
-    <link id="pagestyle" href="stylesheets/material-dashboard.css?v=3.0.0" rel="stylesheet" />
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link id="pagestyle" href="../../stylesheets/material-dashboard.css?v=3.0.0" rel="stylesheet" />
+    <link rel="stylesheet" href="../../path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+            integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+            
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -31,55 +34,49 @@
         class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
         id="sidenav-main">
         <div class="sidenav-header text-center">
-            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-                aria-hidden="true" id="iconSidenav"></i>
-                <img src="images/logo.png" class=" h-100" alt="main_logo">
+            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+            <img src="../../images/logo.png" class=" h-100" alt="main_logo">
         </div>
         <hr class="horizontal light mt-0 mb-2">
         <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white active bg-gradient-primary" href="#">
+                    <a class="nav-link text-white" href="/distribuidor">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">dashboard</i>
                         </div>
                         <span class="nav-link-text ms-1">Dashboard</span>
                     </a>
                 </li>
+    
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="#">
+                    <a class="nav-link text-white " href="/distribuidor/vendas">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">assignment</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Vendas</span>
+                    </a>
+                </li>
+    
+                
+    
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="/distribuidor/pedidos">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">shopping_basket</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Pedidos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white active bg-gradient-primary" href="/distribuidor/usuarios">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">person</i>
                         </div>
-                        <span class="nav-link-text ms-1">Adicionar usuários</span>
+                        <span class="nav-link-text ms-1">Usuários</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white " href="#">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">local_shipping</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Adicionar envio</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white " href="#">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">receipt_long</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Efetuar pedidos</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white " href="#">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">add_circle_outline</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Cadastrar itens</span>
-                    </a>
-                </li>
-                
-
+    
             </ul>
         </div>
     </aside>
@@ -90,11 +87,10 @@
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Páginas</a>
-                        </li>
-                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
+                        <li class="breadcrumb-item text-sm">Páginas</li>
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page"><a href="/distribuidor/usuarios" class="opacity-5 text-dark">Usuário</a></li>
                     </ol>
-                    <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+                    <h6 class="font-weight-bolder mb-0">Adicionar Representante/Afiliado</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -103,7 +99,7 @@
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
-                                <i class="fa fa-user me-sm-1" aria-hidden="true"></i>
+                                <i class="fa fa-user me-sm-1"></i>
                             </a>
                         </li>
                         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -116,27 +112,26 @@
                             </a>
                         </li>
                         <li class="nav-item px-2 d-flex align-items-center">
-        
+                    
                         </li>
                         <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                            <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-bell cursor-pointer" aria-hidden="true"></i>
+                            <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fa fa-bell cursor-pointer"></i>
                             </a>
-                            <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4"
-                                aria-labelledby="dropdownMenuButton">
+                            <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                                 <li class="mb-2">
                                     <a class="dropdown-item border-radius-md" href="javascript:;">
                                         <div class="d-flex py-1">
                                             <div class="my-auto">
-                                                <img src="images/team-2.jpg" class="avatar avatar-sm  me-3 ">
+                                                <img src="../../images/team-2.jpg" class="avatar avatar-sm  me-3 ">
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
                                                 <h6 class="text-sm font-weight-normal mb-1">
                                                     <span class="font-weight-bold">New message</span> from Laur
                                                 </h6>
                                                 <p class="text-xs text-secondary mb-0">
-                                                    <i class="fa fa-clock me-1" aria-hidden="true"></i>
+                                                    <i class="fa fa-clock me-1"></i>
                                                     13 minutes ago
                                                 </p>
                                             </div>
@@ -147,7 +142,7 @@
                                     <a class="dropdown-item border-radius-md" href="javascript:;">
                                         <div class="d-flex py-1">
                                             <div class="my-auto">
-                                                <img src="images/small-logos/logo-spotify.svg"
+                                                <img src="../../images/small-logos/logo-spotify.svg"
                                                     class="avatar avatar-sm bg-gradient-dark  me-3 ">
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
@@ -155,7 +150,7 @@
                                                     <span class="font-weight-bold">New album</span> by Travis Scott
                                                 </h6>
                                                 <p class="text-xs text-secondary mb-0">
-                                                    <i class="fa fa-clock me-1" aria-hidden="true"></i>
+                                                    <i class="fa fa-clock me-1"></i>
                                                     1 day
                                                 </p>
                                             </div>
@@ -167,8 +162,7 @@
                                         <div class="d-flex py-1">
                                             <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
                                                 <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                                     <title>credit-card</title>
                                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                         <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF"
@@ -192,7 +186,7 @@
                                                     Payment successfully completed
                                                 </h6>
                                                 <p class="text-xs text-secondary mb-0">
-                                                    <i class="fa fa-clock me-1" aria-hidden="true"></i>
+                                                    <i class="fa fa-clock me-1"></i>
                                                     2 days
                                                 </p>
                                             </div>
@@ -206,190 +200,127 @@
             </div>
         </nav>
         <!-- End Navbar -->
-        <div class="container-fluid py-4">
-            <div class="row">
-                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                    <div class="card">
-                        <div class="card-header p-3 pt-2">
-                            <div
-                                class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
-                                <i class="material-symbols-outlined opacity-10">
-                                    attach_money
-                                </i>
-                            </div>
-                            <div class="text-end pt-1">
-                                <p class="text-sm mb-0 text-capitalize">Total Vendido</p>
-                                <h2 class="mt-3"></h2>
-                            </div>
-                        </div>
 
-                        <div class="card-footer p-3">
-                            <p class="mb-0"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                    <div class="card">
-                        <div class="card-header p-3 pt-2">
-                            <div
-                                class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
-                                <i class="material-symbols-outlined opacity-10">
-                                    inventory_2
-                                </i>
-                            </div>
-                            <div class="text-end pt-1">
-                                <p class="text-sm mb-0 text-capitalize">Total em estoque</p>
-                                <h2 class="mt-3"></h2>
-                            </div>
-                        </div>
-                        <div class="card-footer p-3">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                    <div class="card">
-                        <div class="card-header p-3 pt-2">
-                            <div
-                                class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                                <i class="material-icons opacity-10">person</i>
-                            </div>
-                            <div class="text-end pt-1">
-                                <p class="text-sm mb-0 text-capitalize">Total de Clientes</p>
-                                <h2 class="mt-3"></h2>
-                            </div>
-                        </div>
-                        <div class="card-footer p-3">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6">
-                    <div class="card">
-                        <div class="card-header p-3 pt-2">
-                            <div
-                                class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
-                                <i class="material-symbols-outlined opacity-10">
-                                    view_timeline
-                                </i>
-                            </div>
-                            <div class="text-end pt-1">
-                                <p class="text-sm mb-0 text-capitalize">Total de dividas</p>
-                                <h2 class="mt-3"></h2>
-                            </div>
-                        </div>
-                        <div class="card-footer p-3">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-lg-3 col-md-6 mt-4 mb-4">
-                    <a href="/users/admin/financeiro">
-                        <div class="card z-index-2 ">
-                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-                                <div class="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1">
-                                    <div class="chart text-center">
-                                        <img src="images/financeiro.png" class="img-fluid border-radius-lg w-50 "
-                                            alt="Responsive image">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="mb-0 ">Vendas</h6>
-                                <p class="text-sm ">Relatórios de vendas </p>
-
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
+        <div class="row justify-content-center">
+            <div class="col-md-10 bg-light mt-4">
+                <!-- Default form register -->
+                <form class="text-center border border-light p-5" action="/api/novoUsuarioParaDistribuidor" method="post" enctype="application/x-www-form-urlencoded">
                 
-
-                <div class="col-lg-3 col-md-6 mt-4 mb-4">
-                    <div class="card z-index-2 ">
-                        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-                            <div class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
-                                <div class="chart text-center">
-                                    <img src="images/pedidos.png" class="img-fluid border-radius-lg w-50"
-                                        alt="Responsive image">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="mb-0 ">Pedidos</h6>
-                            <p class="text-sm ">Gestão geral dos pedidos</p>
-                            <div class="d-flex ">
-
-                            </div>
+                    <p class="h4 mb-4">Novo Usuário</p>
+                        <input id="idDistribuidor" name="distribuidor" type="text" style="display: none;" class="form-control" value="<%= idDoVendedor %>">
+                    <div class="form-row mb-4">
+                        <div class="col">
+                            <!-- First name -->
+                            <input id="Name_input" name="nome" type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Nome completo*" required>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 mt-4 mb-4">
-                    <div class="card z-index-2  ">
-                        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-                            <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
-                                <div class="chart text-center">
-                                    <img src="images/gestao.png" class="img-fluid border-radius-lg w-50" alt="Responsive image">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="mb-0 ">Futuros clientes</h6>
-                            <p class="text-sm ">Gestão geral de futuros clientes</p>
                 
-                        </div>
+                    <!-- E-mail -->
+                    <input id="Email_input" name="email" type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail*">
+
+                    <!-- Endereço -->
+                    <input id="Endereco_input" name="endereco" type="text" id="defaultRegisterFormEmail" class="form-control mb-4"
+                        placeholder="Endereço do Usuário*">
+                
+                    <!-- Phone number -->
+                    <input id="Phone_input" name="phone" type="text" id="defaultRegisterPhonePassword" class="form-control mb-4" placeholder="Whatsapp*" required>
+
+                    <!-- CPF -->
+                    <input id="CPF_input" name="cpf" type="text" id="defaultRegisterPhonePassword" class="form-control mb-4" placeholder="CPF" required>
+
+                    <!-- URl Instagram -->
+                    <input id="Instagram_input" name="instagram" type="text" id="defaultRegisterInstagram" class="form-control mb-4"
+                        placeholder="URl Instagram" >
+
+                    <!-- URL Facebooks -->
+                    <input id="Facebooks_input" name="facebooks" type="text" id="defaultRegisterFacebooks" class="form-control mb-4"
+                        placeholder="URL Facebooks" >
+
+                    <!-- Região -->
+                    <div class="">
+                        <select id="Regiao_input" name="regiao" class="form-control mb-4" id="exampleFormControlSelect1" required>
+                            <option disabled selected value="">Selecione a Região*</option>
+                            <option>Norte</option>
+                            <option>Nordeste</option>
+                            <option>Centro-Oeste</option>
+                            <option>Sudeste</option>
+                            <option>Sul</option>
+                    
+                        </select>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-md-6 mt-4 mb-4">
-                    <a href="/vendedores/clientes">
-                        <div class="card z-index-2 ">
-                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-                                <div class="bg-gradient-info shadow-info border-radius-lg py-3 pe-1">
-                                    <div class="chart text-center">
-                                        <img src="images/perfil.png" class="img-fluid border-radius-lg w-50"
-                                            alt="Responsive image">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="mb-0 ">Clientes</h6>
-                                <p class="text-sm ">Gestão de clientes</p>
-                                <div class="d-flex ">
+                    <!-- Função -->
+                    <div id="">
+                        <select id="Funcao_input" name="funcao" class="form-control"  required>
+                            <option disabled selected value="">Selecione a função*</option>
+                            <option value="Representante">Representante</option>
+                            <option value="Afiliado">Afiliado</option>
+                            <option value="Afiliado do Representante">Afiliado do Representante</option>
 
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                        </select>
+                    </div>  
+
+                    <!-- Representantes -->
+                    <div class="representante" id="representanteDiv">
+                        <select id="Representante_input" name="Representante" class="form-control my-4" id="exampleFormControlSelect">
+                            <option disabled selected value="">Selecione o Representante*</option>
+                            
+                    
+                        </select>
+                    </div>
+                   
+                    <!-- Sign up button -->
+                    <button id="Bt_submit" class="btn btn btn-success my-4 btn-block" type="submit">Cadastrar</button>            
+                </form>
+                <!-- Default form register -->
             </div>
-
-            <footer class="footer py-4  ">
-                <div class="container-fluid">
-                    <div class="row align-items-center justify-content-lg-between">
-                        <div class="col-lg-4 mb-lg-0 mb-4">
-                            <div class="copyright text-center text-sm text-muted text-lg-start">
-                                ©
-                                <script>
-                                    document.write(new Date().getFullYear())
-                                </script>
-                                <i class="fa fa-heart"></i>
-
-                               Emagrecendo com Ela
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
+
+        <footer class="footer py-4  ">
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-lg-between">
+                    <div class="col-lg-4 mb-lg-0 mb-4">
+                        <div class="copyright text-center text-sm text-muted text-lg-start">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>
+                            <i class="fa fa-heart"></i>
+                            Emagrecendo com Ela
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </main>
-    
+
     <!--   Core JS Files   -->
-    <script src="javascripts/core/popper.min.js"></script>
-    <script src="javascripts/core/bootstrap.min.js"></script>
-    <script src="javascripts/plugins/perfect-scrollbar.min.js"></script>
-    <script src="javascripts/plugins/smooth-scrollbar.min.js"></script>
-    <script src="javascripts/plugins/chartjs.min.js"></script>
+    <script src="../../javascripts/core/popper.min.js"></script>
+    <script src="../../javascripts/core/bootstrap.min.js"></script>
+    <script src="../../javascripts/plugins/perfect-scrollbar.min.js"></script>
+    <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
+    <script src="../../javascripts/plugins/chartjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../../javascripts_proprios/distribuidores/todos_representantes.js"></script>
+
+    <script>
+        const selecionarFuncao = document.getElementById('Funcao_input');
+            const representanteDiv = document.getElementById('representanteDiv');
+
+           representanteDiv.style.display = 'none';
+
+            selecionarFuncao.addEventListener('change', () => {
+                const funcao = selecionarFuncao.value;
+                console.log(funcao);
+
+                if (funcao === 'Afiliado do Representante') {
+                    representanteDiv.style.display = 'block';
+                } else {
+                    representanteDiv.style.display = 'none'; 
+                }
+            });
+        
+    </script>
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");
 
@@ -649,7 +580,7 @@
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="javascripts/material-dashboard.min.js?v=3.0.0"></script>
+    <script src="../../javascripts/material-dashboard.min.js?v=3.0.0"></script>
 </body>
 
 </html>
