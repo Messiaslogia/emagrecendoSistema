@@ -24,11 +24,11 @@ function adquirirListProdutos(){
 function paginas(page){
     const pageCont = Math.ceil(listProduto.length / itensPorPagina);
     const containerPagination = document.querySelector('#pag_navigation_input');
-    console.log(containerPagination)
     containerPagination.innerHTML = ''
 
     for( i = 1; i <= pageCont; i++){
-        containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(${i})">${i}</a></li>`
+        const activeClass = (i === page) ? 'active bg-primary text-light' : '';
+        containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link    ${activeClass}" onclick="displayItens(${i})">${i}</a></li>`
     }
 };
 
@@ -72,7 +72,7 @@ function displayItens( page ){
                                  </tr>
                          `
     })
-    paginas(0);
+    paginas(page);
 };
 
 

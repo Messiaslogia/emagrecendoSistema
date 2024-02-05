@@ -95,6 +95,7 @@ class ApiControllerPedidos {
             codigo: req.body.codigo_rastreio,
             valor: req.body.valor_entrega,
             empresa: req.body.empresa,
+            endereco: req.body.endereco,
             data: req.body.dataEntrega,
             hora: req.body.horaEntrega
         })

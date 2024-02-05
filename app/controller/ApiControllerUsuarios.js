@@ -147,6 +147,8 @@ class ApiControllerUsuarios {
             email: req.body.email,
             password: req.body.senha,
             cpf: req.body.cpf,
+            insta: req.body.instagram,
+            face: req.body.facebooks,
             funcao: req.body.funcao,
             regiao: req.body.regiao,
             telefone: req.body.telefone

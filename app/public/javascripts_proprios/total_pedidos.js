@@ -51,8 +51,10 @@ function paginas(page, array){
 
     containerPagination.innerHTML = ''
 
-    for( i = 1; i <= pageCont; i++){
-        containerPagination.innerHTML += `<li class="page-item"><a class="page-link" onclick="displayItens(${i}, ${array})">${i}</a></li>`
+    for(let i = 1; i <= pageCont; i++){
+        console.log(page)
+        const activeClass = (i == page) ? 'active bg-primary text-light' : '';
+        containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i}, ${array})">${i}</a></li>`
     }
 };
 
@@ -155,7 +157,7 @@ function displayItens(page, arrayindex){
          statusAlt();
     }
  
-    paginas(0, arrayindex);
+    paginas(page, arrayindex);
  };
 
 function statusAlt(){

@@ -20,7 +20,7 @@ function RequisitandoDevedores(){
     axios.get(`${url}`)
         .then(resp => {
             devedores = resp.data
-            console.log(devedores)
+            
         })
         .catch(err => {
             console.log(err)
