@@ -9,6 +9,12 @@ router.get('/clientes', VendedoresController.clientes);
 router.get('/futurosUsuarios', VendedoresController.futurosClientes);
 router.get('/vendas', VendedoresController.vendas);
 router.get('/pedidos', VendedoresController.pedidos);
+router.get('/efetuarPedido', VendedoresController.efetuarPedido);
+router.get('/pedidosConcluidos', VendedoresController.pedidosConcluidos);
+router.get('/aprovarPedido', VendedoresController.aprovarPedido);
+router.get('/vendasEfetuadas', VendedoresController.vendasEfetuadas);
+router.get('/dividasPedidos', VendedoresController.dividasPedidos);
+router.get('/entregasConcluidas', VendedoresController.entregasConcluidas);
 
 router.get('/adicionarUsuario', VendedoresController.adicionarUsuario);
 

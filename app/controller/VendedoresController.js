@@ -32,6 +32,40 @@ class VendedoresController {
         var idDoVendedor = cache.get('id_vendedor');
         res.render('vendedores/pedidos/index', { idDoVendedor });
     }
+
+    efetuarPedido(req, res){
+        var idDoVendedor = cache.get('id_vendedor');
+        res.render('vendedores/pedidos/efetuarPedido', { idDoVendedor });
+    }
+
+    pedidosConcluidos(req, res){
+        var idDoVendedor = cache.get('id_vendedor');
+        res.render('vendedores/pedidos/pedidosConcluidos', { idDoVendedor });
+    }
+
+    aprovarPedido(req, res){
+        var idDoVendedor = cache.get('id_vendedor');
+        res.render('vendedores/pedidos/aprovacao', { idDoVendedor });
+    }
+
+    vendasEfetuadas(req, res){
+        var idDoVendedor = cache.get('id_vendedor');
+        res.render('vendedores/vendas/registrarVenda', { idDoVendedor });
+    }
+
+    dividasPedidos(req, res){
+        var idDoVendedor = cache.get('id_vendedor');
+        res.render('vendedores/vendas/dividasPedidos', { idDoVendedor });
+    }
+
+    entregasConcluidas(req, res){
+        var idDoVendedor = cache.get('id_vendedor');
+        res.render('vendedores/vendas/entregasConcluidas', { idDoVendedor });
+    }
+
+
+
+
 }
 
 module.exports = new VendedoresController;

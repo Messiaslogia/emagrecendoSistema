@@ -39,7 +39,7 @@
         <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/distribuidor">
+                    <a class="nav-link text-white" href="/vendedores">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">dashboard</i>
                         </div>
@@ -48,7 +48,7 @@
                 </li>
     
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="/distribuidor/vendas">
+                    <a class="nav-link text-white " href="/vendedores/vendas">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">assignment</i>
                         </div>
@@ -59,7 +59,7 @@
     
     
                 <li class="nav-item">
-                    <a class="nav-link text-white  active bg-gradient-primary" href="/distribuidor/pedidos">
+                    <a class="nav-link text-white  active bg-gradient-primary" href="/vendedores/pedidos">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">shopping_basket</i>
                         </div>
@@ -67,7 +67,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/distribuidor/usuarios">
+                    <a class="nav-link text-white" href="/vendedores/clientes">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">person</i>
                         </div>
@@ -79,7 +79,7 @@
         </div>
     </aside>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-    <input id="idDistribuidor" name="distribuidor" type="text" style="display: none;" class="form-control" value="<%= idDoDistribuidor %>">
+    <input id="idDoVendedor" name="distribuidor" type="text" style="display: none;" class="form-control" value="<%= idDoVendedor %>">
 
         <!-- Navbar -->
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 mb-4 shadow-none border-radius-xl" id="navbarBlur"
@@ -90,7 +90,7 @@
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Páginas</a>
                         </li>
                         <li class="breadcrumb-item text-sm text-dark active" aria-current="page"><a
-                                href="/distribuidor/pedidos">Pedidos</a></li>
+                                href="/vendedores/pedidos">Pedidos</a></li>
                     </ol>
                     <h6 class="font-weight-bolder mb-0">Pedidos Esperando Aprovação</h6>
                 </nav>
@@ -252,7 +252,7 @@
 
                     <h6 class="mb-0">Infomações dos pedidos:</h6>
                     <div class="d-flex ">
-                        <a href="/distribuidor/efetuarPedido"><button type="button" class="btn btn-primary btn-lg">Adicionar
+                        <a href="/vendedores/efetuarPedido"><button type="button" class="btn btn-primary btn-lg">Adicionar
                                 pedido</button></a>
                         <div class="dropdown mx-4">
                             <button class="btn bg-gradient-primary dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -384,8 +384,8 @@
     <script src="../../javascripts/plugins/perfect-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
-    <script src="http://localhost:3000/javascripts_proprios/distribuidores/pedidos/total_pedidos.js"></script>
-    <script src="http://localhost:3000/javascripts_proprios/distribuidores/pedidos/modalpedidos.js"></script>
+    <!-- <script src="http://localhost:3000/javascripts_proprios/vendedoreses/pedidos/total_pedidos.js"></script>
+    <script src="http://localhost:3000/javascripts_proprios/distribuidores/pedidos/modalpedidos.js"></script> -->
     <!-- <script src="http://localhost:3000/javascripts_proprios/distribuidores/pedidos/infoPedidos.js"></script> -->
 
 
