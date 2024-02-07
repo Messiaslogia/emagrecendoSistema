@@ -3,22 +3,24 @@ const urls = "http://localhost:200/distribuidores/"
 const axios = require('axios')
 class DistribuidorController{
     distribuidorIndex(req, res){
-        res.render('distribuidores/index');
+        var idDoDistribuidor = cache.get('id_distribuidor');
+        res.render('distribuidores/index', { idDoDistribuidor });
 
     }
 
     usuarios(req, res){
-        var idDoDistribuidor = cache.get('id_distribuidor')
+        var idDoDistribuidor = cache.get('id_distribuidor');
         res.render('distribuidores/usuarios/index', { idDoDistribuidor });
     }
 
     vendas(req, res){
-        res.render('distribuidores/vendas/index');
+        var idDoDistribuidor = cache.get('id_distribuidor');
+        res.render('distribuidores/vendas/index', { idDoDistribuidor });
     }
 
     pedidos(req, res){
-        res.render('distribuidores/pedidos/index');
-
+        var idDoDistribuidor = cache.get('id_distribuidor');
+        res.render('distribuidores/pedidos/index', { idDoDistribuidor });
     }
 
     adicionarUsuario(req, res){

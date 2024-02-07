@@ -12,13 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
     adquirirListsUsers();
 });
 
-function adquirirListsUsers() {
-    axios.get(`${url}?idDistribuidor=${idDistribuidor}`)
+async function adquirirListsUsers() {
+  await axios.get(`${url}?idDistribuidor=${idDistribuidor}`)
         .then(data => {
             listUsuarios = data.data;
-            console.log(listUsuarios)
             setTimeout(() => {
-                displayItens(1, 0)
+                displayItens(1)
             }, [300])
         })
         .catch(err => {
@@ -26,40 +25,39 @@ function adquirirListsUsers() {
         })
 }; 
 
-console.log(listUsuarios)
 
 function filtro(status) {
     switch (status) {
         case "Todos":
-            displayItens(1, 0);
+            displayItens(1);
             break
         case "Afiliados":
-            displayItens(1, 1);
+            displayItens(1);
             break
         case "Distribuidores":
-            displayItens(1, 2);
+            displayItens(1);
             break
         case "Vendedores":
-            displayItens(1, 3);
+            displayItens(1);
             break
         case "Representantes":
-            displayItens(1, 5);
+            displayItens(1);
             break
         case "Clientes":
-            displayItens(1, 4);
+            displayItens(1);
             break
         case "Afiliados de Representantes":
-            displayItens(1, 6);
+            displayItens(1);
             break
 
     }
 };
 
-function displayItens(page, arrayindex) {
+function displayItens(page) {
 
     let startIndex = (page - 1) * itensPorPagina;
     let endIndex = startIndex + itensPorPagina;
-    let arrayPedidos = listUsuarios[arrayindex];
+    let arrayPedidos = listUsuarios;
     let reversePedidos = arrayPedidos.slice().reverse();
     let pageItens = reversePedidos.slice(startIndex, endIndex);
 
@@ -87,6 +85,8 @@ function displayItens(page, arrayindex) {
             </li>
             `
     })
+
+
     paginas(page, arrayindex);
 };
 
