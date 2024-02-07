@@ -1,5 +1,5 @@
 var cache = require('../configs/cache');
-const urls = "http://localhost:200/vendedores/";
+const urls = "http://localhost:200/vendedor/";
 const axios = require('axios') ;
 
 class VendedoresController {
@@ -61,6 +61,18 @@ class VendedoresController {
     entregasConcluidas(req, res){
         var idDoVendedor = cache.get('id_vendedor');
         res.render('vendedores/vendas/entregasConcluidas', { idDoVendedor });
+    }
+
+    todosUsuariosVendedor(req, res){
+        const idVendedor = req.query.idVendedor;
+        axios.get(`${urls}todosUsuariosVendedor?idVendedor=${idVendedor}`)
+            .then(users => {
+                res.json(users.data)
+            })
+            .catch(err => {
+                console.log(`${err} erro ao pegar dados`);
+                res.json(false);
+            })
     }
 
 
