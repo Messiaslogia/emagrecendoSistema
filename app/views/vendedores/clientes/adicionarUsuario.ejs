@@ -204,10 +204,10 @@
         <div class="row justify-content-center">
             <div class="col-md-10 bg-light mt-4">
                 <!-- Default form register -->
-                <form class="text-center border border-light p-5" action="/api/novoUsuarioParaDistribuidor" method="post" enctype="application/x-www-form-urlencoded">
+                <form class="text-center border border-light p-5" action="/api/novoUsuarioParaVendedores" method="post" enctype="application/x-www-form-urlencoded">
                 
                     <p class="h4 mb-4">Novo Cliente/Futuro Cliente</p>
-                        <input id="idDistribuidor" name="distribuidor" type="text" style="display: none;" class="form-control" value="<%= idDoVendedor %>">
+                        <input id="idDoVendedor" name="idDoVendedor" type="text" style="display: none;" class="form-control" value="<%= idDoVendedor %>">
                     <div class="form-row mb-4">
                         <div class="col">
                             <!-- First name -->
@@ -233,7 +233,7 @@
                         placeholder="URl Instagram" >
 
                     <!-- URL Facebooks -->
-                    <input id="Facebooks_input" name="facebooks" type="text" id="defaultRegisterFacebooks" class="form-control mb-4"
+                    <input id="Facebooks_input" name="facebook" type="text" id="defaultRegisterFacebooks" class="form-control mb-4"
                         placeholder="URL Facebooks" >
 
                     <!-- Região -->
@@ -253,21 +253,11 @@
                     <div id="">
                         <select id="Funcao_input" name="funcao" class="form-control"  required>
                             <option disabled selected value="">Selecione a função*</option>
-                            <option value="Representante">Representante</option>
-                            <option value="Afiliado">Afiliado</option>
-                            <option value="Afiliado do Representante">Afiliado do Representante</option>
-
+                            <option value="Cliente">Cliente</option>
+                            <option value="Futuro Cliente">Futuro Cliente</option>
                         </select>
                     </div>  
 
-                    <!-- Representantes -->
-                    <div class="representante" id="representanteDiv">
-                        <select id="Representante_input" name="Representante" class="form-control my-4" id="exampleFormControlSelect">
-                            <option disabled selected value="">Selecione o Representante*</option>
-                            
-                    
-                        </select>
-                    </div>
                    
                     <!-- Sign up button -->
                     <button id="Bt_submit" class="btn btn btn-success my-4 btn-block" type="submit">Cadastrar</button>            
@@ -301,7 +291,6 @@
     <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../../javascripts_proprios/distribuidores/todos_representantes.js"></script>
 
     <script>
         const selecionarFuncao = document.getElementById('Funcao_input');

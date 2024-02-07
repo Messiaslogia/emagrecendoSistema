@@ -17,6 +17,10 @@ router.post("/novoUser", ApiControllerAdmin.addUser);
 // Distribbuidores
 router.post("/novoUsuarioParaDistribuidor", ApiControllerAdmin.novoUsuarioParaDistribuidor);
 
+// Vendedores
+router.post("/novoUsuarioParaVendedores", ApiControllerAdmin.novoUsuarioParaVendedores);
+
+
 
 
 

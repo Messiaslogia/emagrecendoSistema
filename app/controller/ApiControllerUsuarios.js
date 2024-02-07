@@ -246,7 +246,6 @@ class ApiControllerUsuarios {
 
         }
 
-        console.log(newUser.representante)
         axios.post(`${urls}novoUsuarioParaDistribuidor`, newUser)
                 .then(resp => {
                     axios.post(`${urls}usuarioInfo`, {
@@ -265,6 +264,44 @@ class ApiControllerUsuarios {
                     res.json(false)
                 })
         
+    }
+
+    // VENDEDORES
+    novoUsuarioParaVendedores(req, res){
+        let newUser = {
+            idVendedor: req.body.idDoVendedor,
+            nome: req.body.nome,
+            email: req.body.email,
+            endereco: req.body.endereco,
+            phone: req.body.phone,
+            cpf: req.body.cpf,
+            instagram: req.body.instagram,
+            facebook: req.body.facebooks,
+            funcao: req.body.funcao,
+            regiao: req.body.regiao
+        }
+
+        console.log(newUser);
+        
+
+        axios.post(`${urls}novoUsuarioParaVendedores`, newUser)
+            .then(resp => {
+                axios.post(`${urls}usuarioInfo`, {
+                    id: resp.data
+                })
+                    .then(resp => {
+                        console.log('OK')
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+                res.redirect('/distribuidor/usuarios');
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false)
+            })
+
     }
 
     
