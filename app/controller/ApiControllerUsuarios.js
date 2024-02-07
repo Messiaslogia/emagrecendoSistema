@@ -276,7 +276,7 @@ class ApiControllerUsuarios {
             phone: req.body.phone,
             cpf: req.body.cpf,
             instagram: req.body.instagram,
-            facebook: req.body.facebooks,
+            facebook: req.body.facebook,
             funcao: req.body.funcao,
             regiao: req.body.regiao
         }
@@ -295,7 +295,7 @@ class ApiControllerUsuarios {
                     .catch(err => {
                         console.log(err);
                     })
-                res.redirect('/distribuidor/usuarios');
+                res.redirect('/vendedores/clientes');
             })
             .catch(err => {
                 console.log(err);
