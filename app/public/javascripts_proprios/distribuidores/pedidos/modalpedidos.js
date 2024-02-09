@@ -1,4 +1,4 @@
-let valorTotalInfo = [];
+let valorTotalInfo22 = [];
 let quantidadeTotalInfo = [];
 let tabela_pedidos = document.querySelector('#Tabela_modal');
 let filtroButton = document.querySelectorAll('#dropdownMenuButton');
@@ -62,7 +62,7 @@ function criarModal(numeracao){
 
             resp.data.forEach(pedido => {
                 pedido_number.innerHTML = numeracao;
-                valorTotalInfo.push(pedido.valor);
+                valorTotalInfo22.push(pedido.valor);
                 quantidadeTotalInfo.push(pedido.quantidade);
 
 
@@ -95,7 +95,7 @@ function criarModal(numeracao){
 
             quantidadeTotalInfo.forEach((total, index) => {
                 quantidade = quantidade + total;
-                valor = valor + valorTotalInfo[index];
+                valor = valor + valorTotalInfo22[index];
             });
 
             tabela_pedidos.innerHTML += `
@@ -112,7 +112,7 @@ function criarModal(numeracao){
             </tr>`;
 
             quantidadeTotalInfo = [];
-            valorTotalInfo = []
+            valorTotalInfo22 = []
             bt_modal.click();
         })
         .catch(err => {

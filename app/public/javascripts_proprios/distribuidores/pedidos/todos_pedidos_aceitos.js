@@ -22,14 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         displayItens( 1, 0 );
         dellFunction();
 
-        let bt_produtos = document.querySelectorAll('#Info_pedidos');
-
-        bt_produtos.forEach(info => {
-            info.addEventListener('click', (e) => {
-                let number_pedido = e.target.getAttribute('number_pedido');
-                criarModal(number_pedido);
-            })
-        })
+       
     }, [300])
 });
 
@@ -79,12 +72,6 @@ function paginas(page, arrayindex) {
         containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${pageClass}" onclick="displayItens(${i}, ${arrayindex})">${i}</a></li>`;
     }
 }
-
-
-
-
-
-
 
 function displayItens(page, arrayindex){
     
@@ -258,6 +245,7 @@ function criarModal(numeração){
         numero: numeração
     })
         .then(resp => {
+
             infoUser(resp.data[0].id_usuario_FK);
 
             resp.data.forEach(pedido => {
