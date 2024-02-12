@@ -5,7 +5,6 @@ let itensPorPagina = 5;
 let listUsuarios
 
 
-
 document.addEventListener('DOMContentLoaded', () => {
     adquirirListsUsers();
 });
@@ -14,6 +13,7 @@ function adquirirListsUsers() {
     axios.get(url)
         .then(data => {
             listUsuarios = data.data;
+            console.log(listUsuarios)
             setTimeout(() => {
                 displayItens(1, 0)
             }, [300])

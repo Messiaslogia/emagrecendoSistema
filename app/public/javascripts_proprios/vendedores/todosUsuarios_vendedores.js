@@ -16,9 +16,8 @@ function adquirirListsUsers() {
     axios.get(`${url}?idVendedor=${idVendedor}`)
         .then(data => {
             listUsuarios = data.data;
-            console.log(listUsuarios)
             setTimeout(() => {
-                displayItens(1, 0)
+                displayItens(1, 0, listUsuarios)
             }, [300])
         })
         .catch(err => {
@@ -26,7 +25,7 @@ function adquirirListsUsers() {
         })
 }; 
 
-console.log(listUsuarios)
+
 
 function filtro(status) {
     switch (status) {
@@ -55,7 +54,7 @@ function filtro(status) {
     }
 };
 
-function displayItens(page, arrayindex) {
+function displayItens(page, arrayindex, listUsuarios) {
 
     let startIndex = (page - 1) * itensPorPagina;
     let endIndex = startIndex + itensPorPagina;
@@ -90,13 +89,13 @@ function displayItens(page, arrayindex) {
     paginas(page, arrayindex);
 };
 
-function paginas(page, array) {
+function paginas(page, array){
     const pageCont = Math.ceil(listUsuarios[array].length / itensPorPagina);
     const containerPagination = document.querySelector('#pag_navigation_input');
 
     containerPagination.innerHTML = ''
 
-    for (i = 1; i <= pageCont; i++) {
+    for( i = 1; i <= pageCont; i++){
         const activeClass = (i === page) ? 'active bg-primary text-light' : '';
         containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i}, ${array})">${i}</a></li>`
     }
