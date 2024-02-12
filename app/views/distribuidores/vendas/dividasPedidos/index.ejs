@@ -27,6 +27,8 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
+    <input id="Id_User" type="text" value="<%= idUser %>" style="display: none;">
+
     <aside
         class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
         id="sidenav-main">
@@ -225,7 +227,7 @@
                             </div>
                             <div class="text-end pt-1">
                                 <p class="text-sm mb-0 text-capitalize">Valor Total a receber</p>
-                                <h2 class="mt-3">$53k</h2>
+                                <h2 id="Valor_d_Divida" class="mt-3"></h2>
                             </div>
                         </div>
 
@@ -244,7 +246,7 @@
                             </div>
                             <div class="text-end pt-1">
                                 <p class="text-sm mb-0 text-capitalize">Clientes Devedores</p>
-                                <h2 class="mt-3">3,462</h2>
+                                <h2 id="Quantidade_D_Devedores" class="mt-3"></h2>
                             </div>
                         </div>
                         <div class="card-footer p-3">
@@ -261,10 +263,30 @@
         
                 <h6 class="mb-0">Infomações dos Devedores:</h6>
                 <a style="display: none;" href="/admin/adicionarProduto"><button type="button"
-                        class="btn btn-primary btn-lg">Adicionar
-                        pedido</button></a>
-        
-                
+                    class="btn btn-primary btn-lg">
+                        Adicionar pedido
+                </button></a>
+
+                <div class="dropdown">
+                    <button class="btn bg-gradient-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Filtro
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a href="http://localhost:200/distribuidores/dividasFinanceiro/1?idDistribuidor=<%= idUser %>" target="_blank"><li class="dropdown-item">Janeiro</li></a>
+                        <a href="http://localhost:200/distribuidores/dividasFinanceiro/2?idDistribuidor=<%= idUser %>" target="_blank"><li class="dropdown-item">Fevereiro</li></a>
+                        <a href="http://localhost:200/distribuidores/dividasFinanceiro/3?idDistribuidor=<%= idUser %>" target="_blank"><li class="dropdown-item">Março</li></a>
+                        <a href="http://localhost:200/distribuidores/dividasFinanceiro/4?idDistribuidor=<%= idUser %>" target="_blank"><li class="dropdown-item">Abril</li></a>
+                        <a href="http://localhost:200/distribuidores/dividasFinanceiro/5?idDistribuidor=<%= idUser %>" target="_blank"><li class="dropdown-item">Maio</li></a>
+                        <a href="http://localhost:200/distribuidores/dividasFinanceiro/6?idDistribuidor=<%= idUser %>" target="_blank"><li class="dropdown-item">Junho</li></a>
+                        <a href="http://localhost:200/distribuidores/dividasFinanceiro/7?idDistribuidor=<%= idUser %>" target="_blank"><li class="dropdown-item">Julho</li></a>
+                        <a href="http://localhost:200/distribuidores/dividasFinanceiro/8?idDistribuidor=<%= idUser %>" target="_blank"><li class="dropdown-item">Agosto</li></a>
+                        <a href="http://localhost:200/distribuidores/dividasFinanceiro/9?idDistribuidor=<%= idUser %>" target="_blank"><li class="dropdown-item">Setembro</li></a>
+                        <a href="http://localhost:200/distribuidores/dividasFinanceiro/10?idDistribuidor=<%= idUser %>" target="_blank"><li class="dropdown-item">Outubro</li></a>
+                        <a href="http://localhost:200/distribuidores/dividasFinanceiro/11?idDistribuidor=<%= idUser %>" target="_blank"><li class="dropdown-item">Novembro</li></a>
+                        <a href="http://localhost:200/distribuidores/dividasFinanceiro/12?idDistribuidor=<%= idUser %>" target="_blank"><li class="dropdown-item">Dezembro</li></a>
+                    </ul>
+                </div> 
             </div>
         
             <div class="card my-4 me-4">
@@ -395,7 +417,9 @@
     <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../../javascripts_proprios/todosDevedores.js"></script>
+    <script src="../../javascripts_proprios/distribuidores/relatorios/todosDevedores.js"></script>
+    <script src="../../javascripts_proprios/distribuidores/casesDevedoresDistribuidor.js"></script>
+
 
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");

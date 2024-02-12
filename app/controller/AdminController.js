@@ -26,11 +26,13 @@ class AdminController{
     }
 
     dividasIndex(req, res){
-        res.render('admin/financeiro/dividas/index');
+        let idUser = cache.get('id_gerente');
+        res.render('admin/financeiro/dividas/index', {idUser});
     }
 
     adicionarDivida(req, res){
-        res.render('admin/financeiro/dividas/adicionarDivida');
+        let idUser = cache.get('id_gerente');
+        res.render('admin/financeiro/dividas/adicionarDivida', {idUser});
     }
 
     

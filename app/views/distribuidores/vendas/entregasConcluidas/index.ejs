@@ -27,6 +27,8 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
+    <input id="Id_User" type="text" value="<%= idUser %>" style="display: none;">
+
     <aside
         class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
         id="sidenav-main">
@@ -225,7 +227,7 @@
                             </div>
                             <div class="text-end pt-1">
                                 <p class="text-sm mb-0 text-capitalize">Valor Total Aprovados</p>
-                                <h2 id="Case_De_Aprovados" class="mt-3"></h2>
+                                <h2 id="Valor_pedidos" class="mt-3"></h2>
                             </div>
                         </div>
     
@@ -245,7 +247,7 @@
                             </div>
                             <div class="text-end pt-1">
                                 <p class="text-sm mb-0 text-capitalize">Valor Total de Vendas</p>
-                                <h2 id="Case_De_Ganhos" class="mt-3"></h2>
+                                <h2 id="Vendido_pedidos" class="mt-3"></h2>
                             </div>
                         </div>
     
@@ -265,7 +267,7 @@
                             </div>
                             <div class="text-end pt-1">
                                 <p class="text-sm mb-0 text-capitalize">Valor Total de Dividas</p>
-                                <h2 id="Case_De_Dividas" class="mt-3"></h2>
+                                <h2 id="Valor_d_Divida" class="mt-3"></h2>
                             </div>
                         </div>
     
@@ -423,7 +425,8 @@
     <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="http://localhost:3000/javascripts_proprios/total_entregas.js"></script>
+    <script src="../../javascripts_proprios/distribuidores/relatorios/todasEntregas.js"></script>
+    <script src="../../javascripts_proprios/distribuidores/casesEntregas.js"></script>
 
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");

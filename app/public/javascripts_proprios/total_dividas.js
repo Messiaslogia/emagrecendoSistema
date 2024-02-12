@@ -1,10 +1,12 @@
-const url = "http://localhost:3000/apiDividas/todasDividas";
+const url = "http://localhost:3000/apiDividas/todasDividas/";
 const div_dividas = document.querySelector('#Tabela_de_dividas');
+let id;
 let itensPorPagina = 5;
 let listProduto;
 let caseDividas;
 
 document.addEventListener('DOMContentLoaded', () => {
+    id = document.querySelector('#Id_User').value
     adquirirListProdutos();
     caseDividas = document.querySelector('#Total_Dividas');
     setTimeout(() => {
@@ -15,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function adquirirListProdutos(){
     let valor = 0
 
-    axios.get(`${url}`)
+    axios.get(`${url}?IdUsuario=${id}`)
         .then(resp => {
             listProduto = resp.data;
             listProduto.forEach(element => {

@@ -69,7 +69,6 @@ class ApiControllerUsuarios {
 
                     case 'Distribuidor':
                         cache.set('id_distribuidor', `${resp.data.id_usuario}`);
-                        console.log(cache.get('id_distribuidor'))
                         return res.redirect(307, '/distribuidores');
 
                     case 'Vendedor':

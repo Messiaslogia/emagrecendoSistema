@@ -24,36 +24,39 @@ class DistribuidorController{
     }
 
     adicionarUsuario(req, res){
-        var idDoDistribuidor = cache.get('id_distribuidor')
+        var idDoDistribuidor = cache.get('id_distribuidor');
         res.render('distribuidores/usuarios/adicionarUsuario',{idDoDistribuidor});
     }
 
     efetuarPedido(req, res){
-        var idDoDistribuidor = cache.get('id_distribuidor')
+        var idDoDistribuidor = cache.get('id_distribuidor');
         res.render('distribuidores/pedidos/efetuarPedido/index', { idDoDistribuidor });
 
     }
 
     pedidosConcluidos(req, res){
-        var idDoDistribuidor = cache.get('id_distribuidor')
+        var idDoDistribuidor = cache.get('id_distribuidor');
         res.render('distribuidores/pedidos/pedidosConcluidos/index', { idDoDistribuidor });
     }
 
     aprovarPedido(req, res){
-        var idDoDistribuidor = cache.get('id_distribuidor')
+        var idDoDistribuidor = cache.get('id_distribuidor');
         res.render('distribuidores/pedidos/aprovacao/index', { idDoDistribuidor });
     }
 
     vendasEfetuadas(req, res){
-        res.render('distribuidores/vendas/registrarVenda/index');
+        var idUser = cache.get('id_distribuidor');
+        res.render('distribuidores/vendas/registrarVenda/index', { idUser });
     }
 
     dividasPedidos(req, res){
-        res.render('distribuidores/vendas/dividasPedidos/index');
+        var idUser = cache.get('id_distribuidor');
+        res.render('distribuidores/vendas/dividasPedidos/index', { idUser });
     }
 
     entregasConcluidas(req, res){
-        res.render('distribuidores/vendas/entregasConcluidas/index');
+        var idUser = cache.get('id_distribuidor');
+        res.render('distribuidores/vendas/entregasConcluidas/index', { idUser });
     }
 
     todosRepresentantes(req, res) {

@@ -87,17 +87,17 @@ function displayItens(page) {
     })
 
 
-    paginas(page, arrayindex);
+    paginas(page);
 };
 
-function paginas(page, array) {
-    const pageCont = Math.ceil(listUsuarios[array].length / itensPorPagina);
+function paginas(page) {
+    const pageCont = Math.ceil(listUsuarios.length / itensPorPagina);
     const containerPagination = document.querySelector('#pag_navigation_input');
 
     containerPagination.innerHTML = ''
 
     for (i = 1; i <= pageCont; i++) {
         const activeClass = (i === page) ? 'active bg-primary text-light' : '';
-        containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i}, ${array})">${i}</a></li>`
+        containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i}})">${i}</a></li>`
     }
 };

@@ -83,14 +83,16 @@ class ApiControllerPedidos {
     }
 
     enviarProdutoIndex(req, res) {
-        let pedido = req.params.numero
-        let id_pedido = req.params.id
-        res.render('admin/pedidos/enviarProduto/formEnviarProduto', { pedido, id_pedido })
+        let pedido = req.params.numero;
+        let id_pedido = req.params.id;
+        let id_user = req.query.idUsuario;
+        res.render('admin/pedidos/enviarProduto/formEnviarProduto', { pedido, id_pedido, id_user })
     }
 
     novaEntrega(req, res) {
         axios.post(`${urls}novaEntrega`, {
             id_pedido: req.body.id_pedido,
+            id_user: req.body.id_user,
             numero: req.body.numero_do_pedido,
             codigo: req.body.codigo_rastreio,
             valor: req.body.valor_entrega,

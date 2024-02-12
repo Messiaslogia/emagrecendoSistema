@@ -9,7 +9,9 @@ const urls = "http://localhost:200/dividas/"
 
 class ApiControllerDividas {
     dividasTotais(req, res) {
-        axios.get(`${urls}todasDividas`)
+        let id_User = req.query.IdUsuario
+
+        axios.get(`${urls}todasDividas?IdUser=${id_User}`)
             .then(resp => {
                 res.json(resp.data);
             })
@@ -27,6 +29,7 @@ class ApiControllerDividas {
         try {
             let novaDivida = {
                 nome: req.body.nomeDivida,
+                id_user: req.body.idUser,
                 descricao: req.body.descricaoDivida,
                 valor: req.body.valorDivida,
                 data: req.body.dataDivida,
@@ -102,9 +105,6 @@ class ApiControllerDividas {
             });
 
     }
-
-
-
 }
 
 module.exports = new ApiControllerDividas

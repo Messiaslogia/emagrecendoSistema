@@ -139,7 +139,7 @@ function displayItens(page, arrayindex){
                         <span class="text-secondary text-xs font-weight-bold">${pedido.data}</span>
                     </td>
                     <td class="align-middle text-center" >
-                        <a class="btn btn-link text-info text-gradient mb-0" href="/apiPedidos/statusEntregas/${pedido.numero_do_pedido}/${pedido.id_pedido}">
+                        <a class="btn btn-link text-info text-gradient mb-0" href="/apiPedidos/statusEntregas/${pedido.numero_do_pedido}/${pedido.id_pedido}?idUsuario=${pedido.id_usuario_FK}">
                         Enviar</a>
                     </td>
 

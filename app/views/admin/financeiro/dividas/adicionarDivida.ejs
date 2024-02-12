@@ -29,6 +29,7 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
+    <input id="Id_User" type="text" value="<%= idUser %>" style="display: none;">
     <aside
         class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
         id="sidenav-main">
@@ -218,7 +219,10 @@
                 <!-- Default form register -->
                 <form class="text-center border border-light p-5" enctype="multipart/form-data" id="DividaForm">
                     <p class="h4 mb-4">Nova Dívida</p>
-                
+
+                    <!-- Id da pessoa que registrou a divida -->
+                    <input type="text" name="idUser" style="display: none;" value="<%= idUser %>">
+
                     <!-- Nome da Dívida -->
                     <input id="Nome_divida" type="text" name="nomeDivida" class="form-control mb-4 " placeholder="Nome da Dívida"
                        required >
