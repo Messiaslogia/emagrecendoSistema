@@ -45,7 +45,7 @@
         <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white active bg-gradient-primary" href="/users">
+                    <a class="nav-link text-white active bg-gradient-primary" href="/distribuidor">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">dashboard</i>
                         </div>
@@ -53,43 +53,19 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="#">
+                    <a class="nav-link text-white " href="/distribuidor/adicionarUsuario">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">person</i>
                         </div>
-                        <span class="nav-link-text ms-1">Adicionar usuários</span>
+                        <span class="nav-link-text ms-1">Adicionar representantes<br>/afiliados</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="#">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">local_shipping</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Adicionar envio</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white " href="#">
+                    <a class="nav-link text-white " href="/distribuidor/efetuarPedido">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">receipt_long</i>
                         </div>
                         <span class="nav-link-text ms-1">Efetuar pedidos</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white " href="#">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">add_circle_outline</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Cadastrar itens</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white " href="#">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">view_list</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Estoque</span>
                     </a>
                 </li>
 
@@ -103,7 +79,7 @@
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a>
+                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/distribuidor/vendasEfetuadas">Pages</a>
                         </li>
                         <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dividas</li>
                     </ol>
@@ -115,7 +91,7 @@
                     </div>
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-flex align-items-center">
-                            <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
+                            <a href="/distribuidor/vendasEfetuadas" class="nav-link text-body font-weight-bold px-0">
                                 <i class="fa fa-user me-sm-1"></i>
                             </a>
                         </li>
@@ -258,6 +234,10 @@
             </div>
         </div>
 
+        <a href="/distribuidor/vendasEfetuadas" class="ms-3">
+            <button type="button" class="btn btn-primary btn-lg mt-5">Voltar</button>
+        </a>
+
         <footer class="footer py-4  ">
             <div class="container-fluid">
                 <div class="row align-items-center justify-content-lg-between">
@@ -269,8 +249,8 @@
                             </script>,
                             <i class="fa fa-heart"></i>
 
-                            <a href="https://www.creative-tim.com" class="font-weight-bold " target="_blank">Emagrecendo
-                                com Ela</a>
+                            Emagrecendo
+                                com Ela
                         </div>
                     </div>
                 </div>

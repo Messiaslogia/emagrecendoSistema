@@ -46,32 +46,20 @@
                         <span class="nav-link-text ms-1">Dashboard</span>
                     </a>
                 </li>
-    
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="/distribuidor/vendas">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">assignment</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Vendas</span>
-                    </a>
-                </li>
-    
-    
-    
-                <li class="nav-item">
-                    <a class="nav-link text-white " href="/distribuidor/pedidos">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">shopping_basket</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Pedidos</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white active bg-gradient-primary" href="/distribuidor/usuarios">
+                    <a class="nav-link text-white  active bg-gradient-primary" href="/distribuidor/adicionarUsuario">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">person</i>
                         </div>
-                        <span class="nav-link-text ms-1">Usuários</span>
+                        <span class="nav-link-text ms-1">Adicionar representantes<br>/afiliados</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="/distribuidor/efetuarPedido">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">receipt_long</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Efetuar pedidos</span>
                     </a>
                 </li>
     
@@ -86,7 +74,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm">Páginas</li>
-                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page"><a href="/vendedores">Dashboard</a></li>
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page"><a href="/distribuidor">Dashboard</a></li>
                     </ol>
                     <h6 class="font-weight-bolder mb-0">Usuários</h6>
                 </nav>
@@ -238,8 +226,30 @@
             
                 </ul>
             </nav>
-        
         </div>
+
+        <a href="/distribuidor" class="ms-3">
+            <button type="button" class="btn btn-primary btn-lg mt-5">Voltar</button>
+        </a>
+
+        <footer class="footer py-4  ">
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-lg-between">
+                    <div class="col-lg-4 mb-lg-0 mb-4">
+                        <div class="copyright text-center text-sm text-muted text-lg-start">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>,
+                            <i class="fa fa-heart"></i>
+        
+                            Emagrecendo
+                                com Ela
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </main>
    
 
