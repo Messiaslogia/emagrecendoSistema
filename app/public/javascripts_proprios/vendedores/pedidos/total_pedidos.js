@@ -1,6 +1,6 @@
 const container_users = document.querySelector('#Container_Users');
 const url = "http://localhost:3000/apiPedidos/todosOsPedidosVendedor";
-const urlQUantidade = "http://localhost:200/pedidos/quantidadeTotalDosPedidos";
+const urlQUantidade = "http://localhost:200/vendedor/quantidadeTotalDosPedidos";
 const idDistribuidor = document.getElementById('idDistribuidor').value
 const div_pedidos = document.querySelector('#Tabela_de_pedidos')
 let itensPorPagina = 5;
