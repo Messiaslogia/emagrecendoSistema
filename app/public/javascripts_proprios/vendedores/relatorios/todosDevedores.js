@@ -1,6 +1,6 @@
 const container_users = document.querySelector('#Container_Users');
 const id = document.querySelector('#Id_User').value
-const url = `http://localhost:200/distribuidores/todosDevedores?idDistribuidor=${id}`;
+const url = `http://localhost:200/vendedor/todosDevedores?idDistribuidor=${id}`;
 let itensPorPagina = 5;
 var devedores;
 
