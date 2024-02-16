@@ -1,4 +1,4 @@
-let urlCase = "http://localhost:200/vendedor/casesDividasGeraisDistribuidor"
+let urlCase = "http://localhost:200/vendedor/casesDividasGeraisVendedor"
 let id_vendedor = document.querySelector('#Id_User').value;
 
 document.addEventListener('DOMContentLoaded', () => {

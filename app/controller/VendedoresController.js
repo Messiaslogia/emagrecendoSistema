@@ -5,7 +5,9 @@ const axios = require('axios') ;
 class VendedoresController {
 
     vendedorIndex(req, res){
-        res.render('vendedores/index');
+        var idDoVendedor = cache.get('id_vendedor');
+
+        res.render('vendedores/index', { idDoVendedor });
     }
 
     clientes(req, res){
@@ -51,6 +53,11 @@ class VendedoresController {
     vendasEfetuadas(req, res){
         var idDoVendedor = cache.get('id_vendedor');
         res.render('vendedores/vendas/registrarVenda', { idDoVendedor });
+    }
+
+    adicionarDividasGerais(req, res){
+        var idDoVendedor = cache.get('id_vendedor');
+        res.render('vendedores/vendas/registrarVenda/adicionarVenda', { idDoVendedor });
     }
 
     dividasPedidos(req, res){

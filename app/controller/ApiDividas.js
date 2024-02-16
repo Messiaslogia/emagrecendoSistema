@@ -41,7 +41,7 @@ class ApiControllerDividas {
 
             axios.post(`${urls}novaDivida`, novaDivida)
                 .then(resp => {
-                    res.redirect('/admin/dividas');
+                    // res.redirect('/admin/dividas');
                 })
                 .catch(err => console.log(err))
         } catch (error) {

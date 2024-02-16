@@ -27,6 +27,8 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
+    <input type="text" style="display: none;" value="<%= idDoVendedor %>" id="Id_User">
+
     <aside
         class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
         id="sidenav-main">
@@ -219,7 +221,7 @@
                             </div>
                             <div class="text-end pt-1">
                                 <p class="text-sm mb-0 text-capitalize">Total Vendido</p>
-                                <h2 class="mt-3"></h2>
+                                <h2 id="VendasTotaisvendedor" class="mt-3"></h2>
                             </div>
                         </div>
 
@@ -228,40 +230,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                    <div class="card">
-                        <div class="card-header p-3 pt-2">
-                            <div
-                                class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
-                                <i class="material-symbols-outlined opacity-10">
-                                    inventory_2
-                                </i>
-                            </div>
-                            <div class="text-end pt-1">
-                                <p class="text-sm mb-0 text-capitalize">Total em estoque</p>
-                                <h2 class="mt-3"></h2>
-                            </div>
-                        </div>
-                        <div class="card-footer p-3">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                    <div class="card">
-                        <div class="card-header p-3 pt-2">
-                            <div
-                                class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                                <i class="material-icons opacity-10">person</i>
-                            </div>
-                            <div class="text-end pt-1">
-                                <p class="text-sm mb-0 text-capitalize">Total de Clientes</p>
-                                <h2 class="mt-3"></h2>
-                            </div>
-                        </div>
-                        <div class="card-footer p-3">
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="col-xl-3 col-sm-6">
                     <div class="card">
                         <div class="card-header p-3 pt-2">
@@ -273,7 +242,7 @@
                             </div>
                             <div class="text-end pt-1">
                                 <p class="text-sm mb-0 text-capitalize">Total de dividas</p>
-                                <h2 class="mt-3"></h2>
+                                <h2 id="DividasTotaisvendedor" class="mt-3"></h2>
                             </div>
                         </div>
                         <div class="card-footer p-3">
@@ -377,6 +346,9 @@
     <script src="javascripts/plugins/perfect-scrollbar.min.js"></script>
     <script src="javascripts/plugins/smooth-scrollbar.min.js"></script>
     <script src="javascripts/plugins/chartjs.min.js"></script>
+    <script src="../../javascripts_proprios/vendedores/casesVendedor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");
 
