@@ -1,5 +1,5 @@
-let urlCasesVendas = "http://localhost:200/vendedor/casesAprovadosDistribuidor";
-let urlDividas = "http://localhost:200/vendedor/casesDevedoresDistribuidor"
+let urlCasesVendas = "http://localhost:200/vendedor/casesAprovadosVendedores";
+let urlDividas = "http://localhost:200/vendedor/casesDevedoresVendedor"
 let id_vendedor = document.querySelector('#Id_User').value;
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -1,3 +1,4 @@
+
 document.getElementById('DividaForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -9,7 +10,7 @@ document.getElementById('DividaForm').addEventListener('submit', function (event
         console.log(pair[0] + ': ' + pair[1]);
     }
 
-    axios.post('/apiDividas/adicionarNovaDivida', formData)
+    axios.post('/apiDividas/adicionarNovaDividaVendedor', formData)
         .then(response => {
             window.location.href = 'http://localhost:3000/vendedores/vendasEfetuadas'
         })

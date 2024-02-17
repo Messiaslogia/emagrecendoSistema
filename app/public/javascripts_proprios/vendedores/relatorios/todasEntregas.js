@@ -1,5 +1,5 @@
 const url = "http://localhost:200/vendedor/todasEntregas";
-const div_entregas = document.querySelector('#Tabela_de_entregas');
+const div_entregas = document.querySelector('#Tabela_modal');
 const id_user = document.querySelector('#Id_User').value;
 let itensPorPagina = 5;
 let listProduto;
@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     adquirirListProdutos();
     setTimeout(() => {
         displayItens(1);
-    }, [300]);
+    }, [800]);
 });
 
 function adquirirListProdutos() {
-    axios.get(`${url}?idDistribuidor=${id_user}`)
+    axios.get(`${url}?idVendedor=${id_user}`)
         .then(resp => {
             listProduto = resp.data;
         })
@@ -40,6 +40,7 @@ function displayItens(page) {
     let pageItens = reversePedidos.slice(startIndex, endIndex);
     // Exibindo os itens
     div_entregas.innerHTML = '';
+
     pageItens.map(divida => {
         div_entregas.innerHTML += `
                                  <tr>
@@ -63,7 +64,7 @@ function displayItens(page) {
                                       </td>
                                  </tr>
                          `
-    })
+    }).join();
     paginas(page);
 };
 

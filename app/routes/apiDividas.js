@@ -14,6 +14,7 @@ router.get("/consultarDivida/:id", ApiControllerDividas.consultarDivida);
 
 
 router.post('/adicionarNovaDivida', upload.none(), ApiControllerDividas.adicionarDivida);
+router.post('/adicionarNovaDividaVendedor', ApiControllerDividas.adicionarDividaVendedor)
 router.post("/editarDivida/:id", ApiControllerDividas.editarDivida);
 
 
