@@ -1,8 +1,8 @@
 const container_users = document.querySelector('#Container_Users');
 const url = "http://localhost:3000/apiPedidos/todosOsPedidosVendedor";
 const urlQUantidade = "http://localhost:200/vendedor/quantidadeTotalDosPedidos";
-const idDistribuidor = document.getElementById('idDistribuidor').value
-const div_pedidos = document.querySelector('#Tabela_de_pedidos')
+const idDoVendedor = document.getElementById('idDoVendedor').value
+const div_pedidos_naoaprovados = document.querySelector('#Tabela_de_pedidos')
 let itensPorPagina = 5;
 let status_pedido;
 let listPedidos;
@@ -14,13 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
         displayItens(1, 0);
         dellFunction();
 
-    }, [300])
+    }, [800])
 });
 
 // Modal Variaveis
 let valorTotalInfo = [];
 let quantidadeTotalInfo = [];
-let tabela_pedidos = document.querySelector('#Tabela_modal');
+// let tabela_pedidos = document.querySelector('#Tabela_modal');
 let filtroButton = document.querySelectorAll('#dropdownMenuButton');
 
 
@@ -41,13 +41,12 @@ function filtro(status) {
 };
 
 function adquirirListPedidos() {
-    fetch(`${url}?idDistribuidor=${idDistribuidor}`)
+    fetch(`${url}?idDoVendedor=${idDoVendedor}`)
         .then(response => {
             return response.json();
         })
         .then(data => {
             listPedidos = data;
-            
         })
         .catch(err => {
             console.log(err);
@@ -56,6 +55,9 @@ function adquirirListPedidos() {
 
 // Paginação
 function paginas(page, arrayindex) {
+    
+    
+
     const pageCont = Math.ceil(listPedidos[arrayindex].length / itensPorPagina);
     const containerPagination = document.querySelector('#pag_navigation_input');
     containerPagination.innerHTML = '';
@@ -67,20 +69,18 @@ function paginas(page, arrayindex) {
 }
 
 function displayItens(page, arrayindex) {
-
     let startIndex = (page - 1) * itensPorPagina;
     let endIndex = startIndex + itensPorPagina;
     let arrayPedidos = listPedidos[arrayindex].slice().reverse();
     let pageItens = arrayPedidos.slice(startIndex, endIndex);
 
     // Exibindo os itens
-    div_pedidos.innerHTML = '';
+    div_pedidos_naoaprovados.innerHTML = '';
 
     if (arrayindex == 1) {
         pageItens.map(pedido => {
 
-
-            div_pedidos.innerHTML += `
+            div_pedidos_naoaprovados.innerHTML += `
              <tr>
                  <td>
                      <div class="d-flex px-2 py-1 justify-content-center text-center">
@@ -109,7 +109,7 @@ function displayItens(page, arrayindex) {
         pageItens.map(pedido => {
 
 
-            div_pedidos.innerHTML += `
+            div_pedidos_naoaprovados.innerHTML += `
              <tr>
                  <td>
                      <div class="d-flex px-2 py-1 justify-content-center text-center">
@@ -146,7 +146,7 @@ function displayItens(page, arrayindex) {
                 criarModal(number_pedido);
             })
         })
-    }, [300])
+    }, [800])
     paginas(page, arrayindex);
 };
 
@@ -228,7 +228,7 @@ function criarModal(numeração){
     let pedido_number = document.querySelector('#Text_modal');
 
     pedido_number.innerHTML = '';
-    tabela_pedidos.innerHTML = '';
+    // tabela_pedidos.innerHTML = '';
     
     axios.post('http://localhost:200/pedidos/consultPedido', {
         numero: numeração

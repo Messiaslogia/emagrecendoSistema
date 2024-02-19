@@ -209,7 +209,7 @@
                 <form class="text-center border border-light p-5" action="/api/novoUser" id="formPedido" method="post"
                     enctype="application/x-www-form-urlencoded">
 
-                    <input id="idDoVendedor" name="distribuidor" type="text" style="display: none;" class="form-control"
+                    <input id="idDoVendedor" name="vendedor" type="text" style="display: none;" class="form-control"
                         value="<%= idDoVendedor %>">
 
                     <p class="h4 mb-4">Novo Pedido</p>
@@ -218,7 +218,7 @@
                     <div class="form-row mb-4">
                         <div class="col">
                             <div class="">
-                                <select id="Usuario_input" name="usuario" class="form-control " id="exampleFormControlSelect1">
+                                <select id="Usuario_input" name="usuario" class="form-control ">
                                     <option disabled selected value="">Selecione o Usuário</option>
                                     <!-- Carregar produtos com featch -->
                                 </select>
@@ -230,7 +230,7 @@
                     <div class="form-row mb-4">
                         <div class="col">
                             <div class="">
-                                <select id="Produto_input" name="produto" class="form-control" id="exampleFormControlSelect1">
+                                <select id="Produto_input" name="produto" class="form-control">
                                     <option disabled selected value="">Selecione o Produto</option>
                                     <!-- Carregar produtos com featch -->
                                 </select>
@@ -288,8 +288,8 @@
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <a href="/distribuidor/pedidos"><button type="button" class="btn btn-alert">Ok, voltar ao inicio!</button></a>
-                    <a href="/distribuidor/efetuarPedido"><button type="button" class="btn btn-link text-danger ml-auto" data-bs-dismiss="modal">Fechar</button></a>
+                    <a href="/vendedores/pedidos"><button type="button" class="btn btn-alert">Ok, voltar ao inicio!</button></a>
+                    <!-- <a href="/distribuidor/efetuarPedido"><button type="button" class="btn btn-link text-danger ml-auto" data-bs-dismiss="modal">Fechar</button></a> -->
                   </div>
                 </div>
               </div>
@@ -349,11 +349,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../../javascripts_proprios/vendedores/pedidos/pedidosUsuarios.js"></script>
     <script src="../../javascripts_proprios/vendedores/pedidos/pedidosProdutos.js"></script>
-    <script src="../../javascripts_proprios/vendedores/pedidos/pedidosFormulario.js"></script>
-
-
-
-    
+    <script src="../../javascripts_proprios/vendedores/pedidos/pedidosFormulario.js"></script>  
 </body>
 
 </html>

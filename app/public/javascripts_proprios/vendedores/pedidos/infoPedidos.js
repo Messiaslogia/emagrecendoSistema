@@ -1,21 +1,15 @@
-const urlPedidosTotal = "http://localhost:3000/apiPedidos/"
-
+const urlPedidosTotal = "http://localhost:200/vendedor/casesDesaprovadosVendedor"
+const idVendedor = document.querySelector('#idDoVendedor')
 document.addEventListener('DOMContentLoaded', () => {
     const valorTotal = document.querySelector('#Valor_pedidos');
     const quantidadeTotal = document.querySelector('#Quantidade_pedidos');
 
-    axios.get(`${urlPedidosTotal}valorTotalPedido`)
+    axios.get(`${urlPedidosTotal}?idVendedor=${idVendedor}`)
         .then(valor => {
-            valorTotal.innerHTML = valor.data
-        })
-        .catch(err => {
-            console.log(err);
-        })
+            console.log(valor)
+            valorTotal.innerHTML = valor.data[0]
+            quantidadeTotal.innerHTML = valor.data[1]
 
-
-    axios.get(`${urlPedidosTotal}quantidadeTotal`)
-        .then(quantidade => {
-            quantidadeTotal.innerHTML = quantidade.data
         })
         .catch(err => {
             console.log(err);
