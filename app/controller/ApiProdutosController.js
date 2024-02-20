@@ -114,6 +114,8 @@ class ProductController {
             descricao: req.body.descricaoProduto,
             quantidade: req.body.quantidadeProduto,
             preco: req.body.precoProduto.replace('R$ ', '').replace(',', '.'),
+            preco_distribuidor: req.body.precoProdutoDistribuidor.replace('R$ ', '').replace(',', '.'),
+            preco_revenda: req.body.precoProdutoRevenda.replace('R$ ', '').replace(',', '.'),
             data: req.body.dataProduto,
             hora: req.body.horaProduto
         };
