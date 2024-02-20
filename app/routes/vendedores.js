@@ -18,7 +18,8 @@ router.get('/entregasConcluidas', VendedoresController.entregasConcluidas);
 
 router.get('/adicionarUsuario', VendedoresController.adicionarUsuario);
 router.get('/adiconarDividasGerais', VendedoresController.adicionarDividasGerais);
-router.get('/todosUsuariosVendedor', VendedoresController.todosUsuariosVendedor)
+router.get('/todosUsuariosVendedor', VendedoresController.todosUsuariosVendedor);
+router.get('/usuarioPedidos', VendedoresController.todosUsuariosVendedor)
 
 
 

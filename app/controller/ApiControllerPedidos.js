@@ -191,6 +191,19 @@ class ApiControllerPedidos {
         // const idDistribuidor = req.query.idDistribuidor;
         // console.log(idDistribuidor);
     }
+
+    // VENDEDORES
+    todosOsPedidosVendedor(req, res){
+        const idVendedor = req.query.idDoVendedor;
+        axios.get(`${urls}todosPedidosVendedor?idDoVendedor=${idVendedor}`)
+            .then(resp => {
+                res.json(resp.data)
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false)
+            })
+    }
 }
 
 module.exports = new ApiControllerPedidos

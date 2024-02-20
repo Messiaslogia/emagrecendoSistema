@@ -74,6 +74,7 @@ class VendedoresController {
         const idVendedor = req.query.idVendedor;
         axios.get(`${urls}todosUsuariosVendedor?idVendedor=${idVendedor}`)
             .then(users => {
+                
                 res.json(users.data)
             })
             .catch(err => {
@@ -81,6 +82,12 @@ class VendedoresController {
                 res.json(false);
             })
     }
+
+    // usuariosInput(req, res){
+    //     const idVendedor = req.query.idVendedor;
+
+    //     axios.get(`${urls}`)
+    // }
 
 
 

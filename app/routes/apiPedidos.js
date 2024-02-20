@@ -19,7 +19,8 @@ router.get('/casesEntregas', ApiControllerPedidos.casesEntregas)
 router.get('/valorPedidosAprovados', ApiControllerPedidos.casesPedidosAprovados)
 
 // Distribuidores
-router.get('/todosOsPedidosDistribuidor', ApiControllerPedidos.todosOsPedidosDistribuidor)
+router.get('/todosOsPedidosDistribuidor', ApiControllerPedidos.todosOsPedidosDistribuidor);
+router.get('/todosOsPedidosVendedor', ApiControllerPedidos.todosOsPedidosVendedor);
 router.get('/pedidosAprovadosDistribuidor', ApiControllerPedidos.pedidosAprovadosDistribuidor)
 
 module.exports = router
