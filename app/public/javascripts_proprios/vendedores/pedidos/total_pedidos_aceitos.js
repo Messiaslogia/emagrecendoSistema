@@ -1,7 +1,6 @@
 const container_users = document.querySelector('#Container_Users');
 const url = "http://localhost:3000/apiPedidos/pedidosAprovadosVendedor";
 const idVendedor = document.getElementById('Id_User').value;
-console.log(idVendedor);
 
 // Div globais para funções de render e status
 const div_pedidos = document.querySelector('#Tabela_de_pedidoPagos');
@@ -33,6 +32,7 @@ function adquirirListProdutos(){
         })
         .then( data => {
             allPedidos = data;
+            console.log(allPedidos);
         })
         .catch( err => {
             console.log(err)
