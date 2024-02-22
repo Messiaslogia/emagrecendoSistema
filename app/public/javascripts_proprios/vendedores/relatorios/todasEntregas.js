@@ -1,5 +1,5 @@
 const url = "http://localhost:200/vendedor/todasEntregas";
-const div_entregas = document.querySelector('#Tabela_modal');
+const div_entregas = document.querySelector('#Tabela_de_entregas');
 const id_user = document.querySelector('#Id_User').value;
 let itensPorPagina = 5;
 let listProduto;
