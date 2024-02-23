@@ -24,7 +24,11 @@ router.get('/quantidadePedidos', ApiControllerPedidos.quantidadeTotaldePedidos);
 
 // Distribuidores
 router.get('/todosOsPedidosDistribuidor', ApiControllerPedidos.todosOsPedidosDistribuidor);
+router.get('/pedidosAprovadosDistribuidor', ApiControllerPedidos.pedidosAprovadosDistribuidor);
+
+
+// Vendedor 
+router.get('/pedidosAprovadosVendedor', ApiControllerPedidos.pedidosAprovadosVendedor);
 router.get('/todosOsPedidosVendedor', ApiControllerPedidos.todosOsPedidosVendedor);
-router.get('/pedidosAprovadosDistribuidor', ApiControllerPedidos.pedidosAprovadosDistribuidor)
 
 module.exports = router

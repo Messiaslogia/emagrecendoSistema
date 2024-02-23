@@ -227,6 +227,19 @@ class ApiControllerPedidos {
                 res.json(false)
             })
     }
+
+    pedidosAprovadosVendedor(req, res){
+        const idVendedor = req.query.idVendedor;
+        console.log(idVendedor)
+        axios.get(`${urls}pedidosAprovadosVendedor?idVendedor=${idVendedor}`)
+            .then(resp => {
+                res.json(resp.data)
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false)
+            })
+    }
 }
 
 module.exports = new ApiControllerPedidos

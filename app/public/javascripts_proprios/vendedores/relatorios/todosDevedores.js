@@ -4,8 +4,6 @@ const url = `http://localhost:200/vendedor/todosDevedores?idVendedor=${id}`;
 let itensPorPagina = 5;
 var devedores;
 
-
-
 const div_Devedores = document.querySelector('#Tabela_de_Devedores');
 
 console.log(div_Devedores)

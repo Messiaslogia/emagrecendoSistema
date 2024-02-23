@@ -29,6 +29,8 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
+    <input id="Id_User" name="idDoVendedor" type="text" style="display: none;" class="form-control" value="<%= idDoVendedor %>">
+
     <aside
         class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
         id="sidenav-main">
@@ -219,7 +221,7 @@
                             </div>
                             <div class="text-end pt-1">
                                 <p class="text-sm mb-0 text-capitalize">Valor Total Aprovados</p>
-                                <h2 id="Case_De_Aprovados" class="mt-3"></h2>
+                                <h2 id="Valor_pedidos" class="mt-3"></h2>
                             </div>
                         </div>
 
@@ -239,7 +241,7 @@
                             </div>
                             <div class="text-end pt-1">
                                 <p class="text-sm mb-0 text-capitalize">Valor Total de Vendas</p>
-                                <h2 id="Case_De_Ganhos" class="mt-3"></h2>
+                                <h2 id="Vendido_pedidos" class="mt-3"></h2>
                             </div>
                         </div>
 
@@ -259,7 +261,7 @@
                             </div>
                             <div class="text-end pt-1">
                                 <p class="text-sm mb-0 text-capitalize">Valor Total de Dividas</p>
-                                <h2 id="Case_De_Dividas" class="mt-3"></h2>
+                                <h2 id="Debito_pedido" class="mt-3"></h2>
                             </div>
                         </div>
 
@@ -413,7 +415,7 @@
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
     <!-- <script src="../../javascripts_proprios/vendedoreses/pedidos/todos_pedidos_aceitos.js"></script>
     <script src="../../javascripts_proprios/pedidos/modalpedidos.js"></script> -->
-    <script src="../../javascripts_proprios/vendedores/pedidos/todos_pedidos_aceitos.js"></script>
+    <script src="../../javascripts_proprios/vendedores/pedidos/total_pedidos_aceitos.js"></script>
     <script src="../../javascripts_proprios/vendedores/pedidos/casesAprovados.js"></script>
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");
