@@ -1,5 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    const botaoAvancar = document.getElementById('Bt_avancar');
+    const botaoEnviar = document.getElementById('Bt_Enviar');
+    const usuarioInput = document.getElementById('Usuario_input');
+    const dataInput = document.getElementById('Data_produto');
+    const horaInput = document.getElementById('Hora_produto');
+    const produtoInput = document.getElementById('Produto_input');
+    const quantidade = document.getElementById('Quantidade_input');
+    const numeroPedido = gerarNumeroPedido();
+
+    // Modal
+    const bt_modal = document.querySelector('#Button_Modal');
+    const info_modal = document.querySelector('#Pedido_number')
+
+    let formDataArray = [];
+
     // GERA NUMEROS ALEATORIOS PARA OS PEDIDOS
     function gerarNumeroPedido() {
         const dataAtual = new Date().toISOString().replace(/[-T:]/g, '').slice(0, -5);
@@ -17,51 +32,43 @@ document.addEventListener('DOMContentLoaded', function () {
         const elementoValor = document.getElementById('Valor_Produto')
         const elementoQuantidade = document.getElementById('Quantidade_input')
 
-        var valorQuantidade = elementoQuantidade.value
-        var valorProduto = elementoValor.value.replace('R$ ', '')
+        let valorQuantidade = elementoQuantidade.value
+        let valorProduto = elementoValor.value.replace('R$ ', '')
 
-        var valorFinalPedido = valorQuantidade * valorProduto
-        console.log(valorProduto)
+        let valorFinalPedido = valorQuantidade * valorProduto
+ 
+        let algumValorVazio = false;
 
+        for (let i = 0; i < elementosForm.length; i++) {
+            const elemento = elementosForm[i];
 
-        elementosForm.forEach(function (elemento) {
-            if (elemento.name) {
-            
+            if (elemento.value.trim() === '') {
+                alert('Preencha todos os campos');
+                algumValorVazio = true;
+                break; // Sai do loop
+            } else {
                 dadosAtuaisForm['pedido'] = numeroPedido;
                 dadosAtuaisForm[elemento.name] = elemento.value;
                 dadosAtuaisForm['valorPedido'] = valorFinalPedido;
-
             }
-        })
+        }
 
-        //Colocando os valores padores dos elementos
-        elementoValor.value = ''
-        elementoQuantidade.value = '';
-        usuarioInput.disabled = true;
-        dataInput.readOnly = true;
-        horaInput.readOnly = true;
-        produtoInput.value = '';
-        quantidade.value = '';
+        // Se algum valor estiver vazio, você já terá exibido o alerta e saído do loop
+        if (!algumValorVazio) {
+            elementoValor.value = ''
+            elementoQuantidade.value = '';
+            usuarioInput.disabled = true;
+            dataInput.readOnly = true;
+            horaInput.readOnly = true;
+            produtoInput.value = '';
+            quantidade.value = '';
 
-        formDataArray.push(dadosAtuaisForm);
-        return formDataArray;
+            formDataArray.push(dadosAtuaisForm);
+            return formDataArray;
+        }
+
+        
     }
-
-
-    const botaoAvancar = document.getElementById('Bt_avancar');
-    const botaoEnviar = document.getElementById('Bt_Enviar');
-    const usuarioInput = document.getElementById('Usuario_input');
-    const dataInput = document.getElementById('Data_produto');
-    const horaInput = document.getElementById('Hora_produto');
-    const produtoInput = document.getElementById('Produto_input');
-    const quantidade = document.getElementById('Quantidade_input');
-    const numeroPedido = gerarNumeroPedido();
-
-    // Modal
-    const bt_modal = document.querySelector('#Button_Modal');
-    const info_modal = document.querySelector('#Pedido_number')
-
-    let formDataArray = [];
 
     // EVENTO PARA COLETAR OS DADOS AO CLICAR NO AVANCAR
     botaoAvancar.addEventListener('click', () => {
@@ -76,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
         formData.forEach(objeto => {
             if (objeto.hasOwnProperty('valorPedido')) {
                 somaValorPedido += parseFloat(objeto.valorPedido);
+               
             }
         });
 

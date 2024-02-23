@@ -131,10 +131,10 @@ function displayItens(page, arrayindex){
                         <p class="text-xs font-weight-bold mb-0">${pedido.status}</p>
                     </td>
                     <td class="align-middle text-center text-sm">
-                        <select class="badge badge-sm bg-gradient-secondary">
-                            <option class="text-info" select value="${pedido.pago_com}">${pedido.pago_com}</option>
+                        <select class="badge badge-sm bg-gradient-secondary" disabled>
+                            <option class="text-info" selected value="${pedido.pago_com}">${pedido.pago_com}</option>
                         </select>
-                    </td>
+                    </td>   
                     <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">${pedido.data}</span>
                     </td>

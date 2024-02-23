@@ -108,17 +108,21 @@ function displayItens( page, arrayindex ){
             <td class="align-middle text-center">
                 <span class="text-secondary text-xs font-weight-bold">${pedido.data}</span>
             </td>
-            <td class="align-middle" style="padding-left: 10rem">
+            <td class="align-middle text-center" ">
                 <select id="Pedido_input" number_pedido="${pedido.numero_do_pedido}" name="produto" class="form-control cursor-pointer">
                     <option selected disabled value="A caminho!">--</option>
                     <option class="cursor-pointer" value="A caminho!">A caminho!</option>
                     <option class="cursor-pointer" value="Entregue">Entregue</option>
                     <option class="cursor-pointer" value="Não entregue">Não Entregue</option>
                 </select>
+            </td>
+
+            <td class="align-middle">
                 <a idAtributo="${pedido.numero_do_pedido}" id="Button_Deletar_Pedido" class="btn btn-link text-danger text-gradient mb-0">
                     <i class="material-icons text-sm me-2">delete</i>
                 Deletar</a>
             </td>
+            
         </tr>
             `
     })

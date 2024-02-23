@@ -165,6 +165,29 @@ class ApiControllerPedidos {
             })
     }
 
+    entregas(req, res){
+        axios.get(`${urls}entregas`)
+            .then(resp => {
+                res.json(resp.data);
+            })
+            .catch(err => {
+                console.log(err)
+                res.json(false)
+            })
+    }
+
+    quantidadeTotaldePedidos(req, res){
+        axios.get(`${urls}quantidadeTotaldePedidos`)
+        .then(resp => {
+            
+            res.json(resp.data)
+        })
+        .catch(err => {
+            console.log(err);
+            res.json(false)
+        })
+    }
+
     // DISTRIBUIDORES
     todosOsPedidosDistribuidor(req, res){
         const idDistribuidor = req.query.idDistribuidor;

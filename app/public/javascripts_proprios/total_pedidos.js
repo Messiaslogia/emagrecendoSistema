@@ -272,17 +272,27 @@ function criarModal(numeração){
                     id: pedido.id_produto_FK
                 })
                     .then(produto => {
-                        let valorTotal = produto.data[0].preco * pedido.quantidade
+                        let valorTotalProduto = produto.data[0].preco * pedido.quantidade
+                        let valorTotal = valorTotalProduto * pedido.quantidade
+
+
+                        let precoProduto = produto.data[0].preco
                         tabela_pedidos.innerHTML += `
                         <tr>
                             <td>
                                 <p class="text-xs font-weight-bold mb-0">${produto.data[0].nome}</p>
                             </td>
                             <td class="align-middle text-center text-sm">
-                                <span class="badge badge-sm bg-gradient-success">R$ ${valorTotal.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
+                                <span class="badge badge-sm bg-gradient-success">R$ ${precoProduto.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
                             </td>
                             <td class="align-middle text-center">
                                 <span class="text-secondary text-xs font-weight-bold">${pedido.quantidade}</span>
+                            </td>
+                            <td class="align-middle text-center text-sm">
+                                <span class="badge badge-sm bg-gradient-success">R$ ${valorTotalProduto.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
+                            </td>
+                            <td class="align-middle text-center text-sm">
+                                <span class="badge badge-sm bg-gradient-success">R$ ${valorTotal.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
                             </td>
                         </tr>`;
      
@@ -303,13 +313,13 @@ function criarModal(numeração){
             tabela_pedidos.innerHTML += `
             <tr>
                 <td>
-                    <p class="text-xs font-weight-bold mb-0">Total</p>
+                    
                 </td>
                 <td class="align-middle text-center text-sm">
-                    <span class="badge badge-sm bg-gradient-success">R$ ${valor.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
+                    
                 </td>
                 <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold">${quantidade}</span>
+                    
                 </td>
             </tr>`;
 

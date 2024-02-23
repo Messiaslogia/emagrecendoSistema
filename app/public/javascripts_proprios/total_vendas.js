@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
             h2_Vendas.innerHTML = `R$ ${resp.data.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`
         })
         .catch(err => {
-            console.log(err)
+            console.log('Erro ao puxar vendas')
         })
 })
 
