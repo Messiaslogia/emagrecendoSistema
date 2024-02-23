@@ -25,6 +25,21 @@ class VendedoresController {
         res.render('vendedores/clientes/adicionarUsuario', { idDoVendedor });
     }
 
+    dellCliente(req, res){
+        let id = req.params.id;
+        let idDoVendedor = cache.get('id_vendedor');
+
+        axios.post(`${urls}deletarCliente`, {
+            id: id
+        })
+        .then(resp => {
+            res.render('vendedores/clientes/index', { idDoVendedor });
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
     vendas(req, res){
         var idDoVendedor = cache.get('id_vendedor');
         res.render('vendedores/vendas/index', { idDoVendedor });

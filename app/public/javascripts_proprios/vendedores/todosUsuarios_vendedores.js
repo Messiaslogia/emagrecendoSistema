@@ -78,7 +78,7 @@ function displayItens(page, arrayindex, listUsuarios) {
                     <span class="mt-2 text-xs">Zona: <span class="text-dark font-weight-bold ms-sm-2">${user.regiao}</span></span>
                 </div>
                 <div class="ms-auto text-end">
-                    <a id="Bt_dellUser" class="btn btn-link text-danger text-gradient px-3 mb-0" href="/api/dellUser/${user.id_usuario}"><i
+                    <a id="Bt_dellUser" class="btn btn-link text-danger text-gradient px-3 mb-0" href="/vendedores/dellUser/${user.id_usuario}"><i
                             class="material-icons text-sm me-2">delete</i>Delete</a>
                     <a id="Bt_editUser" class="btn btn-link text-dark px-3 mb-0" href="/api/editUser/${user.id_usuario}"><i
                             class="material-icons text-sm me-2">edit</i>Edit</a>

@@ -15,6 +15,7 @@ router.get('/aprovarPedido', VendedoresController.aprovarPedido);
 router.get('/vendasEfetuadas', VendedoresController.vendasEfetuadas);
 router.get('/dividasPedidos', VendedoresController.dividasPedidos);
 router.get('/entregasConcluidas', VendedoresController.entregasConcluidas);
+router.get('/dellUser/:id', VendedoresController.dellCliente)
 
 router.get('/adicionarUsuario', VendedoresController.adicionarUsuario);
 router.get('/adiconarDividasGerais', VendedoresController.adicionarDividasGerais);
