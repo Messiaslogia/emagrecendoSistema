@@ -26,7 +26,7 @@ div_produtos.addEventListener('change', function () {
     var valor = div_produtos.value
     axios.get(`http://localhost:3000/apiProdutos/consultProduto/${valor}`)
         .then((result) => {
-            div_valorDistribuidor.value = result.data[0].preco_distribuidor;
+            div_valorDistribuidor.value = `R$ ${result.data[0].preco_distribuidor.toFixed(2)}`;
         }).catch((err) =>{
             console.log(err)
         })

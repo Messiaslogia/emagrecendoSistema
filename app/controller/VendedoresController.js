@@ -65,9 +65,14 @@ class VendedoresController {
         res.render('vendedores/pedidos/aprovacao', { idDoVendedor });
     }
 
+    dividasGerais(req, res){
+        var idDoVendedor = cache.get('id_vendedor');
+        res.render('vendedores/vendas/dividasGerais', { idDoVendedor });
+    }
+
     vendasEfetuadas(req, res){
         var idDoVendedor = cache.get('id_vendedor');
-        res.render('vendedores/vendas/registrarVenda', { idDoVendedor });
+        res.render('vendedores/vendas/vendasReais', { idDoVendedor });
     }
 
     adicionarDividasGerais(req, res){

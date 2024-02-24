@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Modal Variaveis
 let valorTotalInfo = [];
 let quantidadeTotalInfo = [];
-// let tabela_pedidos = document.querySelector('#Tabela_modal');
+let tabela_pedidos = document.querySelector('#Tabela_modal');
 let filtroButton = document.querySelectorAll('#dropdownMenuButton');
 
 
@@ -228,7 +228,7 @@ function criarModal(numeração){
     let pedido_number = document.querySelector('#Text_modal');
 
     pedido_number.innerHTML = '';
-    // tabela_pedidos.innerHTML = '';
+    tabela_pedidos.innerHTML = '';
     
     axios.post('http://localhost:200/pedidos/consultPedido', {
         numero: numeração
@@ -240,7 +240,6 @@ function criarModal(numeração){
                 pedido_number.innerHTML = numeração;
                 valorTotalInfo.push(pedido.valor);
                 quantidadeTotalInfo.push(pedido.quantidade);
-
 
                 axios.post('http://localhost:200/produtos/consultarProdutos', {
                     id: pedido.id_produto_FK
