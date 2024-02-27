@@ -75,6 +75,11 @@ class VendedoresController {
         res.render('vendedores/vendas/vendasReais', { idDoVendedor });
     }
 
+    adicionarVendas(req, res){
+        var idDoVendedor = cache.get('id_vendedor');
+        res.render('vendedores/vendas/vendasReais/adicionarVenda', { idDoVendedor });
+    }
+
     adicionarDividasGerais(req, res){
         var idDoVendedor = cache.get('id_vendedor');
         res.render('vendedores/vendas/registrarVenda/adicionarVenda', { idDoVendedor });
@@ -100,6 +105,26 @@ class VendedoresController {
             .catch(err => {
                 console.log(`${err} erro ao pegar dados`);
                 res.json(false);
+            })
+    }
+
+    adicionarVenda(req, res){
+        let novaVenda = {
+            id_vendedor_FK: req.body.idVendedor,
+            id_cliente_FK: req.body.usuario,
+            id_produto_FK: req.body.produto,
+            quantidade_total: req.body.quantidadeVenda,
+            valor_unitario: req.body.valorVenda,
+            valor_total: '',
+            data: req.body.dataVenda
+        }
+
+        axios.post(`${urls}novaVenda`, novaVenda)
+            .then(resp => {
+                res.redirect('http://localhost:3000/vendedores/vendasEfetuadas')
+            })
+            .catch(err => {
+                res.json(false)
             })
     }
 
