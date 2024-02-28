@@ -14,7 +14,7 @@ axios.get(`${urlProdutoseClientes}?idVendedor=${idVendedor}`)
 
         resp.data[1].forEach((produtos, index) => {
             document.querySelector('#Produto_input').innerHTML += `
-                <option indexvalue="${index}" value="${produtos.id_produto}">${produtos.nome}</option>
+                <option id="optionProduto" indexvalue="${index}" value="${produtos.id_produto}">${produtos.nome}</option>
             `
         });
 
@@ -25,8 +25,23 @@ axios.get(`${urlProdutoseClientes}?idVendedor=${idVendedor}`)
     })
 
 let inputSelect = document.querySelector('#Produto_input');
+setTimeout(() => {
+    
+}, [500])
+
+
+
 
 inputSelect.addEventListener('change', (e) => {
-    let option = e.target;
-    console.log(option);
+    let valor = inputSelect.value;
+    
+    let inputsOption = document.querySelectorAll('#optionProduto');
+    let htmlOptions = [...inputsOption]
+
+    htmlOptions.forEach(produto => {
+        if(valor == produto.value){
+            let index = produto.getAttribute('indexvalue');
+            document.querySelector('#ValorUnitário').value = `R$ ${infoProduto[index].preco_revenda}`
+        }
+    })
 })

@@ -80,6 +80,24 @@ class VendedoresController {
         res.render('vendedores/vendas/vendasReais/adicionarVenda', { idDoVendedor });
     }
 
+    registrarVendas(req, res){
+        let novaVenda = {
+            idVendedor: req.body.idVendedor,
+            idCliente: req.body.usuario,
+            idProduto: req.body.produto,
+            valorUnitario: parseFloat(req.body.valorVenda.replace('R$ ', '')),
+            quantidade: req.body.quantidadeVenda,
+            valorTotal: parseFloat(req.body.valorVenda.replace('R$ ', '')) * req.body.quantidadeVenda,
+            data: req.body.dataVenda,
+        };
+
+        
+        axios.post(`${urls}adicionarVenda`, novaVenda) 
+            .then(resp => {
+                res.redirect('/vendedores/vendasEfetuadas')
+            })
+    }
+
     adicionarDividasGerais(req, res){
         var idDoVendedor = cache.get('id_vendedor');
         res.render('vendedores/vendas/registrarVenda/adicionarVenda', { idDoVendedor });

@@ -45,22 +45,22 @@ function displayItens(page) {
         div_entregas.innerHTML += `
                                  <tr>
                                       <td class="text-center">                                          
-                                        <h6 class="mb-0 text-sm">${venda.numero_do_pedido}</h6>
+                                        <h6 class="mb-0 text-sm">${venda.id_venda}</h6>
                                       </td>
                                       <td class="text-center">
-                                          <p class="text-xs font-weight-bold mb-0">${venda.codigo_rastreio}</p>
+                                          <p class="text-xs font-weight-bold mb-0">${venda.valor_total}</p>
                                       </td>
                                       <td class="align-middle text-center text-sm">
-                                          <span class="">${venda.valor_da_entrega}</span>
+                                          <span class="">${venda.quantidade_total}</span>
                                       </td>
                                       <td class="align-middle text-center">
-                                          <span class="text-secondary text-xs font-weight-bold">${venda.empresa}</span>
+                                          <span class="text-secondary text-xs font-weight-bold">${venda.valor_unitario}</span>
                                       </td>
                                        <td class="align-middle text-center">
                                           <span class="text-secondary text-xs font-weight-bold">${venda.data}</span>
                                       </td>
                                       <td class="align-middle text-center">
-                                          <span class="text-secondary text-xs font-weight-bold">${venda.hora}</span>
+                                          <span class="text-secondary text-xs font-weight-bold">${venda.porcentagem}</span>
                                       </td>
                                  </tr>
                          `
