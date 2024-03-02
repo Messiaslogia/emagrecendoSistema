@@ -206,7 +206,7 @@
 
         <div class="row justify-content-center">
             <div class="col-md-10 bg-light mt-4">
-                <form class="text-center border border-light p-5" action="/api/novoUser" id="formPedido" method="post"
+                <form class="text-center border border-light p-5" action="/apiPedidos/addPedidos" id="formPedido" method="post"
                     enctype="application/x-www-form-urlencoded">
 
                     <input id="idDoVendedor" name="vendedor" type="text" style="display: none;" class="form-control"
@@ -240,7 +240,7 @@
 
                    
 
-                    <input id="Valor_Distribuidor" name="valorProduto" id="defaultRegisterFormPassword" class="form-control mb-4"
+                    <input id="Valor_Distribuidor" name="valorPedido" id="defaultRegisterFormPassword" class="form-control mb-4"
                         placeholder="Valor do produto" aria-describedby="defaultRegisterFormPasswordHelpBlock" value="" readonly>
 
                     <!-- Status -->
@@ -270,50 +270,24 @@
         
         <!-- Modal -->
         <div class="col-md-4">
-            <button id="Bt_modal" type="button" class="btn btn-block bg-gradient-warning mb-3" data-bs-toggle="modal" data-bs-target="#modal-notification" style="display:none;">Notification</button>
+            <button type="button" class="btn btn-block bg-gradient-warning mb-3" data-bs-toggle="modal" data-bs-target="#modal-notification" id="Button_Modal" style="display: none;">Notification</button>
             <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
               <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h6 class="modal-title font-weight-normal" id="modal-title-notification">Informações do pedido</h6>
-                    <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">×</span>
-                    </button>
+                    <h6 class="modal-title font-weight-normal" id="modal-title-notification">Informações do Pedido</h6>
+                    
                   </div>
                   <div class="modal-body">
                     <div class="py-3 text-center">
-                      <i id="Text_modal" class="material-icons h1 text-secondary">
-                        
-                      </i>
-                      <h4 id="Text_user" class="text-gradient text-info mt-4"></h4>
-                      <h4 id="Text_Endereco" class="text-gradient text-info mt-4"></h4>
-
-                        <div class="table-responsive p-0">
-                            <table class="table align-items-center mb-0">
-                                <thead>
-                                    <tr>
-
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Produto
-                                        </th>
-
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Valor Total
-                                        </th>
-                                        <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Quantidade</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="Tabela_modal">
-
-                                </tbody>
-                            </table>
-                        </div>
+                      <i id="Pedido_number" class="material-icons h1 text-secondary"></i>
+                      <h4 class="text-gradient text-success mt-4">Pedido feito com sucesso!</h4>
+                      <p>Aguarde a confirmação do seu pedido.</p>
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-link text-danger ml-auto" data-bs-dismiss="modal">Fechar</button>
+                    <a href="/vendedores/pedidos"><button type="button" class="btn btn-alert">Ok, voltar ao inicio!</button></a>
+                    
                   </div>
                 </div>
               </div>

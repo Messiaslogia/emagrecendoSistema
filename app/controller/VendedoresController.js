@@ -98,6 +98,20 @@ class VendedoresController {
             })
     }
 
+    registrarPedidos( req, res ){
+        let newPedidos = {
+            id_produto_FK: req.body.id_produto_FK,
+            id_usuario_FK: req.body.id_usuario_FK,
+            numero_do_pedido: req.body.pedido,
+            status: req.body.status,
+            data: req.body.data,
+            hora: req.body.hora,
+            quantidade: req.body.quantidade,
+            valor: req.body.valor,
+            mes: data.getMonth() + 1
+        };
+    }
+
     adicionarDividasGerais(req, res){
         var idDoVendedor = cache.get('id_vendedor');
         res.render('vendedores/vendas/registrarVenda/adicionarVenda', { idDoVendedor });

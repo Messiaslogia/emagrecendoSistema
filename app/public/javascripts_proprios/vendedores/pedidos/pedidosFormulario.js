@@ -14,20 +14,17 @@ document.addEventListener('DOMContentLoaded', function () {
         let dadosTeste = {};
 
 
-
-
         const elementosForm = document.querySelectorAll('#formPedido input, #formPedido select');
-        const elementoValor = document.getElementById('Valor_Distribuidor')
-        const elementoQuantidade = document.getElementById('Quantidade_input')
-
-        var valorQuantidade = elementoQuantidade.value
-        var valorProduto = elementoValor.value
+        const elementoValor = parseFloat(document.getElementById('Valor_Distribuidor').value.replace("R$ ", '')) 
+        const elementoQuantidade = document.getElementById('Quantidade_input').value
+        var valorQuantidade = elementoQuantidade
+        var valorProduto = elementoValor
+        console.log('cuu', valorProduto);
 
         var valorFinalPedido = valorQuantidade * valorProduto
 
         elementosForm.forEach(function (elemento) {
             if (elemento.name) {
-
                 dadosAtuaisForm['pedido'] = numeroPedido;
                 dadosAtuaisForm[elemento.name] = elemento.value;
                 dadosAtuaisForm['valorPedido'] = valorFinalPedido;
