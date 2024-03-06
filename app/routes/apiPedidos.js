@@ -16,7 +16,6 @@ router.get('/statusEntregas/:numero/:id', ApiControllerPedidos.enviarProdutoInde
 router.get('/quantidadeTotal', ApiControllerPedidos.quantidadeTotal);
 router.get('/valorTotalPedido', ApiControllerPedidos.consultTotal);
 router.get('/casesEntregas', ApiControllerPedidos.casesEntregas);
-router.get('/entregas', ApiControllerPedidos.entregas);
 router.get('/valorPedidosAprovados', ApiControllerPedidos.casesPedidosAprovados);
 
 router.get('/quantidadePedidos', ApiControllerPedidos.quantidadeTotaldePedidos);

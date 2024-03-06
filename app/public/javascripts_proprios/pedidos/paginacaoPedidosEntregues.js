@@ -18,17 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
         filtro('A caminho!');
         dellFunction();
     }, [300])
-
-    setTimeout(() => {
-        let bt_produtos = document.querySelectorAll('#Info_pedidos');
-
-        bt_produtos.forEach(info => {
-            info.addEventListener('click', (e) => {
-                let number_pedido = e.target.getAttribute('number_pedido');
-                criarModal(number_pedido);
-            })
-        })
-    }, [300])
 });
 
 function adquirirListProdutos(){
@@ -48,15 +37,15 @@ function adquirirListProdutos(){
 function filtro(status){
     switch (status){
         case "A caminho!":
-            displayItens(1, 0);
-            dellFunction();
-            break
-        case "Entregues":
             displayItens(1, 1);
             dellFunction();
             break
-        case "Não Entregues":
+        case "Entregues":
             displayItens(1, 2);
+            dellFunction();
+            break
+        case "Não Entregues":
+            displayItens(1, 3);
             dellFunction();
             break
           
@@ -80,9 +69,18 @@ function displayItens( page, arrayindex ){
     let startIndex = (page - 1) * itensPorPagina;
     let endIndex = startIndex + itensPorPagina;
     let arrayPedidos = allPedidosEntregues[arrayindex];
-    let reversePedidos = arrayPedidos.slice().reverse();
-    let pageItens = reversePedidos.slice(startIndex, endIndex);
+    let array_formatado = [];
 
+    arrayPedidos.forEach(teste => {
+        allPedidosEntregues[0].find(element => {
+            if(element.numero_do_pedido == teste.numero_do_pedido){
+                array_formatado.push(element)
+            }
+        })
+    })
+
+    let reversePedidos = array_formatado.slice().reverse();
+    let pageItens = reversePedidos.slice(startIndex, endIndex);
     // Exibindo os itens
    div_pedidos.innerHTML = '';
 
@@ -100,10 +98,16 @@ function displayItens( page, arrayindex ){
                 </div>
             </td>
             <td>
-                <p class="text-xs font-weight-bold mb-0">${pedido.status}</p>
+                <p class="text-xs font-weight-bold mb-0">${pedido.codigo_rastreio}</p>
             </td>
             <td class="align-middle text-center text-sm">
-                <span class="badge badge-sm bg-gradient-success">${pedido.pago_com}</span>
+                <span class="text-secondary text-xs font-weight-bold">${pedido.endereco}</span>
+            </td>
+            <td class="align-middle text-center">
+                <span class="badge badge-sm bg-gradient-success">R$ ${pedido.valor_da_entrega.toFixed(2)}</span>
+            </td>
+            <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold">${pedido.empresa}</span>
             </td>
             <td class="align-middle text-center">
                 <span class="text-secondary text-xs font-weight-bold">${pedido.data}</span>
@@ -204,13 +208,13 @@ filtroButton.forEach(dropdown => {
             });
 
 
-            let bt_produtos = document.querySelectorAll('#Info_pedidos');
-                bt_produtos.forEach(info => {
-                    info.addEventListener('click', (e) => {
-                        let number_pedido = e.target.getAttribute('number_pedido');
-                        criarModal(number_pedido);
-                    })
-            })
+            // let bt_produtos = document.querySelectorAll('#Info_pedidos');
+            //     bt_produtos.forEach(info => {
+            //         info.addEventListener('click', (e) => {
+            //             let number_pedido = e.target.getAttribute('number_pedido');
+            //             criarModal(number_pedido);
+            //         })
+            // })
         }, [1500]);
     });
 });
