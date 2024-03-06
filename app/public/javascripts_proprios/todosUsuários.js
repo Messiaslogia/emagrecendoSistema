@@ -1,5 +1,5 @@
 const container_users = document.querySelector('#Container_Users');
-const url = "http://localhost:3000/api/todosUsuarios";
+const urls = "http://localhost:3000/api/todosUsuarios";
 const inputsPages = document.querySelectorAll('#pageInput')
 let itensPorPagina = 5;
 let listUsuarios
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function adquirirListsUsers() {
-    axios.get(url)
+    axios.get(urls)
         .then(data => {
             listUsuarios = data.data;
             console.log(listUsuarios)

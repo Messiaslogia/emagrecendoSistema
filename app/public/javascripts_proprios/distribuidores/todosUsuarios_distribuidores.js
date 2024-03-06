@@ -8,16 +8,17 @@ const inputsPages = document.querySelectorAll('#pageInput')
 let itensPorPagina = 5;
 let listUsuarios
 
+
 document.addEventListener('DOMContentLoaded', () => {
     adquirirListsUsers();
 });
 
-async function adquirirListsUsers() {
-  await axios.get(`${url}?idDistribuidor=${idDistribuidor}`)
+function adquirirListsUsers() {
+  axios.get(`${url}?idDistribuidor=${idDistribuidor}`)
         .then(data => {
             listUsuarios = data.data;
             setTimeout(() => {
-                displayItens(1)
+                displayItens(1, 0)
             }, [300])
         })
         .catch(err => {
@@ -29,35 +30,35 @@ async function adquirirListsUsers() {
 function filtro(status) {
     switch (status) {
         case "Todos":
-            displayItens(1);
+            displayItens(1, 0);
             break
         case "Afiliados":
-            displayItens(1);
+            displayItens(1, 1);
             break
         case "Distribuidores":
-            displayItens(1);
+            displayItens(1, 2);
             break
         case "Vendedores":
-            displayItens(1);
+            displayItens(1, 3);
             break
         case "Representantes":
-            displayItens(1);
+            displayItens(1, 5);
             break
         case "Clientes":
-            displayItens(1);
+            displayItens(1, 4);
             break
-        case "Afiliados de Representantes":
-            displayItens(1);
+        case "AfiliadoRepresentante":
+            displayItens(1, 6);
             break
 
     }
 };
 
-function displayItens(page) {
+function displayItens(page, index) {
 
     let startIndex = (page - 1) * itensPorPagina;
     let endIndex = startIndex + itensPorPagina;
-    let arrayPedidos = listUsuarios;
+    let arrayPedidos = listUsuarios[index];
     let reversePedidos = arrayPedidos.slice().reverse();
     let pageItens = reversePedidos.slice(startIndex, endIndex);
 
