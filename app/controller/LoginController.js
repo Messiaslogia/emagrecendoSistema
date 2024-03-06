@@ -7,8 +7,8 @@ class LoginController {
     }
 
     login(req, res) {
-        res.render('admin/index');
-
+        let Id_User = cache.get('id_gerente');
+        res.render('admin/index', {Id_User});
     }
 
     distribuidor(req, res) {

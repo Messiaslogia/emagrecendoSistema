@@ -68,7 +68,9 @@ class AdminController{
     // PEDIDOS
 
     pedidosIndex(req, res) {
-        res.render('admin/pedidos/index')
+        let Id_User = cache.get('id_gerente');
+
+        res.render('admin/pedidos/index', {Id_User})
     }
 
     efetuarPedido(req, res){

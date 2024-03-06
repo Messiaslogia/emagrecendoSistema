@@ -22,6 +22,7 @@ class ApiControllerDividas {
     };
 
     adicionarDivida(req, res) {
+        console.log(req.body)
         let data = new Date;
         let mes = data.getMonth() + 1;
         console.log(mes)
@@ -41,7 +42,7 @@ class ApiControllerDividas {
 
             axios.post(`${urls}novaDivida`, novaDivida)
                 .then(resp => {
-                    // res.redirect('/admin/dividas');
+                    res.redirect('/admin/dividas');
                 })
                 .catch(err => console.log(err))
         } catch (error) {
