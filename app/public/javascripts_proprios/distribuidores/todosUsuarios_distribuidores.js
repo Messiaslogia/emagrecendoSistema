@@ -1,7 +1,7 @@
 const container_users = document.querySelector('#Container_Users');
 const inputDistribuidor = document.querySelector('#idDistribuidor');
 
-const idDistribuidor = inputDistribuidor.value
+
 
 const url = "http://localhost:3000/distribuidor/todosUsuariosDistribuidores";
 const inputsPages = document.querySelectorAll('#pageInput')
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function adquirirListsUsers() {
+    const idDistribuidor = inputDistribuidor.value
   axios.get(`${url}?idDistribuidor=${idDistribuidor}`)
         .then(data => {
             listUsuarios = data.data;
@@ -27,38 +28,24 @@ function adquirirListsUsers() {
 }; 
 
 
-function filtro(status) {
+function filtro(status, index) {
     switch (status) {
         case "Todos":
-            displayItens(1, 0);
-            break
+            displayItens(1, index);
+            break;
         case "Afiliados":
-            displayItens(1, 1);
-            break
-        case "Distribuidores":
-            displayItens(1, 2);
-            break
-        case "Vendedores":
-            displayItens(1, 3);
-            break
         case "Representantes":
-            displayItens(1, 5);
-            break
-        case "Clientes":
-            displayItens(1, 4);
-            break
-        case "AfiliadoRepresentante":
-            displayItens(1, 6);
-            break
-
+        case "Afiliados de Representantes":
+            displayItens(1, index);
+            break;
     }
-};
+}
 
 function displayItens(page, index) {
 
     let startIndex = (page - 1) * itensPorPagina;
     let endIndex = startIndex + itensPorPagina;
-    let arrayPedidos = listUsuarios[index];
+    let arrayPedidos = listUsuarios;
     let reversePedidos = arrayPedidos.slice().reverse();
     let pageItens = reversePedidos.slice(startIndex, endIndex);
 
@@ -95,10 +82,10 @@ function paginas(page) {
     const pageCont = Math.ceil(listUsuarios.length / itensPorPagina);
     const containerPagination = document.querySelector('#pag_navigation_input');
 
-    containerPagination.innerHTML = ''
+    containerPagination.innerHTML = '';
 
-    for (i = 1; i <= pageCont; i++) {
-        const activeClass = (i === page) ? 'active bg-primary text-light' : '';
-        containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i}})">${i}</a></li>`
+    for (let i = 1; i <= pageCont; i++) {
+        const activeClass = i === page ? 'active bg-primary text-light' : '';
+        containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i}, 0)">${i}</a></li>`;
     }
-};
+}

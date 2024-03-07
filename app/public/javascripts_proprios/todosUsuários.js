@@ -51,6 +51,7 @@ function filtro(status){
 };
 
 function displayItens( page, arrayindex ){
+    
 
     let startIndex = (page - 1) * itensPorPagina;
     let endIndex = startIndex + itensPorPagina;
