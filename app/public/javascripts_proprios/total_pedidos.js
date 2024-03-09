@@ -185,16 +185,32 @@ function statusAlt(){
             pedido.addEventListener('change', (e) => {
                 let numeroDPedido = e.target.getAttribute('number_pedido');
 
-                axios.post('http://localhost:3000/apiPedidos/novoStatus', {
-                    status: pedido.value,
-                    pedido: numeroDPedido
+                axios.post(`http://localhost:200/pedidos/consultPedidoEstoque`, {
+                    numero_do_pedido: numeroDPedido
                 })
                     .then(resp => {
-                        window.location.href = 'http://localhost:3000/admin/aprovarPedido'
+                        if(resp.data == true){
+                            axios.post('http://localhost:3000/apiPedidos/novoStatus', {
+                                status: pedido.value,
+                                pedido: numeroDPedido
+                            })
+                                .then(resp => {
+                                    window.location.href = 'http://localhost:3000/admin/aprovarPedido'
+                                })
+                                .catch(err => {
+                                    console.log(err)
+                                })
+                        }else{
+                            e.target.value = "Desaprovado"
+                            alert(`O produto ${resp.data[0].nome} não possui quantidade suficiente`)
+                            console.log(resp.data)
+                        }
                     })
                     .catch(err => {
                         console.log(err)
                     })
+
+                
             })
         })  
 }
