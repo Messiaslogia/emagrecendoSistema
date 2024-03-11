@@ -15,10 +15,12 @@ router.get('/vendasEfetuadas', DistribuidorController.vendasEfetuadas);
 router.get('/dividasPedidos', DistribuidorController.dividasPedidos);
 router.get('/entregasConcluidas', DistribuidorController.entregasConcluidas);
 
+
 // DISTRIBUIDOR
 router.get("/todosRepresentantes", DistribuidorController.todosRepresentantes);
 router.get("/todosUsuariosDistribuidores", DistribuidorController.todosUsuariosDistribuidores);
 router.get("/usuarioPedidos", DistribuidorController.usuarioPedidos);
+router.get("/dellUser/:id", DistribuidorController.dellUser);
 
 
 

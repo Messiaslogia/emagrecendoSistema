@@ -289,7 +289,7 @@ function criarModal(numeração){
                 })
                     .then(produto => {
                         let valorTotalProduto = produto.data[0].preco * pedido.quantidade
-                        let valorTotal = valorTotalProduto * pedido.quantidade
+                        // let valorTotal = valorTotalProduto * pedido.quantidade
 
 
                         let precoProduto = produto.data[0].preco
@@ -307,9 +307,7 @@ function criarModal(numeração){
                             <td class="align-middle text-center text-sm">
                                 <span class="badge badge-sm bg-gradient-success">R$ ${valorTotalProduto.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
                             </td>
-                            <td class="align-middle text-center text-sm">
-                                <span class="badge badge-sm bg-gradient-success">R$ ${valorTotal.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
-                            </td>
+                            
                         </tr>`;
      
                     })

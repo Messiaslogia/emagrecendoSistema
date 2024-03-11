@@ -20,14 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
         displayItens( 1, 0 );
         dellFunction();
 
-        let bt_produtos = document.querySelectorAll('#Info_pedidos');
+        // let bt_produtos = document.querySelectorAll('#Info_pedidos');
 
-        bt_produtos.forEach(info => {
-            info.addEventListener('click', (e) => {
-                let number_pedido = e.target.getAttribute('number_pedido');
-                criarModal(number_pedido);
-            })
-        })
+        // bt_produtos.forEach(info => {
+        //     info.addEventListener('click', (e) => {
+        //         let number_pedido = e.target.getAttribute('number_pedido');
+        //         criarModal(number_pedido);
+        //     })
+        // })
     }, [300])
 });
 
@@ -300,7 +300,7 @@ function criarModal(numeração){
     })
         .then(resp => {
             infoUser(resp.data[0].id_usuario_FK);
-
+            console.log(resp.data)
             resp.data.forEach(pedido => {
                 pedido_number.innerHTML = numeração;
                 valorTotalInfo.push(pedido.valor);
@@ -336,7 +336,7 @@ function criarModal(numeração){
 
             quantidadeTotalInfo.forEach((total, index) => {
                 quantidade = quantidade + total;
-                valor = valor + valorTotalInfo[index];
+                valor = valorTotalInfo[0];
             });
 
             tabela_pedidos.innerHTML += `
@@ -372,7 +372,7 @@ function infoUser(id){
         id: id
     })
         .then(resp => {
-            console.log(resp.data)
+            
             text_user.innerHTML = `Pedido feito por: ${resp.data[0].nome}`;
             text_end.innerHTML = `Endereço: ${resp.data[0].endereco}`
         })

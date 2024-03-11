@@ -102,6 +102,20 @@ class DistribuidorController{
 
     }
 
+    dellUser(req, res) {
+        let usuario = req.params.id;
+
+        axios.post(`http://localhost:200/users/deleteUser`, {
+            id: usuario
+        })
+            .then(resp => {
+                res.redirect('/distribuidor/usuarios')
+            })
+            .catch(err => {
+                res.json(false)
+            })
+    }
+
 }
 
 module.exports = new DistribuidorController()

@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Modal
     const bt_modal = document.querySelector('#Button_Modal');
-    const info_modal = document.querySelector('#Pedido_number')
+    const info_modal = document.querySelector('#Pedido_number');
 
     let formDataArray = [];
 
@@ -29,14 +29,14 @@ document.addEventListener('DOMContentLoaded', function () {
         let dadosTeste = {};
         
         const elementosForm = document.querySelectorAll('#formPedido input, #formPedido select');
-        const elementoValor = document.getElementById('Valor_Produto')
-        const elementoQuantidade = document.getElementById('Quantidade_input')
+        const elementoValor = document.getElementById('Valor_Produto');
+        const elementoQuantidade = document.getElementById('Quantidade_input');
 
-        let valorQuantidade = elementoQuantidade.value
-        let valorProduto = elementoValor.value.replace('R$ ', '')
+        let valorQuantidade = elementoQuantidade.value;
+        let valorProduto = elementoValor.value.replace('R$ ', '');
 
-        let valorFinalPedido = valorQuantidade * valorProduto
- 
+        let valorFinalPedido = valorQuantidade * valorProduto;
+
         let algumValorVazio = false;
 
         for (let i = 0; i < elementosForm.length; i++) {
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Se algum valor estiver vazio, você já terá exibido o alerta e saído do loop
         if (!algumValorVazio) {
-            elementoValor.value = ''
+            elementoValor.value = '';
             elementoQuantidade.value = '';
             usuarioInput.disabled = true;
             dataInput.readOnly = true;
@@ -78,12 +78,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // EVENTO PARA ENVIAR OS DADOS AO CLICAR NO ENVIAR
     botaoEnviar.addEventListener('click', () => {
         const formData = coletaDadosForm();
-
         let somaValorPedido = 0;
         formData.forEach(objeto => {
+
             if (objeto.hasOwnProperty('valorPedido')) {
-                somaValorPedido += parseFloat(objeto.valorPedido);
-               
+                somaValorPedido += parseFloat(objeto.valorPedido.toFixed(2));               
             }
         });
 
@@ -98,14 +97,14 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(pedido);
             axios.post('http://localhost:3000/apiPedidos/addPedidos', pedido)
                 .then(resp => {
-                    console.log(resp.data)
+                    console.log(resp.data);
                 })
                 .catch(err => {
-                    console.log(err)
+                    console.log(err);
                 })
         });
 
-        info_modal.innerHTML = `${formData[0].pedido}`
+        info_modal.innerHTML = `${formData[0].pedido}`;
         bt_modal.click();
     })
 })
