@@ -218,7 +218,7 @@
                         <div class="col">
                             <div class="">
                                 <select id="Usuario_input" name="usuario" class="form-control " id="exampleFormControlSelect1">
-                                    <option disabled selected value="">Selecione o Usuário</option>
+                                    <option disabled selected value="" required>Selecione o Usuário</option>
                                     <!-- Carregar produtos com featch -->
                                 </select>
                             </div>
@@ -230,7 +230,7 @@
                         <div class="col">
                             <div class="">
                                 <select id="Produto_input" name="produto" class="form-control" id="exampleFormControlSelect1">
-                                    <option disabled selected value="">Selecione o Produto</option>
+                                    <option disabled selected value="" required>Selecione o Produto</option>
                                     <!-- Carregar produtos com featch -->
                                 </select>
                             </div>
@@ -240,24 +240,24 @@
                    
 
                     <input id="Valor_Distribuidor" name="valorProduto" id="defaultRegisterFormPassword" class="form-control mb-4"
-                        placeholder="Valor do produto" aria-describedby="defaultRegisterFormPasswordHelpBlock" value="" readonly>
+                        placeholder="Valor do produto" aria-describedby="defaultRegisterFormPasswordHelpBlock" value="" readonly required>
 
                     <!-- Status -->
                     <input id="Status_input" name="status" type="hidden" id="defaultRegisterFormPassword" class="form-control mb-4"
-                        placeholder="" aria-describedby="defaultRegisterFormPasswordHelpBlock" value="Desaprovado">
+                        placeholder="" aria-describedby="defaultRegisterFormPasswordHelpBlock" value="Desaprovado" required>
 
 
                     <!-- quantidade -->
                     <input id="Quantidade_input" name="quantidade" type="number" id="defaultRegisterFormPassword" class="form-control mb-4"
-                        placeholder="Quantidade" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                        placeholder="Quantidade" aria-describedby="defaultRegisterFormPasswordHelpBlock" required>
 
                     <!-- Data inserida -->
                     <input id="Data_produto" type="date" name="dataProduto" class="form-control mb-4" placeholder="Data"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock" readonly>
+                        aria-describedby="defaultRegisterFormPhoneHelpBlock" readonly required>
                     
                     <!-- Horas inserida -->
                     <input id="Hora_produto" type="time" name="horaProduto" class="form-control mb-4" placeholder="Horas"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock" readonly>
+                        aria-describedby="defaultRegisterFormPhoneHelpBlock" readonly required>
 
                     
                     <!-- Sign up button -->
@@ -288,7 +288,6 @@
                   </div>
                   <div class="modal-footer">
                     <a href="/distribuidor/pedidos"><button type="button" class="btn btn-alert">Ok, voltar ao inicio!</button></a>
-                    <a href="/distribuidor/efetuarPedido"><button type="button" class="btn btn-link text-danger ml-auto" data-bs-dismiss="modal">Fechar</button></a>
                   </div>
                 </div>
               </div>
@@ -296,7 +295,7 @@
           </div>
 
         <a href="/distribuidor/pedidos" class="ms-3">
-            <button type="button" class="btn btn-primary btn-lg mt-5">Voltar</button>
+        <button type="button" class="btn btn-primary btn-l mt-5" style="background-color: #e91e63;">Voltar</button>
         </a>
 
 
