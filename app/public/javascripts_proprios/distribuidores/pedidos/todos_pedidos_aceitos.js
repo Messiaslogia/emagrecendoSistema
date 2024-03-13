@@ -283,7 +283,7 @@ function criarModal(numeração){
 
             quantidadeTotalInfo.forEach((total, index) => {
                 quantidade = quantidade + total;
-                valor = valor + valorTotalInfo[index];
+                valor = valorTotalInfo[0];
             });
 
             tabela_pedidos.innerHTML += `

@@ -233,20 +233,21 @@ function criarModal(numeração){
     axios.post('http://localhost:200/pedidos/consultPedido', {
         numero: numeração
     })
-        .then(resp => {
+        .then(async resp => {
             infoUser(resp.data[0].id_usuario_FK);
 
-            resp.data.forEach(pedido => {
+           await resp.data.forEach( async pedido => {
                 pedido_number.innerHTML = numeração;
-                valorTotalInfo.push(pedido.valor);
                 quantidadeTotalInfo.push(pedido.quantidade);
+                valorTotalInfo.push(pedido.valor);
 
 
-                axios.post('http://localhost:200/produtos/consultarProdutos', {
+               await axios.post('http://localhost:200/produtos/consultarProdutos', {
                     id: pedido.id_produto_FK
                 })
-                    .then(produto => {
-                        let valorTotal = produto.data[0].preco * pedido.quantidade
+                    .then( produto => {
+
+                        let valorTotal = produto.data[0].preco_distribuidor * pedido.quantidade
                         tabela_pedidos.innerHTML += `
                         <tr>
                             <td>
@@ -271,7 +272,7 @@ function criarModal(numeração){
 
             quantidadeTotalInfo.forEach((total, index) => {
                 quantidade = quantidade + total;
-                valor = valor + valorTotalInfo[index];
+                valor = valorTotalInfo[0];
             });
 
             tabela_pedidos.innerHTML += `

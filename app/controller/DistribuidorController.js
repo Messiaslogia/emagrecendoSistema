@@ -28,6 +28,34 @@ class DistribuidorController{
         res.render('distribuidores/usuarios/adicionarUsuario',{idDoDistribuidor});
     }
 
+    adicionarVenda(req, res){
+        var idDoDistribuidor = cache.get('id_distribuidor');
+        res.render('distribuidores/vendas/realVendas/adicionarVenda',{idDoDistribuidor});
+    }
+
+    adicionarVendaPost(req, res){
+        let novaVenda = {
+            idDistribuidor: req.body.idDistribuidor,
+            idCliente: req.body.usuario,
+            idProduto: req.body.produto,
+            valorUnitario: parseFloat(req.body.valorVenda.replace('R$ ', '')),
+            quantidade: req.body.quantidadeVenda,
+            valorTotal: parseFloat(req.body.valorVenda.replace('R$ ', '')) * req.body.quantidadeVenda,
+            data: req.body.dataVenda,
+        };
+
+        
+        axios.post(`${urls}adicionarVenda`, novaVenda) 
+            .then(resp => {
+                res.redirect('/vendedores/vendasEfetuadas')
+            })
+    }
+
+    adicionarDividaGeral(req, res){
+        var idDoDistribuidor = cache.get('id_distribuidor');
+        res.render('distribuidores/vendas/registrarVenda/adicionarVenda',{idDoDistribuidor});
+    }
+
     efetuarPedido(req, res){
         var idDoDistribuidor = cache.get('id_distribuidor');
         res.render('distribuidores/pedidos/efetuarPedido/index', { idDoDistribuidor });
@@ -42,6 +70,11 @@ class DistribuidorController{
     aprovarPedido(req, res){
         var idDoDistribuidor = cache.get('id_distribuidor');
         res.render('distribuidores/pedidos/aprovacao/index', { idDoDistribuidor });
+    }
+
+    indexVendas(req, res){
+        var idDoDistribuidor = cache.get('id_distribuidor');
+        res.render('distribuidores/vendas/realVendas', { idDoDistribuidor });
     }
 
     vendasEfetuadas(req, res){

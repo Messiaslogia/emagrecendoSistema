@@ -8,10 +8,17 @@ router.get('/usuarios', DistribuidorController.usuarios);
 router.get('/vendas', DistribuidorController.vendas);
 router.get('/pedidos', DistribuidorController.pedidos);
 router.get('/adicionarUsuario', DistribuidorController.adicionarUsuario);
+router.get('/adicionarDividaGeral', DistribuidorController.adicionarDividaGeral);
+router.get('/adicionarVendas', DistribuidorController.adicionarVenda);
+
+
+router.post('/adicionarVendas', DistribuidorController.adicionarVendaPost)
+
 router.get('/efetuarPedido', DistribuidorController.efetuarPedido);
 router.get('/pedidosConcluidos', DistribuidorController.pedidosConcluidos);
 router.get('/aprovarPedido', DistribuidorController.aprovarPedido);
-router.get('/vendasEfetuadas', DistribuidorController.vendasEfetuadas);
+router.get('/vendasRegistro', DistribuidorController.indexVendas);
+router.get('/dividasGerais', DistribuidorController.vendasEfetuadas);
 router.get('/dividasPedidos', DistribuidorController.dividasPedidos);
 router.get('/entregasConcluidas', DistribuidorController.entregasConcluidas);
 

@@ -90,7 +90,7 @@
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/distribuidor/vendasEfetuadas">Pages</a>
+                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/distribuidor/dividasGerais">Pages</a>
                         </li>
                         <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dividas</li>
                     </ol>
@@ -102,7 +102,7 @@
                     </div>
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-flex align-items-center">
-                            <a href="/distribuidor/vendasEfetuadas" class="nav-link text-body font-weight-bold px-0">
+                            <a href="/distribuidor/dividasGerais" class="nav-link text-body font-weight-bold px-0">
                                 <i class="fa fa-user me-sm-1"></i>
                             </a>
                         </li>
@@ -210,7 +210,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10 bg-light mt-4">
                 <!-- Default form register -->
-                <form class="text-center border border-light p-5" enctype="multipart/form-data" id="DividaForm">
+                <form class="text-center border border-light p-5" enctype="application/x-www-form-urlencoded" action="/apiDividas/adicionarNovaDividaDistribuidor" method="post">
 
                     <p class="h4 mb-4">Nova Divida</p>
 
@@ -218,6 +218,7 @@
                     <input id="Nome_divida" type="text" name="nomeDivida" class="form-control mb-4"
                         placeholder="Nome da Divida">
 
+                    <input id="Id_user" style="display: none;" type="text" name="idUser" value="<%= idDoDistribuidor %>" class="form-control mb-4">
 
                     <!-- Descricao -->
                     <input id="Descricao_Divida" type="text" name="descricaoDivida" class="form-control mb-4"
@@ -238,14 +239,12 @@
                         placeholder="Horas" aria-describedby="defaultRegisterFormPhoneHelpBlock">
 
                     <!-- Sign up button -->
-                    <button id="Bt_submit" class="btn btn btn-success my-4 btn-block" type="button">Cadastrar</button>
+                    <button id="Bt_submit" class="btn btn btn-success my-4 btn-block" type="submit">Cadastrar</button>
                 </form>
-
-
             </div>
         </div>
 
-        <a href="/distribuidor/vendasEfetuadas" class="ms-3">
+        <a href="/distribuidor/dividasGerais" class="ms-3">
             <button type="button" class="btn mt-5 font-weight-bolder text-white p-3" style="background-color: #e91e63;">Voltar</button>
         </a>
 
@@ -280,7 +279,7 @@
     <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../../javascripts_proprios/adicionarDivida.js"></script>
+    <!-- <script src="../../javascripts_proprios/adicionarDivida.js"></script> -->
     
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");

@@ -78,7 +78,65 @@ class ApiControllerDividas {
         }
     };
 
+    adicionarDividaDistribuidor(req, res) {
+        let data = new Date;
+        let mes = data.getMonth() + 1;
+        console.log(req.body)
+
+        try {
+            let novaDivida = {
+                nome: req.body.nomeDivida,
+                id_user: req.body.idUser,
+                descricao: req.body.descricaoDivida,
+                valor: req.body.valorDivida,
+                data: req.body.dataDivida,
+                hora: req.body.horaDivida,
+                mes: mes
+            }
+
+
+
+            axios.post(`${urls}novaDivida`, novaDivida)
+                .then(resp => {
+                    res.redirect('/distribuidor/dividasGerais');
+                })
+                .catch(err => console.log(err))
+        } catch (error) {
+            console.log(error)
+        }
+    };
+
     deletarDivida(req, res) {
+        let divida = req.params.id;
+        axios.post(`${urls}deletarDividas`, {
+            id: divida
+        })
+            .then(resp => {
+                res.redirect('/admin/dividas');
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false);
+            })
+
+    };
+
+    deletarDividaDistribuidor(req, res) {
+        let divida = req.params.id;
+        axios.post(`${urls}deletarDividas`, {
+            id: divida
+        })
+            .then(resp => {
+                res.redirect('/distribuidor/dividasGerais');
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false);
+            })
+
+    };
+
+    deletarDividaVendedor(req, res) {
         let divida = req.params.id;
         axios.post(`${urls}deletarDividas`, {
             id: divida

@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const elementoQuantidade = document.getElementById('Quantidade_input')
 
         var valorQuantidade = elementoQuantidade.value
-        var valorProduto = elementoValor.value
+        var valorProduto = elementoValor.value.replace('R$ ', '')
 
         var valorFinalPedido = valorQuantidade * valorProduto
 
