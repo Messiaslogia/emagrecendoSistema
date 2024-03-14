@@ -4,10 +4,10 @@ class AdminController{
 
     // FINANCEIRO
     financeiroIndex(req, res){
-        let id_admin = cache.get('id_gerente');
+        let Id_User = cache.get('id_gerente');
 
-        if(id_admin != null || ''){
-            res.render('admin/financeiro/index');
+        if(Id_User != null || ''){
+            res.render('admin/financeiro/index', {Id_User});
         }else{
             res.redirect('/')
         }
