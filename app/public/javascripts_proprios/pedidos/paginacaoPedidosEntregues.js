@@ -84,52 +84,97 @@ function displayItens( page, arrayindex ){
     // Exibindo os itens
    div_pedidos.innerHTML = '';
 
-    pageItens.map(pedido => {
-            div_pedidos.innerHTML += `
-            <tr>
-            <td>
-                <div class="d-flex px-2 py-1">
-                    <div class="cursor-pointer">
-                        <i id="Info_pedidos" number_pedido="${pedido.numero_do_pedido}" class="material-icons cursor-pointer">info</i>
+    if(arrayindex != 2){
+        pageItens.map(pedido => {
+                div_pedidos.innerHTML += `
+                <tr>
+                <td>
+                    <div class="d-flex px-2 py-1">
+                        <div class="cursor-pointer">
+                            <i id="Info_pedidos" number_pedido="${pedido.numero_do_pedido}" class="material-icons cursor-pointer">info</i>
+                        </div>
+                        <div class="d-flex flex-colum justify-content-center">
+                            <h6 class="mb-0 text-sm" style="margin-left: 1rem">${pedido.numero_do_pedido}</h6>
+                        </div>
                     </div>
-                    <div class="d-flex flex-colum justify-content-center">
-                        <h6 class="mb-0 text-sm" style="margin-left: 1rem">${pedido.numero_do_pedido}</h6>
-                    </div>
-                </div>
-            </td>
-            <td>
-                <p class="text-xs font-weight-bold mb-0">${pedido.codigo_rastreio}</p>
-            </td>
-            <td class="align-middle text-center text-sm">
-                <span class="text-secondary text-xs font-weight-bold">${pedido.endereco}</span>
-            </td>
-            <td class="align-middle text-center">
-                <span class="badge badge-sm bg-gradient-success">R$ ${pedido.valor_da_entrega.toFixed(2)}</span>
-            </td>
-            <td class="align-middle text-center">
-                <span class="text-secondary text-xs font-weight-bold">${pedido.empresa}</span>
-            </td>
-            <td class="align-middle text-center">
-                <span class="text-secondary text-xs font-weight-bold">${pedido.data}</span>
-            </td>
-            <td class="align-middle text-center" ">
-                <select id="Pedido_input" number_pedido="${pedido.numero_do_pedido}" name="produto" class="form-control cursor-pointer">
-                    <option selected disabled value="A caminho!">--</option>
-                    <option class="cursor-pointer" value="A caminho!">A caminho!</option>
-                    <option class="cursor-pointer" value="Entregue">Entregue</option>
-                    <option class="cursor-pointer" value="Não entregue">Não Entregue</option>
-                </select>
-            </td>
+                </td>
+                <td>
+                    <p class="text-xs font-weight-bold mb-0">${pedido.codigo_rastreio}</p>
+                </td>
+                <td class="align-middle text-center text-sm">
+                    <span class="text-secondary text-xs font-weight-bold">${pedido.endereco}</span>
+                </td>
+                <td class="align-middle text-center">
+                    <span class="badge badge-sm bg-gradient-success">R$ ${pedido.valor_da_entrega.toFixed(2)}</span>
+                </td>
+                <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold">${pedido.empresa}</span>
+                </td>
+                <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold">${pedido.data}</span>
+                </td>
+                <td class="align-middle text-center" ">
+                    <select id="Pedido_input" number_pedido="${pedido.numero_do_pedido}" name="produto" class="form-control cursor-pointer">
+                        <option selected disabled value="A caminho!">--</option>
+                        <option class="cursor-pointer" value="A caminho!">A caminho!</option>
+                        <option class="cursor-pointer" value="Entregue">Entregue</option>
+                        <option class="cursor-pointer" value="Não entregue">Não Entregue</option>
+                    </select>
+                </td>
 
-            <td class="align-middle">
-                <a idAtributo="${pedido.numero_do_pedido}" id="Button_Deletar_Pedido" class="btn btn-link text-danger text-gradient mb-0">
-                    <i class="material-icons text-sm me-2">delete</i>
-                Deletar</a>
-            </td>
-            
-        </tr>
+                <td class="align-middle">
+                    <a idAtributo="${pedido.numero_do_pedido}" id="Button_Deletar_Pedido" class="btn btn-link text-danger text-gradient mb-0">
+                        <i class="material-icons text-sm me-2">delete</i>
+                    Deletar</a>
+                </td>
+                
+            </tr>
             `
-    })
+        })
+    }else{
+            pageItens.map(pedido => {
+                div_pedidos.innerHTML += `
+                <tr>
+                <td>
+                    <div class="d-flex px-2 py-1">
+                        <div class="cursor-pointer">
+                            <i id="Info_pedidos" number_pedido="${pedido.numero_do_pedido}" class="material-icons cursor-pointer">info</i>
+                        </div>
+                        <div class="d-flex flex-colum justify-content-center">
+                            <h6 class="mb-0 text-sm" style="margin-left: 1rem">${pedido.numero_do_pedido}</h6>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <p class="text-xs font-weight-bold mb-0">${pedido.codigo_rastreio}</p>
+                </td>
+                <td class="align-middle text-center text-sm">
+                    <span class="text-secondary text-xs font-weight-bold">${pedido.endereco}</span>
+                </td>
+                <td class="align-middle text-center">
+                    <span class="badge badge-sm bg-gradient-success">R$ ${pedido.valor_da_entrega.toFixed(2)}</span>
+                </td>
+                <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold">${pedido.empresa}</span>
+                </td>
+                <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold">${pedido.data}</span>
+                </td>
+                <td class="align-middle text-center" disabled>
+                        <option selected class="cursor-pointer" value="Entregue">Entregue</option>
+                    </select>
+                </td>
+
+                <td class="align-middle">
+                    <a idAtributo="${pedido.numero_do_pedido}" id="Button_Deletar_Pedido" class="btn btn-link text-danger text-gradient mb-0">
+                        <i class="material-icons text-sm me-2">delete</i>
+                    Deletar</a>
+                </td>
+                
+            </tr>
+            `
+        })
+    }
 
     setTimeout(() => {
         let bt_produtos = document.querySelectorAll('#Info_pedidos');
@@ -206,15 +251,6 @@ filtroButton.forEach(dropdown => {
                     })
                 })
             });
-
-
-            // let bt_produtos = document.querySelectorAll('#Info_pedidos');
-            //     bt_produtos.forEach(info => {
-            //         info.addEventListener('click', (e) => {
-            //             let number_pedido = e.target.getAttribute('number_pedido');
-            //             criarModal(number_pedido);
-            //         })
-            // })
         }, [1500]);
     });
 });

@@ -18,14 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         todosOsVendedores(1);
         statusAlt()
-        let bt_produtos = document.querySelectorAll('#Info_pedidos');
-
-        bt_produtos.forEach(info => {
-            info.addEventListener('click', (e) => {
-                let number_pedido = e.target.getAttribute('number_pedido');
-                criarModal(number_pedido);
-            })
-        })
     }, 300);
     
 });
@@ -102,7 +94,8 @@ function todosOsVendedores(page){
                          
     })
 
-    let bt_produtos = document.querySelectorAll('#Info_pedidos');
+    setTimeout(() => {
+        let bt_produtos = document.querySelectorAll('#Info_pedidos');
 
         bt_produtos.forEach(info => {
             info.addEventListener('click', (e) => {
@@ -110,6 +103,7 @@ function todosOsVendedores(page){
                 criarModal(number_pedido);
             })
         })
+    }, [300])
     statusAlt()
     paginas(page);
 };
@@ -188,7 +182,7 @@ function criarModal(numeração){
 
             quantidadeTotalInfo.forEach((total, index) => {
                 quantidade = quantidade + total;
-                valor = valor + valorTotalInfo[index];
+                valor = valorTotalInfo[0];
             });
 
             tabela_pedidos.innerHTML += `

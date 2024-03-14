@@ -321,19 +321,19 @@ function criarModal(numeração){
 
             quantidadeTotalInfo.forEach((total, index) => {
                 quantidade = quantidade + total;
-                valor = valor + valorTotalInfo[index];
+                valor = valorTotalInfo[0];
             });
 
             tabela_pedidos.innerHTML += `
             <tr>
                 <td>
-                    
+                    <p class="text-xs font-weight-bold mb-0">Total</p>
                 </td>
                 <td class="align-middle text-center text-sm">
-                    
+                    <span class="badge badge-sm bg-gradient-success">R$ ${valor.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
                 </td>
                 <td class="align-middle text-center">
-                    
+                    <span class="text-secondary text-xs font-weight-bold">${quantidade}</span>
                 </td>
             </tr>`;
 

@@ -19,15 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         displayItens( 1, 0 );
         dellFunction();
-
-        // let bt_produtos = document.querySelectorAll('#Info_pedidos');
-
-        // bt_produtos.forEach(info => {
-        //     info.addEventListener('click', (e) => {
-        //         let number_pedido = e.target.getAttribute('number_pedido');
-        //         criarModal(number_pedido);
-        //     })
-        // })
     }, [300])
 });
 
@@ -199,6 +190,7 @@ function displayItens(page, arrayindex){
         })
         statusAlt()
    }
+
    setTimeout(() => {
     let bt_produtos = document.querySelectorAll('#Info_pedidos');
 
@@ -277,13 +269,13 @@ filtroButton.forEach(dropdown => {
             });
 
 
-            let bt_produtos = document.querySelectorAll('#Info_pedidos');
-                bt_produtos.forEach(info => {
-                    info.addEventListener('click', (e) => {
-                        let number_pedido = e.target.getAttribute('number_pedido');
-                        criarModal(number_pedido);
-                    })
-            })
+            // let bt_produtos = document.querySelectorAll('#Info_pedidos');
+            //     bt_produtos.forEach(info => {
+            //         info.addEventListener('click', (e) => {
+            //             let number_pedido = e.target.getAttribute('number_pedido');
+            //             criarModal(number_pedido);
+            //         })
+            // })
         }, [1500]);
     });
 });

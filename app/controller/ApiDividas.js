@@ -25,14 +25,14 @@ class ApiControllerDividas {
         console.log(req.body)
         let data = new Date;
         let mes = data.getMonth() + 1;
-        console.log(mes)
+
 
         try {
             let novaDivida = {
                 nome: req.body.nomeDivida,
                 id_user: req.body.idUser,
                 descricao: req.body.descricaoDivida,
-                valor: req.body.valorDivida,
+                valor: parseFloat(req.body.valorDivida.replace('R$', '').replace(',', '.')),
                 data: req.body.dataDivida,
                 hora: req.body.horaDivida,
                 mes: mes
@@ -60,7 +60,7 @@ class ApiControllerDividas {
                 nome: req.body.nomeDivida,
                 id_user: req.body.idUser,
                 descricao: req.body.descricaoDivida,
-                valor: req.body.valorDivida,
+                valor: parseFloat(req.body.valorDivida.replace('R$', '').replace(',', '.')),
                 data: req.body.dataDivida,
                 hora: req.body.horaDivida,
                 mes: mes
@@ -88,7 +88,7 @@ class ApiControllerDividas {
                 nome: req.body.nomeDivida,
                 id_user: req.body.idUser,
                 descricao: req.body.descricaoDivida,
-                valor: req.body.valorDivida,
+                valor: parseFloat(req.body.valorDivida.replace('R$', '').replace(',', '.')),
                 data: req.body.dataDivida,
                 hora: req.body.horaDivida,
                 mes: mes
@@ -156,7 +156,7 @@ class ApiControllerDividas {
             id: req.body.id,
             nome: req.body.nomeDivida,
             descricao: req.body.descricaoDivida,
-            valor: req.body.valorDivida,
+            valor: parseFloat(req.body.valorDivida.replace('R$', '').replace(',', '.')),
             data: req.body.dataDivida,
             hora: req.body.horaDivida,
         };
