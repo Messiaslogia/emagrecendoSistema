@@ -173,10 +173,38 @@ class ApiControllerDividas {
             });
     }
 
+    editarDividaDistribuidor(req, res) {
+        let nova_divida = {
+            id: req.body.id,
+            nome: req.body.nomeDivida,
+            descricao: req.body.descricaoDivida,
+            valor: parseFloat(req.body.valorDivida.replace('R$', '').replace(',', '.')),
+            data: req.body.dataDivida,
+            hora: req.body.horaDivida,
+        };
+
+        console.log(nova_divida)
+
+        axios.post(`${urls}editDividas`, nova_divida)
+            .then((result) => {
+                console.log('Produto editado com sucesso!');
+                // produtosList = []
+                res.redirect('/distribuidor/dividasGerais');
+            }).catch((err) => {
+                console.log(err);
+            });
+    }
+
     editarDividaForm(req, res) {
         let id = req.params.id;
         console.log(id)
         res.render('admin/financeiro/dividas/editarDivida', { id });
+    };
+
+    editarDividaFormDistribuidor(req, res) {
+        let id = req.params.id;
+        console.log(id)
+        res.render('distribuidores/vendas/registrarVenda/editarVenda', { id });
     };
 
     consultarDivida(req, res) {

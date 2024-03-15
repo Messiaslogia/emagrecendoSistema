@@ -47,7 +47,7 @@ class DistribuidorController{
         
         axios.post(`${urls}adicionarVenda`, novaVenda) 
             .then(resp => {
-                res.redirect('/vendedores/vendasEfetuadas')
+                res.redirect('/distribuidor/vendasRegistro')
             })
     }
 
@@ -133,6 +133,39 @@ class DistribuidorController{
                 res.json(false);
             })
 
+    }
+
+    editIndex(req, res){
+        let id = req.params.id
+
+        res.render('distribuidor/usuarios/editarUsuario', { id })
+    }
+
+    editUser(req, res) {
+        let id_gerente = cache.get('id_gerente');
+
+        let newUser = {
+            id: req.params.id,
+            nome: req.body.nome,
+            email: req.body.email,
+            password: req.body.senha,
+            cpf: req.body.cpf,
+            insta: req.body.instagram,
+            face: req.body.facebooks,
+            funcao: req.body.funcao,
+            regiao: req.body.regiao,
+            telefone: req.body.telefone
+        };
+
+            axios.post(`${urls}editUser`, newUser)
+                .then(resp => {
+                    console.log('truco')
+                    res.redirect('/admin/usuarios')
+                })
+                .catch(err => {
+                    console.log(err);
+                    res.json(false)
+                })
     }
 
     dellUser(req, res) {

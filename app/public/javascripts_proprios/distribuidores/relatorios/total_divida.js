@@ -72,7 +72,7 @@ function displayItens(page) {
                                       <td class="align-middle">
                                           <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiDividas/deletarDividaDistribuidor/${divida.id_divida}"><i
                                               class="material-icons text-sm me-2">delete</i>Deletar</a>
-                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiDividas/editarDividaForm/${divida.id_divida}"><i class="material-icons text-sm me-2">edit</i>Editar</a>
+                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiDividas/editarDividaFormDistribuidor/${divida.id_divida}"><i class="material-icons text-sm me-2">edit</i>Editar</a>
                                       </td>
                                  </tr>
                          `

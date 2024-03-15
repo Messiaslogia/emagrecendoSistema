@@ -10,9 +10,10 @@ router.get('/pedidos', DistribuidorController.pedidos);
 router.get('/adicionarUsuario', DistribuidorController.adicionarUsuario);
 router.get('/adicionarDividaGeral', DistribuidorController.adicionarDividaGeral);
 router.get('/adicionarVendas', DistribuidorController.adicionarVenda);
+router.get('/editarUsuario/:id', DistribuidorController.editIndex)
 
-
-router.post('/adicionarVendas', DistribuidorController.adicionarVendaPost)
+router.post('/adicionarVendas', DistribuidorController.adicionarVendaPost);
+router.post('/edit/:id', DistribuidorController.editUser)
 
 router.get('/efetuarPedido', DistribuidorController.efetuarPedido);
 router.get('/pedidosConcluidos', DistribuidorController.pedidosConcluidos);

@@ -208,23 +208,23 @@
         <div class="row justify-content-center">
             <div class="col-md-10 bg-light mt-4">
                 <!-- Default form register -->
-                <form class="text-center border border-light p-5" action="/api/edit/<%= id %>" method="post" enctype="application/x-www-form-urlencoded">
+                <form class="text-center border border-light p-5" action="/distribuidor/edit/<%= id %>" method="post" enctype="application/x-www-form-urlencoded">
                     <input type="text" style="display: none;" value="<%= id %>" id="idUser">
                     <p class="h4 mb-4">Editar Usuário</p>
                 
                     <div class="form-row mb-4">
                         <div class="col">
                             <!-- First name -->
-                            <input id="Name_input" name="nome" type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Nome completo">
+                            <input id="Name_input" name="nome" type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Nome completo" required>
                         </div>
                     </div>
                 
                     <!-- E-mail -->
-                    <input id="Email_input" name="email" type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+                    <input id="Email_input" name="email" type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" required>
                 
                     <!-- Password -->
                     <input id="Password_input" name="password" type="password" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Senha"
-                        aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                        aria-describedby="defaultRegisterFormPasswordHelpBlock" required>
                     
                 
                     <!-- Phone number -->
@@ -233,11 +233,11 @@
 
                     <!-- CPF -->
                     <input id="CPF_input" name="cpf" type="number" id="defaultRegisterPhonePassword" class="form-control mb-4" placeholder="CPF"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                        aria-describedby="defaultRegisterFormPhoneHelpBlock" required>
 
                     <!-- Região -->
                     <div class="">
-                        <select id="Regiao_input" name="regiao" class="form-control mb-4" id="exampleFormControlSelect1">
+                        <select id="Regiao_input" name="regiao" class="form-control mb-4" id="exampleFormControlSelect1" required>
                             <option>Norte</option>
                             <option>Nordeste</option>
                             <option>Centro-Oeste</option>
@@ -248,7 +248,7 @@
 
                     <!-- Função -->
                     <div class="">
-                        <select id="Funcao_input" name="funcao" class="form-control" id="exampleFormControlSelect1">
+                        <select id="Funcao_input" name="funcao" class="form-control" id="exampleFormControlSelect1" required>
                             <option disabled selected value="">Selecione a função</option>
                             <option>Vendedor</option>
                             <option>Distribuidor</option>
@@ -264,7 +264,7 @@
             </div>
         </div>
 
-        <a href="/distribuidor/usuariosr" class="ms-3">
+        <a href="/distribuidor/usuarios" class="ms-3">
             <button type="button" class="btn mt-5 font-weight-bolder text-white p-3" style="background-color: #e91e63;">Voltar</button>
         </a>
 
@@ -390,7 +390,7 @@
     <script src="../../javascripts/plugins/perfect-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
-    <script src="http://localhost:3000/javascripts_proprios/adicionar_usuarios.js"></script>
+    <!-- <script src="http://localhost:3000/javascripts_proprios/adicionar_usuarios.js"></script> -->
     <script src="http://localhost:3000/javascripts_proprios/infoUser.js"></script>
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");

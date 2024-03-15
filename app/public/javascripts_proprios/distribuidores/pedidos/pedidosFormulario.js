@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Modal
     const bt_modal = document.querySelector('#Button_Modal');
-    const info_modal = document.querySelector('#Pedido_number')
+    const info_modal = document.querySelector('#Pedido_number');
 
     let formDataArray = [];
 
@@ -27,13 +27,15 @@ document.addEventListener('DOMContentLoaded', function () {
     function coletaDadosForm() {
         let dadosAtuaisForm = {};
         let dadosTeste = {};
-
+        
         const elementosForm = document.querySelectorAll('#formPedido input, #formPedido select');
-        const elementoValor = document.getElementById('Valor_Distribuidor')
-        const elementoQuantidade = document.getElementById('Quantidade_input')
+        const elementoValor = document.getElementById('Valor_Distribuidor');
+        const elementoQuantidade = document.getElementById('Quantidade_input');
 
-        var valorQuantidade = elementoQuantidade.value
-        var valorProduto = elementoValor.value
+        let valorQuantidade = elementoQuantidade.value;
+        let valorProduto = elementoValor.value.replace('R$ ', '');
+
+        let valorFinalPedido = valorQuantidade * valorProduto;
 
         let algumValorVazio = false;
 
@@ -64,11 +66,13 @@ document.addEventListener('DOMContentLoaded', function () {
             formDataArray.push(dadosAtuaisForm);
             return formDataArray;
         }
+
+        
     }
 
     // EVENTO PARA COLETAR OS DADOS AO CLICAR NO AVANCAR
     botaoAvancar.addEventListener('click', () => {
-        const formData = coletaDadosForm();
+        const formData = coletaDadosForm(); 
     })
 
     // EVENTO PARA ENVIAR OS DADOS AO CLICAR NO ENVIAR
@@ -76,28 +80,31 @@ document.addEventListener('DOMContentLoaded', function () {
         const formData = coletaDadosForm();
         let somaValorPedido = 0;
         formData.forEach(objeto => {
+
             if (objeto.hasOwnProperty('valorPedido')) {
-                somaValorPedido += parseFloat(objeto.valorPedido.toFixed(2));  
+                somaValorPedido += parseFloat(objeto.valorPedido.toFixed(2));               
             }
         });
-        
+
         // Adiciona a propriedade com a soma em cada objeto do array
         formData.forEach(objeto => {
             objeto.somaValorPedido = somaValorPedido;
+
         });
+
 
         formData.forEach(pedido => {
+            console.log(pedido);
             axios.post('http://localhost:3000/apiPedidos/addPedidos', pedido)
                 .then(resp => {
-                    console.log(resp.data)
+                    console.log(resp.data);
                 })
                 .catch(err => {
-                    console.log(err)
+                    console.log(err);
                 })
         });
 
-        info_modal.innerHTML = `${formData[0].pedido}`
+        info_modal.innerHTML = `${formData[0].pedido}`;
         bt_modal.click();
-
     })
 })

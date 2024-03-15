@@ -49,16 +49,16 @@ function todosOsVendedores(page){
                                   <tr>
                  <td>
                      <div class="d-flex px-2 py-1">
-                         <div class="cursor-pointer">
-                             <i id="Info_pedidos" number_pedido="${devedor.numero_do_pedido}" class="material-icons cursor-pointer">info</i>
+                         <div class="cursor-pointer text-center justify-content-center">
+                             <i id="Info_pedidos" number_pedido="${devedor.numero_do_pedido}" class="material-icons cursor-pointer ms-5">info</i>
                          </div>
                          <div class="d-flex flex-colum justify-content-center">
-                             <h6 class="mb-0 text-sm" style="margin-left: 1rem">${devedor.numero_do_pedido}</h6>
+                             <h6 class="mb-0 text-sm text-center" style="margin-left: 1rem">${devedor.numero_do_pedido}</h6>
                          </div>
                      </div>
                  </td>
                  <td>
-                     <p class="text-xs font-weight-bold mb-0">${devedor.status}</p>
+                     <p class="text-xs text-center font-weight-bold mb-0">${devedor.status}</p>
                  </td>
                  <td class="align-middle text-center text-sm">
                      <span class="badge badge-sm bg-gradient-success">${devedor.quantidade}</span>
@@ -67,21 +67,6 @@ function todosOsVendedores(page){
                      <span class="text-secondary text-xs font-weight-bold">${devedor.data}</span>
                  </td>
                  
-
-                 <td class="align-middle text-center">
-                        <select id="Pedido_input" number_pedido="${devedor.numero_do_pedido}" name="produto" class="form-control bg-">
-                            <option selected disabled value="Em análise">--</option>
-                            <option value="Aprovado">Em análise</option>
-                            <option value="Pago!">Pago</option>
-                            <option value="Devendo">Não Pago</option>
-                        </select>
-                    </td>
-
-                 <td class="align-middle" ">
-                     <a idAtributo="${devedor.numero_do_pedido}" id="Button_Deletar_Pedido" class="btn btn-link text-danger text-gradient mb-0">
-                         <i class="material-icons text-sm me-2">delete</i>
-                     Deletar</a>
-                 </td>
              </tr>
          `
                          

@@ -13,6 +13,7 @@ router.get('/deletarDividaDistribuidor/:id', ApiControllerDividas.deletarDividaD
 router.get('/deletarDividaVendedor/:id', ApiControllerDividas.deletarDividaVendedor);
 
 router.get("/editarDividaForm/:id", ApiControllerDividas.editarDividaForm);
+router.get("/editarDividaFormDistribuidor/:id", ApiControllerDividas.editarDividaFormDistribuidor);
 router.get("/consultarDivida/:id", ApiControllerDividas.consultarDivida);
 
 
@@ -20,6 +21,8 @@ router.post('/adicionarNovaDivida', upload.none(), ApiControllerDividas.adiciona
 router.post('/adicionarNovaDividaVendedor', ApiControllerDividas.adicionarDividaVendedor);
 router.post('/adicionarNovaDividaDistribuidor', ApiControllerDividas.adicionarDividaDistribuidor);
 router.post("/editarDivida/:id", ApiControllerDividas.editarDivida);
+router.post("/editarDividaDistribuidor/:id", ApiControllerDividas.editarDividaDistribuidor);
+
 
 
 

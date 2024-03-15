@@ -207,7 +207,7 @@
                 <form class="text-center border border-light p-5" action="/api/novoUsuarioParaDistribuidor" method="post" enctype="application/x-www-form-urlencoded">
                 
                     <p class="h4 mb-4">Novo Usuário</p>
-                        <input id="idDistribuidor" name="distribuidor" type="text" style="display: none;" class="form-control" value="<%= idDoDistribuidor %>">
+                        <input id="idDistribuidor" name="distribuidor" type="text" style="display: none;" class="form-control" value="<%= idDoDistribuidor %>" required>
                     <div class="form-row mb-4">
                         <div class="col">
                             <!-- First name -->
@@ -216,7 +216,7 @@
                     </div>
                 
                     <!-- E-mail -->
-                    <input id="Email_input" name="email" type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail*">
+                    <input id="Email_input" name="email" type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail*" required>
 
                     <!-- Endereço -->
                     <input id="Endereco_input" name="endereco" type="text" id="defaultRegisterFormEmail" class="form-control mb-4"
