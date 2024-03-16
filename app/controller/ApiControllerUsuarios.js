@@ -128,7 +128,6 @@ class ApiControllerUsuarios {
             console.log('Sem permição para deletar usuário')
             res.json(false)
         }
-
     }
 
     editIndex(req, res) {
@@ -199,10 +198,8 @@ class ApiControllerUsuarios {
     }
 
     consultUser(req, res) {
-        let id_gerente = cache.get('id_gerente');
         let id_consult = req.params.id;
 
-        if (id_gerente != null && id_gerente != '') {
             axios.post(`${urls}usuarioInfo`, {
                 id: id_consult
             })
@@ -212,8 +209,6 @@ class ApiControllerUsuarios {
                 .catch(err => {
                     console.log(err);
                 })
-        }
-
     }
 
     todosUsuariosPedido(req, res) {
@@ -229,7 +224,6 @@ class ApiControllerUsuarios {
 
     // DISTRIBUIDORES
     novoUsuarioParaDistribuidor(req, res){
-        
         let newUser = {
             idDistri: req.body.distribuidor,
             nome: req.body.nome,

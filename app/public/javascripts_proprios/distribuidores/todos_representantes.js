@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function listaRepresentantes(valorDistribuidor) {
     axios.get(`${url}?idDistribuidor=${valorDistribuidor}`)
         .then(resp => {
+            console.log(resp)
             resp.data.forEach(produto => {
                 div_produtos.innerHTML += `
                 <option value="${produto.id_usuario}">${produto.nome_usuario}</option>

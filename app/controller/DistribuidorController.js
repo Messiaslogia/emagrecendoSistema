@@ -105,7 +105,7 @@ class DistribuidorController{
             .catch(err => {
                 console.log(err);
                 res.json(false);
-            })
+            }) 
     }
 
     todosUsuariosDistribuidores(req, res){
@@ -138,11 +138,10 @@ class DistribuidorController{
     editIndex(req, res){
         let id = req.params.id
 
-        res.render('distribuidor/usuarios/editarUsuario', { id })
+        res.render('distribuidores/usuarios/editarUsuario', { id })
     }
 
     editUser(req, res) {
-        let id_gerente = cache.get('id_gerente');
 
         let newUser = {
             id: req.params.id,
@@ -160,7 +159,7 @@ class DistribuidorController{
             axios.post(`${urls}editUser`, newUser)
                 .then(resp => {
                     console.log('truco')
-                    res.redirect('/admin/usuarios')
+                    res.redirect('/distribuidor/usuarios')
                 })
                 .catch(err => {
                     console.log(err);

@@ -1,4 +1,4 @@
-const url = "http://localhost:200/distribuidores/todasVendas";
+const urlVendas = "http://localhost:200/distribuidores/todasVendas";
 const div_entregas = document.querySelector('#Tabela_de_vendas');
 const id_user = document.querySelector('#Id_User').value;
 let itensPorPagina = 5;
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function adquirirListProdutos() {
-    axios.get(`${url}?idDistribuidor=${id_user}`)
+    axios.get(`${urlVendas}?idDistribuidor=${id_user}`)
         .then(resp => {
             listProduto = resp.data;
         })
