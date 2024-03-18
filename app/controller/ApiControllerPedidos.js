@@ -71,7 +71,8 @@ class ApiControllerPedidos {
         axios.post(`${urls}atualizarStatus`, {
             status: req.body.status,
             pedido: req.body.pedido,
-            pagamento: req.body.pagamento
+            pagamento: req.body.pagamento,
+            banco: req.body.banco
         })
             .then(resp => {
                 res.json(true);

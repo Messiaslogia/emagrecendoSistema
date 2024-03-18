@@ -125,6 +125,11 @@ function displayItens(page, arrayindex){
                         <select class="badge badge-sm bg-gradient-secondary" disabled>
                             <option class="text-info" selected value="${pedido.pago_com}">${pedido.pago_com}</option>
                         </select>
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                        <select class="badge badge-sm bg-gradient-secondary" disabled>
+                            <option class="text-info" selected value="${pedido.banco}">${pedido.banco}</option>
+                        </select>
                     </td>   
                     <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">${pedido.data}</span>
@@ -167,13 +172,26 @@ function displayItens(page, arrayindex){
                             <option class="text-info" value="Pix">Pix</option>
                         </select>
                     </td>
+                    <td class="align-middle text-center text-sm">
+                        <select id="Banco_input" class="badge badge-sm bg-gradient-success">
+                            <option class="text-info" value="C6">C6</option>
+                            <option class="text-info" value="Nubanck">Nubanck</option>
+                            <option class="text-info" value="PicPay">PicPay</option>
+                            <option class="text-info" value="Pan">Pan</option>
+                            <option class="text-info" value="Santander">Santander</option>
+                            <option class="text-info" value="Caixa">Caixa</option>
+                            <option class="text-info" value="Bradesco">Bradesco</option>
+                            <option class="text-info" value="Itau">Itaú</option>
+                            <option class="text-info" value="Bradesco">Bradesco</option>
+                            <option class="text-info" value="Bradesco">Bradesco</option>
+                        </select>
+                    </td>
                     <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">${pedido.data}</span>
                     </td>
                     <td class="align-middle text-center">
                         <select id="Pedido_input" number_pedido="${pedido.numero_do_pedido}" name="produto" class="form-control ">
                             <option selected disabled value="Em análise">--</option>
-                            
                             <option value="Pago!">Pago</option>
                             <option value="Devendo">Não Pago</option>
                         </select>
@@ -208,17 +226,20 @@ function displayItens(page, arrayindex){
 // Função de alterar o estado dos pedidos
 function statusAlt(){
     let status_pedido = document.querySelectorAll('#Pedido_input');
-    let status_pagamento = document.querySelectorAll('#Pagamento_input')
+    let status_pagamento = document.querySelectorAll('#Pagamento_input');
+    let status_banco = document.querySelector('#Banco_input');
 
         status_pedido.forEach((pedido, index) => {
             pedido.addEventListener('change', (e) => {
                 let numeroDPedido = e.target.getAttribute('number_pedido');
                 let metodoDPagamento = status_pagamento[index].value;
+                let bancoDPagamento = status_banco.value;
 
                 axios.post('http://localhost:3000/apiPedidos/novoStatus', {
                     status: pedido.value,
                     pedido: numeroDPedido,
-                    pagamento: metodoDPagamento
+                    pagamento: metodoDPagamento,
+                    banco: bancoDPagamento
                 })
                     .then(resp => {
                         location.reload();
@@ -292,7 +313,7 @@ function criarModal(numeração){
     })
         .then(resp => {
             infoUser(resp.data[0].id_usuario_FK);
-            console.log(resp.data)
+        
             resp.data.forEach(pedido => {
                 pedido_number.innerHTML = numeração;
                 valorTotalInfo.push(pedido.valor);

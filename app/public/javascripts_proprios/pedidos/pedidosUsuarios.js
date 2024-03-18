@@ -11,7 +11,7 @@ function adquirirListsUsers() {
             // Use diretamente os dados da resposta sem chamar resp.json()
             resp.data.forEach(user => {
                 inputUsuario.innerHTML += `
-                <option value="${user.id_usuario}">${user.nome}</option>
+                <option registro="${user.funcao}" value="${user.id_usuario}">${user.nome}</option>
                 `;
             });
         })
