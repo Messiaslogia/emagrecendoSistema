@@ -1,5 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    const botaoAvancar = document.getElementById('Bt_avancar');
+    const botaoEnviar = document.getElementById('Bt_Enviar');
+    const usuarioInput = document.getElementById('Usuario_input');
+    const dataInput = document.getElementById('Data_produto');
+    const horaInput = document.getElementById('Hora_produto');
+    const produtoInput = document.getElementById('Produto_input');
+    const quantidade = document.getElementById('Quantidade_input');
+    const numeroPedido = gerarNumeroPedido();
+
+    // Modal
+    const bt_modal = document.querySelector('#Button_Modal');
+    const info_modal = document.querySelector('#Pedido_number');
+
+    let formDataArray = [];
+
     // GERA NUMEROS ALEATORIOS PARA OS PEDIDOS
     function gerarNumeroPedido() {
         const dataAtual = new Date().toISOString().replace(/[-T:]/g, '').slice(0, -5);
@@ -12,98 +27,81 @@ document.addEventListener('DOMContentLoaded', function () {
     function coletaDadosForm() {
         let dadosAtuaisForm = {};
         let dadosTeste = {};
-
-
+        
         const elementosForm = document.querySelectorAll('#formPedido input, #formPedido select');
-        const elementoValor = parseFloat(document.getElementById('Valor_Distribuidor').value.replace("R$ ", '')) 
-        const elementoQuantidade = document.getElementById('Quantidade_input').value
-        var valorQuantidade = elementoQuantidade
-        var valorProduto = elementoValor
-        console.log('cuu', valorProduto);
+        const elementoValor = document.getElementById('Valor_Produto');
+        const elementoQuantidade = document.getElementById('Quantidade_input');
 
-        var valorFinalPedido = valorQuantidade * valorProduto
+        let valorQuantidade = elementoQuantidade.value;
+        let valorProduto = elementoValor.value.replace('R$ ', '');
 
-        elementosForm.forEach(function (elemento) {
-            if (elemento.name) {
+        let valorFinalPedido = valorQuantidade * valorProduto;
+
+        let algumValorVazio = false;
+
+        for (let i = 0; i < elementosForm.length; i++) {
+            const elemento = elementosForm[i];
+
+            if (elemento.value.trim() === '') {
+                alert('Preencha todos os campos');
+                algumValorVazio = true;
+                break; // Sai do loop
+            } else {
                 dadosAtuaisForm['pedido'] = numeroPedido;
                 dadosAtuaisForm[elemento.name] = elemento.value;
                 dadosAtuaisForm['valorPedido'] = valorFinalPedido;
-
             }
-        })
+        }
 
-        //Colocando os valores padores dos elementos
-        elementoValor.value = ''
-        elementoQuantidade.value = '';
-        usuarioInput.disabled = true;
-        dataInput.readOnly = true;
-        horaInput.readOnly = true;
-        produtoInput.value = '';
-        quantidade.value = '';
+        // Se algum valor estiver vazio, você já terá exibido o alerta e saído do loop
+        if (!algumValorVazio) {
+            elementoValor.value = '';
+            elementoQuantidade.value = '';
+            usuarioInput.disabled = true;
+            dataInput.readOnly = true;
+            horaInput.readOnly = true;
+            produtoInput.value = '';
+            quantidade.value = '';
 
-        formDataArray.push(dadosAtuaisForm);
+            formDataArray.push(dadosAtuaisForm);
+            return formDataArray;
+        }
 
-        return formDataArray;
+        
     }
-
-
-    const botaoAvancar = document.getElementById('Bt_avancar');
-    const botaoEnviar = document.getElementById('Bt_Enviar');
-    const usuarioInput = document.getElementById('Usuario_input');
-    const dataInput = document.getElementById('Data_produto');
-    const horaInput = document.getElementById('Hora_produto');
-    const produtoInput = document.getElementById('Produto_input');
-    const quantidade = document.getElementById('Quantidade_input');
-    const numeroPedido = gerarNumeroPedido();
-
-    // Modal
-    const bt_modal = document.querySelector('#Button_Modal');
-    const info_modal = document.querySelector('#Pedido_number')
-
-    let formDataArray = [];
 
     // EVENTO PARA COLETAR OS DADOS AO CLICAR NO AVANCAR
     botaoAvancar.addEventListener('click', () => {
-        const formData = coletaDadosForm();
+        const formData = coletaDadosForm(); 
     })
 
     // EVENTO PARA ENVIAR OS DADOS AO CLICAR NO ENVIAR
     botaoEnviar.addEventListener('click', () => {
         const formData = coletaDadosForm();
-
-        console.log(formData)
-
         let somaValorPedido = 0;
         formData.forEach(objeto => {
+
             if (objeto.hasOwnProperty('valorPedido')) {
-                somaValorPedido += parseFloat(objeto.valorPedido);
+                somaValorPedido += parseFloat(objeto.valorPedido.toFixed(2));               
             }
         });
-        console.log(somaValorPedido)
-        
 
         // Adiciona a propriedade com a soma em cada objeto do array
         formData.forEach(objeto => {
             objeto.somaValorPedido = somaValorPedido;
         });
-
-        console.log(formData)
-
-
-
-
+        
         formData.forEach(pedido => {
-            axios.post('http://localhost:3000/apiPedidos/addPedidos', pedido)
+            axios.post('http://localhost:3000/vendedores/addPedidos', pedido)
                 .then(resp => {
-                    console.log(resp.data)
+                    console.log(resp.data);
                 })
                 .catch(err => {
-                    console.log(err)
+                    console.log(err);
                 })
         });
 
-        info_modal.innerHTML = `${formData[0].pedido}`
+        info_modal.innerHTML = `${formData[0].pedido}`;
         bt_modal.click();
-
     })
 })

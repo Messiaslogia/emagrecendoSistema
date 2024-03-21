@@ -5,8 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(id_vendedor)
     axios.get(`${url}?idVendedor=${id_vendedor}`)
         .then(resp => {
-            document.querySelector('#VendasTotaisvendedor').innerHTML = `R$ ${resp.data[0]}`;
-            document.querySelector('#DividasTotaisvendedor').innerHTML = `R$ ${resp.data[1]}`;
+            console.log(resp)
+            document.querySelector('#VendasTotaisvendedor').innerHTML = `R$ ${resp.data[1].toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`;
+            document.querySelector('#DividasTotaisvendedor').innerHTML = `R$ ${resp.data[2].toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`;
         })  
         .catch(err => {
             console.log(err);

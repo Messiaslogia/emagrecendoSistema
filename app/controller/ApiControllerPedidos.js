@@ -18,6 +18,7 @@ class ApiControllerPedidos {
             pedido: req.body.pedido,
             status: req.body.status,
             valor: req.body.somaValorPedido,
+            valorUnico: req.body.valorProduto.replace('R$ ', ''),
             data: req.body.dataProduto,
             hora: req.body.horaProduto,
             quantidade: req.body.quantidade

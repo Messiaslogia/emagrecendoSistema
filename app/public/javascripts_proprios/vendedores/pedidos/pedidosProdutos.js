@@ -1,6 +1,6 @@
 const urlProdutos = "http://localhost:3000/apiProdutos/todosProdutosForm";
 const div_produtos = document.getElementById('Produto_input');
-const div_valorDistribuidor = document.getElementById('Valor_Distribuidor');
+const div_valorDistribuidor = document.getElementById('Valor_Produto');
 const div_valorRevenda = document.getElementById('Valor_Revenda');
 
 

@@ -288,11 +288,11 @@ function criarModal(numeração){
                     id: pedido.id_produto_FK
                 })
                     .then(produto => {
-                        let valorTotalProduto = produto.data[0].preco * pedido.quantidade
+                        let valorTotalProduto = pedido.valorIndividual * pedido.quantidade
                         // let valorTotal = valorTotalProduto * pedido.quantidade
 
 
-                        let precoProduto = produto.data[0].preco
+                        let precoProduto = pedido.valorIndividual
                         tabela_pedidos.innerHTML += `
                         <tr>
                             <td>

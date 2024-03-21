@@ -217,7 +217,6 @@ function statusAlt(){
 function dellFunction(){
     let botoes_deletar_pedido = document.querySelectorAll('#Button_Deletar_Pedido');
     
-
     botoes_deletar_pedido.forEach(botao => {
         botao.addEventListener('click', (e) => {
             let idPedido = e.target.getAttribute('idAtributo');
@@ -278,7 +277,7 @@ function criarModal(numeração){
                     id: pedido.id_produto_FK
                 })
                     .then(produto => {
-                        let valorTotal = produto.data[0].preco * pedido.quantidade
+                        let valorTotal = pedido.valorIndividual * pedido.quantidade
                         tabela_pedidos.innerHTML += `
                         <tr>
                             <td>

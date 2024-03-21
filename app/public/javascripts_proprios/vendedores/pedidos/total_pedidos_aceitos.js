@@ -103,7 +103,7 @@ function displayItens(page, arrayindex){
                     </td>
 
                     <td class="align-middle text-center text-sm text-center">
-                        <p class="text-xs font-weight-bold mb-0 text-center">${pedido.valor}</p>
+                        <p class="text-xs font-weight-bold mb-0 text-center">R$ ${pedido.valor.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</p>
                     </td>
                     
                     <td class="align-middle text-center">
@@ -132,7 +132,7 @@ function displayItens(page, arrayindex){
                     </td>
 
                     <td class="align-middle text-center text-sm text-center">
-                        <p class="text-xs font-weight-bold mb-0 text-center">${pedido.valor}</p>
+                        <p class="text-xs font-weight-bold mb-0 text-center">R$ ${pedido.valor.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</p>
                     </td>
                     
                     <td class="align-middle text-center">
@@ -222,14 +222,6 @@ filtroButton.forEach(dropdown => {
                 })
             });
 
-
-            let bt_produtos = document.querySelectorAll('#Info_pedidos');
-                bt_produtos.forEach(info => {
-                    info.addEventListener('click', (e) => {
-                        let number_pedido = e.target.getAttribute('number_pedido');
-                        criarModal(number_pedido);
-                    })
-            })
         }, [1500]);
     });
 });
@@ -258,7 +250,7 @@ function criarModal(numeração){
                     id: pedido.id_produto_FK
                 })
                     .then(produto => {
-                        let valorTotal = produto.data[0].preco * pedido.quantidade
+                        let valorTotal = pedido.valorIndividual * pedido.quantidade
                         tabela_pedidos.innerHTML += `
                         <tr>
                             <td>
@@ -283,7 +275,7 @@ function criarModal(numeração){
 
             quantidadeTotalInfo.forEach((total, index) => {
                 quantidade = quantidade + total;
-                valor = valor + valorTotalInfo[index];
+                valor =  valorTotalInfo[0];
             });
 
             tabela_pedidos.innerHTML += `

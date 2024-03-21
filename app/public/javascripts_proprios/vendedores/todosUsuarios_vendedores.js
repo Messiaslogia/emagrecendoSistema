@@ -17,7 +17,7 @@ function adquirirListsUsers() {
         .then(data => {
             listUsuarios = data.data;
             setTimeout(() => {
-                displayItens(1, 0, listUsuarios)
+                displayItens(1, 0)
             }, [300])
         })
         .catch(err => {
@@ -26,35 +26,7 @@ function adquirirListsUsers() {
 }; 
 
 
-
-function filtro(status) {
-    switch (status) {
-        case "Todos":
-            displayItens(1, 0);
-            break
-        case "Afiliados":
-            displayItens(1, 1);
-            break
-        case "Distribuidores":
-            displayItens(1, 2);
-            break
-        case "Vendedores":
-            displayItens(1, 3);
-            break
-        case "Representantes":
-            displayItens(1, 5);
-            break
-        case "Clientes":
-            displayItens(1, 4);
-            break
-        case "Afiliados de Representantes":
-            displayItens(1, 6);
-            break
-
-    }
-};
-
-function displayItens(page, arrayindex, listUsuarios) {
+function displayItens(page, arrayindex) {
 
     let startIndex = (page - 1) * itensPorPagina;
     let endIndex = startIndex + itensPorPagina;

@@ -89,12 +89,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // Adiciona a propriedade com a soma em cada objeto do array
         formData.forEach(objeto => {
             objeto.somaValorPedido = somaValorPedido;
-
         });
 
-
         formData.forEach(pedido => {
-            console.log(pedido);
             axios.post('http://localhost:3000/apiPedidos/addPedidos', pedido)
                 .then(resp => {
                     console.log(resp.data);
