@@ -211,7 +211,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10 bg-light mt-4">
                 <!-- Default form register -->
-                <form class="text-center border border-light p-5" action="/api/edit/<%= id %>" method="post" enctype="application/x-www-form-urlencoded">
+                <form class="text-center border border-light p-5" action="/vendedores/edit/<%= id %>" method="post" enctype="application/x-www-form-urlencoded">
                     <input type="text" style="display: none;" value="<%= id %>" id="idUser">
                     <p class="h4 mb-4">Editar Usuário</p>
                 
@@ -251,13 +251,8 @@
 
                     <!-- Função -->
                     <div class="">
-                        <select id="Funcao_input" name="funcao" class="form-control" id="exampleFormControlSelect1">
-                            <option disabled selected value="">Selecione a função</option>
-                            <option>Vendedor</option>
-                            <option>Distribuidor</option>
-                            <option>Revenda</option>
-                            <option>Afiliado</option>
-                            <option>Cliente</option>
+                        <select id="Funcao_input" name="funcao" class="form-control" id="exampleFormControlSelect1" style="display: none;">
+                            <option selected value="Cliente">Cliente</option>
                         </select>
                     </div>  
                     <!-- Sign up button -->
@@ -266,6 +261,10 @@
                 <!-- Default form register -->
             </div>
         </div>
+
+        <a href="/vendedores/clientes" class="ms-3">
+            <button type="button" class="btn btn-primary btn-l mt-5" style="background-color: #e91e63;">Voltar</button>
+        </a>
 
         <footer class="footer py-4  ">
             <div class="container-fluid">

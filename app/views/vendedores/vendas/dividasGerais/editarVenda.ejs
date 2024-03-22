@@ -93,9 +93,9 @@
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Páginas</a>
                         </li>
-                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Produtos</li>
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page"><a class="breadcrumb-item text-sm text-dark active" aria-current="page" href="/vendedores/dividasGeraisVendedor">Dividas</a></li>
                     </ol>
-                    <h6 class="font-weight-bolder mb-0">Editar Produto</h6>
+                    <h6 class="font-weight-bolder mb-0">Editar Divida</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -215,9 +215,9 @@
                     <button type="button" id="Bt_submi">Enviar</button>
                 </form>
                 <!-- Default form register -->
-                <form class="text-center border border-light p-5" enctype="application/x-www-form-urlencoded" id="productForm" method="POST" action="/apiDividas/editarDivida/<%=id%>">
+                <form class="text-center border border-light p-5" enctype="application/x-www-form-urlencoded" id="productForm" method="POST" action="/apiDividas/editarDividaVendedor/<%=id%>">
                     <input type="text" value="<%= id %>" style="display: none;" name="id" id="idDivida">
-                    <p class="h4 mb-4">Editar Produto</p>
+                    <p class="h4 mb-4">Editar Divida</p>
         
                     <!-- First name -->
                     <input id="Nome_divida" type="text" name="nomeDivida" class="form-control mb-4" placeholder="Nome da Divida">
@@ -248,6 +248,10 @@
         
             </div>
         </div>
+
+        <a href="/vendedores/dividasGeraisVendedor" class="ms-3">
+            <button type="button" class="btn btn-primary btn-l mt-5" style="background-color: #e91e63;">Voltar</button>
+        </a>
 
         <footer class="footer py-4  ">
             <div class="container-fluid">

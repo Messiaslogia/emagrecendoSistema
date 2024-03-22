@@ -18,13 +18,15 @@ router.get('/dividasPedidos', VendedoresController.dividasPedidos);
 router.get('/entregasConcluidas', VendedoresController.entregasConcluidas);
 router.get('/dellUser/:id', VendedoresController.dellCliente)
 
-router.post('/addPedidos', VendedoresController.registrarPedidos);
+router.get('/editUser/:id', VendedoresController.editIndex);
+router.post("/edit/:id", VendedoresController.editUser);
 router.get('/adicionarUsuario', VendedoresController.adicionarUsuario);
 router.get('/adiconarVendas', VendedoresController.adicionarVendas);
 router.get('/adiconarDividasGerais', VendedoresController.adicionarDividasGerais);
 router.get('/todosUsuariosVendedor', VendedoresController.todosUsuariosVendedor);
 router.get('/usuarioPedidos', VendedoresController.todosUsuariosVendedor);
 
+router.post('/addPedidos', VendedoresController.registrarPedidos);
 router.post('/adicionarVendas', VendedoresController.registrarVendas);
 
 

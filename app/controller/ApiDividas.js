@@ -70,7 +70,7 @@ class ApiControllerDividas {
 
             axios.post(`${urls}novaDivida`, novaDivida)
                 .then(resp => {
-                    res.redirect('/vendedores/vendasEfetuadas');
+                    res.redirect('/vendedores/dividasGeraisVendedor');
                 })
                 .catch(err => console.log(err))
         } catch (error) {
@@ -142,7 +142,7 @@ class ApiControllerDividas {
             id: divida
         })
             .then(resp => {
-                res.redirect('/admin/dividas');
+                res.redirect('/vendedores/dividasGeraisVendedor');
             })
             .catch(err => {
                 console.log(err);
@@ -195,6 +195,28 @@ class ApiControllerDividas {
             });
     }
 
+    editarDividaVendedor(req, res) {
+        let nova_divida = {
+            id: req.body.id,
+            nome: req.body.nomeDivida,
+            descricao: req.body.descricaoDivida,
+            valor: parseFloat(req.body.valorDivida.replace('R$', '').replace(',', '.')),
+            data: req.body.dataDivida,
+            hora: req.body.horaDivida,
+        };
+
+        console.log(nova_divida)
+
+        axios.post(`${urls}editDividas`, nova_divida)
+            .then((result) => {
+                console.log('Produto editado com sucesso!');
+                // produtosList = []
+                res.redirect('/vendedores/dividasGeraisVendedor');
+            }).catch((err) => {
+                console.log(err);
+            });
+    }
+
     editarDividaForm(req, res) {
         let id = req.params.id;
         console.log(id)
@@ -205,6 +227,11 @@ class ApiControllerDividas {
         let id = req.params.id;
         console.log(id)
         res.render('distribuidores/vendas/registrarVenda/editarVenda', { id });
+    };
+
+    editarDividaFormVendedor(req, res) {
+        let id = req.params.id;
+        res.render('vendedores/vendas/dividasGerais/editarVenda', { id });
     };
 
     consultarDivida(req, res) {

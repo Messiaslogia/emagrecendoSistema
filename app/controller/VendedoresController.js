@@ -15,6 +15,38 @@ class VendedoresController {
         res.render('vendedores/clientes/index', { idDoVendedor });
     }
 
+    editIndex(req, res){
+        let id = req.params.id
+
+        res.render('vendedores/clientes/editarUsuario', { id })
+    }
+
+    editUser(req, res) {
+
+        let newUser = {
+            id: req.params.id,
+            nome: req.body.nome,
+            email: req.body.email,
+            password: req.body.senha,
+            cpf: req.body.cpf,
+            insta: req.body.instagram,
+            face: req.body.facebooks,
+            funcao: req.body.funcao,
+            regiao: req.body.regiao,
+            telefone: req.body.telefone
+        };
+
+            axios.post(`http://localhost:200/users/editUser`, newUser)
+                .then(resp => {
+                    console.log('truco')
+                    res.redirect('/vendedores/clientes')
+                })
+                .catch(err => {
+                    console.log(err);
+                    res.json(false)
+                })
+    }
+
     futurosClientes(req, res){
         var idDoVendedor = cache.get('id_vendedor');
         res.render('vendedores/futurosClientes/index', { idDoVendedor })
@@ -124,7 +156,7 @@ class VendedoresController {
 
     adicionarDividasGerais(req, res){
         var idDoVendedor = cache.get('id_vendedor');
-        res.render('vendedores/vendas/registrarVenda/adicionarVenda', { idDoVendedor });
+        res.render('vendedores/vendas/dividasGerais/adicionarVenda', { idDoVendedor });
     }
 
     dividasPedidos(req, res){
@@ -169,16 +201,6 @@ class VendedoresController {
                 res.json(false)
             })
     }
-
-    // usuariosInput(req, res){
-    //     const idVendedor = req.query.idVendedor;
-
-    //     axios.get(`${urls}`)
-    // }
-
-
-
-
 }
 
 module.exports = new VendedoresController;

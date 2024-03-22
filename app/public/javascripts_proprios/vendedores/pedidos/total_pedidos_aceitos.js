@@ -105,7 +105,12 @@ function displayItens(page, arrayindex){
                     <td class="align-middle text-center text-sm text-center">
                         <p class="text-xs font-weight-bold mb-0 text-center">R$ ${pedido.valor.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</p>
                     </td>
-                    
+                    <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold text-center">${pedido.banco}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold text-center">${pedido.pago_com}</span>
+                    </td>
                     <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold text-center">${pedido.data}</span>
                     </td> 
@@ -134,7 +139,12 @@ function displayItens(page, arrayindex){
                     <td class="align-middle text-center text-sm text-center">
                         <p class="text-xs font-weight-bold mb-0 text-center">R$ ${pedido.valor.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</p>
                     </td>
-                    
+                    <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold text-center">${pedido.banco}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold text-center">${pedido.pago_com}</span>
+                    </td>
                     <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold text-center">${pedido.data}</span>
                     </td> 

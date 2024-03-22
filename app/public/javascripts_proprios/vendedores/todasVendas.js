@@ -2,6 +2,7 @@ const url = "http://localhost:200/vendedor/todasVendas";
 const div_entregas = document.querySelector('#Tabela_de_vendas');
 const id_user = document.querySelector('#Id_User').value;
 let itensPorPagina = 5;
+let listUser = [];
 let listProduto;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,11 +16,22 @@ function adquirirListProdutos() {
     axios.get(`${url}?idVendedor=${id_user}`)
         .then(resp => {
             listProduto = resp.data;
+            filtroUsers();
         })
         .catch(err => {
             console.log(err);
         })
 };
+
+async function filtroUsers(){
+   await listProduto.forEach((venda, index) => {
+        axios.post('http://localhost:200/users/usuarioInfo', {
+            id: venda.id_cliente_FK
+        })
+            .then(resp => {listUser[venda.id_venda] = (resp.data)})
+    })
+    console.log(listUser)
+}
 
 function paginas(page) {
     const pageCont = Math.ceil(listProduto.length / itensPorPagina);
@@ -45,23 +57,21 @@ function displayItens(page) {
         div_entregas.innerHTML += `
                                  <tr>
                                       <td class="text-center">                                          
-                                        <h6 class="mb-0 text-sm">${venda.id_venda}</h6>
+                                        <h6 class="mb-0 text-sm">${listUser[venda.id_venda][0].nome}</h6>
                                       </td>
                                       <td class="text-center">
-                                          <p class="text-xs font-weight-bold mb-0">${venda.valor_total}</p>
+                                          <p class="text-xs font-weight-bold mb-0">R$ ${venda.valor_total}</p>
                                       </td>
                                       <td class="align-middle text-center text-sm">
                                           <span class="">${venda.quantidade_total}</span>
                                       </td>
                                       <td class="align-middle text-center">
-                                          <span class="text-secondary text-xs font-weight-bold">${venda.valor_unitario}</span>
+                                          <span class="text-secondary text-xs font-weight-bold">R$ ${venda.valor_unitario}</span>
                                       </td>
                                        <td class="align-middle text-center">
                                           <span class="text-secondary text-xs font-weight-bold">${venda.data}</span>
                                       </td>
-                                      <td class="align-middle text-center">
-                                          <span class="text-secondary text-xs font-weight-bold">${venda.porcentagem}</span>
-                                      </td>
+                                      
                                  </tr>
                          `
     }).join();
