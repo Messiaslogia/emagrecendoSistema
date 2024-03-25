@@ -55,6 +55,9 @@ function displayItens(page) {
                                         <h6 class="mb-0 text-sm">${divida.numero_do_pedido}</h6>
                                       </td>
                                       <td class="text-center">
+                                          <p class="text-xs font-weight-bold mb-0">${divida.endereco}</p>
+                                      </td>
+                                      <td class="text-center">
                                           <p class="text-xs font-weight-bold mb-0">${divida.codigo_rastreio}</p>
                                       </td>
                                       <td class="align-middle text-center text-sm">

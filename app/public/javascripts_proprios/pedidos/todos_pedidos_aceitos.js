@@ -271,35 +271,35 @@ function dellFunction(){
 }
 
 // Modal Function
-filtroButton.forEach(dropdown => {
-    dropdown.addEventListener('click', () =>{
-        setTimeout(() => {
-            let paginasButton = document.querySelectorAll('.page-item');
+// filtroButton.forEach(dropdown => {
+//     dropdown.addEventListener('click', () =>{
+//         setTimeout(() => {
+//             let paginasButton = document.querySelectorAll('.page-item');
 
-            paginasButton.forEach(pagina => {
-                pagina.addEventListener('click', () => {
-                    let bt_produtos = document.querySelectorAll('#Info_pedidos');
+//             paginasButton.forEach(pagina => {
+//                 pagina.addEventListener('click', () => {
+//                     let bt_produtos = document.querySelectorAll('#Info_pedidos');
         
-                    bt_produtos.forEach(info => {
-                        info.addEventListener('click', (e) => {
-                            let number_pedido = e.target.getAttribute('number_pedido');
-                            criarModal(number_pedido);
-                        })
-                    })
-                })
-            });
+//                     bt_produtos.forEach(info => {
+//                         info.addEventListener('click', (e) => {
+//                             let number_pedido = e.target.getAttribute('number_pedido');
+//                             criarModal(number_pedido);
+//                         })
+//                     })
+//                 })
+//             });
 
 
-            // let bt_produtos = document.querySelectorAll('#Info_pedidos');
-            //     bt_produtos.forEach(info => {
-            //         info.addEventListener('click', (e) => {
-            //             let number_pedido = e.target.getAttribute('number_pedido');
-            //             criarModal(number_pedido);
-            //         })
-            // })
-        }, [1500]);
-    });
-});
+//             let bt_produtos = document.querySelectorAll('#Info_pedidos');
+//                 bt_produtos.forEach(info => {
+//                     info.addEventListener('click', (e) => {
+//                         let number_pedido = e.target.getAttribute('number_pedido');
+//                         criarModal(number_pedido);
+//                     })
+//             })
+//         }, [1500]);
+//     });
+// });
 
 function criarModal(numeração){
     let bt_modal = document.querySelector('#Bt_modal');

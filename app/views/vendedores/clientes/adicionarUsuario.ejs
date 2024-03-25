@@ -204,7 +204,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10 bg-light mt-4">
                 <!-- Default form register -->
-                <form class="text-center border border-light p-5" action="/api/novoUsuarioParaVendedores" method="post" enctype="application/x-www-form-urlencoded">
+                <form id="MyForm" class="text-center border border-light p-5" action="/api/novoUsuarioParaVendedores" method="post" enctype="application/x-www-form-urlencoded">
                 
                     <p class="h4 mb-4">Novo Cliente/Futuro Cliente</p>
                         <input id="idDoVendedor" name="idDoVendedor" type="text" style="display: none;" class="form-control" value="<%= idDoVendedor %>">
@@ -294,6 +294,8 @@
     <script src="../../javascripts/plugins/perfect-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
+    <script src="../../javascripts_proprios/adicionarUser.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script>
