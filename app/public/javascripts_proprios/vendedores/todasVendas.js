@@ -135,11 +135,11 @@ function infoUser(info){
     let text_end = document.querySelector('#Text_Endereco');
 
     text_user.innerHTML = '';
-    text_end.innerHTML = ''
+    text_end.innerHTML = '';
 
 
     text_user.innerHTML = `Vendido para: ${info.nome}`;
-    text_end.innerHTML = `Endereço: ${info.endereco}`   
+    text_end.innerHTML = `Endereço: ${info.endereco}`;
 };
 
 
