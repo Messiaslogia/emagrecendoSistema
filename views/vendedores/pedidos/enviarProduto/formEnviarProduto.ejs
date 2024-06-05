@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../images/logo.png">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <title>
+        Emagrecendo com Ela 
+    </title>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <!-- Nucleo Icons -->
+    <link href="../stylesheets/nucleo-icons.css" rel="stylesheet" />
+    <link href="stylesheets/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- CSS Files -->
+    <link id="pagestyle" href="../../stylesheets/material-dashboard.css?v=3.0.0" rel="stylesheet" />
+    <link rel="stylesheet" href="../../path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+
+<body class="g-sidenav-show  bg-gray-200">
+    <aside
+        class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
+        id="sidenav-main">
+        <div class="sidenav-header text-center">
+            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+                aria-hidden="true" id="iconSidenav"></i>
+            <a class=" m-0" href="" target="_blank">
+                <img src="../../images/logo.png" class=" h-100" alt="main_logo">
+    
+            </a>
+        </div>
+        <hr class="horizontal light mt-0 mb-2">
+        <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/vendedores?user=<%= idCripted %>">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">dashboard</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Dashboard</span>
+                    </a>
+                </li>
+    
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="/vendedores/vendas?user=<%= idCripted %>">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">assignment</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Vendas</span>
+                    </a>
+                </li>
+    
+                
+    
+                <li class="nav-item">
+                    <a class="nav-link text-white active bg-gradient-primary" href="/vendedores/pedidos?user=<%= idCripted %>">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">shopping_basket</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Pedidos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="/vendedores/clientes?user=<%= idCripted %>">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">person</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Usuários</span>
+                    </a>
+                </li>
+    
+            </ul>
+        </div>
+    </aside>
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+        <!-- Navbar -->
+        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+            navbar-scroll="true">
+            <div class="container-fluid py-1 px-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Páginas</a>
+                        </li>
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page"><a class="opacity-5 text-dark" href="/vendedores/pedidos?user=<%= idCripted %>">Pedidos</a>
+                        </li>
+                    </ol>
+                    <h6 class="font-weight-bolder mb-0">Efetuar Novo Pedido</h6>
+                </nav>
+                <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+                    <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+        
+                    </div>
+                    <ul class="navbar-nav  justify-content-end">
+                        <li class="nav-item d-flex align-items-center">
+                            <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
+                                <i class="fa fa-user me-sm-1"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                                <div class="sidenav-toggler-inner">
+                                    <i class="sidenav-toggler-line"></i>
+                                    <i class="sidenav-toggler-line"></i>
+                                    <i class="sidenav-toggler-line"></i>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item px-2 d-flex align-items-center">
+        
+                        </li>
+                        <li class="nav-item dropdown pe-2 d-flex align-items-center">
+                            <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton"
+                                 aria-expanded="false"> <!-- data-bs-toggle="dropdown" -->
+                                <i class="fa fa-bell cursor-pointer"></i>
+                            </a>
+                            <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4"
+                                aria-labelledby="dropdownMenuButton">
+                                <li class="mb-2">
+                                    <a class="dropdown-item border-radius-md" href="javascript:;">
+                                        <div class="d-flex py-1">
+                                            <div class="my-auto">
+                                                <img src="../../images/team-2.jpg" class="avatar avatar-sm  me-3 ">
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="text-sm font-weight-normal mb-1">
+                                                    <span class="font-weight-bold">New message</span> from Laur
+                                                </h6>
+                                                <p class="text-xs text-secondary mb-0">
+                                                    <i class="fa fa-clock me-1"></i>
+                                                    13 minutes ago
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a class="dropdown-item border-radius-md" href="javascript:;">
+                                        <div class="d-flex py-1">
+                                            <div class="my-auto">
+                                                <img src="../../images/small-logos/logo-spotify.svg"
+                                                    class="avatar avatar-sm bg-gradient-dark  me-3 ">
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="text-sm font-weight-normal mb-1">
+                                                    <span class="font-weight-bold">New album</span> by Travis Scott
+                                                </h6>
+                                                <p class="text-xs text-secondary mb-0">
+                                                    <i class="fa fa-clock me-1"></i>
+                                                    1 day
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item border-radius-md" href="javascript:;">
+                                        <div class="d-flex py-1">
+                                            <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
+                                                <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <title>credit-card</title>
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF"
+                                                            fill-rule="nonzero">
+                                                            <g transform="translate(1716.000000, 291.000000)">
+                                                                <g transform="translate(453.000000, 454.000000)">
+                                                                    <path class="color-background"
+                                                                        d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
+                                                                        opacity="0.593633743"></path>
+                                                                    <path class="color-background"
+                                                                        d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
+                                                                    </path>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="text-sm font-weight-normal mb-1">
+                                                    Payment successfully completed
+                                                </h6>
+                                                <p class="text-xs text-secondary mb-0">
+                                                    <i class="fa fa-clock me-1"></i>
+                                                    2 days
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End Navbar -->
+
+        <div class="row justify-content-center">
+            <div class="col-md-10 bg-light mt-4">
+                <form class="text-center border border-light p-5" action="/apiPedidos/statusEntrega?user=<%= idCripted %>" id="formPedido" method="post"
+                    enctype="application/x-www-form-urlencoded">
+
+                    <p class="h4 mb-4">Enviando Pedido</p>
+                    <input id="Numero_do_pedido" name="numero_do_pedido" type="text" value="<%= pedido %>" style="display: none;">
+                    <input id="id_pedido" name="id_pedido" type="text" value="<%= id_pedido %>" style="display: none;">
+
+
+                    <!-- Usuario -->
+                    <div class="form-row mb-4">
+                        <div class="col">
+                            <div class="">
+                                <input class="form-control" type="text" name="codigo_rastreio" id="Codigo_rastreio" placeholder="Código de Rastreio">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Produto -->
+                    <div class="form-row mb-4">
+                        <div class="col">
+                            <div class="">
+                                <select id="Empresas_input" name="empresa" class="form-control">
+                                    <option disabled selected value="">Selecione a Empresa</option>
+                                    <option value="Correios">Correios</option>
+                                    <option value="Loggi">Loggi</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data inserida -->
+                    <input id="Data_produto" type="date" name="dataEntrega" class="form-control mb-4" placeholder="Data"
+                        aria-describedby="defaultRegisterFormPhoneHelpBlock" readonly>
+                    
+                    <!-- Horas inserida -->
+                    <input id="Hora_produto" type="time" name="horaEntrega" class="form-control mb-4" placeholder="Horas"
+                        aria-describedby="defaultRegisterFormPhoneHelpBlock" readonly>
+
+                
+                    <button id="Bt_Enviar" class="btn btn btn-success my-4 btn-block" type="submit">Enviar Pedido</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Modal -->
+        <div class="col-md-4">
+            <button type="button" class="btn btn-block bg-gradient-warning mb-3" data-bs-toggle="modal" data-bs-target="#modal-notification" id="Button_Modal" style="display: none;">Notification</button>
+            <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+              <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h6 class="modal-title font-weight-normal" id="modal-title-notification">Informações do Pedido</h6>
+                    <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="py-3 text-center">
+                      <i id="Pedido_number" class="material-icons h1 text-secondary"></i>
+                      <h4 class="text-gradient text-success mt-4">Pedido feito com sucesso!</h4>
+                      <p>Aguarde a confirmação do seu pedido.</p>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- <a href="/admin/pedidos"><button type="button" class="btn btn-alert">Ok, voltar ao inicio!</button></a> -->
+                    <!-- <a href="/admin/efetuarPedido"><button type="button" class="btn btn-link text-danger ml-auto" data-bs-dismiss="modal">Fechar</button></a> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <a href="/vendedores/pedidos?user=<%= idCripted %>" class="ms-3">
+            <button type="button" class="btn btn-primary btn-l mt-5" style="background-color: #e91e63;">Voltar</button>
+        </a>
+
+        <footer class="footer py-4">
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-lg-between">
+                    <div class="col-lg-4 mb-lg-0 mb-4">
+                        <div class="copyright text-center text-sm text-muted text-lg-start">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>,
+                            <i class="fa fa-heart"></i>
+
+                            Emagrecendo
+                                com Ela
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Data já preenchidas -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dataInput = document.getElementById('Data_produto');
+            const horaInput = document.getElementById('Hora_produto');
+
+            const dataAtual = new Date();
+
+            const ano = dataAtual.getFullYear();
+            const mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
+            const dia = String(dataAtual.getDate()).padStart(2, '0');
+            const dataFormatada = `${ano}-${mes}-${dia}`;
+
+            const hora = String(dataAtual.getHours()).padStart(2, '0');
+            const minutos = String(dataAtual.getMinutes()).padStart(2, '0');
+
+            const horaFormatada = `${hora}:${minutos}`;
+
+            dataInput.value = dataFormatada;
+            horaInput.value = horaFormatada;
+        });
+    </script>
+
+    <script src="../../javascripts/core/popper.min.js"></script>
+    <script src="../../javascripts/core/bootstrap.min.js"></script>
+    <script src="../../javascripts/plugins/perfect-scrollbar.min.js"></script>
+    <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
+    <script src="../../javascripts/plugins/chartjs.min.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="../../javascripts/material-dashboard.min.js?v=3.0.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- <script src="../../javascripts_proprios/pedidos/pedidosUsuarios.js"></script>
+    <script src="../../javascripts_proprios/pedidos/pedidosProdutos.js"></script>
+    <script src="../../javascripts_proprios/pedidos/pedidosFormulario.js"></script> -->
+
+
+
+    
+</body>
+
+</html>

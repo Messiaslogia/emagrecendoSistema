@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt_Br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../images/logo.png">
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+    <title>
+        Relatório Mensal
+    </title>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <!-- Nucleo Icons -->
+    <link href="../stylesheets/nucleo-icons.css" rel="stylesheet" />
+    <link href="stylesheets/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- CSS Files -->
+    <link id="pagestyle" href="../../stylesheets/material-dashboard.css?v=3.0.0" rel="stylesheet" />
+    <link rel="stylesheet" href="../../path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body class="g-sidenav-show  bg-gray-200">
+    <header></header>
+
+
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+        <nav>
+            <a href="http://localhost:3030/admin/vendas"></a><button>Voltar</button>
+            <a href=""></a><button>Ver Relatorio</button>
+        </nav>
+        <div class="col-12 ">
+            <div class="row ">
+                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                    <div class="card">
+                        <div class="card-header p-3 pt-2">
+                            <div
+                                class="icon icon-lg icon-shape bg-gradient-primary shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                                <i class="material-symbols-outlined opacity-10">
+                                    attach_money
+                                </i>
+                            </div>
+                            <div class="text-end pt-1">
+                                <p class="text-sm mb-0 text-capitalize">A pagar no mês</p>
+                                <h2 class="mt-3"><%= infoMensal[7] %></h2>
+                            </div>
+                        </div>
+
+                        <div class="card-footer p-3">
+                            <p class="mb-0"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                    <div class="card">
+                        <div class="card-header p-3 pt-2">
+                            <div
+                                class="icon icon-lg icon-shape bg-gradient-success shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                                <i class="material-symbols-outlined opacity-10">
+                                    attach_money
+                                </i>
+                            </div>
+                            <div class="text-end pt-1">
+                                <p class="text-sm mb-0 text-capitalize">Total faturado no mês</p>
+                                <h2 class="mt-3"><%= infoMensal[8] %></h2>
+                            </div>
+                        </div>
+
+                        <div class="card-footer p-3">
+                            <p class="mb-0"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                 <h2>Valor Total Crédito: <%= infoMensal[1] %></h2>
+                 <h2>Valor Total Débito: <%= infoMensal[2] %></h2>
+                 <h2>Valor Total Pix: <%= infoMensal[3] %></h2>
+                 <h2>Valor Total gasto com frete: <%= infoMensal[4] %></h2>
+                 <!-- <h2>Melhor região: <%= infoMensal[8] %></h2> -->
+                 <h2>Quantidade de vendas: <%= infoMensal[6] %></h2>   
+            </div>
+            <div class="card-body px-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Número
+                                </th>
+                                <th
+                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    Pedido</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Valor</th>
+
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Valor da Entrega</th>
+
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Região</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <% infoMensal[0].forEach((info, index) => { %>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div class="cursor-pointer">
+                                                <i id="Info_pedidos" number_pedido="" class="material-icons cursor-pointer">info</i>
+                                            </div>
+                                            <div class="d-flex flex-colum justify-content-center">
+                                                <h6 class="mb-0 text-sm" style="margin-left: 1rem"><%= info.numero_do_pedido %></h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0"><%=info.info_produtos%></p>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="badge badge-sm bg-gradient-success"><%=info.valor%></span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <span class="text-secondary text-xs font-weight-bold"><%=info.valor_d_entrega%></span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <span class="text-secondary text-xs font-weight-bold"><%=info.regiao%></span>
+                                    </td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                        
+                    </table>
+                    
+                </div>
+                
+            </div>  
+            
+            
+    
+            <!--  -->
+            <footer class="footer py-4  ">
+                
+                <div class="container-fluid">
+                    <div class="row align-items-center justify-content-lg-between">
+                        <div class="col-lg-4 mb-lg-0 mb-4">
+                            <div class="copyright text-center text-sm text-muted text-lg-start">
+                                ©
+                                <script>
+                                    document.write(new Date().getFullYear())
+                                </script>,
+                                <i class="fa fa-heart"></i>
+    
+                                Emagrecendo
+                                    com Ela
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+    </main>
+</body>
