@@ -23,8 +23,7 @@ class ProductController {
                 preco: req.body.precoProduto.replace(' ', '').replace('R$', '').replace(',', '.'),
                 precoRevenda: req.body.precoProdutoRevenda.replace(' ', '').replace('R$', '').replace(',', '.'),
                 precoDistribuidor: req.body.precoProdutoDistribuidor.replace(' ', '').replace('R$', '').replace(',', '.'),
-                data: req.body.dataProduto,
-                hora: req.body.horaProduto
+                data: req.body.dataProduto
             };
 
 

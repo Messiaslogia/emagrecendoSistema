@@ -3,9 +3,12 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-
-
 #Pedido_input{
   background-color:gainsboro;
   text-align: center;
+}
+
+.inputProduto {
+  font-size: 0.780em;
+  /* Ajuste o tamanho do texto do placeholder conforme necessário */
 }
