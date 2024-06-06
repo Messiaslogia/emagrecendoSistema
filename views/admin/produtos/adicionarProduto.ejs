@@ -215,35 +215,35 @@
 
         <div class="row justify-content-center">
             <div class="col-md-10 bg-light mt-4">
-                <form class="border border-light p-5" enctype="application/x-www-form-urlencoded" id="productForm" method="post"
+                <form class="border border-light p-5" enctype="multipart/form-data" id="productForm" method="post"
                     action="/apiProdutos/adicionarProduto">
                     <p class="h4 mb-4 text-center">Novo Produto</p>
         
                     <!-- Nome do produto -->
                     <div class="form-group">
                         <label for="Nome_produto" class="fs-6 fw-bold ">Nome do produto</label>
-                        <input id="Nome_produto" type="text" name="nomeProduto" class="form-control mb-4 inputProduto"
+                        <input id="Nome_produto" type="text" name="nomeProduto" class="form-control mb-4 "
                             placeholder="Ex: Emagrecedor" required>
                     </div>
         
                     <!-- Descrição do produto -->
                     <div class="form-group">
                         <label for="Descricao_produto" class="fs-6 fw-bold ">Descrição do produto</label>
-                        <input id="Descricao_produto" type="text" name="descricaoProduto" class="form-control mb-4 inputProduto"
+                        <input id="Descricao_produto" type="text" name="descricaoProduto" class="form-control mb-4 "
                             placeholder="Ex: emagrecedor masculino" required>
                     </div>
         
                     <!-- Quantidade em estoque -->
                     <div class="form-group">
                         <label for="Quantidade_produto" class="fs-6 fw-bold ">Quantidade em estoque</label>
-                        <input id="Quantidade_produto" type="number" name="quantidadeProduto" class="form-control mb-4 inputProduto"
+                        <input id="Quantidade_produto" type="number" name="quantidadeProduto" class="form-control mb-4 "
                             placeholder="Ex: 50" aria-describedby="defaultRegisterFormPhoneHelpBlock" required>
                     </div>
         
                     <!-- Preço do produto -->
                     <div class="form-group">
                         <label for="Preco_produto" class="fs-6 fw-bold ">Preço do produto</label>
-                        <input id="Preco_produto" type="text" name="precoProduto" class="form-control mb-4 inputProduto"
+                        <input id="Preco_produto" type="text" name="precoProduto" class="form-control mb-4 "
                             placeholder="Ex: R$ 1999,99" aria-describedby="defaultRegisterFormPhoneHelpBlock" required data-mask="currency">
                     </div>
         
@@ -251,35 +251,35 @@
                     <div class="form-group">
                         <label for="Preco_produto_Distribuidor" class="fs-6 fw-bold ">Preço para Distribuidor</label>
                         <input id="Preco_produto_Distribuidor" type="text" name="precoProdutoDistribuidor"
-                            class="form-control mb-4 inputProduto" placeholder="Ex: R$ 1799,99"
+                            class="form-control mb-4 " placeholder="Ex: R$ 1799,99"
                             aria-describedby="defaultRegisterFormPhoneHelpBlock" required data-mask="currency">
                     </div>
         
                     <!-- Preço para Vendedor -->
                     <div class="form-group">
                         <label for="Preco_produto_Revenda" class="fs-6 fw-bold ">Preço para Vendedor</label>
-                        <input id="Preco_produto_Revenda" type="text" name="precoProdutoRevenda" class="form-control mb-4 inputProduto"
+                        <input id="Preco_produto_Revenda" type="text" name="precoProdutoRevenda" class="form-control mb-4 "
                             placeholder="Ex: R$ 1899,99" aria-describedby="defaultRegisterFormPhoneHelpBlock" required data-mask="currency">
                     </div>
         
                     <!-- Preço de custo do produto -->
                     <div class="form-group">
                         <label for="preco_custo" class="fs-6 fw-bold ">Preço de custo do produto</label>
-                        <input id="preco_custo" type="text" name="precoCusto" class="form-control mb-4 inputProduto"
+                        <input id="preco_custo" type="text" name="precoCusto" class="form-control mb-4 "
                             placeholder="Ex: R$ 1500,00" aria-describedby="defaultRegisterFormPhoneHelpBlock" required data-mask="currency">
                     </div>
 
                     <!-- Imagem do produto -->
                     <div class="form-group">
                         <label for="Imagem_produto" class="fs-6 fw-bold">Imagem do produto</label>
-                        <input id="Imagem_produto" type="file" name="imagemProduto" class="form-control mb-4 inputProduto" accept="image/*"
+                        <input id="Imagem_produto" type="file" name="imagemProduto" class="form-control mb-4 " accept="image/*"
                             required>
                     </div>
         
                     <!-- Data -->
                     <div class="form-group">
                         <label for="Data_produto" class="fs-6 fw-bold ">Data</label>
-                        <input id="Data_produto" type="date" name="dataProduto" class="form-control mb-4 inputProduto"
+                        <input id="Data_produto" type="date" name="dataProduto" class="form-control mb-4 "
                             placeholder="Selecione a data" aria-describedby="defaultRegisterFormPhoneHelpBlock" required>
                     </div>
         

@@ -8,7 +8,8 @@ body {
   text-align: center;
 }
 
-.inputProduto {
+::placeholder {
   font-size: 0.780em;
+  color: rgba(100, 100, 100, 0.342);
   /* Ajuste o tamanho do texto do placeholder conforme necessário */
 }
