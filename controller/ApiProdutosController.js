@@ -1,10 +1,10 @@
-const axios = require('axios')
-const cache = require('../configs/cache')
+const axios = require('axios');
+const cache = require('../configs/cache');
 const multer = require('multer');
 const path = require('path');
 
 // Base da URL
-const urls = "http://localhost:200/produtos/"
+const urls = "http://localhost:200/produtos/";
 
 // Variáveis Globais
 let produtosList = [];
@@ -13,18 +13,17 @@ class ProductController {
     addProduto(req, res) {
         try {
             let id_gerente = cache.get('id_gerente');
-            console.log(req.body)
+            console.log(req.body);
             let novo_produto = {
                 nome: req.body.nomeProduto,
                 descricao: req.body.descricaoProduto,
-                img: ``,
+                img: req.file ? req.file.path : '',
                 quantidade: req.body.quantidadeProduto,
                 preco: req.body.precoProduto.replace(' ', '').replace('R$', '').replace(',', '.'),
                 precoRevenda: req.body.precoProdutoRevenda.replace(' ', '').replace('R$', '').replace(',', '.'),
                 precoDistribuidor: req.body.precoProdutoDistribuidor.replace(' ', '').replace('R$', '').replace(',', '.'),
                 data: req.body.dataProduto
             };
-
 
             if (id_gerente != null && id_gerente != '') {
                 axios.post(`${urls}adicionarProdutos`, novo_produto)
@@ -33,23 +32,20 @@ class ProductController {
                             id: resp.data
                         })
                             .then(resp => {
-                                // produtosList.push(resp.data[0]);
                                 res.redirect('/admin/produtos');
                             })
                             .catch(err => console.log(err));
                     })
                     .catch(err => {
                         console.log(err);
-                    })
+                    });
             } else {
-                return res.json(false)
+                return res.json(false);
             }
         } catch (error) {
             console.error(error);
             return res.status(500).send('Erro ao adicionar produto.');
         }
-
-
     }
 
     dellProduto(req, res) {
@@ -61,15 +57,12 @@ class ProductController {
                 id: id_produto
             })
                 .then(resp => {
-                    // let id = parseInt(id_produto);
-                    // let listModificada = produtosList.filter(produto => produto.id_produto != id);
-                    // produtosList = listModificada;
                     res.redirect('/admin/produtos');
                 })
                 .catch(err => {
                     console.log(err);
                     res.json(false);
-                })
+                });
         }
     }
 
@@ -83,21 +76,19 @@ class ProductController {
             .catch(err => {
                 console.log(err);
                 res.json(false);
-            })
+            });
     }
 
     todosProdutos(req, res) {
-
         axios.get(`${urls}todosProdutosForm`)
             .then(resp => {
                 let data = resp.data;
-                // data.forEach(produto => produtosList.push(produto));
                 res.json(data);
             })
             .catch(err => {
                 console.log(err);
                 res.json(false);
-            })
+            });
     }
 
     editIndex(req, res) {
@@ -118,26 +109,25 @@ class ProductController {
             hora: req.body.horaProduto
         };
 
-        console.log(novo_produto)
+        console.log(novo_produto);
 
         axios.post(`${urls}editarProdutos`, novo_produto)
-            .then((result) => {
+            .then(result => {
                 console.log('Produto editado com sucesso!');
-                // produtosList = []
                 res.redirect('/admin/produtos');
-            }).catch((err) => {
+            })
+            .catch(err => {
                 console.log(err);
             });
-
     }
 
     uploadImagemProduto() {
         const storage = multer.diskStorage({
             destination: function (req, file, cb) {
-                cb(null, 'public/images/produtos'); // Diretório onde a imagem será armazenada
+                cb(null, 'public/images/produtos');
             },
             filename: function (req, file, cb) {
-                cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname)); // Nome do arquivo
+                cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
             }
         });
 
@@ -165,13 +155,11 @@ class ProductController {
             .catch(err => {
                 console.log(err);
                 res.json(false);
-            })
-
+            });
     }
 
     estoqueTotal(req, res) {
         let id_gerente = cache.get('id_gerente');
-
 
         axios.get(`${urls}estoqueTotal`)
             .then(resp => {
@@ -180,8 +168,7 @@ class ProductController {
             .catch(err => {
                 console.log(err);
                 res.json(false);
-            })
-
+            });
     }
 
     consultProduto(req, res) {
@@ -190,15 +177,13 @@ class ProductController {
         axios.post(`${urls}infoProduto`, {
             id: id_produto
         })
-            .then((result) => {
+            .then(result => {
                 res.json(result.data);
-            }).catch((err) => {
+            })
+            .catch(err => {
                 console.log(err);
             });
     }
-
-
-
 }
 
-module.exports = new ProductController
+module.exports = new ProductController();
