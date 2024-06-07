@@ -12,7 +12,6 @@ let produtosList = [];
 class ProductController {
     addProduto(req, res) {
         try {
-
             let id_gerente = cache.get('id_gerente');
             console.log(req.body)
             let novo_produto = {
