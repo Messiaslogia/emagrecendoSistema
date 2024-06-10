@@ -244,29 +244,36 @@
                     <div class="form-group">
                         <label for="Preco_produto" class="fs-6 fw-bold ">Preço do produto</label>
                         <input id="Preco_produto" type="text" name="precoProduto" class="form-control mb-4 "
-                            placeholder="Ex: R$ 1999,99" aria-describedby="defaultRegisterFormPhoneHelpBlock" required data-mask="currency">
+                            placeholder="Ex: R$ 250,99" aria-describedby="defaultRegisterFormPhoneHelpBlock" required data-mask="currency">
                     </div>
         
                     <!-- Preço para Distribuidor -->
                     <div class="form-group">
                         <label for="Preco_produto_Distribuidor" class="fs-6 fw-bold ">Preço para Distribuidor</label>
                         <input id="Preco_produto_Distribuidor" type="text" name="precoProdutoDistribuidor"
-                            class="form-control mb-4 " placeholder="Ex: R$ 1799,99"
+                            class="form-control mb-4 " placeholder="Ex: R$ 250,99"
                             aria-describedby="defaultRegisterFormPhoneHelpBlock" required data-mask="currency">
+                    </div>
+
+                    <!-- Preço para Representante -->
+                    <div class="form-group">
+                        <label for="Preco_produto_Representante" class="fs-6 fw-bold ">Preço para Representante</label>
+                        <input id="Preco_produto_Representante" type="text" name="precoProdutoRepresentante" class="form-control mb-4 "
+                            placeholder="Ex: R$ 250,99" aria-describedby="defaultRegisterFormPhoneHelpBlock" required data-mask="currency">
                     </div>
         
                     <!-- Preço para Vendedor -->
                     <div class="form-group">
-                        <label for="Preco_produto_Revenda" class="fs-6 fw-bold ">Preço para Vendedor</label>
-                        <input id="Preco_produto_Revenda" type="text" name="precoProdutoRevenda" class="form-control mb-4 "
-                            placeholder="Ex: R$ 1899,99" aria-describedby="defaultRegisterFormPhoneHelpBlock" required data-mask="currency">
+                        <label for="Preco_produto_Vendedor" class="fs-6 fw-bold ">Preço para Vendedor</label>
+                        <input id="Preco_produto_Vendedor" type="text" name="precoProdutoVendedor" class="form-control mb-4 "
+                            placeholder="Ex: R$ 250,99" aria-describedby="defaultRegisterFormPhoneHelpBlock" required data-mask="currency">
                     </div>
         
                     <!-- Preço de custo do produto -->
                     <div class="form-group">
                         <label for="preco_custo" class="fs-6 fw-bold ">Preço de custo do produto</label>
                         <input id="preco_custo" type="text" name="precoCusto" class="form-control mb-4 "
-                            placeholder="Ex: R$ 1500,00" aria-describedby="defaultRegisterFormPhoneHelpBlock" required data-mask="currency">
+                            placeholder="Ex: R$ 100,00" aria-describedby="defaultRegisterFormPhoneHelpBlock" required data-mask="currency">
                     </div>
 
                     <!-- Imagem do produto -->
@@ -275,12 +282,15 @@
                         <input id="Imagem_produto" type="file" name="imagemProduto" class="form-control mb-4 " accept="image/*"
                             required>
                     </div>
-        
-                    <!-- Data -->
+
                     <div class="form-group">
-                        <label for="Data_produto" class="fs-6 fw-bold ">Data</label>
-                        <input id="Data_produto" type="date" name="dataProduto" class="form-control mb-4 "
-                            placeholder="Selecione a data" aria-describedby="defaultRegisterFormPhoneHelpBlock" required>
+                        <label for="categoriaProdutos" class="fs-6 fw-bold">Categoria</label>
+                        <select name="categoriaProdutos" id="categoriaProdutos" class="form-control mb-4">
+                            <option disabled selected value="">Selecione a categoria</option>
+                            <option value= 1 >Produto</option>
+                            <option value= 2 >Material</option>
+                            <option value= 3 >Brinde</option>
+                        </select>
                     </div>
         
                     <button id="Bt_submit" class="btn btn btn-success my-4 btn-block" type="submit">Cadastrar</button>

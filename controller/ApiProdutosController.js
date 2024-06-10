@@ -13,17 +13,21 @@ class ProductController {
     addProduto(req, res) {
         try {
             let id_gerente = cache.get('id_gerente');
-            console.log(req.body);
+            
             let novo_produto = {
                 nome: req.body.nomeProduto,
                 descricao: req.body.descricaoProduto,
-                img: req.file ? req.file.path : '',
                 quantidade: req.body.quantidadeProduto,
                 preco: req.body.precoProduto.replace(' ', '').replace('R$', '').replace(',', '.'),
-                precoRevenda: req.body.precoProdutoRevenda.replace(' ', '').replace('R$', '').replace(',', '.'),
                 precoDistribuidor: req.body.precoProdutoDistribuidor.replace(' ', '').replace('R$', '').replace(',', '.'),
-                data: req.body.dataProduto
+                precoRepresentante: req.body.precoProdutoRepresentante.replace(' ', '').replace('R$', '').replace(',', '.'),
+                precoVendedor: req.body.precoProdutoVendedor.replace(' ', '').replace('R$', '').replace(',', '.'),
+                precoDeCusto: req.body.precoCusto.replace(' ', '').replace('R$', '').replace(',', '.'),
+                img: req.file ? req.file.path : '',
+                categoria: req.body.categoriaProdutos
             };
+
+            console.log(novo_produto);
 
             if (id_gerente != null && id_gerente != '') {
                 axios.post(`${urls}adicionarProdutos`, novo_produto)
@@ -40,7 +44,8 @@ class ProductController {
                         console.log(err);
                     });
             } else {
-                return res.json(false);
+                console.error("Erro ao adicionar usuário");
+                return res.status(500).send('Erro ao adicionar produto.');
             }
         } catch (error) {
             console.error(error);
