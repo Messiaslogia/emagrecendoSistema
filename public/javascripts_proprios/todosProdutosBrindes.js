@@ -1,5 +1,5 @@
 const container_users = document.querySelector('#Container_Users');
-const url = "http://localhost:3030/apiProdutos/todosProdutos";
+const url = "http://localhost:3030/apiProdutos/todosProdutosBrindes";
 const div_produtos = document.querySelector('#Tabela_de_produtos');
 let itensPorPagina = 5;
 let listProduto;
