@@ -90,6 +90,16 @@ class AdminController{
     }
     // END PEDIDOS
 
+
+    // PRODUTOS
+
+    brindesIndex(req, res){
+        res.render('admin/produtos/brindes/index')
+    }
+
+    materiaisIndex(req, res){
+        res.render('admin/produtos/brindes/index')
+    }
    
 }
 

@@ -5,8 +5,14 @@ const AdminController = require("../controller/AdminController")
 
 
 /* GET admin listing. */
-router.get('/produtos', AdminController.produtoIndex);
 router.get('/usuarios', AdminController.usuariosIndex);
+
+// GET Produtos
+router.get('/produtos', AdminController.produtoIndex);
+router.get('/produtos/brindes', AdminController.brindesIndex);
+router.get('/produtos/materiais', AdminController.materiaisIndex);
+
+
 
 
 // GET Index Adicionar Produto e Usuario

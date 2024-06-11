@@ -49,7 +49,6 @@ function displayItens( page ){
                                  <tr>
                                       <td>
                                           <div class="d-flex px-2 py-1">
-                                              
                                               <div class="d-flex flex-colum justify-content-center">
                                                   <h6 class="mb-0 text-sm">${produto.nome}</h6>
                                               </div>
@@ -77,25 +76,49 @@ function displayItens( page ){
                                  <tr>
                                       <td>
                                           <div class="d-flex px-2 py-1">
-                                              
-                                              <div class="d-flex flex-colum justify-content-center">
                                                   <h6 class="mb-0 text-sm">${produto.nome}</h6>
-                                              </div>
                                           </div>
                                       </td>
                                       <td>
-                                          <p class="text-xs font-weight-bold mb-0">R$ ${valor}</p>
+                                          <p class="text-xs font-weight-bold mb-0">${produto.descricao.substring(0, 30) + "..." }</p>
                                       </td>
+
                                       <td class="align-middle text-center text-sm">
-                                          <span id="quantidade_span" class="badge badge-sm bg-gradient-success">${produto.quantidade}</span>
+                                        <span id="quantidade_span" class="badge badge-sm bg-gradient-success">${produto.quantidade}</span>
                                       </td>
+
+                                      <td>
+                                        <img src="/${produto.imagem}" alt="Imagem do Produto" width="100">
+                                      </td>
+
+                                      <td class="align-middle text-center text-sm">
+                                          <p class="text-xs font-weight-bold mb-0">R$${valor}</p>
+                                      </td>
+
+                                      <td class="align-middle text-center text-sm">
+                                          <p class="text-xs font-weight-bold mb-0">R$${produto.preco_distribuidor}</p>
+                                      </td>
+
+                                      <td class="align-middle text-center text-sm">
+                                          <p class="text-xs font-weight-bold mb-0">R$${produto.preco_revenda}</p>
+                                      </td>
+
+                                      <td class="align-middle text-center text-sm">
+                                          <p class="text-xs font-weight-bold mb-0">R$${produto.preco_vendedor}</p>
+                                      </td class="align-middle text-center text-sm">
+
+                                      <td class="align-middle text-center text-sm">
+                                          <p class="text-xs font-weight-bold mb-0">${produto.categoria === 1 ? 'Produto' : produto.categoria === 2 ? 'Material' : 'Brinde'}</p>
+                                      </td class="align-middle text-center text-sm">
+                                     
                                       <td class="align-middle text-center">
-                                          <span class="text-secondary text-xs font-weight-bold">${produto.data_adicao}</span>
+                                          <span class="text-secondary text-xs font-weight-bold">${new Date(produto.data_adicao).toISOString().split('T')[0] }</span>
                                       </td>
+                                      
                                       <td class="align-middle">
                                           <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiProdutos/dellProduto/${produto.id_produto}"><i
-                                              class="material-icons text-sm me-2">delete</i>Deletar</a>
-                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiProdutos/editarProduto/${produto.id_produto}"><i class="material-icons text-sm me-2">edit</i>Editar</a>
+                                              class="material-icons text-sm me-2">delete</i></a>
+                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiProdutos/editarProduto/${produto.id_produto}"><i class="material-icons text-sm me-2">edit</i></a>
                                       </td>
                                  </tr>
                          `
