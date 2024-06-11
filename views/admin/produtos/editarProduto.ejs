@@ -218,54 +218,94 @@
         </nav>
         <!-- End Navbar -->
 
+        
         <div class="row justify-content-center">
             <div class="col-md-10 bg-light mt-4">
-                <form id="uploadForm" enctype="multipart/form-data" style="display: none;">
-                    <input type="file" id="imageInput" name="imagemProduto" accept="image/png, image/jpeg">
-                    <button type="button" id="Bt_submi">Enviar</button>
-                </form>
-                <!-- Default form register -->
-                <form class="text-center border border-light p-5" enctype="application/x-www-form-urlencoded" id="productForm" method="POST" action="/apiProdutos/editProduto/<%= id %>">
-                    <input type="text" value="<%= id %>" style="display: none;" name="id" id="idProduto">
-                    <p class="h4 mb-4">Editar Produto</p>
+                <form class="border border-light p-5" enctype="multipart/form-data" id="productForm" method="post"
+                action="/apiProdutos/adicionarProduto">
+                <input type="text" value="<%= id %>" style="display: none;" name="id" id="idProduto">
+                    <p class="h4 mb-4 text-center">Novo Produto</p>
         
-                    <!-- First name -->
-                    <input id="Nome_produto" type="text" name="nomeProduto" class="form-control mb-4"
-                        placeholder="Nome do produto">
+                    <!-- Nome do produto -->
+                    <div class="form-group">
+                        <label for="Nome_produto" class="fs-6 fw-bold ">Nome do produto</label>
+                        <input id="Nome_produto" type="text" name="nomeProduto" class="form-control mb-4 "
+                            placeholder="Ex: Emagrecedor" required>
+                    </div>
         
+                    <!-- Descrição do produto -->
+                    <div class="form-group">
+                        <label for="Descricao_produto" class="fs-6 fw-bold ">Descrição do produto</label>
+                        <input id="Descricao_produto" type="text" name="descricaoProduto" class="form-control mb-4 "
+                            placeholder="Ex: emagrecedor masculino" required>
+                    </div>
         
-                    <!-- Descricao -->
-                    <input id="Descricao_produto" type="text" name="descricaoProduto" class="form-control mb-4"
-                        placeholder="Descrição">
+                    <!-- Quantidade em estoque -->
+                    <div class="form-group">
+                        <label for="Quantidade_produto" class="fs-6 fw-bold ">Quantidade em estoque</label>
+                        <input id="Quantidade_produto" type="number" name="quantidadeProduto" class="form-control mb-4 "
+                            placeholder="Ex: 50" aria-describedby="defaultRegisterFormPhoneHelpBlock" required>
+                    </div>
         
-                    <!-- Quantidade_produto -->
-                    <input id="Quantidade_produto" type="number" name="quantidadeProduto" class="form-control mb-4"
-                        placeholder="quantidade" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                    <!-- Preço do produto -->
+                    <div class="form-group">
+                        <label for="Preco_produto" class="fs-6 fw-bold ">Preço do produto</label>
+                        <input id="Preco_produto" type="text" name="precoProduto" class="form-control mb-4 "
+                            placeholder="Ex: R$ 250,99" aria-describedby="defaultRegisterFormPhoneHelpBlock" required
+                            data-mask="currency">
+                    </div>
         
-                    <!-- Preço -->
-                    <input id="Preco_produto" type="text" name="precoProduto" class="form-control mb-4"
-                        placeholder="Preço do produto" aria-describedby="defaultRegisterFormPhoneHelpBlock">
-
-                    <!-- Preço Distribuidor -->
-                    <input id="Preco_produto_Distribuidor" type="text" name="precoProdutoDistribuidor" class="form-control mb-4"
-                        placeholder="Preço para Distribuidor" aria-describedby="defaultRegisterFormPhoneHelpBlock" required>
-                    
-                    <!-- Preço Vendas -->
-                    <input id="Preco_produto_Revenda" type="text" name="precoProdutoRevenda" class="form-control mb-4"
-                        placeholder="Preço para Vendedor" aria-describedby="defaultRegisterFormPhoneHelpBlock" required>
+                    <!-- Preço para Distribuidor -->
+                    <div class="form-group">
+                        <label for="Preco_produto_Distribuidor" class="fs-6 fw-bold ">Preço para Distribuidor</label>
+                        <input id="Preco_produto_Distribuidor" type="text" name="precoProdutoDistribuidor"
+                            class="form-control mb-4 " placeholder="Ex: R$ 250,99"
+                            aria-describedby="defaultRegisterFormPhoneHelpBlock" required data-mask="currency">
+                    </div>
         
-                    <!-- Data inserida -->
-                    <input id="Data_produto" type="date" name="dataProduto" class="form-control mb-4" placeholder="Data"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                    <!-- Preço para Representante -->
+                    <div class="form-group">
+                        <label for="Preco_produto_Representante" class="fs-6 fw-bold ">Preço para Representante</label>
+                        <input id="Preco_produto_Representante" type="text" name="precoProdutoRepresentante"
+                            class="form-control mb-4 " placeholder="Ex: R$ 250,99"
+                            aria-describedby="defaultRegisterFormPhoneHelpBlock" required data-mask="currency">
+                    </div>
         
-                    <!-- Horas inserida -->
-                    <input id="Hora_produto" type="time" name="horaProduto" class="form-control mb-4" placeholder="Horas"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                    <!-- Preço para Vendedor -->
+                    <div class="form-group">
+                        <label for="Preco_produto_Vendedor" class="fs-6 fw-bold ">Preço para Vendedor</label>
+                        <input id="Preco_produto_Vendedor" type="text" name="precoProdutoVendedor" class="form-control mb-4 "
+                            placeholder="Ex: R$ 250,99" aria-describedby="defaultRegisterFormPhoneHelpBlock" required
+                            data-mask="currency">
+                    </div>
+        
+                    <!-- Preço de custo do produto -->
+                    <div class="form-group">
+                        <label for="preco_custo" class="fs-6 fw-bold ">Preço de custo do produto</label>
+                        <input id="preco_custo" type="text" name="precoCusto" class="form-control mb-4 "
+                            placeholder="Ex: R$ 100,00" aria-describedby="defaultRegisterFormPhoneHelpBlock" required
+                            data-mask="currency">
+                    </div>
+        
+                    <!-- Imagem do produto -->
+                    <div class="form-group">
+                        <label for="Imagem_produto" class="fs-6 fw-bold">Imagem do produto</label>
+                        <input id="Imagem_produto" type="file" name="imagemProduto" class="form-control mb-4 " accept="image/*"
+                            required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="categoriaProdutos" class="fs-6 fw-bold">Categoria</label>
+                        <select name="categoriaProdutos" id="categoriaProdutos" class="form-control mb-4">
+                            <option disabled selected value="">Selecione a categoria</option>
+                            <option value=1>Produto</option>
+                            <option value=2>Material</option>
+                            <option value=3>Brinde</option>
+                        </select>
+                    </div>
         
                     <button id="Bt_submit" class="btn btn btn-success my-4 btn-block" type="submit">Cadastrar</button>
                 </form>
-        
-        
             </div>
         </div>
 
@@ -296,8 +336,9 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!--   Core JS Files   -->
+    <script src="https://unpkg.com/imask"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../../javascripts/core/popper.min.js"></script>
     <script src="../../javascripts/core/bootstrap.min.js"></script>
     <script src="../../javascripts/plugins/perfect-scrollbar.min.js"></script>
@@ -566,6 +607,32 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../../javascripts/material-dashboard.min.js?v=3.0.0"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var priceInputs = document.querySelectorAll('input[data-mask="currency"]');
+            priceInputs.forEach(function (input) {
+                IMask(input, {
+                    mask: 'R$ num',
+                    blocks: {
+                        num: {
+                            // nested masks are available!
+                            mask: Number,
+                            thousandsSeparator: '.',
+                            radix: ',',
+                            mapToRadix: ['.'],
+                            scale: 2,
+                            signed: false,
+                            padFractionalZeros: true,
+                            normalizeZeros: true,
+                            min: 0,
+                            max: 9999999.99
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 
     
         

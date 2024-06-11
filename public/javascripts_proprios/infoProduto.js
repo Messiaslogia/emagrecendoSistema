@@ -6,21 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
             let nome_produto = document.querySelector('#Nome_produto').value = result.data[0].nome;
             let descricao_produto = document.querySelector('#Descricao_produto').value = result.data[0].descricao;
             let quantidade_produto = document.querySelector('#Quantidade_produto').value = result.data[0].quantidade;
-            let data_produto = document.querySelector('#Data_produto').value = result.data[0].data_adicao;
-            let hora_produto = document.querySelector('#Hora_produto').value = result.data[0].hora_adicao;
-
-            let valor = result.data[0].preco.toFixed(2);
-            let valorDistribuidor = result.data[0].preco_distribuidor.toFixed(2);
-            let valorVendedor = result.data[0].preco_revenda.toFixed(2);
-
-            let format = valor.replace('.', ',');
-            let formatDistribuidor = valorDistribuidor.replace('.', ',');
-            let formatVendedor = valorVendedor.replace('.', ',');
-
-
-            let preco_produto = document.querySelector('#Preco_produto').value = `R$ ${format}`;
-            let preco_produto_Distribuidor = document.querySelector('#Preco_produto_Distribuidor').value = `R$ ${formatDistribuidor}`;
-            let preco_produto_Revenda = document.querySelector('#Preco_produto_Revenda').value = `R$ ${formatVendedor}`;  
+            let preco = document.querySelector("#Preco_produto").value = result.data[0].preco;
+            let preco_distribuidor = document.querySelector("#Preco_produto_Distribuidor").value = result.data[0].preco_distribuidor;
+            let preco_revenda = document.querySelector("#Preco_produto_Representante").value = result.data[0].preco_revenda;
+            let preco_vendedor = document.querySelector("#Preco_produto_Vendedor").value = result.data[0].preco_vendedor;
+            let preco_custo = document.querySelector("#preco_custo").value = result.data[0].preco_custo;
+            let imagem = document.querySelector("#Imagem_produto").value = result.data[0].imagem;
+            let categoria = document.querySelector("#categoriaProdutos").value = result.data[0].categoria; 
 
         }).catch((err) => {
             console.log(err);
