@@ -98,7 +98,7 @@ class AdminController{
     }
 
     materiaisIndex(req, res){
-        res.render('admin/produtos/brindes/index')
+        res.render('admin/produtos/materiais/index')
     }
    
 }
