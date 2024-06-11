@@ -181,23 +181,18 @@ class ApiControllerUsuarios {
 
     allUsers(req, res) {
         let id_gerente = cache.get('id_gerente');
-
-        if (id_gerente != null && id_gerente != '') {
+  
             axios.post(`${urls}allUsers`, {
                 id: id_gerente
             })
                 .then(resp => {
                     console.log("Tabela consultada com sucesso!");
-                    res.json(resp.data)
+                    res.json(resp.data);
                 })
                 .catch(err => {
                     console.log(err);
                     res.json(false);
                 })
-        } else {
-            console.log("Tentativa de consulta indevida");
-            res.json(false);
-        };
     }
 
     clientesTotais(req, res) {

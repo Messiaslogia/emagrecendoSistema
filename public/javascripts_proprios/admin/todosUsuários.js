@@ -13,6 +13,7 @@ function adquirirListsUsers() {
     axios.get(urls)
         .then(data => {
             listUsuarios = data.data;
+            console.log(listUsuarios)
             setTimeout(() => {
                 displayItens(1, 0)
             }, [300])
@@ -61,38 +62,161 @@ function displayItens( page, arrayindex ){
 
     pageItens.map(user => {
         // <span class="mb-2 text-xs">Função: <span class="text-dark font-weight-bold ms-sm-2">${user.funcao}</span></span>
+            switch (user.funcao) {
+                    case '2':
+                        container_users.innerHTML += `
+                            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg mobile_userlist">
+                                <div class="d-flex flex-column">
+                                    <h5 class="fs-5">${user.nome}</h5>
+                                    <h6 class="mb-3 fs-6">Distribuidor</h6>
+                                    <span class="mb-2 text-xs">E-mail: <span class="text-dark ms-sm-2 font-weight-bold">${user.email}</span></span>
+                                    <span class="text-xs">Contato: <span class="text-dark ms-sm-2 font-weight-bold">${user.telefone}</span></span>
+                                    <span class="text-xs">Bairro: <span class="text-dark ms-sm-2 font-weight-bold">${user.bairro}</span></span>
+                                    <span class="text-xs">Endereço: <span class="text-dark ms-sm-2 font-weight-bold">${user.endereco}</span></span>
+                                    <span class="mt-2 text-xs">Zona: <span class="text-dark font-weight-bold ms-sm-2">${user.regiao}</span></span>
+                                </div>
+                                <div class="ms-auto text-end div_buttons">
+                                    <a id="Bt_dellUser" class="btn btn-link text-danger text-gradient px-3 mb-0" href="/api/dellUser/${user.id_usuario}"><i
+                                            class="material-icons text-sm me-2">delete</i>Delete</a>
+                                    <a id="Bt_editUser" class="btn btn-link text-dark px-3 mb-0" href="/api/editUser/${user.id_usuario}"><i
+                                            class="material-icons text-sm me-2">edit</i>Edit</a>
+                                </div>
+                                <hr>
+                            </li>
+                        `;
+                    break
 
+                    case '7':
+                         container_users.innerHTML += `
+                            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg mobile_userlist">
+                                <div class="d-flex flex-column">
+                                    <h5 class="fs-5">${user.nome}</h5>
+                                    <h6 class="mb-3 fs-6">Afiliado</h6>
+                                    <span class="mb-2 text-xs">E-mail: <span class="text-dark ms-sm-2 font-weight-bold">${user.email}</span></span>
+                                    <span class="text-xs">Contato: <span class="text-dark ms-sm-2 font-weight-bold">${user.telefone}</span></span>
+                                    <span class="text-xs">Bairro: <span class="text-dark ms-sm-2 font-weight-bold">${user.bairro}</span></span>
+                                    <span class="text-xs">Endereço: <span class="text-dark ms-sm-2 font-weight-bold">${user.endereco}</span></span>
+                                    <span class="mt-2 text-xs">Zona: <span class="text-dark font-weight-bold ms-sm-2">${user.regiao}</span></span>
+                                </div>
+                                <div class="ms-auto text-end div_buttons">
+                                    <a id="Bt_dellUser" class="btn btn-link text-danger text-gradient px-3 mb-0" href="/api/dellUser/${user.id_usuario}"><i
+                                            class="material-icons text-sm me-2">delete</i>Delete</a>
+                                    <a id="Bt_editUser" class="btn btn-link text-dark px-3 mb-0" href="/api/editUser/${user.id_usuario}"><i
+                                            class="material-icons text-sm me-2">edit</i>Edit</a>
+                                </div>
+                                <hr>
+                            </li>
+                        `;
+                        break
 
-            container_users.innerHTML += `
-            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-                <div class="d-flex flex-column">
-                    <h6 class="mb-3 text-sm">${user.nome}</h6>
-                    <span class="mb-2 text-xs">E-mail: <span class="text-dark ms-sm-2 font-weight-bold">${user.email}</span></span>
-                    <span class="text-xs">Contato: <span class="text-dark ms-sm-2 font-weight-bold">${user.telefone}</span></span>
-                    <span class="text-xs">Bairro: <span class="text-dark ms-sm-2 font-weight-bold">${user.bairro}</span></span>
-                    <span class="text-xs">Endereço: <span class="text-dark ms-sm-2 font-weight-bold">${user.endereco}</span></span>
-                    <span class="mt-2 text-xs">Zona: <span class="text-dark font-weight-bold ms-sm-2">${user.regiao}</span></span>
-                </div>
-                <div class="ms-auto text-end">
-                    <a id="Bt_dellUser" class="btn btn-link text-danger text-gradient px-3 mb-0" href="/api/dellUser/${user.id_usuario}"><i
-                            class="material-icons text-sm me-2">delete</i>Delete</a>
-                    <a id="Bt_editUser" class="btn btn-link text-dark px-3 mb-0" href="/api/editUser/${user.id_usuario}"><i
-                            class="material-icons text-sm me-2">edit</i>Edit</a>
-                </div>
-            </li>
-            `            
+                    case '3':
+                         container_users.innerHTML += `
+                            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg mobile_userlist">
+                                <div class="d-flex flex-column">
+                                    <h5 class="fs-5">${user.nome}</h5>
+                                    <h6 class="mb-3 fs-6">Vendedor</h6>
+                                    <span class="mb-2 text-xs">E-mail: <span class="text-dark ms-sm-2 font-weight-bold">${user.email}</span></span>
+                                    <span class="text-xs">Contato: <span class="text-dark ms-sm-2 font-weight-bold">${user.telefone}</span></span>
+                                    <span class="text-xs">Bairro: <span class="text-dark ms-sm-2 font-weight-bold">${user.bairro}</span></span>
+                                    <span class="text-xs">Endereço: <span class="text-dark ms-sm-2 font-weight-bold">${user.endereco}</span></span>
+                                    <span class="mt-2 text-xs">Zona: <span class="text-dark font-weight-bold ms-sm-2">${user.regiao}</span></span>
+                                </div>
+                                <div class="ms-auto text-end div_buttons">
+                                    <a id="Bt_dellUser" class="btn btn-link text-danger text-gradient px-3 mb-0" href="/api/dellUser/${user.id_usuario}"><i
+                                            class="material-icons text-sm me-2">delete</i>Delete</a>
+                                    <a id="Bt_editUser" class="btn btn-link text-dark px-3 mb-0" href="/api/editUser/${user.id_usuario}"><i
+                                            class="material-icons text-sm me-2">edit</i>Edit</a>
+                                </div>
+                                <hr>
+                            </li>
+                        `;
+                        break
+
+                    case '6':
+                         container_users.innerHTML += `
+                            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg mobile_userlist">
+                                <div class="d-flex flex-column">
+                                    <h5 class="fs-5">${user.nome}</h5>
+                                    <h6 class="mb-3 fs-6">Representante</h6>
+                                    <span class="mb-2 text-xs">E-mail: <span class="text-dark ms-sm-2 font-weight-bold">${user.email}</span></span>
+                                    <span class="text-xs">Contato: <span class="text-dark ms-sm-2 font-weight-bold">${user.telefone}</span></span>
+                                    <span class="text-xs">Bairro: <span class="text-dark ms-sm-2 font-weight-bold">${user.bairro}</span></span>
+                                    <span class="text-xs">Endereço: <span class="text-dark ms-sm-2 font-weight-bold">${user.endereco}</span></span>
+                                    <span class="mt-2 text-xs">Zona: <span class="text-dark font-weight-bold ms-sm-2">${user.regiao}</span></span>
+                                </div>
+                                <div class="ms-auto text-end div_buttons">
+                                    <a id="Bt_dellUser" class="btn btn-link text-danger text-gradient px-3 mb-0" href="/api/dellUser/${user.id_usuario}"><i
+                                            class="material-icons text-sm me-2">delete</i>Delete</a>
+                                    <a id="Bt_editUser" class="btn btn-link text-dark px-3 mb-0" href="/api/editUser/${user.id_usuario}"><i
+                                            class="material-icons text-sm me-2">edit</i>Edit</a>
+                                </div>
+                                <hr>
+                            </li>
+                        `;
+
+                        break
+
+                    case '4':
+                         container_users.innerHTML += `
+                            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg mobile_userlist">
+                                <div class="d-flex flex-column">
+                                    <h5 class="fs-5">${user.nome}</h5>
+                                    <h6 class="mb-3 fs-6">Cliente</h6>
+                                    <span class="mb-2 text-xs">E-mail: <span class="text-dark ms-sm-2 font-weight-bold">${user.email}</span></span>
+                                    <span class="text-xs">Contato: <span class="text-dark ms-sm-2 font-weight-bold">${user.telefone}</span></span>
+                                    <span class="text-xs">Bairro: <span class="text-dark ms-sm-2 font-weight-bold">${user.bairro}</span></span>
+                                    <span class="text-xs">Endereço: <span class="text-dark ms-sm-2 font-weight-bold">${user.endereco}</span></span>
+                                    <span class="mt-2 text-xs">Zona: <span class="text-dark font-weight-bold ms-sm-2">${user.regiao}</span></span>
+                                </div>
+                                <div class="ms-auto text-end div_buttons">
+                                    <a id="Bt_dellUser" class="btn btn-link text-danger text-gradient px-3 mb-0" href="/api/dellUser/${user.id_usuario}"><i
+                                            class="material-icons text-sm me-2">delete</i>Delete</a>
+                                    <a id="Bt_editUser" class="btn btn-link text-dark px-3 mb-0" href="/api/editUser/${user.id_usuario}"><i
+                                            class="material-icons text-sm me-2">edit</i>Edit</a>
+                                </div>
+                                <hr>
+                            </li>
+                        `;
+                    break
+
+                    case '8':
+                         container_users.innerHTML += `
+                            <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg mobile_userlist">
+                                <div class="d-flex flex-column">
+                                    <h5 class="fs-5">${user.nome}</h5>
+                                    <h6 class="mb-3 fs-6">Afiliado do Representante</h6>
+                                    <span class="mb-2 text-xs">E-mail: <span class="text-dark ms-sm-2 font-weight-bold">${user.email}</span></span>
+                                    <span class="text-xs">Contato: <span class="text-dark ms-sm-2 font-weight-bold">${user.telefone}</span></span>
+                                    <span class="text-xs">Bairro: <span class="text-dark ms-sm-2 font-weight-bold">${user.bairro}</span></span>
+                                    <span class="text-xs">Endereço: <span class="text-dark ms-sm-2 font-weight-bold">${user.endereco}</span></span>
+                                    <span class="mt-2 text-xs">Zona: <span class="text-dark font-weight-bold ms-sm-2">${user.regiao}</span></span>
+                                </div>
+                                <div class="ms-auto text-end div_buttons">
+                                    <a id="Bt_dellUser" class="btn btn-link text-danger text-gradient px-3 mb-0" href="/api/dellUser/${user.id_usuario}"><i
+                                            class="material-icons text-sm me-2">delete</i>Delete</a>
+                                    <a id="Bt_editUser" class="btn btn-link text-dark px-3 mb-0" href="/api/editUser/${user.id_usuario}"><i
+                                            class="material-icons text-sm me-2">edit</i>Edit</a>
+                                </div>
+                                <hr>
+                            </li>
+                         `;
+                    break
+
+                default:
+                    break;
+            }         
     })
     paginas(page, arrayindex);
 };
 
-function paginas(page, array){
+function paginas(page, array) {
     const pageCont = Math.ceil(listUsuarios[array].length / itensPorPagina);
     const containerPagination = document.querySelector('#pag_navigation_input');
 
     containerPagination.innerHTML = ''
 
-    for( i = 1; i <= pageCont; i++){
+    for (let i = 1; i <= pageCont; i++) {
         const activeClass = (i === page) ? 'active bg-primary text-light' : '';
-        containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i}, ${array})">${i}</a></li>`
+        containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i}, ${array})">${i}</a></li>`;
     }
 };

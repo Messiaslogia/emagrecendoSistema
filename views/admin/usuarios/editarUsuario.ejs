@@ -28,6 +28,8 @@
             integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
     <link rel="stylesheet" href="../../stylesheets/style.css">
+    <link rel="stylesheet" href="../../stylesheets/mobile/user_view/editUser.css">
+
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -90,7 +92,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm">Páginas</li>
-                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page"><a href="/admin/usuarios">Usuarios</a>
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page"><a class="text-dark" href="/admin/usuarios">Usuarios</a>
                         </li>
                     </ol>
                     <h6 class="font-weight-bolder mb-0">Dashboard</h6>
@@ -213,56 +215,92 @@
                     <input type="text" style="display: none;" value="<%= id %>" id="idUser">
                     <p class="h4 mb-4">Editar Usuário</p>
                 
-                    <div class="form-row mb-4">
-                        <div class="col">
-                            <!-- First name -->
-                            <input id="Name_input" name="nome" type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Nome completo">
+
+                    <section>
+                        <h5 class="text-dark">Informações Pessoais</h5>
+
+                        <div class="form-row mb-4">
+                            <div class="col">
+                                <!-- First name -->
+                                <input id="Name_input" name="nome" type="text" class="form-control" placeholder="Nome completo">
+                            </div>
                         </div>
-                    </div>
-                
-                    <!-- E-mail -->
-                    <input id="Email_input" name="email" type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
-                
-                    <!-- Password -->
-                    <input id="Password_input" name="password" type="password" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Senha"
-                        aria-describedby="defaultRegisterFormPasswordHelpBlock">
+
+                        <!-- E-mail -->
+                        <input id="Email_input" name="email" type="email" class="form-control mb-4" placeholder="E-mail">
+                                        
+                        <!-- Password -->
+                        <input id="Password_input" name="password" type="text" class="form-control mb-4" placeholder="Senha"
+                            aria-describedby="defaultRegisterFormPasswordHelpBlock">
+
+
+                        <!-- Phone number -->
+                        <input id="Telefone_input" name="phone" type="text"  class="form-control mb-4" placeholder="Whatsapp"
+                            aria-describedby="defaultRegisterFormPhoneHelpBlock">
+
+                        <!-- CPF -->
+                        <input id="CPF_input" name="cpf" type="text" class="form-control mb-4" placeholder="CPF"
+                            aria-describedby="defaultRegisterFormPhoneHelpBlock">
+
+                        <hr>
+                    </section>
                     
                 
-                    <!-- Phone number -->
-                    <input id="Phone_input" name="phone" type="text" id="defaultRegisterPhonePassword" class="form-control mb-4" placeholder="Whatsapp"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                    <section>
+                        <h5 class="text-dark">Endereço</h5>
 
-                    <!-- CPF -->
-                    <input id="CPF_input" name="cpf" type="text" id="defaultRegisterPhonePassword" class="form-control mb-4" placeholder="CPF"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                        <input id="Cep_input" name="cep" type="text" class="form-control mb-4" placeholder="Cep*" required>
 
-                    <!-- URl Instagram -->
-                    <input id="Instagram_input" name="instagram" type="text" id="defaultRegisterInstagram" class="form-control mb-4"
+                        <input id="Endereco_input" name="endereco" type="text" class="form-control mb-4" placeholder="Endereço do Usuário*" required>
+
+                        <div class="container text-center">
+                            <div class="row">
+                                <div class="col">
+                                    <input id="Bairro_input" name="bairro" type="text" class="form-control mb-4" placeholder="Bairro*" required>
+                                </div>
+
+                                <div class="col">
+                                    <input id="Numero_input" name="numerodoendereco" type="text" class="form-control mb-4" placeholder="Numero*" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Região -->
+                        <div>
+                            <select id="Regiao_input" name="regiao" class="form-control mb-4" id="exampleFormControlSelect1">
+                                <option>Norte</option>
+                                <option>Nordeste</option>
+                                <option>Centro-Oeste</option>
+                                <option>Sudeste</option>
+                                <option>Sul</option>
+                            </select>
+                        </div>
+
+                        <hr>
+                    </section>
+                    
+
+
+                    
+                    <section>
+                        <h5>Redes Sociais</h5>
+                        <!-- URl Instagram -->
+                        <input id="Instagram_input" name="instagram" type="text" class="form-control mb-4"
                         placeholder="URl Instagram" >
 
-                    <!-- URL Facebooks -->
-                    <input id="Facebooks_input" name="facebooks" type="text" id="defaultRegisterFacebooks" class="form-control mb-4"
+                        <!-- URL Facebooks -->
+                        <input id="Facebooks_input" name="facebooks" type="text" class="form-control mb-4"
                         placeholder="URL Facebooks" >
-
-                    <!-- Região -->
-                    <div class="">
-                        <select id="Regiao_input" name="regiao" class="form-control mb-4" id="exampleFormControlSelect1">
-                            <option>Norte</option>
-                            <option>Nordeste</option>
-                            <option>Centro-Oeste</option>
-                            <option>Sudeste</option>
-                            <option>Sul</option>
-                        </select>
-                    </div>
+                    </section>
 
                     <!-- Função -->
-                    <div class="">
+                    <!-- <div class="">
                         <select id="Funcao_input" name="funcao" class="form-control" id="exampleFormControlSelect1">
                             <option disabled selected value="">Selecione a função</option>
                             <option>Vendedor</option>
                             <option>Distribuidor</option>
                         </select>
-                    </div>  
+                    </div>   -->
                     <!-- Sign up button -->
                     <button id="Bt_submit" class="btn btn btn-success my-4 btn-block" type="submit">Cadastrar</button>            
                 </form>
@@ -285,7 +323,6 @@
                                 document.write(new Date().getFullYear())
                             </script>
                             <i class="fa fa-heart"></i>
-        
                             Emagrecendo
                                 com Ela
                         </div>
@@ -295,6 +332,7 @@
         </footer>
     </main>
    
+    <script src="https://unpkg.com/imask"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!--   Core JS Files   -->
     <script src="../../javascripts/core/popper.min.js"></script>
@@ -302,7 +340,14 @@
     <script src="../../javascripts/plugins/perfect-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
-    <script src="http://localhost:3030/javascripts_proprios/infoUser.js"></script>
+
+    <!-- Scripts -->
+    <script src="../../javascripts_proprios/admin/infoUser.js"></script>
+
+    
+
+
+
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");
 

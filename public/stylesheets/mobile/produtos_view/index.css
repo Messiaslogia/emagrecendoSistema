@@ -1,0 +1,14 @@
+@media screen and (max-width: 600px) {
+    body{
+        padding: 0px !important;
+    }
+
+    .d-flex{
+        display: block !important;
+    }
+
+    #Button_addProduto{
+        margin-top: 2% !important;
+    }
+    
+}

@@ -23,6 +23,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
     <link id="pagestyle" href="../../stylesheets/material-dashboard.css?v=3.0.0" rel="stylesheet" />
+    <link id="mobilestyle" href="../../stylesheets/mobile/user_view/index.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="../../path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -95,7 +97,7 @@
         <!-- Navbar -->
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
             navbar-scroll="true">
-            <div class="container-fluid py-1 px-3">
+            <div class="container-fluid py-1 px-3 nav_mobile">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Páginas</a>
@@ -214,13 +216,13 @@
             </div>
         </nav>
         <!-- End Navbar -->
-        <div class="row">
+        <div class="row" id="container_listUsers">
             <div class="col-md-12 mt-4">
                 <div class="card">
-                    <div class="card-header pb-0 px-3 d-flex justify-content-between align-items-center">
+                    <div class="card-header pb-0 px-3 d-flex justify-content-between align-items-center mobile_cadHeader">
                         <h6 class="mb-0">Infomações dos Usuários</h6>
-                        <div class="d-flex">
-                            <div class="dropdown">
+                        <div class="d-flex mobile_flex">
+                            <div class="dropdown" id="button_filtro">
                                 <button class="btn bg-gradient-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Filtro
@@ -235,9 +237,11 @@
                                     <li class="dropdown-item" onclick="filtro('AfiliadoRepresentante')">Afiliado do Representante</li>
                                 </ul>
                             </div>
-                            <a href="/admin/adicionarUsuario" class="ms-3">
-                                <button type="button" class="btn btn-primary btn-lg">Adicionar Usuários</button>
-                            </a>
+                            <div>
+                                <a href="/admin/adicionarUsuario" class="ms-3">
+                                    <button type="button" class="btn btn-primary btn-lg">Adicionar Usuários</button>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body pt-4 p-3">

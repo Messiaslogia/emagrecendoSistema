@@ -27,6 +27,8 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="../../stylesheets/style.css">
+    <link rel="stylesheet" href="../../stylesheets/mobile/produtos_view/index.css">
+
 
 </head>
 
@@ -262,7 +264,7 @@
                 <div class="card-header pb-0 px-3 d-flex justify-content-between">
                     
                         <h6 class="mb-0">Infomações dos produtos:</h6>
-                        <a href="/admin/adicionarProduto"><button type="button" class="btn btn-primary btn-lg">Adicionar produto</button></a>
+                        <a href="/admin/adicionarProduto"><button id="Button_addProduto" type="button" class="btn btn-primary btn-lg">Adicionar produto</button></a>
                 </div>
                 <div class="card-body px-0 pb-2">
                     <div class="table-responsive p-0">
@@ -334,8 +336,10 @@
     <script src="../../javascripts/plugins/perfect-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
-    <script src="http://localhost:3030/javascripts_proprios/todosProdutos.js"></script>
-    <script src="http://localhost:3030/javascripts_proprios/total_estoque.js"></script>
+
+
+    <script src="../../javascripts_proprios/todosProdutos.js"></script>
+    <script src="../../javascripts_proprios/total_estoque.js"></script>
 
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");

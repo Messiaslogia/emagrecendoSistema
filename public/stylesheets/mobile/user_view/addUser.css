@@ -1,0 +1,13 @@
+@media screen and (max-width: 600px) {
+     /* Navegação */
+     body{
+        padding: 0%;
+     }
+     /* .navbar{
+        margin-left: 0% !important;
+    }
+
+    .nav_mobile{
+        padding: 0% !important;
+    } */
+}

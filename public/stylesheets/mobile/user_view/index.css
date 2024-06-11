@@ -1,0 +1,48 @@
+@media screen and (max-width: 600px) {
+    /* Navegação */
+    body{
+        padding: 0px !important;
+    }
+
+    #container_listUsers{
+        padding: 50px;
+    }
+
+    /* Header da div dos usuários */
+    .mobile_cadHeader{
+        display: block !important;
+    }
+
+    .mobile_cadHeader button{
+        padding: 10% 5% !important;
+        font-size: 3vw !important;
+    }
+
+    .mobile_flex div{
+        margin: 2% 5%;
+    }
+
+    #button_filtro{
+        margin-left: 0%;
+    }
+
+    #dropdownMenuButton{
+        padding: 30% !important;
+    }
+
+    /* Como é exibido o usuário */
+    .mobile_userlist{
+        display: block !important;
+        text-align: center !important;
+    }
+
+    .div_buttons{
+        width: 100% !important;
+    }
+
+    .div_buttons a{
+        font-weight: bold !important;
+        text-align: center;
+        align-items: center;
+    }
+}
