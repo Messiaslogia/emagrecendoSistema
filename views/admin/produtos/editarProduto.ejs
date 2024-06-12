@@ -222,71 +222,82 @@
         <div class="row justify-content-center">
             <div class="col-md-10 bg-light mt-4">
                 <form class="border border-light p-5" enctype="multipart/form-data" id="productForm" method="post"
-                    action="/apiProdutos/adicionarProduto">
-                    <input type="text" value="<%= id %>" style="display: none;" name="id" id="idProduto">
-                    <p class="h4 mb-4 text-center">Editar Produto</p>
+                action="/apiProdutos/editProduto/<%= id %>">
+                <input type="text" value="<%= id %>" style="display: none;" name="id" id="idProduto">
+                    <p class="h4 mb-4 text-center">Novo Produto</p>
         
                     <!-- Nome do produto -->
                     <div class="form-group">
-                        <label for="Nome_produto" class="fs-6 fw-bold">Nome do produto</label>
-                        <input id="Nome_produto" type="text" name="nomeProduto" class="form-control mb-4"
+                        <label for="Nome_produto" class="fs-6 fw-bold ">Nome do produto</label>
+                        <input id="Nome_produto" type="text" name="nomeProduto" class="form-control mb-4 "
                             placeholder="Ex: Emagrecedor" required>
                     </div>
         
                     <!-- Descrição do produto -->
                     <div class="form-group">
-                        <label for="Descricao_produto" class="fs-6 fw-bold">Descrição do produto</label>
-                        <input id="Descricao_produto" type="text" name="descricaoProduto" class="form-control mb-4"
+                        <label for="Descricao_produto" class="fs-6 fw-bold ">Descrição do produto</label>
+                        <input id="Descricao_produto" type="text" name="descricaoProduto" class="form-control mb-4 "
                             placeholder="Ex: emagrecedor masculino" required>
                     </div>
         
                     <!-- Quantidade em estoque -->
                     <div class="form-group">
-                        <label for="Quantidade_produto" class="fs-6 fw-bold">Quantidade em estoque</label>
-                        <input id="Quantidade_produto" type="number" name="quantidadeProduto" class="form-control mb-4"
-                            placeholder="Ex: 50" required>
+                        <label for="Quantidade_produto" class="fs-6 fw-bold ">Quantidade em estoque</label>
+                        <input id="Quantidade_produto" type="number" name="quantidadeProduto" class="form-control mb-4 "
+                            placeholder="Ex: 50" aria-describedby="defaultRegisterFormPhoneHelpBlock" required>
                     </div>
         
                     <!-- Preço do produto -->
                     <div class="form-group">
-                        <label for="Preco_produto" class="fs-6 fw-bold">Preço do produto</label>
-                        <input id="Preco_produto" type="text" name="precoProduto" class="form-control mb-4"
-                            placeholder="Ex: R$ 250,99" required data-mask="currency">
+                        <label for="Preco_produto" class="fs-6 fw-bold ">Preço do produto</label>
+                        <input id="Preco_produto" type="text" name="precoProduto" class="form-control mb-4 "
+                            placeholder="Ex: R$ 250,99" aria-describedby="defaultRegisterFormPhoneHelpBlock" required
+                            data-mask="curr">
                     </div>
         
                     <!-- Preço para Distribuidor -->
                     <div class="form-group">
-                        <label for="Preco_produto_Distribuidor" class="fs-6 fw-bold">Preço para Distribuidor</label>
+                        <label for="Preco_produto_Distribuidor" class="fs-6 fw-bold ">Preço para Distribuidor</label>
                         <input id="Preco_produto_Distribuidor" type="text" name="precoProdutoDistribuidor"
-                            class="form-control mb-4" placeholder="Ex: R$ 250,99" required data-mask="currency">
+                            class="form-control mb-4 " placeholder="Ex: R$ 250,99"
+                            aria-describedby="defaultRegisterFormPhoneHelpBlock" required data-mask="curr">
                     </div>
         
                     <!-- Preço para Representante -->
                     <div class="form-group">
-                        <label for="Preco_produto_Representante" class="fs-6 fw-bold">Preço para Representante</label>
+                        <label for="Preco_produto_Representante" class="fs-6 fw-bold ">Preço para Representante</label>
                         <input id="Preco_produto_Representante" type="text" name="precoProdutoRepresentante"
-                            class="form-control mb-4" placeholder="Ex: R$ 250,99" required data-mask="currency">
+                            class="form-control mb-4 " placeholder="Ex: R$ 250,99"
+                            aria-describedby="defaultRegisterFormPhoneHelpBlock" required data-mask="curr">
                     </div>
         
                     <!-- Preço para Vendedor -->
                     <div class="form-group">
-                        <label for="Preco_produto_Vendedor" class="fs-6 fw-bold">Preço para Vendedor</label>
-                        <input id="Preco_produto_Vendedor" type="text" name="precoProdutoVendedor" class="form-control mb-4"
-                            placeholder="Ex: R$ 250,99" required data-mask="currency">
+                        <label for="Preco_produto_Vendedor" class="fs-6 fw-bold ">Preço para Vendedor</label>
+                        <input id="Preco_produto_Vendedor" type="text" name="precoProdutoVendedor" class="form-control mb-4 "
+                            placeholder="Ex: R$ 250,99" aria-describedby="defaultRegisterFormPhoneHelpBlock" required
+                            data-mask="curr">
                     </div>
         
                     <!-- Preço de custo do produto -->
                     <div class="form-group">
-                        <label for="preco_custo" class="fs-6 fw-bold">Preço de custo do produto</label>
-                        <input id="preco_custo" type="text" name="precoCusto" class="form-control mb-4"
-                            placeholder="Ex: R$ 100,00" required data-mask="currency">
+                        <label for="preco_custo" class="fs-6 fw-bold ">Preço de custo do produto</label>
+                        <input id="preco_custo" type="text" name="precoCusto" class="form-control mb-4 "
+                            placeholder="Ex: R$ 100,00" aria-describedby="defaultRegisterFormPhoneHelpBlock" required
+                            data-mask="curr">
                     </div>
         
+                    
+
                     <!-- Imagem do produto -->
                     <div class="form-group">
                         <label for="Imagem_produto" class="fs-6 fw-bold">Imagem do produto</label>
-                        <input id="Imagem_produto" type="file" name="imagemProduto" class="form-control mb-4" accept="image/*"
-                            required>
+                        <div id="currentImageContainer">
+                            <img id="currentImage" src="" alt="Imagem atual do produto"
+                                style="max-width: 100%; height: auto; display: none;">
+                        </div>
+                        <input id="Imagem_produto" type="file" name="imagemProduto" class="form-control mb-4" accept="image/*">
+                        <input type="hidden" id="imagemAtual" name="imagemAtual">
                     </div>
         
                     <div class="form-group">
@@ -299,16 +310,16 @@
                         </select>
                     </div>
         
-                    <button id="Bt_submit" class="btn btn-success my-4 btn-block" type="submit">Cadastrar</button>
+                    <button id="Bt_submit" class="btn btn btn-success my-4 btn-block" type="submit">Cadastrar</button>
                 </form>
             </div>
         </div>
-        
+
         <a href="/admin/produtos" class="ms-3">
             <button type="button" class="btn btn-primary btn-l mt-5" style="background-color: #e91e63;">Voltar</button>
         </a>
-        
-        <footer class="footer py-4">
+
+        <footer class="footer py-4  ">
             <div class="container-fluid">
                 <div class="row align-items-center justify-content-lg-between">
                     <div class="col-lg-4 mb-lg-0 mb-4">
@@ -318,47 +329,316 @@
                                 document.write(new Date().getFullYear())
                             </script>
                             <i class="fa fa-heart"></i>
-                            Emagrecendo com Ela
+        
+                            Emagrecendo
+                                com Ela
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
-        
-        <!--   Core JS Files   -->
-        <script src="https://unpkg.com/imask"></script>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="../../javascripts/core/popper.min.js"></script>
-        <script src="../../javascripts/core/bootstrap.min.js"></script>
-        <script src="../../javascripts/plugins/perfect-scrollbar.min.js"></script>
-        <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
-        <script src="../../javascripts/plugins/chartjs.min.js"></script>
-        <script src="../../javascripts_proprios/infoProduto.js"></script>
-        
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                var priceInputs = document.querySelectorAll('input[data-mask="currency"]');
-                priceInputs.forEach(function (input) {
-                    IMask(input, {
-                        mask: 'R$ num',
-                        blocks: {
-                            num: {
-                                mask: Number,
-                                thousandsSeparator: '.',
-                                radix: ',',
-                                mapToRadix: ['.'],
-                                scale: 2,
-                                signed: false,
-                                padFractionalZeros: true,
-                                normalizeZeros: true,
-                                min: 0,
-                                max: 9999999.99
-                            }
+    </main>
+
+
+
+
+    <!--   Core JS Files   -->
+    <script src="https://unpkg.com/imask"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../../javascripts/core/popper.min.js"></script>
+    <script src="../../javascripts/core/bootstrap.min.js"></script>
+    <script src="../../javascripts/plugins/perfect-scrollbar.min.js"></script>
+    <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
+    <script src="../../javascripts/plugins/chartjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../../javascripts_proprios/infoProduto.js"></script>
+
+    <script>
+        var ctx = document.getElementById("chart-bars").getContext("2d");
+
+        new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: ["M", "T", "W", "T", "F", "S", "S"],
+                datasets: [{
+                    label: "Sales",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    borderRadius: 4,
+                    borderSkipped: false,
+                    backgroundColor: "rgba(255, 255, 255, .8)",
+                    data: [50, 20, 10, 22, 50, 10, 40],
+                    maxBarThickness: 6
+                },],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index',
+                },
+                scales: {
+                    y: {
+                        grid: {
+                            drawBorder: false,
+                            display: true,
+                            drawOnChartArea: true,
+                            drawTicks: false,
+                            borderDash: [5, 5],
+                            color: 'rgba(255, 255, 255, .2)'
+                        },
+                        ticks: {
+                            suggestedMin: 0,
+                            suggestedMax: 500,
+                            beginAtZero: true,
+                            padding: 10,
+                            font: {
+                                size: 14,
+                                weight: 300,
+                                family: "Roboto",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                            color: "#fff"
+                        },
+                    },
+                    x: {
+                        grid: {
+                            drawBorder: false,
+                            display: true,
+                            drawOnChartArea: true,
+                            drawTicks: false,
+                            borderDash: [5, 5],
+                            color: 'rgba(255, 255, 255, .2)'
+                        },
+                        ticks: {
+                            display: true,
+                            color: '#f8f9fa',
+                            padding: 10,
+                            font: {
+                                size: 14,
+                                weight: 300,
+                                family: "Roboto",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
                         }
-                    });
+                    },
+                },
+            },
+        });
+
+
+        var ctx2 = document.getElementById("chart-line").getContext("2d");
+
+        new Chart(ctx2, {
+            type: "line",
+            data: {
+                labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                datasets: [{
+                    label: "Mobile apps",
+                    tension: 0,
+                    borderWidth: 0,
+                    pointRadius: 5,
+                    pointBackgroundColor: "rgba(255, 255, 255, .8)",
+                    pointBorderColor: "transparent",
+                    borderColor: "rgba(255, 255, 255, .8)",
+                    borderColor: "rgba(255, 255, 255, .8)",
+                    borderWidth: 4,
+                    backgroundColor: "transparent",
+                    fill: true,
+                    data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
+                    maxBarThickness: 6
+
+                }],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index',
+                },
+                scales: {
+                    y: {
+                        grid: {
+                            drawBorder: false,
+                            display: true,
+                            drawOnChartArea: true,
+                            drawTicks: false,
+                            borderDash: [5, 5],
+                            color: 'rgba(255, 255, 255, .2)'
+                        },
+                        ticks: {
+                            display: true,
+                            color: '#f8f9fa',
+                            padding: 10,
+                            font: {
+                                size: 14,
+                                weight: 300,
+                                family: "Roboto",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                    x: {
+                        grid: {
+                            drawBorder: false,
+                            display: false,
+                            drawOnChartArea: false,
+                            drawTicks: false,
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            display: true,
+                            color: '#f8f9fa',
+                            padding: 10,
+                            font: {
+                                size: 14,
+                                weight: 300,
+                                family: "Roboto",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                },
+            },
+        });
+
+        var ctx3 = document.getElementById("chart-line-tasks").getContext("2d");
+
+        new Chart(ctx3, {
+            type: "line",
+            data: {
+                labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                datasets: [{
+                    label: "Mobile apps",
+                    tension: 0,
+                    borderWidth: 0,
+                    pointRadius: 5,
+                    pointBackgroundColor: "rgba(255, 255, 255, .8)",
+                    pointBorderColor: "transparent",
+                    borderColor: "rgba(255, 255, 255, .8)",
+                    borderWidth: 4,
+                    backgroundColor: "transparent",
+                    fill: true,
+                    data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+                    maxBarThickness: 6
+
+                }],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index',
+                },
+                scales: {
+                    y: {
+                        grid: {
+                            drawBorder: false,
+                            display: true,
+                            drawOnChartArea: true,
+                            drawTicks: false,
+                            borderDash: [5, 5],
+                            color: 'rgba(255, 255, 255, .2)'
+                        },
+                        ticks: {
+                            display: true,
+                            padding: 10,
+                            color: '#f8f9fa',
+                            font: {
+                                size: 14,
+                                weight: 300,
+                                family: "Roboto",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                    x: {
+                        grid: {
+                            drawBorder: false,
+                            display: false,
+                            drawOnChartArea: false,
+                            drawTicks: false,
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            display: true,
+                            color: '#f8f9fa',
+                            padding: 10,
+                            font: {
+                                size: 14,
+                                weight: 300,
+                                family: "Roboto",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                },
+            },
+        });
+    </script>
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+    </script>
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="../../javascripts/material-dashboard.min.js?v=3.0.0"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var priceInputs = document.querySelectorAll('input[data-mask="curr"]');
+            priceInputs.forEach(function (input) {
+                IMask(input, {
+                    mask: 'R$ num',
+                    blocks: {
+                        num: {
+                            // nested masks are available!
+                            mask: Number,
+                            thousandsSeparator: '.',
+                            radix: ',',
+                            mapToRadix: ['.'],
+                            scale: 2,
+                            signed: false,
+                            padFractionalZeros: true,
+                            normalizeZeros: true,
+                            min: 0,
+                            max: 9999999.99
+                        }
+                    }
                 });
             });
-        </script>
+        });
+    </script>
 
     
         

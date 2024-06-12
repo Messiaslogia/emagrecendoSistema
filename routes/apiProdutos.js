@@ -14,6 +14,6 @@ router.get("/todosProdutos", ApiControllerProdutos.allProdutos);
 
 
 router.post("/adicionarProduto",ApiControllerProdutos.uploadImagemProduto(), ApiControllerProdutos.addProduto);
-router.post("/editProduto/:id", ApiControllerProdutos.editProdutos)
+router.post("/editProduto/:id", ApiControllerProdutos.uploadImagemProduto(), ApiControllerProdutos.editProdutos)
 
 module.exports = router

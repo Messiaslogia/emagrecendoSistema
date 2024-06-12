@@ -111,8 +111,20 @@ class ProductController {
             preco_distribuidor: req.body.precoProdutoDistribuidor.replace(' ', '').replace('R$', '').replace(',', '.'),
             preco_revenda: req.body.precoProdutoRevenda.replace(' ', '').replace('R$', '').replace(',', '.'),
             data: req.body.dataProduto,
-            hora: req.body.horaProduto
+            hora: req.body.horaProduto,
+            categoria: req.body.categoriaProdutos,
+            imagem: req.body.imagemAtual
         };
+
+        // Verifica se uma nova imagem foi enviada
+        if (req.file) {
+            novo_produto.imagem = '/images/produtos/' + req.file.filename; // Define o novo caminho da imagem
+
+            // Remove a antiga imagem se for diferente da nova
+            if (req.body.imagemAtual && fs.existsSync('public' + req.body.imagemAtual)) {
+                fs.unlinkSync('public' + req.body.imagemAtual); // Removendo a imagem antiga do servidor
+            }
+        }
 
         console.log(novo_produto);
 
