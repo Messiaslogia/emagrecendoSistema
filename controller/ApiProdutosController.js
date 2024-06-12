@@ -96,6 +96,36 @@ class ProductController {
             });
     }
 
+    todosProdutosBrindes(req, res){
+        axios.get(`${urls}todosProdutosBrindes`)
+            .then(resp =>{
+                res.json(resp.data);
+            })
+            .catch(err =>{
+                console.error('Erro ao buscar produtos brindes:', err.message);
+
+                const statusCode = err.response ? err.response.status : 500;
+                const errorMessage = err.response && err.response.data ? err.response.data.message : 'Ocorreu um erro ao processar sua solicitação.';
+
+                res.status(statusCode).json({ error: errorMessage });
+            })
+    }
+
+    todosProdutosMateriais(req, res) {
+        axios.get(`${urls}todosProdutosMateriais`)
+            .then(resp => {
+                res.json(resp.data);
+            })
+            .catch(err => {
+                console.error('Erro ao buscar produtos materiais:', err.message);
+
+                const statusCode = err.response ? err.response.status : 500;
+                const errorMessage = err.response && err.response.data ? err.response.data.message : 'Ocorreu um erro ao processar sua solicitação.';
+
+                res.status(statusCode).json({ error: errorMessage });
+            })
+    }
+
     editIndex(req, res) {
         let id = req.params.id;
         res.render('admin/produtos/editarProduto', { id });
@@ -175,6 +205,32 @@ class ProductController {
             });
     }
 
+    valorTotalBrindes(req, res) {
+        let id_gerente = cache.get('id_gerente');
+
+        axios.get(`${urls}valorTotalEstoqueBrindes`)
+            .then(resp => {
+                res.json(resp.data);
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false);
+            });
+    }
+
+    valorTotalMateriais(req, res) {
+        let id_gerente = cache.get('id_gerente');
+
+        axios.get(`${urls}valorTotalMateriais`)
+            .then(resp => {
+                res.json(resp.data);
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false);
+            });
+    }
+
     estoqueTotal(req, res) {
         let id_gerente = cache.get('id_gerente');
 
@@ -186,6 +242,28 @@ class ProductController {
                 console.log(err);
                 res.json(false);
             });
+    }
+
+    todoEstoqueBrindes(req, res){
+        axios.get(`${urls}estoqueTotalBrindes`)
+            .then(resp => {
+                res.json(resp.data);
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false);
+            })
+    }
+
+    todoEstoqueMateriais(req, res) {
+        axios.get(`${urls}estoqueTotalMateriais`)
+            .then(resp => {
+                res.json(resp.data);
+            })
+            .catch(err => {
+                console.log(err);
+                res.json("false");
+            })
     }
 
     consultProduto(req, res) {
