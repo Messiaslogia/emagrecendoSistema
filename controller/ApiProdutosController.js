@@ -24,12 +24,11 @@ class ProductController {
                 precoVendedor: req.body.precoProdutoVendedor.replace(' ', '').replace('R$', '').replace(',', '.'),
                 precoDeCusto: req.body.precoCusto.replace(' ', '').replace('R$', '').replace(',', '.'),
                 img: req.file ? req.file.path : '',
-                categoria: req.body.categoriaProdutos
+                categoria: 1
             };
 
             console.log(novo_produto);
 
-            if (id_gerente != null && id_gerente != '') {
                 axios.post(`${urls}adicionarProdutos`, novo_produto)
                     .then(resp => {
                         axios.post(`${urls}consultarProdutos`, {
@@ -43,10 +42,6 @@ class ProductController {
                     .catch(err => {
                         console.log(err);
                     });
-            } else {
-                console.error("Erro ao adicionar usuário");
-                return res.status(500).send('Erro ao adicionar produto.');
-            }
         } catch (error) {
             console.error(error);
             return res.status(500).send('Erro ao adicionar produto.');
@@ -139,16 +134,16 @@ class ProductController {
             quantidade: req.body.quantidadeProduto,
             preco: req.body.precoProduto.replace(' ', '').replace('R$', '').replace(',', '.'),
             preco_distribuidor: req.body.precoProdutoDistribuidor.replace(' ', '').replace('R$', '').replace(',', '.'),
-            preco_revenda: req.body.precoProdutoRevenda.replace(' ', '').replace('R$', '').replace(',', '.'),
-            data: req.body.dataProduto,
-            hora: req.body.horaProduto,
-            categoria: req.body.categoriaProdutos,
-            imagem: req.body.imagemAtual
+            preco_revenda: req.body.precoProdutoRepresentante.replace(' ', '').replace('R$', '').replace(',', '.'),
+            preco_vendedor: req.body.precoProdutoVendedor.replace(' ', '').replace('R$', '').replace(',', '.'),
+            preco_custo: req.body.precoCusto.replace(' ', '').replace('R$', '').replace(',', '.'),
+            categoria: 1,
+            img: req.file ? req.file.path : req.body.imagemProduto
         };
 
         // Verifica se uma nova imagem foi enviada
         if (req.file) {
-            novo_produto.imagem = '/images/produtos/' + req.file.filename; // Define o novo caminho da imagem
+            novo_produto.img = 'images/produtos/' + req.file.filename; // Define o novo caminho da imagem
 
             // Remove a antiga imagem se for diferente da nova
             if (req.body.imagemAtual && fs.existsSync('public' + req.body.imagemAtual)) {

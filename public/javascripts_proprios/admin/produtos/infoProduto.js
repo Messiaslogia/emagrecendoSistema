@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('#Nome_produto').value = produto.nome;
             document.querySelector('#Descricao_produto').value = produto.descricao;
             document.querySelector('#Quantidade_produto').value = produto.quantidade;
-            document.querySelector("#Preco_produto").value = produto.preco;
-            document.querySelector("#Preco_produto_Distribuidor").value = produto.preco_distribuidor;
-            document.querySelector("#Preco_produto_Representante").value = produto.preco_revenda;
-            document.querySelector("#Preco_produto_Vendedor").value = produto.preco_vendedor;
-            document.querySelector("#preco_custo").value = produto.preco_custo;
+            document.querySelector("#Preco_produto").value = `R$ ${produto.preco}`;
+            document.querySelector("#Preco_produto_Distribuidor").value = `R$ ${produto.preco_distribuidor}`;
+            document.querySelector("#Preco_produto_Representante").value = `R$ ${produto.preco_revenda}`;
+            document.querySelector("#Preco_produto_Vendedor").value = `R$ ${produto.preco_vendedor}`;
+            document.querySelector("#preco_custo").value = `R$ ${produto.preco_custo}`;
             document.querySelector("#categoriaProdutos").value = produto.categoria;
 
             if (produto.imagem) {

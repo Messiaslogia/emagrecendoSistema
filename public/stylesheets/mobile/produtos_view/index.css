@@ -3,6 +3,18 @@
         padding: 0px !important;
     }
 
+    #User_Icon{
+        padding: 0% !important;
+    }
+
+    #User_Icon > i::before{
+        padding: 30% !important;
+    }
+
+    #Card_Produtos{
+        margin-right: 0% !important;
+    }
+
     .d-flex{
         display: block !important;
     }

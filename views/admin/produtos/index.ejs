@@ -130,7 +130,7 @@
                     </div>
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-flex align-items-center">
-                            <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
+                            <a href="javascript:;" id="User_Icon" class="nav-link text-body font-weight-bold px-0">
                                 <i class="fa fa-user me-sm-1"></i>
                             </a>
                         </li>
@@ -278,7 +278,7 @@
             </div>
 
             
-            <div class="card my-4 me-4">
+            <div id="Card_Produtos" class="card my-4 me-4">
                 <div class="card-header pb-0 px-3 d-flex justify-content-between">
                     
                         <h6 class="mb-0">Infomações dos produtos:</h6>
@@ -289,13 +289,13 @@
                         <table class="table align-items-center mb-0">
                             <thead>
                                 <tr>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Imagem</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nome</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                         Descrição</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                         Quantidade</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Imagem</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Preço</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -368,8 +368,8 @@
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
 
 
-    <script src="../../javascripts_proprios/todosProdutos.js"></script>
-    <script src="../../javascripts_proprios/total_estoque.js"></script>
+    <script src="../../javascripts_proprios/admin/produtos/todosProdutos.js"></script>
+    <script src="../../javascripts_proprios/admin/produtos/total_estoque.js"></script>
 
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");

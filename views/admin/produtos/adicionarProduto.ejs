@@ -216,6 +216,7 @@
             <div class="col-md-10 bg-light mt-4">
                 <form class="border border-light p-5" enctype="multipart/form-data" id="productForm" method="post"
                     action="/apiProdutos/adicionarProduto">
+                    
                     <p class="h4 mb-4 text-center">Novo Produto</p>
         
                     <!-- Nome do produto -->
@@ -282,7 +283,7 @@
                             required>
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="categoriaProdutos" class="fs-6 fw-bold">Categoria</label>
                         <select name="categoriaProdutos" id="categoriaProdutos" class="form-control mb-4">
                             <option disabled selected value="">Selecione a categoria</option>
@@ -290,7 +291,7 @@
                             <option value= 2 >Material</option>
                             <option value= 3 >Brinde</option>
                         </select>
-                    </div>
+                    </div> -->
         
                     <button id="Bt_submit" class="btn btn btn-success my-4 btn-block" type="submit">Cadastrar</button>
                 </form>
@@ -621,12 +622,6 @@
             });
         });
     </script>
-
-   
-
-    
-        
-    
 </body>
 
 </html>
