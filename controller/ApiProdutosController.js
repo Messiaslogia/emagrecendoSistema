@@ -127,6 +127,7 @@ class ProductController {
     }
 
     editProdutos(req, res) {
+
         let novo_produto = {
             id: req.params.id,
             nome: req.body.nomeProduto,

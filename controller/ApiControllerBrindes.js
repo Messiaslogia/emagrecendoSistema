@@ -1,6 +1,7 @@
 const multer = require('multer');
 const path = require('path');
 const axios = require('axios');
+const fs = require('fs');
 
 
 // Base da URL
@@ -64,8 +65,8 @@ class ControllerBrindes {
     }
 
     indexEditBrinde(req, res){
-        const idBrinde = req.params.idBrinde;
-        res.render('admin/produtos/brindes/editarBrinde', {idBrinde});
+        const id = req.params.idBrinde;
+        res.render('admin/produtos/brindes/editarBrindes', {id});
     }   
 
     editBrinde(req, res){
@@ -75,9 +76,10 @@ class ControllerBrindes {
             descricao: req.body.descricaoProduto,
             quantidade: req.body.quantidadeProduto,
             preco: req.body.precoProduto.replace(' ', '').replace('R$', '').replace(',', '.'),
-            img: req.file ? req.file.path : req.body.imagemProduto,
+            img: req.body.imagemAtual,
             categoria: 2
         };
+
 
         // Verifica se uma nova imagem foi enviada
         if (req.file) {
@@ -85,6 +87,7 @@ class ControllerBrindes {
 
             // Remove a antiga imagem se for diferente da nova
             if (req.body.imagemAtual && fs.existsSync('public' + req.body.imagemAtual)) {
+                console.log('cu')
                 fs.unlinkSync('public' + req.body.imagemAtual); // Removendo a imagem antiga do servidor
             }
         }
@@ -96,6 +99,15 @@ class ControllerBrindes {
             .catch(err => {
                 console.log(err);
             });
+    }
+
+    deletandoBrinde(req, res){
+        let id = req.params.id;
+ 
+        axios.get(`${urls}deletandoBrinde/${id}`)
+            .then(result => {
+                res.redirect('/admin/produtos/brindes');
+            })
     }
 }
 

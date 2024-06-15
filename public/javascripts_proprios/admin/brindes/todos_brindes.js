@@ -74,9 +74,9 @@ function displayItens( page ){
                                       </td>
                                       
                                       <td class="align-middle">
-                                          <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiBrindes/dellProduto/${produto.id_produto}"><i
+                                          <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiBrindes/dellProduto/${produto.id}"><i
                                               class="material-icons text-sm me-2">delete</i></a>
-                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiBrindes/editarProduto/${produto.id_produto}"><i class="material-icons text-sm me-2">edit</i></a>
+                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiBrindes/editarProduto/${produto.id}"><i class="material-icons text-sm me-2">edit</i></a>
                                       </td>
                                  </tr>
                          `
@@ -113,9 +113,9 @@ function displayItens( page ){
                                       </td>
                                       
                                       <td class="align-middle">
-                                          <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiBrindes/dellProduto/${produto.id_produto}"><i
+                                          <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiBrindes/dellProduto/${produto.id}"><i
                                               class="material-icons text-sm me-2">delete</i></a>
-                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiBrindes/editarProduto/${produto.id_produto}"><i class="material-icons text-sm me-2">edit</i></a>
+                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiBrindes/editarProduto/${produto.id}"><i class="material-icons text-sm me-2">edit</i></a>
                                       </td>
                                  </tr>
                          `
