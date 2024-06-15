@@ -1,9 +1,9 @@
-const url = 'http://localhost:200/brindes/'
+const url = 'http://localhost:200/materiais/'
 
 document.addEventListener('DOMContentLoaded', () => {
-    const id_brinde = document.querySelector('#idProduto').value;
+    const id_materiais = document.querySelector('#idProduto').value;
 
-    axios.get(`${url}consultarBrinde/${id_brinde}`)
+    axios.get(`${url}consultarMaterial/${id_materiais}`)
         .then((result) => {
             document.querySelector('#Nome_produto').value = result.data[0].nome
             document.querySelector('#Descricao_produto').value = result.data[0].descricao

@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="../../images/logo.png">
     <link rel="icon" type="image/png" href="../../images/logo.png">
-    <meta http-equiv="pragma" content="no-cache">
-    <meta http-equiv="expires" content="0">
     <title>
         Emagrecendo Com Ela
     </title>
@@ -26,8 +24,12 @@
     <link rel="stylesheet" href="../../path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+            integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="../../stylesheets/style.css">
-    <link rel="stylesheet" href="../../stylesheets/mobile/produtos_view/index.css">
+    <link rel="stylesheet" href="../../stylesheets/mobile/produtos_view/addProdutos.css">
+
+
 
 </head>
 
@@ -53,7 +55,7 @@
                         <span class="nav-link-text ms-1">Dashboard</span>
                     </a>
                 </li>
-        
+    
                 <li class="nav-item">
                     <a class="nav-link text-white " href="/admin/financeiro">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -62,16 +64,16 @@
                         <span class="nav-link-text ms-1">Financeiro</span>
                     </a>
                 </li>
-        
+    
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/admin/produtos">
+                    <a class="nav-link text-white active bg-gradient-primary" href="/admin/produtos">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">store</i>
                         </div>
                         <span class="nav-link-text ms-1">Produtos</span>
                     </a>
                 </li>
-        
+    
                 <li class="nav-item">
                     <a class="nav-link text-white " href="/admin/pedidos">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -88,48 +90,30 @@
                         <span class="nav-link-text ms-1">Usuários</span>
                     </a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link text-white " href="/admin/produtos/brindes">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">card_giftcard</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Brindes</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link text-white active bg-gradient-primary" href="#">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">storage</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Materiais</span>
-                    </a>
-                </li>
-        
+    
             </ul>
         </div>
     </aside>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <!-- Navbar -->
-        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 mb-4 shadow-none border-radius-xl" id="navbarBlur"
+        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
             navbar-scroll="true">
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Páginas</a>
                         </li>
-                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page"><a href="/users">Dashboard</a></li>
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page"><a class="text-dark" href="/admin/produtos/materiais">Produtos</a></li>
                     </ol>
-                    <h6 class="font-weight-bolder mb-0">Produtos</h6>
+                    <h6 class="font-weight-bolder mb-0">Editar Produto</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-
+        
                     </div>
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-flex align-items-center">
-                            <a href="javascript:;" id="User_Icon" class="nav-link text-body font-weight-bold px-0">
+                            <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
                                 <i class="fa fa-user me-sm-1"></i>
                             </a>
                         </li>
@@ -143,7 +127,7 @@
                             </a>
                         </li>
                         <li class="nav-item px-2 d-flex align-items-center">
-                           
+                            
                         </li>
                         <li class="nav-item dropdown pe-2 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton"
@@ -198,8 +182,8 @@
                                                     xmlns:xlink="http://www.w3.org/1999/xlink">
                                                     <title>credit-card</title>
                                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                        <g transform="translate(-2169.000000, -745.000000)"
-                                                            fill="#FFFFFF" fill-rule="nonzero">
+                                                        <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF"
+                                                            fill-rule="nonzero">
                                                             <g transform="translate(1716.000000, 291.000000)">
                                                                 <g transform="translate(453.000000, 454.000000)">
                                                                     <path class="color-background"
@@ -233,99 +217,76 @@
             </div>
         </nav>
         <!-- End Navbar -->
-        <div class="col-12 ">
-            <div class="row ">
-                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                    <div class="card">
-                        <div class="card-header p-3 pt-2">
-                            <div
-                                class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
-                                <i class="material-symbols-outlined opacity-10">
-                                    attach_money
-                                </i>
-                            </div>
-                            <div class="text-end pt-1">
-                                <p class="text-sm mb-0 text-capitalize">Valor Total do Estoque</p>
-                                <h2 id="Total_ValorEmEstoque" class="mt-3"></h2>
-                            </div>
-                        </div>
-                
-                        <div class="card-footer p-3">
-                            <p class="mb-0"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                    <div class="card">
-                        <div class="card-header p-3 pt-2">
-                            <div
-                                class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
-                                <i class="material-symbols-outlined opacity-10">
-                                    inventory_2
-                                </i>
-                            </div>
-                            <div class="text-end pt-1">
-                                <p class="text-sm mb-0 text-capitalize">Total em estoque</p>
-                                <h2 id="Total_Estoque" class="mt-3"></h2>
-                            </div>
-                        </div>
-                        <div class="card-footer p-3">
-                        </div>
-                    </div>
-                </div>
-              
-            </div>
 
-            
-            <div id="Card_Produtos" class="card my-4 me-4">
-                <div class="card-header pb-0 px-3 d-flex justify-content-between">
-                    
-                        <h6 class="mb-0">Infomações dos produtos:</h6>
-                        <a href="/apiMateriais/adicionarMateriais"><button id="Button_addProduto" type="button" class="btn btn-primary btn-lg">Adicionar produto</button></a>
-                </div>
-                <div class="card-body px-0 pb-2">
-                    <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
-                            <thead>
-                                <tr>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Imagem</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nome</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Descrição</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Quantidade</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Preço</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Categoria</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Adicionado em:</th>
-                                    <th class="text-secondary opacity-7"></th>
-                                </tr>
-                            </thead>
-                            <tbody id="Tabela_de_produtos">
-                                
-                                    
-                                
-                            </tbody>
-                        </table>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-10 bg-light mt-4">
+                <form class="border border-light p-5" enctype="multipart/form-data" id="productForm" method="post"
+                action="/apiMateriais/editProduto/<%= id %>">
+
+                <input type="text" value="<%= id %>" style="display: none;" name="id" id="idProduto">
+                    <p class="h4 mb-4 text-center">Novo Produto</p>
+        
+                    <!-- Nome do produto -->
+                    <div class="form-group">
+                        <label for="Nome_produto" class="fs-6 fw-bold ">Nome do produto</label>
+                        <input id="Nome_produto" type="text" name="nomeProduto" class="form-control mb-4 "
+                            placeholder="Ex: Emagrecedor" required>
                     </div>
-                </div>
+        
+                    <!-- Descrição do produto -->
+                    <div class="form-group">
+                        <label for="Descricao_produto" class="fs-6 fw-bold ">Descrição do produto</label>
+                        <input id="Descricao_produto" type="text" name="descricaoProduto" class="form-control mb-4 "
+                            placeholder="Ex: emagrecedor masculino" required>
+                    </div>
+        
+                    <!-- Quantidade em estoque -->
+                    <div class="form-group">
+                        <label for="Quantidade_produto" class="fs-6 fw-bold ">Quantidade em estoque</label>
+                        <input id="Quantidade_produto" type="number" name="quantidadeProduto" class="form-control mb-4 "
+                            placeholder="Ex: 50" aria-describedby="defaultRegisterFormPhoneHelpBlock" required>
+                    </div>
+        
+                    <!-- Preço do produto -->
+                    <div class="form-group">
+                        <label for="Preco_produto" class="fs-6 fw-bold ">Preço do produto</label>
+                        <input id="Preco_produto" type="text" name="precoProduto" class="form-control mb-4 "
+                            placeholder="Ex: R$ 250,99" aria-describedby="defaultRegisterFormPhoneHelpBlock" required
+                            >
+                    </div>    
+                    
+
+                    <!-- Imagem do produto -->
+                    <div class="form-group">
+                        <label for="Imagem_produto" class="fs-6 fw-bold">Imagem do produto</label>
+                        <div id="currentImageContainer">
+                            <img id="currentImage" src="" alt="Imagem atual do produto"
+                                style="max-width: 100%; height: auto; display: none;">
+                        </div>
+                        <input id="Imagem_produto" type="file" name="imagemProduto" class="form-control mb-4" accept="image/*">
+                        <input type="hidden" id="imagemAtual" name="imagemAtual">
+                    </div>
+        
+                    <!-- <div class="form-group">
+                        <label for="categoriaProdutos" class="fs-6 fw-bold">Categoria</label>
+                        <select name="categoriaProdutos" id="categoriaProdutos" class="form-control mb-4">
+                            <option disabled selected value="">Selecione a categoria</option>
+                            <option value="1">Produto</option>
+                            <option value="2">Material</option>
+                            <option value="3">Brinde</option>
+                        </select>
+                    </div> -->
+        
+                    <button id="Bt_submit" class="btn btn btn-success my-4 btn-block" type="submit">Cadastrar</button>
+                </form>
             </div>
         </div>
 
-        <nav aria-label="Page navigation example" class="me-4">
-            <ul id="pag_navigation_input" class="pagination justify-content-end">
-                
-            </ul>
-        </nav>
-
-        <a href="/users" class="ms-3">
-            <button type="button" class="btn btn-primary btn-lg">Voltar</button>
+        <a href="/admin/produtos/materiais" class="ms-3">
+            <button type="button" class="btn btn-primary btn-l mt-5" style="background-color: #e91e63;">Voltar</button>
         </a>
 
-        <!--  -->
         <footer class="footer py-4  ">
             <div class="container-fluid">
                 <div class="row align-items-center justify-content-lg-between">
@@ -346,23 +307,21 @@
         </footer>
     </main>
 
-    
-    
-
 
 
 
     <!--   Core JS Files   -->
+    <script src="https://unpkg.com/imask"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../../javascripts/core/popper.min.js"></script>
     <script src="../../javascripts/core/bootstrap.min.js"></script>
     <script src="../../javascripts/plugins/perfect-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
-    <script src="../../javascripts_proprios/admin/materiais/todos_materiais.js"></script>
-    <script src="../../javascripts_proprios/admin/materiais/total_valor_estoque_materiais.js"></script>
+    <script src="../../javascripts_proprios/admin/materiais/infoMateriais.js"></script>
 
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");
@@ -624,6 +583,10 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../../javascripts/material-dashboard.min.js?v=3.0.0"></script>
+
+    
+        
+    
 </body>
 
 </html>

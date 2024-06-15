@@ -34,6 +34,7 @@ const apiPagamentos = require('./routes/apiPagamentos');
 const apiDividas = require('./routes/apiDividas');
 const apiFinanceiro = require('./routes/apiFinanceiro');
 const apiBrindes = require('./routes/apiBrindes');
+const apiMateriais = require('./routes/apiMateriais');
 
 
 // Rotas
@@ -51,6 +52,7 @@ app.use('/apiProdutos', produtosRouter);
 app.use('/apiPagamentos', apiPagamentos);
 app.use('/apiFinanceiro', apiFinanceiro)
 app.use('/apiBrindes', apiBrindes);
+app.use('/apiMateriais', apiMateriais);
 
 
 

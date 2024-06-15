@@ -1,12 +1,13 @@
 const div_tabela_de_produtos = document.querySelector('#Tabela_de_produtos');
-const url = "http://localhost:200/brindes/"
+const url = "http://localhost:200/materiais/"
 const itensPorPagina = 5;
-let lista_de_brindes
+let lista_de_materiais
 
 document.addEventListener('DOMContentLoaded', () => {
-    axios.get(`${url}todosBrindes`)
+    axios.get(`${url}todosMateriais`)
         .then(resp => {
-            lista_de_brindes = resp.data
+
+            lista_de_materiais = resp.data
         })
 
 
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function paginas(page){
-    const pageCont = Math.ceil(lista_de_brindes.length / itensPorPagina);
+    const pageCont = Math.ceil(lista_de_materiais.length / itensPorPagina);
     const containerPagination = document.querySelector('#pag_navigation_input');
     containerPagination.innerHTML = ''
 
@@ -31,7 +32,7 @@ function displayItens( page ){
     
     let startIndex = (page - 1) * itensPorPagina;
     let endIndex = startIndex + itensPorPagina;
-    let reversePedidos = lista_de_brindes.slice().reverse();
+    let reversePedidos = lista_de_materiais.slice().reverse();
     let pageItens = reversePedidos.slice(startIndex, endIndex);
     // Exibindo os itens
    div_tabela_de_produtos.innerHTML = '';
@@ -72,9 +73,9 @@ function displayItens( page ){
                                       </td>
                                       
                                       <td class="align-middle">
-                                          <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiBrindes/dellProduto/${produto.id}"><i
+                                          <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiMateriais/dellProduto/${produto.id}"><i
                                               class="material-icons text-sm me-2">delete</i></a>
-                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiBrindes/editarProduto/${produto.id}"><i class="material-icons text-sm me-2">edit</i></a>
+                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiMateriais/editarProduto/${produto.id}"><i class="material-icons text-sm me-2">edit</i></a>
                                       </td>
                                  </tr>
                          `
@@ -111,9 +112,9 @@ function displayItens( page ){
                                       </td>
                                       
                                       <td class="align-middle">
-                                          <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiBrindes/dellProduto/${produto.id}"><i
+                                          <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiMateriais/dellProduto/${produto.id}"><i
                                               class="material-icons text-sm me-2">delete</i></a>
-                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiBrindes/editarProduto/${produto.id}"><i class="material-icons text-sm me-2">edit</i></a>
+                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiMateriais/editarProduto/${produto.id}"><i class="material-icons text-sm me-2">edit</i></a>
                                       </td>
                                  </tr>
                          `
