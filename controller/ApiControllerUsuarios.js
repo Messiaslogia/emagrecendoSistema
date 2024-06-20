@@ -195,6 +195,17 @@ class ApiControllerUsuarios {
                 })
     }
 
+    usuariosPedidos(req, res){
+        let funcaoUsuario = req.params.funcao;
+        axios.get(`${urls}usuariosPedidos/${funcaoUsuario}`)
+            .then(resp => {
+                res.json(resp.data)
+                res.status(200);
+            }).catch(err =>{
+
+            })
+    }
+
     clientesTotais(req, res) {
         axios.get(`${urls}allClientes`)
             .then(resp => {
@@ -221,7 +232,9 @@ class ApiControllerUsuarios {
     }
 
     todosUsuariosPedido(req, res) {
-        axios.get(`${urls}allUsersPedidos`)
+        const funcaoUsuario = req.params.funcao;
+
+        axios.get(`${urls}allUsersPedidos/${funcaoUsuario}`)
             .then(users => {
                 res.json(users.data)
             }).catch(err => {
