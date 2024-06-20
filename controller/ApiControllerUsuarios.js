@@ -235,6 +235,13 @@ class ApiControllerUsuarios {
         const funcaoUsuario = req.params.funcao;
 
         axios.get(`${urls}allUsersPedidos/${funcaoUsuario}`)
+
+        // const funcaoSelecionada = req.body.funcaoValue;
+
+        // axios.post(`${urls}allUsersPedidos`, {
+        //     funcao: funcaoSelecionada
+        // })
+
             .then(users => {
                 res.json(users.data)
             }).catch(err => {
