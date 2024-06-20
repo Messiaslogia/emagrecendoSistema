@@ -225,12 +225,27 @@
                 <form class="text-center border border-light p-5" action="/apiPedidos/addPedidos" id="formPedido" method="post"
                     enctype="application/x-www-form-urlencoded">
 
-                    <p class="h4 mb-4">Novo Pedido</p>
+                    <p class="h4 mb-4 text-dark fw-bold">Novo Pedido</p>
+
+                    <div class="form-row mb-2">
+                        <div class="col text-start">
+                            <div class="mb-3">
+                                <label class="fs-6 fw-bold text-dark">Selecione uma função:</label>
+                                <select id="Funcao_input" name="funcao" class="form-control " required>
+                                    <option disabled selected value="">Selecione a função</option>
+                                    <option value="2">Distribuidor</option>
+                                    <option value="3">Vendedor</option>
+                                    <option value="4">Cliente</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Usuario -->
-                    <div class="form-row mb-4">
-                        <div class="col">
-                            <div class="">
+                    <div class="form-row mb-2">
+                        <div class="col text-start">
+                            <div class="mb-3">
+                                <label class="fs-6 fw-bold text-dark">Selecione o usuário:</label>
                                 <select id="Usuario_input" name="usuario" class="form-control " id="exampleFormControlSelect1" required>
                                     <option disabled selected value="">Selecione o Usuário</option>
                                     <!-- Carregar produtos com featch -->
@@ -240,9 +255,10 @@
                     </div>
 
                     <!-- Produto -->
-                    <div class="form-row mb-4">
-                        <div class="col">
-                            <div class="">
+                    <div class="form-row mb-2">
+                        <div class="col text-start">
+                            <div class="mb-3">
+                                <label class="fs-6 fw-bold text-dark">Selecione o produto:</label>   
                                 <select id="Produto_input" name="produto" class="form-control" id="exampleFormControlSelect1" required>
                                     <option disabled selected value="">Selecione o Produto</option >
                                     <!-- Carregar produtos com featch -->
@@ -251,8 +267,12 @@
                         </div>
                     </div>
 
-                    <input id="Valor_Produto" name="valorProduto" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Valor do produto"
-                        aria-describedby="defaultRegisterFormPasswordHelpBlock" value="" readonly required>
+
+                    <div class="text-start mb-2">
+                        <label class="fs-6 fw-bold text-dark">Preço do produto:</label>
+                        <input id="Valor_Produto" name="valorProduto" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Valor do produto"
+                            aria-describedby="defaultRegisterFormPasswordHelpBlock" value="" readonly required>
+                    </div>
 
                     <!-- <input id="Valor_Distribuidor" name="valorDistribuidor" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Valor do produto para Distribuidor"
                     aria-describedby="defaultRegisterFormPasswordHelpBlock" value="" readonly required>
@@ -261,21 +281,39 @@
                     aria-describedby="defaultRegisterFormPasswordHelpBlock" value="" readonly required> -->
 
                     <!-- Status -->
-                    <input id="Status_input" name="status" type="hidden" id="defaultRegisterFormPassword" class="form-control mb-4"
-                        placeholder="" aria-describedby="defaultRegisterFormPasswordHelpBlock" value="Desaprovado" required>
+                    <div class="text-start mb-2">
+                        <!-- <label class="fs-6 fw-bold text-dark">Deseja Adicionar Brinde?</label> -->
+                        <input id="Status_input" name="status" type="hidden" id="defaultRegisterFormPassword" class="form-control mb-4"
+                            placeholder="" aria-describedby="defaultRegisterFormPasswordHelpBlock" value="Desaprovado" required>
+                    </div>
 
 
                     <!-- quantidade -->
-                    <input id="Quantidade_input" name="quantidade" type="number" id="defaultRegisterFormPassword" class="form-control mb-4"
-                        placeholder="Quantidade" aria-describedby="defaultRegisterFormPasswordHelpBlock" required>
+                    <div class="text-start mb-4">
+                        <label class="fs-6 fw-bold text-dark">Quantidade:</label>
+                        <input id="Quantidade_input" name="quantidade" type="number" id="defaultRegisterFormPassword" class="form-control mb-4"
+                            placeholder="Quantidade" aria-describedby="defaultRegisterFormPasswordHelpBlock" required>
+                    </div>
 
                     <!-- Data inserida -->
-                    <input id="Data_produto" type="date" name="dataProduto" class="form-control mb-4" placeholder="Data"
+                    <!-- <input id="Data_produto" type="date" name="dataProduto" class="form-control mb-4" placeholder="Data"
                         aria-describedby="defaultRegisterFormPhoneHelpBlock" readonly required>
                     
-                    <!-- Horas inserida -->
+                     Horas inserida 
                     <input id="Hora_produto" type="time" name="horaProduto" class="form-control mb-4" placeholder="Horas"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock" readonly required>
+                        aria-describedby="defaultRegisterFormPhoneHelpBlock" readonly required> -->
+                    <div class="form-row mb-2">
+                        <div class="col text-start">
+                            <div class="mb-3">
+                                <label class="fs-6 fw-bold text-dark">Selecione um brinde:</label>   
+                                <select id="Brinde_input" name="produto" class="form-control" id="exampleFormControlSelect1" required>
+                                    <option disabled selected value="">Nenhum Brinde</option>
+                                    <!-- Carregar produtos com featch -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
                      
                     <!-- Sign up button -->
                     <button id="Bt_avancar" class="btn btn btn-success my-4 btn-block" type="button">Avançar</button>
@@ -366,9 +404,12 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="../../javascripts/material-dashboard.min.js?v=3.0.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <script src="../../javascripts_proprios/pedidos/pedidosUsuarios.js"></script>
     <script src="../../javascripts_proprios/pedidos/pedidosProdutos.js"></script>
+    <script src="../../javascripts_proprios/pedidos/buscarBrindes.js"></script>
     <script src="../../javascripts_proprios/pedidos/pedidosFormulario.js"></script>
+
 
     
 
