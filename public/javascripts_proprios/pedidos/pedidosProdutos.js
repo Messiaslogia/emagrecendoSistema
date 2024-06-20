@@ -12,14 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
     listaNomesProdutos();
 });
 
-
-
 function listaNomesProdutos(){
     axios.get(url)
         .then( resp => {
             resp.data.forEach( produto => {
                 div_produtos.innerHTML += `
-                <option value="${produto.id_produto}">${produto.nome}</option>
+                    <option value="${produto.id_produto}">${produto.nome}</option>
                 `
             })
         })
@@ -31,37 +29,37 @@ function listaNomesProdutos(){
 input_select.addEventListener('change', () => {
     div_produtos.value = '';
     div_valorProdutos.value = '';
-    let selectOption = input_select.options[input_select.selectedIndex]
-    funcao_usuario = selectOption.getAttribute('registro')
-    console.log(funcao_usuario)
+    let selectOption = input_select.options[input_select.selectedIndex];
+    funcao_usuario = selectOption.getAttribute('registro');
 })
 
 div_produtos.addEventListener('change', function () {
-    var valor = div_produtos.value
+    var valor = div_produtos.value;
+
     axios.get(`http://localhost:3030/apiProdutos/consultProduto/${valor}`)
         .then((result) => {
             switch (funcao_usuario) {
-                case 'Gerente':
+                case '1':
                     div_valorProdutos.value = `R$ ${result.data[0].preco}`;
                     break;
 
-                case 'Distribuidor':
-                    div_valorProdutos.value = `R$ ${result.data[0].preco_distribuidor}`;
+                case '2':
+                    div_valorProdutos.value = `R$ ${result.data[0].preco_distribuidor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
                     break;
 
-                case 'Vendedor':
+                case '3':
                     div_valorProdutos.value = `R$ ${result.data[0].preco_revenda}`;
                     break;
 
-                case 'Afiliado':
+                case '7':
                     div_valorProdutos.value = `R$ ${result.data[0].preco_distribuidor}`;
                     break;
 
-                case 'Representante':
+                case '6':
                     div_valorProdutos.value = `R$ ${result.data[0].preco_distribuidor}`;
                     break;
 
-                case 'Cliente':
+                case '4':
                     div_valorProdutos.value = `R$ ${result.data[0].preco_revenda}`;
                     break;
             

@@ -1,10 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-
     const botaoAvancar = document.getElementById('Bt_avancar');
     const botaoEnviar = document.getElementById('Bt_Enviar');
     const usuarioInput = document.getElementById('Usuario_input');
-    // const dataInput = document.getElementById('Data_produto');
-    // const horaInput = document.getElementById('Hora_produto');
     const produtoInput = document.getElementById('Produto_input');
     const quantidade = document.getElementById('Quantidade_input');
     const numeroPedido = gerarNumeroPedido();
@@ -33,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const elementoQuantidade = document.getElementById('Quantidade_input');
 
         let valorQuantidade = elementoQuantidade.value;
-        let valorProduto = elementoValor.value.replace('R$ ', '');
+        let valorProduto = elementoValor.value.replace('R$ ', '').replace(',', '.');
 
         let valorFinalPedido = valorQuantidade * valorProduto;
 
@@ -52,22 +49,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 dadosAtuaisForm['valorPedido'] = valorFinalPedido;
             }
         }
+        dadosAtuaisForm['produto'] = produtoInput.value;
+
 
         // Se algum valor estiver vazio, você já terá exibido o alerta e saído do loop
         if (!algumValorVazio) {
             elementoValor.value = '';
             elementoQuantidade.value = '';
             usuarioInput.disabled = true;
-            // dataInput.readOnly = true;
-            // horaInput.readOnly = true;
             produtoInput.value = '';
             quantidade.value = '';
-
+            console.log(dadosAtuaisForm)
             formDataArray.push(dadosAtuaisForm);
             return formDataArray;
         }
-
-        
     }
 
     // EVENTO PARA COLETAR OS DADOS AO CLICAR NO AVANCAR
@@ -80,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const formData = coletaDadosForm();
         let somaValorPedido = 0;
         formData.forEach(objeto => {
-
             if (objeto.hasOwnProperty('valorPedido')) {
                 somaValorPedido += parseFloat(objeto.valorPedido.toFixed(2));               
             }

@@ -1,0 +1,10 @@
+@media screen and (max-width: 600px) {
+    body{
+        padding: 0px !important;
+        background-color: aqua !important
+    }
+
+    #Card_View{
+        margin-bottom: 3.75rem !important;
+    }
+}
