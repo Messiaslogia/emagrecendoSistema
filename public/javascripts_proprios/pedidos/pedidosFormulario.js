@@ -74,6 +74,8 @@ document.addEventListener('DOMContentLoaded', function () {
     botaoEnviar.addEventListener('click', () => {
         const formData = coletaDadosForm();
         let somaValorPedido = 0;
+
+        console.log(formData)
         formData.forEach(objeto => {
             if (objeto.hasOwnProperty('valorPedido')) {
                 somaValorPedido += parseFloat(objeto.valorPedido.toFixed(2));               
