@@ -208,66 +208,83 @@
                 
                     <p class="h4 mb-4">Novo Usuário</p>
                         <input id="idDistribuidor" name="distribuidor" type="text" style="display: none;" class="form-control" value="<%= idDoDistribuidor %>" required>
-                    <div class="form-row mb-4"> 
-                        <div class="col">
-                            <!-- First name -->
-                            <input id="Name_input" name="nome" type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Nome completo*" required>
+                    
+                    <!-- Informações Pessoais -->
+                    <section>
+                        <div class="form-row mb-4">
+                            <div class="col">
+                                <input id="Name_input" name="nome" type="text" id="defaultRegisterFormFirstName" class="form-control"
+                                    placeholder="Nome completo" required>
+                            </div>
                         </div>
-                    </div>
+                    
+                        <div>
+                            <select id="Funcao_input" name="funcao" class="form-control mb-4" required>
+                                <option disabled selected value="">Selecione a função</option>
+                                <option value="6">Representante</option>
+                                <option value="7">Afiliado</option>
+                            </select>
+                        </div>
+                    
+                        <input id="Email_input" name="email" type="email" id="defaultRegisterFormEmail" class="form-control mb-4"
+                            placeholder="E-mail" required>
+                    
+                        <input id="Senha_input" style="display: none;" name="password" type="password" class="form-control mb-4"
+                            placeholder="Senha" aria-describedby="defaultRegisterFormPasswordHelpBlock" required>
+                    
+                        <input id="Nascimento_input" name="nascimento" type="text" class="form-control mb-4"
+                            placeholder="Data de nascimento do Usuário*" required>
+                    
+                        <input id="CPF_input" name="cpf" type="text" class="form-control mb-4" placeholder="CPF" required>
+                    
+                        <input id="Telefone_input" name="telefone" type="text" class="form-control mb-4" placeholder="Whatsapp">
+                        <hr>
+                    </section>
                 
-                    <!-- E-mail -->
-                    <input id="Email_input" name="email" type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail*" required>
-
                     <!-- Endereço -->
-                    <input id="Endereco_input" name="endereco" type="text" id="defaultRegisterFormEmail" class="form-control mb-4"
-                        placeholder="Endereço do Usuário*">
-                
-                    <!-- Phone number -->
-                    <input id="Phone_input" name="phone" type="text" id="defaultRegisterPhonePassword" class="form-control mb-4" placeholder="Whatsapp*" required>
-
-                    <!-- CPF -->
-                    <input id="CPF_input" name="cpf" type="text" id="defaultRegisterPhonePassword" class="form-control mb-4" placeholder="CPF" required>
-
-                    <!-- URl Instagram -->
-                    <input id="Instagram_input" name="instagram" type="text" id="defaultRegisterInstagram" class="form-control mb-4"
-                        placeholder="URl Instagram" >
-
-                    <!-- URL Facebooks -->
-                    <input id="Facebooks_input" name="facebooks" type="text" id="defaultRegisterFacebooks" class="form-control mb-4"
-                        placeholder="URL Facebooks" >
-
-                    <!-- Região -->
-                    <div class="">
-                        <select id="Regiao_input" name="regiao" class="form-control mb-4" id="exampleFormControlSelect1" required>
-                            <option disabled selected value="">Selecione a Região*</option>
-                            <option>Norte</option>
-                            <option>Nordeste</option>
-                            <option>Centro-Oeste</option>
-                            <option>Sudeste</option>
-                            <option>Sul</option>
+                    <section>
+                        <h5 class="text-dark">Endereço</h5>
                     
-                        </select>
-                    </div>
-
-                    <!-- Função -->
-                    <div id="">
-                        <select id="Funcao_input" name="funcao" class="form-control"  required>
-                            <option disabled selected value="">Selecione a função*</option>
-                            <option value="Representante">Representante</option>
-                            <option value="Afiliado">Afiliado</option>
-                            <option value="Afiliado do Representante">Afiliado do Representante</option>
-
-                        </select>
-                    </div>  
-
-                    <!-- Representantes -->
-                    <div class="representante" id="representanteDiv">
-                        <select id="Representante_input" name="Representante" class="form-control my-4" id="exampleFormControlSelect">
-                            <option disabled selected value="">Selecione o Representante*</option>
-                            
+                        <input id="Cep_input" name="cep" type="text" class="form-control mb-4" placeholder="Cep*" required>
                     
-                        </select>
-                    </div>
+                        <input id="Endereco_input" name="endereco" type="text" class="form-control mb-4" placeholder="Endereço do Usuário*"
+                            required>
+                    
+                        <div class="container text-center">
+                            <div class="row">
+                                <div class="col">
+                                    <input id="Bairro_input" name="bairro" type="text" class="form-control mb-4" placeholder="Bairro*"
+                                        required>
+                                </div>
+                    
+                                <div class="col">
+                                    <input id="Numero_input" name="numerodoendereco" type="text" class="form-control mb-4"
+                                        placeholder="Numero*" required>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div>
+                            <select id="Regiao_input" name="regiao" class="form-control mb-4" required>
+                                <option disabled selected value="">Selecione a Região</option>
+                                <option>Norte</option>
+                                <option>Nordeste</option>
+                                <option>Centro-Oeste</option>
+                                <option>Sudeste</option>
+                                <option>Sul</option>
+                            </select>
+                        </div>
+                        <hr>
+                    </section>
+                    
+                    <!-- Redes Sociais -->
+                    <section>
+                        <h5 class="text-dark">Redes Sociais</h5>
+                    
+                        <input id="Instagram_input" name="instagram" type="text" class="form-control mb-4" placeholder="URl Instagram">
+                    
+                        <input id="Facebooks_input" name="facebooks" type="text" class="form-control mb-4" placeholder="URL Facebooks">
+                    </section>
                    
                     <!-- Sign up button -->
                     <button id="Bt_submit" class="btn btn btn-success my-4 btn-block" type="submit">Cadastrar</button>            
@@ -299,6 +316,7 @@
     </main>
 
     <!--   Core JS Files   -->
+    <script src="https://unpkg.com/imask"></script>
     <script src="../../javascripts/core/popper.min.js"></script>
     <script src="../../javascripts/core/bootstrap.min.js"></script>
     <script src="../../javascripts/plugins/perfect-scrollbar.min.js"></script>
@@ -307,6 +325,15 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../../javascripts_proprios/distribuidores/todos_representantes.js"></script>
     <script src="../../javascripts_proprios/distribuidores/adicionarUserDistribuidor.js"></script>
+    <script src="../../javascripts_proprios/admin/user/consulta_cep.js"></script>
+    <script src="../../javascripts_proprios/admin/user/verificarFuncao.js"></script>
+
+
+    <!-- Imaks -->
+    <script src="../../javascripts_proprios/imask/aniversario.js"></script>
+    <script src="../../javascripts_proprios/imask/telefone.js"></script>
+    <script src="../../javascripts_proprios/imask/cpf.js"></script>
+    <script src="../../javascripts_proprios/imask/cep.js"></script>
 
 
     <script>
