@@ -163,20 +163,24 @@ class DistribuidorController{
     }
 
     editUser(req, res) {
-        const idCripted = req.query.user;
-        
+        const idCripted = req.query.user; 
         const newUser = {
             id: req.params.id,
             nome: req.body.nome,
             email: req.body.email,
             password: req.body.senha,
+            telefone: req.body.telefone,
             cpf: req.body.cpf,
+            cep:req.body.cep,
+            endereco: req.body.endereco,
+            bairro: req.body.bairro,
+            numero_endereco: req.body.numerodoendereco,
+            regiao: req.body.regiao,
             insta: req.body.instagram,
             face: req.body.facebooks,
-            funcao: req.body.funcao,
-            regiao: req.body.regiao,
-            telefone: req.body.telefone
         };
+
+        console.log(newUser)
 
             axios.post(`${urls}editUser`, newUser)
                 .then(resp => {
