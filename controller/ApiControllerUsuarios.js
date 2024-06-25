@@ -70,28 +70,27 @@ class ApiControllerUsuarios {
             .then(resp => { 
                 console.log(resp.data.funcao);
                 switch (resp.data.funcao) {
-                    case 'Gerente':
+                    case '1':
                         // const idCriptografadoGerente = ecryptedIdUser(resp.data.id_usuario, process.env.SECRET_KEY);
                         cache.set('id_gerente', resp.data.id_usuario)
                         return res.redirect(307, '/users');
 
-                    case 'Afiliado':
-                        // const idCriptografadoAfiliado = ecryptedIdUser(resp.data.id_usuario, process.env.SECRET_KEY);
-                        return res.status(404).send("<script>alert('Função não cadastrada para utilização do sistema'); window.history.back();</script>")
-
-                    case 'Distribuidor':
+                    case '2':
                         // const idCriptografadoDistribuidor = ecryptedIdUser(resp.data.id_usuario, process.env.SECRET_KEY);
                         return res.redirect(`/distribuidor?user=${resp.data.id_usuario}`);
 
-                    case 'Vendedor':
+                    case '3':
                         // const idCriptografadoVendedor = ecryptedIdUser(resp.data.id_usuario, process.env.SECRET_KEY);
                         return res.redirect(`/vendedores?user=${resp.data.id_usuario}`);
 
 
-                    case 'Representante':
+                    case '6':
                         const idCriptografadoRepresentante = ecryptedIdUser(resp.data.id_usuario, process.env.SECRET_KEY);
                         return res.status(404).send("<script>alert('Função não cadastrada para utilização do sistema'); window.history.back();</script>")
 
+                    case '7':
+                        // const idCriptografadoAfiliado = ecryptedIdUser(resp.data.id_usuario, process.env.SECRET_KEY);
+                        return res.status(404).send("<script>alert('Função não cadastrada para utilização do sistema'); window.history.back();</script>")
 
                     default:
                         return res.status(404).send("<script>alert('Função não encontrado'); window.history.back();</script>")
@@ -258,16 +257,18 @@ class ApiControllerUsuarios {
         let newUser = {
             idDistri: req.body.distribuidor,
             nome: req.body.nome,
+            funcao: req.body.funcao,
             email: req.body.email,
+            nascimento: req.body.nascimento.replace(/[^\d]/g, ''),
+            cpf: req.body.cpf.replace(/[^\d]/g, ''),
+            telefone: req.body.telefone.replace(/[^\d]/g, ''),
+            cep: req.body.cep.replace(/[^\d]/g, ''),
             endereco: req.body.endereco,
-            phone: req.body.phone,
-            cpf: req.body.cpf,
+            bairro: req.body.bairro,
+            numerodoendereco: parseInt(req.body.numerodoendereco),
+            regiao: req.body.regiao,
             instagram: req.body.instagram,
             facebook: req.body.facebooks,
-            funcao: req.body.funcao,
-            regiao: req.body.regiao,
-            representante: req.body.Representante,
-
         }
 
         axios.post(`${urls}novoUsuarioParaDistribuidor`, newUser)
