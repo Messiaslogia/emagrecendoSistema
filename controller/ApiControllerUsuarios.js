@@ -270,6 +270,9 @@ class ApiControllerUsuarios {
             facebook: req.body.facebooks,
         }
 
+        // console.log(newUser);
+        // return;
+
         axios.post(`${urls}novoUsuarioParaDistribuidor`, newUser)
                 .then(resp => {
                     axios.post(`${urls}usuarioInfo`, {
