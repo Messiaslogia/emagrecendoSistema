@@ -208,56 +208,80 @@
                 
                     <p class="h4 mb-4">Novo Cliente/Futuro Cliente</p>
                         <input id="idDoVendedor" name="idDoVendedor" type="text" style="display: none;" class="form-control" value="<%= idDoVendedor %>">
-                    <div class="form-row mb-4">
-                        <div class="col">
-                            <!-- First name -->
-                            <input id="Name_input" name="nome" type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Nome completo*" required>
+                    <!-- Informações Pessoais -->
+                    <section>
+                        <div class="form-row mb-4">
+                            <div class="col">
+                                <input id="Name_input" name="nome" type="text" id="defaultRegisterFormFirstName" class="form-control"
+                                    placeholder="Nome completo" required>
+                            </div>
                         </div>
-                    </div>
-                
-                    <!-- E-mail -->
-                    <input id="Email_input" name="email" type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail*">
-
-                    <!-- Endereço -->
-                    <input id="Endereco_input" name="endereco" type="text" id="defaultRegisterFormEmail" class="form-control mb-4"
-                        placeholder="Endereço do Usuário*">
-                
-                    <!-- Phone number -->
-                    <input id="Phone_input" name="phone" type="text" id="defaultRegisterPhonePassword" class="form-control mb-4" placeholder="Whatsapp*" required>
-
-                    <!-- CPF -->
-                    <input id="CPF_input" name="cpf" type="text" id="defaultRegisterPhonePassword" class="form-control mb-4" placeholder="CPF" required>
-
-                    <!-- URl Instagram -->
-                    <input id="Instagram_input" name="instagram" type="text" id="defaultRegisterInstagram" class="form-control mb-4"
-                        placeholder="URl Instagram" >
-
-                    <!-- URL Facebooks -->
-                    <input id="Facebooks_input" name="facebook" type="text" id="defaultRegisterFacebooks" class="form-control mb-4"
-                        placeholder="URL Facebooks" >
-
-                    <!-- Região -->
-                    <div class="">
-                        <select id="Regiao_input" name="regiao" class="form-control mb-4" id="exampleFormControlSelect1" required>
-                            <option disabled selected value="">Selecione a Região*</option>
-                            <option>Norte</option>
-                            <option>Nordeste</option>
-                            <option>Centro-Oeste</option>
-                            <option>Sudeste</option>
-                            <option>Sul</option>
                     
-                        </select>
-                    </div>
-
-                    <!-- Função -->
-                    <div id="">
-                        <select id="Funcao_input" name="funcao" class="form-control"  required>
-                            <!-- <option disabled selected value="">Selecione a função*</option> -->
-                            <option selected value="Cliente">Cliente</option>
-                            <!-- <option value="Futuro Cliente">Futuro Cliente</option> -->
-                        </select>
-                    </div>  
-
+                        <div>
+                            <select id="Funcao_input" name="funcao" class="form-control mb-4" required>
+                                <option disabled selected value="">Selecione a função</option>
+                                <option value="4">Cliente</option>
+                                <option value="5">Futuro Cliente</option>
+                            </select>
+                        </div>
+                    
+                        <input id="Email_input" name="email" type="email" id="defaultRegisterFormEmail" class="form-control mb-4"
+                            placeholder="E-mail" required>
+                    
+                    
+                        <input id="Nascimento_input" name="nascimento" type="text" class="form-control mb-4"
+                            placeholder="Data de nascimento do Usuário*" required>
+                    
+                        <input id="CPF_input" name="cpf" type="text" class="form-control mb-4" placeholder="CPF" required>
+                    
+                        <input id="Telefone_input" name="telefone" type="text" class="form-control mb-4" placeholder="Whatsapp">
+                        <hr>
+                    </section>
+                
+                    <!-- Endereço -->
+                    <section>
+                        <h5 class="text-dark">Endereço</h5>
+                    
+                        <input id="Cep_input" name="cep" type="text" class="form-control mb-4" placeholder="Cep*" required>
+                    
+                        <input id="Endereco_input" name="endereco" type="text" class="form-control mb-4" placeholder="Endereço do Usuário*"
+                            required>
+                    
+                        <div class="container text-center">
+                            <div class="row">
+                                <div class="col">
+                                    <input id="Bairro_input" name="bairro" type="text" class="form-control mb-4" placeholder="Bairro*"
+                                        required>
+                                </div>
+                    
+                                <div class="col">
+                                    <input id="Numero_input" name="numerodoendereco" type="text" class="form-control mb-4"
+                                        placeholder="Numero*" required>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div>
+                            <select id="Regiao_input" name="regiao" class="form-control mb-4" required>
+                                <option disabled selected value="">Selecione a Região</option>
+                                <option>Norte</option>
+                                <option>Nordeste</option>
+                                <option>Centro-Oeste</option>
+                                <option>Sudeste</option>
+                                <option>Sul</option>
+                            </select>
+                        </div>
+                        <hr>
+                    </section>
+                    
+                    <!-- Redes Sociais -->
+                    <section>
+                        <h5 class="text-dark">Redes Sociais</h5>
+                    
+                        <input id="Instagram_input" name="instagram" type="text" class="form-control mb-4" placeholder="URl Instagram">
+                    
+                        <input id="Facebooks_input" name="facebook" type="text" class="form-control mb-4" placeholder="URL Facebooks">
+                    </section>
                    
                     <!-- Sign up button -->
                     <button id="Bt_submit" class="btn btn btn-success my-4 btn-block" type="submit">Cadastrar</button>            
@@ -289,14 +313,23 @@
     </main>
 
     <!--   Core JS Files   -->
+    <script src="https://unpkg.com/imask"></script>
     <script src="../../javascripts/core/popper.min.js"></script>
     <script src="../../javascripts/core/bootstrap.min.js"></script>
     <script src="../../javascripts/plugins/perfect-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
     <script src="../../javascripts_proprios/adicionarUser.js"></script>
+    <script src="../../javascripts_proprios/admin/user/consulta_cep.js"></script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- Imaks -->
+    <script src="../../javascripts_proprios/imask/aniversario.js"></script>
+    <script src="../../javascripts_proprios/imask/telefone.js"></script>
+    <script src="../../javascripts_proprios/imask/cpf.js"></script>
+    <script src="../../javascripts_proprios/imask/cep.js"></script>
 
     <script>
         const selecionarFuncao = document.getElementById('Funcao_input');
@@ -316,253 +349,7 @@
             });
         
     </script>
-    <script>
-        var ctx = document.getElementById("chart-bars").getContext("2d");
-
-        new Chart(ctx, {
-            type: "bar",
-            data: {
-                labels: ["M", "T", "W", "T", "F", "S", "S"],
-                datasets: [{
-                    label: "Sales",
-                    tension: 0.4,
-                    borderWidth: 0,
-                    borderRadius: 4,
-                    borderSkipped: false,
-                    backgroundColor: "rgba(255, 255, 255, .8)",
-                    data: [50, 20, 10, 22, 50, 10, 40],
-                    maxBarThickness: 6
-                },],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
-                    }
-                },
-                interaction: {
-                    intersect: false,
-                    mode: 'index',
-                },
-                scales: {
-                    y: {
-                        grid: {
-                            drawBorder: false,
-                            display: true,
-                            drawOnChartArea: true,
-                            drawTicks: false,
-                            borderDash: [5, 5],
-                            color: 'rgba(255, 255, 255, .2)'
-                        },
-                        ticks: {
-                            suggestedMin: 0,
-                            suggestedMax: 500,
-                            beginAtZero: true,
-                            padding: 10,
-                            font: {
-                                size: 14,
-                                weight: 300,
-                                family: "Roboto",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                            color: "#fff"
-                        },
-                    },
-                    x: {
-                        grid: {
-                            drawBorder: false,
-                            display: true,
-                            drawOnChartArea: true,
-                            drawTicks: false,
-                            borderDash: [5, 5],
-                            color: 'rgba(255, 255, 255, .2)'
-                        },
-                        ticks: {
-                            display: true,
-                            color: '#f8f9fa',
-                            padding: 10,
-                            font: {
-                                size: 14,
-                                weight: 300,
-                                family: "Roboto",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                },
-            },
-        });
-
-
-        var ctx2 = document.getElementById("chart-line").getContext("2d");
-
-        new Chart(ctx2, {
-            type: "line",
-            data: {
-                labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                datasets: [{
-                    label: "Mobile apps",
-                    tension: 0,
-                    borderWidth: 0,
-                    pointRadius: 5,
-                    pointBackgroundColor: "rgba(255, 255, 255, .8)",
-                    pointBorderColor: "transparent",
-                    borderColor: "rgba(255, 255, 255, .8)",
-                    borderColor: "rgba(255, 255, 255, .8)",
-                    borderWidth: 4,
-                    backgroundColor: "transparent",
-                    fill: true,
-                    data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
-                    maxBarThickness: 6
-
-                }],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
-                    }
-                },
-                interaction: {
-                    intersect: false,
-                    mode: 'index',
-                },
-                scales: {
-                    y: {
-                        grid: {
-                            drawBorder: false,
-                            display: true,
-                            drawOnChartArea: true,
-                            drawTicks: false,
-                            borderDash: [5, 5],
-                            color: 'rgba(255, 255, 255, .2)'
-                        },
-                        ticks: {
-                            display: true,
-                            color: '#f8f9fa',
-                            padding: 10,
-                            font: {
-                                size: 14,
-                                weight: 300,
-                                family: "Roboto",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                    x: {
-                        grid: {
-                            drawBorder: false,
-                            display: false,
-                            drawOnChartArea: false,
-                            drawTicks: false,
-                            borderDash: [5, 5]
-                        },
-                        ticks: {
-                            display: true,
-                            color: '#f8f9fa',
-                            padding: 10,
-                            font: {
-                                size: 14,
-                                weight: 300,
-                                family: "Roboto",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                },
-            },
-        });
-
-        var ctx3 = document.getElementById("chart-line-tasks").getContext("2d");
-
-        new Chart(ctx3, {
-            type: "line",
-            data: {
-                labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                datasets: [{
-                    label: "Mobile apps",
-                    tension: 0,
-                    borderWidth: 0,
-                    pointRadius: 5,
-                    pointBackgroundColor: "rgba(255, 255, 255, .8)",
-                    pointBorderColor: "transparent",
-                    borderColor: "rgba(255, 255, 255, .8)",
-                    borderWidth: 4,
-                    backgroundColor: "transparent",
-                    fill: true,
-                    data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-                    maxBarThickness: 6
-
-                }],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
-                    }
-                },
-                interaction: {
-                    intersect: false,
-                    mode: 'index',
-                },
-                scales: {
-                    y: {
-                        grid: {
-                            drawBorder: false,
-                            display: true,
-                            drawOnChartArea: true,
-                            drawTicks: false,
-                            borderDash: [5, 5],
-                            color: 'rgba(255, 255, 255, .2)'
-                        },
-                        ticks: {
-                            display: true,
-                            padding: 10,
-                            color: '#f8f9fa',
-                            font: {
-                                size: 14,
-                                weight: 300,
-                                family: "Roboto",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                    x: {
-                        grid: {
-                            drawBorder: false,
-                            display: false,
-                            drawOnChartArea: false,
-                            drawTicks: false,
-                            borderDash: [5, 5]
-                        },
-                        ticks: {
-                            display: true,
-                            color: '#f8f9fa',
-                            padding: 10,
-                            font: {
-                                size: 14,
-                                weight: 300,
-                                family: "Roboto",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                },
-            },
-        });
-    </script>
+    
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {

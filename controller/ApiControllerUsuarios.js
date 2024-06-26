@@ -300,18 +300,19 @@ class ApiControllerUsuarios {
         let newUser = {
             idVendedor: req.body.idDoVendedor,
             nome: req.body.nome,
+            funcao: req.body.funcao,
             email: req.body.email,
+            nascimento: req.body.nascimento.replace(/[^\d]/g, ''),
+            cep: req.body.cep.replace(/[^\d]/g, ''),
+            cpf: req.body.cpf.replace(/[^\d]/g, ''),
+            telefone: req.body.telefone.replace(/[^\d]/g, ''),
             endereco: req.body.endereco,
-            phone: req.body.phone,
-            cpf: req.body.cpf,
+            bairro: req.body.bairro,
+            numero_endereco: parseInt(req.body.numerodoendereco),
+            regiao: req.body.regiao,
             instagram: req.body.instagram,
             facebook: req.body.facebook,
-            funcao: req.body.funcao,
-            regiao: req.body.regiao
         }
-
-        console.log(newUser);
-        
 
         axios.post(`${urls}novoUsuarioParaVendedores`, newUser)
             .then(resp => {
