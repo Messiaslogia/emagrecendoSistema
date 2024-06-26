@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         for (let i = 0; i < elementosForm.length; i++) {
             const elemento = elementosForm[i];
-
             if (elemento.value.trim() === '') {
                 alert('Preencha todos os campos');
                 algumValorVazio = true;

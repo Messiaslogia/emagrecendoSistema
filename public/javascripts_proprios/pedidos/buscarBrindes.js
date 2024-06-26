@@ -1,5 +1,5 @@
-const inputBrindes = document.querySelector('#Brinde_input')
-const urlAllBrindes = "http://localhost:200/brindes/"
+const inputBrindes = document.querySelector('#Brinde_input');
+const urlAllBrindes = "http://localhost:200/brindes/";
 
 document.addEventListener('DOMContentLoaded', () => {
     axios.get(`${urlAllBrindes}todosBrindes`)
@@ -9,5 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         <option value="${element.id}">${element.nome}</option>
                 `
         })
-    })
-})
+    });
+});
+

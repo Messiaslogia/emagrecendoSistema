@@ -68,9 +68,8 @@ class ApiControllerUsuarios {
             rejectUnauthorized: false
           })
             .then(resp => { 
-                console.log(resp.data.funcao);
                 switch (resp.data.funcao) {
-                    case '1':
+                    case 'Gerente':
                         // const idCriptografadoGerente = ecryptedIdUser(resp.data.id_usuario, process.env.SECRET_KEY);
                         cache.set('id_gerente', resp.data.id_usuario)
                         return res.redirect(307, '/users');

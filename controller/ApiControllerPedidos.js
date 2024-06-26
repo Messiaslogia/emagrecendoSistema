@@ -19,9 +19,10 @@ class ApiControllerPedidos {
             status: req.body.status,
             valor: req.body.somaValorPedido,
             valorUnico: req.body.valorProduto.replace('R$ ', '').replace(',', '.'),
-            quantidade: req.body.quantidade
+            quantidade: req.body.quantidade,
+            escolher_usar: req.body.escolher_usar,
+            desconto: req.body.desconto.replace('R$ ', '').replace(',', '.'),
         };
-
 
         axios.post(`${urls}addPedidos`, newPedido)
             .then(resp => {
