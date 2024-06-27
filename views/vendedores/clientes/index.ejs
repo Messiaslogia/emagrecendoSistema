@@ -208,34 +208,38 @@
         <div class="row">
             <div class="col-md-12 mt-4">
                 <div class="card">
-                    <div class="card-header pb-0 px-3 d-flex justify-content-between align-items-center">
-                        <h6 class="mb-0">Infomações dos Clientes</h6>
+                    <div class="card-header pb-0 px-3 d-flex justify-content-between align-items-center mobile_cadHeader">
+                        <h6 class="mb-0">Informações dos Clientes</h6>
                         <div class="d-flex">
-                            
-                            <a href="/vendedores/adicionarUsuario?user=<%= idCripted %>" class="ms-3">
+                            <div class="dropdown me-3" id="button_filtro">
+                                <button class="btn bg-gradient-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Filtro
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li class="dropdown-item" onclick="filtro('Todos')">Todos</li>
+                                    <li class="dropdown-item" onclick="filtro('Clientes')">Clientes</li>
+                                    <li class="dropdown-item" onclick="filtro('Futuros Clientes')">Futuros Clientes</li>
+                                </ul>
+                            </div>
+                            <a href="/vendedores/adicionarUsuario?user=<%= idCripted %>">
                                 <button type="button" class="btn btn-primary btn-lg">Adicionar Usuários</button>
                             </a>
                         </div>
                     </div>
-                    <input id="idVendedor" name="vendedores" type="text" style="display: none;" class="form-control" value="<%= idDoVendedor %>">
+                    <input id="idVendedor" name="vendedores" type="text" style="display: none;" class="form-control"
+                        value="<%= idDoVendedor %>">
                     <div class="card-body pt-4 p-3">
                         <ul class="list-group" id="Container_Users">
-                            
-                            
                         </ul>
                     </div>
-
+        
                     <nav aria-label="Page navigation example" class="mt-4">
                         <ul id="pag_navigation_input" class="pagination justify-content-end">
-                    
                         </ul>
                     </nav>
                 </div>
-                
             </div>
-
-            
-        
         </div>
 
         <a href="/vendedores?user=<%= idCripted %>" class="ms-3">

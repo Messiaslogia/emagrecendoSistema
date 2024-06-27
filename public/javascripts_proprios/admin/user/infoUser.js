@@ -1,22 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let id = document.querySelector('#idUser').value
+    let id = document.querySelector('#idUser').value;
 
     axios.get(`http://localhost:3030/api/userConsult/${id}`)
         .then((result) => {
-                document.querySelector('#Name_input').value = result.data[0].nome;
-                document.querySelector('#Email_input').value = result.data[0].email;
-                document.querySelector('#Password_input').value = result.data[0].senha;
-                document.querySelector('#Telefone_input').value = result.data[0].telefone;
-                document.querySelector('#CPF_input').value = result.data[0].cpf;
-                document.querySelector('#Instagram_input').value = result.data[0].instagram;
-                document.querySelector('#Facebooks_input').value = result.data[0].facebook;
-                document.querySelector('#Regiao_input').value = result.data[0].regiao;
-                document.querySelector('#Cep_input').value = result.data[0].cep;
-                document.querySelector('#Endereco_input').value = result.data[0].endereco;
-                document.querySelector('#Bairro_input').value = result.data[0].bairro;
-                document.querySelector('#Numero_input').value = result.data[0].numero_endereco;
+            
 
+            let userData = result.data[0];
+            document.querySelector('#Name_input').value = userData.nome || '';
+            document.querySelector('#Email_input').value = userData.email || '';
+            document.querySelector('#Telefone_input').value = userData.telefone || '';
+            document.querySelector('#CPF_input').value = userData.cpf || '';
+            document.querySelector('#Instagram_input').value = userData.instagram || '';
+            document.querySelector('#Facebooks_input').value = userData.facebook || '';
+            document.querySelector('#Regiao_input').value = userData.regiao || '';
+            document.querySelector('#Cep_input').value = userData.cep || '';
+            document.querySelector('#Endereco_input').value = userData.endereco || '';
+            document.querySelector('#Bairro_input').value = userData.bairro || '';
+            document.querySelector('#Numero_input').value = userData.numero_endereco || '';
+
+            console.log(result.data[0])
+            return;
         }).catch((err) => {
-            console.log(err)
+            console.log(err);
         });
-})
+});
