@@ -30,18 +30,15 @@ function filtro(status) {
         case "Todos":
             displayItens(1);
             break;
-        case "Afiliados":
-            // Filtrar apenas afiliados
-            let afiliados = listUsuarios.filter(user => user.funcao == '7');
+        case "Futuros Clientes":
+            // Filtrar apenas Futuros Clientes
+            let afiliados = listUsuarios.filter(user => user.funcao == '5');
             displayFilteredItens(afiliados, 1);
             break;
-        case "Representantes":
-            // Filtrar apenas representantes
-            let representantes = listUsuarios.filter(user => user.funcao == '6');
+        case "Clientes":
+            // Filtrar apenas Clientes
+            let representantes = listUsuarios.filter(user => user.funcao == '4');
             displayFilteredItens(representantes, 1);
-            break;
-        case "Afiliados de Representantes":
-            // Implementar filtro adequado
             break;
         default:
             console.error(`Status '${status}' não reconhecido.`);
@@ -59,7 +56,7 @@ function displayItens(page) {
     container_users.innerHTML = '';
     pageUsuarios.forEach(user => {
         let nome = user.nome || 'Nome não disponível';
-        let funcao = user.funcao == '6' ? 'Representante' : user.funcao == '7' ? 'Afiliado' : user.funcao;
+        let funcao = user.funcao == '4' ? 'Cliente' : user.funcao == '5' ? 'Futuro Cliente' : user.funcao;
         let email = user.email || 'E-mail não disponível';
         let telefone = user.telefone || 'Telefone não disponível';
         let regiao = user.regiao || 'Região não disponível';

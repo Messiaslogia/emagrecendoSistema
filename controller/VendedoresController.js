@@ -32,17 +32,21 @@ class VendedoresController {
     editUser(req, res) {
         const idCripted = req.query.user;
 
+        
+        
         let newUser = {
             id: req.params.id,
             nome: req.body.nome,
             email: req.body.email,
-            password: req.body.senha,
-            cpf: req.body.cpf,
-            insta: req.body.instagram,
-            face: req.body.facebooks,
-            funcao: req.body.funcao,
+            telefone: req.body.telefone.replace(/[^\d]/g, ''),
+            cpf: req.body.cpf.replace(/[^\d]/g, ''),
+            cep: req.body.cep.replace(/[^\d]/g, ''),
+            endereco: req.body.endereco,
+            bairro: req.body.bairro,
+            numero_endereco: parseInt(req.body.numerodoendereco),
             regiao: req.body.regiao,
-            telefone: req.body.telefone
+            instagram: req.body.instagram,
+            facebook: req.body.facebooks,
         };
 
             axios.post(`http://localhost:200/users/editUser`, newUser)
@@ -198,7 +202,6 @@ class VendedoresController {
         const idVendedor = req.query.idVendedor;
         axios.get(`${urls}todosUsuariosVendedor?idVendedor=${idVendedor}`)
             .then(users => {
-                console.log(users.data)
                 res.json(users.data)
             })
             .catch(err => {
