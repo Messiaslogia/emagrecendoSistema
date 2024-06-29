@@ -103,8 +103,8 @@ function displayItens(page, arrayindex){
                      <select id="Pedido_input" number_pedido="${pedido.numero_do_pedido}" name="produto" class="form-control">
                         <option selected disabled value="Desaprovado">--</option>
                         
-                        <option value="Aprovado">Aprovado</option>
-                        <option value="Recusado">Recusado</option>
+                        <option value="6">Aprovado</option>
+                        <option value="7">Recusado</option>
                      </select>
                      
                  </td>
@@ -145,8 +145,8 @@ function displayItens(page, arrayindex){
                      <select id="Pedido_input" number_pedido="${pedido.numero_do_pedido}" name="produto" class="form-control" >
                         <option selected disabled value="Desaprovado">--</option>
                         
-                        <option value="Aprovado">Aprovado</option>
-                        <option value="Recusado">Recusado</option>
+                        <option value="6">Aprovado</option>
+                        <option value="7">Recusado</option>
                      </select>
                     
                     

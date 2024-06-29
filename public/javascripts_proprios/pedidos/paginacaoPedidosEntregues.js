@@ -115,10 +115,10 @@ function displayItens( page, arrayindex ){
                 </td>
                 <td class="align-middle text-center" ">
                     <select id="Pedido_input" number_pedido="${pedido.numero_do_pedido}" name="produto" class="form-control cursor-pointer">
-                        <option selected disabled value="A caminho!">--</option>
-                        <option class="cursor-pointer" value="A caminho!">A caminho!</option>
-                        <option class="cursor-pointer" value="Entregue">Entregue</option>
-                        <option class="cursor-pointer" value="Não entregue">Não Entregue</option>
+                        <option selected disabled value="8">--</option>
+                        <option class="cursor-pointer" value="8">A caminho!</option>
+                        <option class="cursor-pointer" value="4">Entregue</option>
+                        <option class="cursor-pointer" value="3">Não Entregue</option>
                     </select>
                 </td>
 

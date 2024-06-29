@@ -192,8 +192,8 @@ function displayItens(page, arrayindex){
                     <td class="align-middle text-center">
                         <select id="Pedido_input" number_pedido="${pedido.numero_do_pedido}" name="produto" class="form-control ">
                             <option selected disabled value="Em análise">--</option>
-                            <option value="Pago!">Pago</option>
-                            <option value="Devendo">Não Pago</option>
+                            <option value="2">Pago</option>
+                            <option value="5">Não Pago</option>
                         </select>
                     </td>
 
