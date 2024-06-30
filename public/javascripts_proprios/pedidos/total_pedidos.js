@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function filtro(status){
     switch (status){
-        case "Desaprovados":
+        case "1":
             displayItens(1, 0);
             dellFunction();
             break
-        case "Recusados":
+        case "7":
             displayItens(1, 1);
             dellFunction();
             break

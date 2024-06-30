@@ -38,15 +38,15 @@ function adquirirListProdutos(){
 
 function filtro(status){
     switch (status){
-        case "Pago":
+        case "2":
             displayItens(1, 1);
             dellFunction();
             break
-        case "Aprovado":
+        case "6":
             displayItens(1, 0);
             dellFunction();
             break
-        case "Devendo":
+        case "5":
             displayItens(1, 2);
             dellFunction();
             break
