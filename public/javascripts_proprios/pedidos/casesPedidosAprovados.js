@@ -26,7 +26,7 @@ function cases(){
     const caseValorPago = document.querySelector('#Case_De_Ganhos');
     const caseValorDevendo = document.querySelector('#Case_De_Dividas');
 
-    caseValorAprovado.innerHTML = `R$ ${listaDosPedidosAprovados[0].toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`;
-    caseValorDevendo.innerHTML = `R$ ${listaDosPedidosAprovados[2].toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`;
-    caseValorPago.innerHTML = `R$ ${listaDosPedidosAprovados[1].toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`;
+    caseValorAprovado.innerHTML = `R$ ${listaDosPedidosAprovados[0]}`;
+    caseValorDevendo.innerHTML = `R$ ${listaDosPedidosAprovados[2]}`;
+    caseValorPago.innerHTML = `R$ ${listaDosPedidosAprovados[1]}`;
 }

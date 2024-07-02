@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     axios.get('/apiProdutos/valorTotal')
         .then( resp => {
             let valor = resp.data;
-            let format = valor.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.');
+            let format = valor;
             h2_ValorEmEstoque.innerHTML = `R$ ${format}`
         })
         .catch(err => {

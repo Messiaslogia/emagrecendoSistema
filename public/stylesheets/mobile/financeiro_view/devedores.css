@@ -1,0 +1,11 @@
+@media screen and (max-width: 600px) {
+    body{
+        padding: 0px !important;
+    }
+
+    #Card{
+        margin: 0% !important;
+        margin-top: 20vw !important;
+        margin-bottom: 3vw !important;
+    }
+}

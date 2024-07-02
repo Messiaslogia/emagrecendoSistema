@@ -11,7 +11,6 @@ const urls = "http://localhost:200/pedidos/"
 class ApiControllerPedidos {
 
     addPedidos(req, res) {
-        console.log(req.body)
         let newPedido = {
             id_produto_FK: req.body.produto,
             id_usuario_FK: req.body.usuario,

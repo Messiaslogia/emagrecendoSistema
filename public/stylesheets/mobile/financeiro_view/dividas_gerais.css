@@ -1,0 +1,30 @@
+@media screen and (max-width: 600px) {
+    body{
+        padding: 0px !important;
+    }
+
+    #Card{
+        margin: 0% !important;
+        margin-top: 20vw !important;
+        margin-bottom: 3vw !important;
+    }
+
+    #Header_Flex{
+        display: block !important;
+    }
+
+    #Header_Flex > .d-flex{
+        margin-top: 5%;
+    }
+
+    #Header_Flex > .d-flex > .dropdown > button {
+        padding: 3vw 5vw;
+        margin: 0.2vw 0;
+        margin-left: 0%;
+    }
+
+    #Btn_divida{
+        padding: 0% !important;
+        padding: 3.3vw 2vw !important;
+    }
+}

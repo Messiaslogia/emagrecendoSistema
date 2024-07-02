@@ -1,15 +1,15 @@
 const axios = require('axios')
+const cache = require('../configs/cache');
 
 
 // Base da URL
-const urls = "http://localhost:200/dividas/"
 
-// Variáveis Globais
+const urls = "http://localhost:200/dividas/"
 
 
 class ApiControllerDividas {
     dividasTotais(req, res) {
-        let id_User = req.query.IdUsuario
+        let id_User = cache.get(`${req.query.IdUsuario}`)
 
         axios.get(`${urls}todasDividas?IdUser=${id_User}`)
             .then(resp => {
@@ -22,7 +22,6 @@ class ApiControllerDividas {
     };
 
     adicionarDivida(req, res) {
-        console.log(req.body)
         let data = new Date;
         let mes = data.getMonth() + 1;
 

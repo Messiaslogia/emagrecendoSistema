@@ -35,7 +35,7 @@
         <div class="sidenav-header text-center">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-            <a class=" m-0 " href="/users">
+            <a class=" m-0 " href="/users?user=<%= idUser %>">
                 <img src="../../images/logo.png" class=" h-100" alt="main_logo">
     
             </a>
@@ -44,7 +44,7 @@
         <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/users">
+                    <a class="nav-link text-white" href="/users?user=<%= idUser %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">dashboard</i>
                         </div>
@@ -53,7 +53,7 @@
                 </li>
     
                 <li class="nav-item">
-                    <a class="nav-link text-white active bg-gradient-primary" href="/admin/financeiro">
+                    <a class="nav-link text-white active bg-gradient-primary" href="/admin/financeiro?user=<%= idUser %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">assignment</i>
                         </div>
@@ -62,7 +62,7 @@
                 </li>
     
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="/admin/produtos">
+                    <a class="nav-link text-white " href="/admin/produtos?user=<%= idUser %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">store</i>
                         </div>
@@ -71,7 +71,7 @@
                 </li>
     
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="/admin/pedidos">
+                    <a class="nav-link text-white " href="/admin/pedidos?user=<%= idUser %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">shopping_basket</i>
                         </div>
@@ -79,7 +79,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="/admin/usuarios">
+                    <a class="nav-link text-white " href="/admin/usuarios?user=<%= idUser %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">person</i>
                         </div>
@@ -100,7 +100,7 @@
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Páginas</a>
                         </li>
                         <li class="breadcrumb-item text-sm text-dark " aria-current="page"><a class="opacity-5 text-dark active"
-                                href="/admin/dividas">Dividas</a></li>
+                                href="/admin/dividas?user=<%= idUser %>">Dividas</a></li>
                     </ol>
                     <h6 class="font-weight-bolder mb-0">Editar Divida</h6>
                 </nav>
@@ -222,8 +222,8 @@
                     <button type="button" id="Bt_submi">Enviar</button>
                 </form>
                 <!-- Default form register -->
-                <form class="text-center border border-light p-5" enctype="application/x-www-form-urlencoded" id="productForm" method="POST" action="/apiDividas/editarDivida/<%=id%>">
-                    <input type="text" value="<%= id %>" style="display: none;" name="id" id="idDivida">
+                <form class="text-center border border-light p-5" enctype="application/x-www-form-urlencoded" id="productForm" method="POST" action="/apiDividas/editarDivida/<%= idUser %>">
+                    <input type="text" value="<%= idUser %>" style="display: none;" name="id" id="idDivida">
                     <p class="h4 mb-4">Editar Divida</p>
         
                     <!-- First name -->
@@ -256,7 +256,7 @@
             </div>
         </div>
 
-        <a href="/admin/dividas" class="ms-3">
+        <a href="/admin/dividas?user=<%= idUser %>" class="ms-3">
             <button type="button" class="btn font-weight-bolder text-white mt-5" style="background-color: #e91e63;">Voltar</button>
         </a>
 

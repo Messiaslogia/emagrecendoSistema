@@ -210,6 +210,6 @@ function cases(){
     let dia = date.getDate()
 
 
-    caseMes.innerHTML = `R$ ${infosMensais[0][mes].toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`
-    caseDia.innerHTML = `R$ ${infosSemanais[semana][2].toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`
+    caseMes.innerHTML = `R$ ${infosMensais[0][mes].toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+    caseDia.innerHTML = `R$ ${infosSemanais[semana][2].toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
 }

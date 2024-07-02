@@ -68,19 +68,20 @@ class ApiControllerUsuarios {
             rejectUnauthorized: false
           })
             .then(resp => { 
-                switch (resp.data.funcao) {
+                const auth = resp.data.auth;
+                const identificador = auth.slice(0, 6);
+                
+                switch (resp.data.user.funcao) {
                     case 'Gerente':
-                        // const idCriptografadoGerente = ecryptedIdUser(resp.data.id_usuario, process.env.SECRET_KEY);
-                        cache.set('id_gerente', resp.data.id_usuario)
-                        return res.redirect(307, '/users');
-
+                        cache.set(identificador, auth)
+                        return res.redirect(307, `/users?user=${identificador}`);
                     case '2':
                         // const idCriptografadoDistribuidor = ecryptedIdUser(resp.data.id_usuario, process.env.SECRET_KEY);
-                        return res.redirect(`/distribuidor?user=${resp.data.id_usuario}`);
+                        return res.redirect(`/distribuidor?user=${resp.data.user.id_usuario}`);
 
                     case '3':
                         // const idCriptografadoVendedor = ecryptedIdUser(resp.data.id_usuario, process.env.SECRET_KEY);
-                        return res.redirect(`/vendedores?user=${resp.data.id_usuario}`);
+                        return res.redirect(`/vendedores?user=${resp.data.user.id_usuario}`);
 
 
                     case '6':

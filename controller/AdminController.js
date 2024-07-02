@@ -4,9 +4,10 @@ class AdminController{
 
     // FINANCEIRO
     financeiroIndex(req, res){
-        let Id_User = cache.get('id_gerente');
+        let Id_User = req.query.user;
+        let key = cache.get(`${req.query.user}`);
 
-        if(Id_User != null || ''){
+        if(key != null || ''){
             res.render('admin/financeiro/index', {Id_User});
         }else{
             res.redirect('/')
@@ -26,12 +27,12 @@ class AdminController{
     }
 
     dividasIndex(req, res){
-        let idUser = cache.get('id_gerente');
+        let idUser = req.query.user;
         res.render('admin/financeiro/dividas/index', {idUser});
     }
 
     adicionarDivida(req, res){
-        let idUser = cache.get('id_gerente');
+        let idUser = req.query.user;
         res.render('admin/financeiro/dividas/adicionarDivida', {idUser});
     }
 
@@ -61,7 +62,6 @@ class AdminController{
     }
 
     adicionarNovoProduto(req, res){
-        console.log(req.body)
     }
 
 
@@ -69,7 +69,6 @@ class AdminController{
 
     pedidosIndex(req, res) {
         let Id_User = cache.get('id_gerente');
-
         res.render('admin/pedidos/index', {Id_User})
     }
 

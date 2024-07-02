@@ -39,7 +39,7 @@
         <div class="sidenav-header text-center">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-                <a class=" m-0 " href="/users">
+                <a class=" m-0 " href="/users?user=<%= Id_User %>">
                     <img src="../../images/logo.png" class=" h-100" alt="main_logo">
                 </a>
             
@@ -48,7 +48,7 @@
         <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/users">
+                    <a class="nav-link text-white" href="/users?user=<%= Id_User %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">dashboard</i>
                         </div>
@@ -57,7 +57,7 @@
                 </li>
         
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="/admin/financeiro">
+                    <a class="nav-link text-white " href="/admin/financeiro?user=<%= Id_User %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">assignment</i>
                         </div>
@@ -66,7 +66,7 @@
                 </li>
         
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="/admin/produtos">
+                    <a class="nav-link text-white " href="/admin/produtos?user=<%= Id_User %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">store</i>
                         </div>
@@ -75,7 +75,7 @@
                 </li>
         
                 <li class="nav-item">
-                    <a class="nav-link text-white active bg-gradient-primary" href="/admin/pedidos">
+                    <a class="nav-link text-white active bg-gradient-primary" href="/admin/pedidos?user=<%= Id_User %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">shopping_basket</i>
                         </div>
@@ -83,7 +83,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="/admin/usuarios">
+                    <a class="nav-link text-white " href="/admin/usuarios?user=<%= Id_User %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">person</i>
                         </div>
@@ -103,7 +103,7 @@
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Páginas</a>
                         </li>
-                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page"><a href="/users">Dashboard</a>
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page"><a href="/users?user=<%= Id_User %>">Dashboard</a>
                         </li>
                     </ol>
                     <h6 class="font-weight-bolder mb-0">Pedidos</h6>
@@ -281,7 +281,7 @@
 <div class="card-group mt-5">
     <div id="Card_View" class="card" data-animation="true">
         <div  class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-            <a href="/admin/efetuarPedido" class="d-block blur-shadow-image">
+            <a href="/admin/efetuarPedido?user=<%= Id_User %>" class="d-block blur-shadow-image">
                 <img src="/images/Efetuar-Pedido.gif" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
             </a>
             <div class="colored-shadow">
@@ -289,7 +289,7 @@
         </div>
         <div class="card-body text-center">
             <h5 class="font-weight-normal mt-3">
-                <a href="/admin/efetuarPedido">Efetuar um pedido</a>
+                <a href="/admin/efetuarPedido?user=<%= Id_User %>">Efetuar um pedido</a>
             </h5>
             <p class="mb-0">
                 Efetue um novo pedido manualmente
@@ -299,7 +299,7 @@
     </div>
     <div id="Card_View" class="card" data-animation="true">
         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-            <a class="d-block blur-shadow-image" href="/admin/pedidosConcluidos">
+            <a class="d-block blur-shadow-image" href="/admin/pedidosConcluidos?user=<%= Id_User %>">
                 <img src="/images/Pedidos-feitos.gif" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
             </a>
             <div class="colored-shadow"
@@ -309,7 +309,7 @@
         <div class="card-body text-center">
             
             <h5 class="font-weight-normal mt-3">
-                <a href="/admin/pedidosConcluidos">Pedidos Aceitos</a>
+                <a href="/admin/pedidosConcluidos?user=<%= Id_User %>">Pedidos Aceitos</a>
             </h5>
             <p class="mb-0">
                 Analise os pedidos concluidos e entregues.
@@ -320,7 +320,7 @@
     </div>
     <div id="Card_View" class="card" data-animation="true">
         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-            <a class="d-block blur-shadow-image" href="/admin/aprovarPedido">
+            <a class="d-block blur-shadow-image" href="/admin/aprovarPedido?user=<%= Id_User %>">
                 <img src="/images/Esperando-Pedido.gif" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
             </a>
             <div class="colored-shadow"
@@ -330,7 +330,7 @@
         <div class="card-body text-center">
             
             <h5 class="font-weight-normal mt-3">
-                <a href="/admin/aprovarPedido">Pedidos esperando aprovação</a>
+                <a href="/admin/aprovarPedido?user=<%= Id_User %>">Pedidos esperando aprovação</a>
             </h5>
             <p class="mb-0">
                 Aprove os pedidos feitos por seus distribuidores
@@ -341,7 +341,7 @@
     
     <div id="Card_View" class="card" data-animation="true">
         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-            <a class="d-block blur-shadow-image" href="/admin/pedidoEnviado">
+            <a class="d-block blur-shadow-image" href="/admin/pedidoEnviado?user=<%= Id_User %>">
                 <img src="/images/Pedidos-Enviados.gif" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
             </a>
             <div class="colored-shadow"
@@ -351,7 +351,7 @@
         <div class="card-body text-center">
             
             <h5 class="font-weight-normal mt-3">
-                <a href="/admin/pedidoEnviado">Pedidos enviados</a>
+                <a href="/admin/pedidoEnviado?user=<%= Id_User %>">Pedidos enviados</a>
             </h5>
             <p class="mb-0">
                 Registro de todas as entregas realizadas.
@@ -362,7 +362,7 @@
 </div>
 
            
-<a href="/users" class="ms-3">
+<a href="/users?user=<%= Id_User %>" class="ms-3">
     <button type="button" class="btn btn-primary btn-lg mt-3">Voltar</button>
 </a>
 

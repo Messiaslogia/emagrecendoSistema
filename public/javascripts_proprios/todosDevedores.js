@@ -19,8 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function RequisitandoDevedores(){
     axios.get(`${url}`)
         .then(resp => {
-            devedores = resp.data
-            
+            devedores = resp.data 
         })
         .catch(err => {
             console.log(err)

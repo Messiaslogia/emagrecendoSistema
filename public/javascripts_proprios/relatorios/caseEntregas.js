@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function getCases(){
     axios.get(urlCases)
         .then(resp => {
-            caseDeEntregas.innerHTML = `R$ ${resp.data}`
+            caseDeEntregas.innerHTML = `R$ ${resp.data.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
         })
         .catch(err => {
             console.log(err);

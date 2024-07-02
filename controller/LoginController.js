@@ -7,13 +7,12 @@ class LoginController {
     }
 
     login(req, res) {
-        let Id_User = cache.get('id_gerente');
+        let Id_User = req.query.user;
         res.render('admin/index', {Id_User});
     }
 
     distribuidor(req, res) {
         var idDoDistribuidor = cache.get('id_distribuidor')
-        console.log(idDoDistribuidor)
         res.render('distribuidores/index',{idDoDistribuidor})
     }
 

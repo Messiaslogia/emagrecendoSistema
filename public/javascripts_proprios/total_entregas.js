@@ -58,7 +58,7 @@ function displayItens(page) {
                                           <p class="text-xs font-weight-bold mb-0">${divida.codigo_rastreio}</p>
                                       </td>
                                       <td class="align-middle text-center text-sm">
-                                          <span class="">R$ ${divida.valor_da_entrega.toFixed(2)}</span>
+                                          <span class="">R$ ${divida.valor_da_entrega.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                                       </td>
                                       <td class="align-middle text-center">
                                           <span class="text-secondary text-xs font-weight-bold">${divida.empresa}</span>

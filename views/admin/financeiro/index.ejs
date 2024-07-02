@@ -44,7 +44,7 @@
         <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/users">
+                    <a class="nav-link text-white" href="/users?user=<%= Id_User %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">dashboard</i>
                         </div>
@@ -315,7 +315,7 @@
                                 Relatório de Dividas Gerais da empresa
                             </p>
                             <div class="d-flex align-items-center justify-content-between">
-                                <a href="/admin/dividas"><button type="button" class="btn btn-outline-primary btn-sm mb-0">Ver Relatório</button></a>
+                                <a href="/admin/dividas?user=<%= Id_User %>"><button type="button" class="btn btn-outline-primary btn-sm mb-0">Ver Relatório</button></a>
                                 
                             </div>
                         </div>
@@ -365,8 +365,6 @@
                             </p>
                             <div class="d-flex align-items-center justify-content-between">
                                 <a href="/admin/devedores"><button type="button" class="btn btn-outline-primary btn-sm mb-0">Ver Relatório</button></a>
-
-                                
                             </div>
                         </div>
                     </div>
@@ -396,7 +394,7 @@
             </div>
         </div>
 
-        <a href="/users" class="ms-3">
+        <a href="/users?user=<%= Id_User %>" class="ms-3">
             <button type="button" class="btn btn-primary btn-lg">Voltar</button>
         </a>
 

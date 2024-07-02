@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     axios.get(`${urlPedidosTotal}valorTotalPedido`)
         .then(valor => {
-            valorTotal.innerHTML = `R$ ${valor.data.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`
+            valorTotal.innerHTML = `R$ ${valor.data}`
         })
         .catch(err => {
             console.log(err);

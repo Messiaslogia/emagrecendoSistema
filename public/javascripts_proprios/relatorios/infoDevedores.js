@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function getInfo(){
     axios.get(urlInfo)
         .then(resp => {
-            divValorDevedores.innerHTML = `R$ ${resp.data[0].toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`;
+            divValorDevedores.innerHTML = `R$ ${resp.data[0].toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
             divQuantidadeDevedores.innerHTML = `${resp.data[1]}`
         })
 }
