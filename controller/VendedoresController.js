@@ -209,6 +209,7 @@ class VendedoresController {
                 res.json(false);
             })
     }
+    
 
     adicionarVenda(req, res){
         const idCripted = req.query.user;

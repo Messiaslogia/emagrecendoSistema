@@ -1,8 +1,17 @@
-const url = "http://localhost:3030/vendedores/usuarioPedidos"
+const url = "http://localhost:3030/vendedores/clienteVendedor"
+const inputFuncao = document.getElementById('Funcao_input');
 const inputUsuario = document.getElementById('Usuario_input');
 const idDoVendedor = document.getElementById('idDoVendedor').value;
 
 document.addEventListener('DOMContentLoaded', () => {
+    adquirirListsUsers();
+});
+
+inputUsuario.addEventListener('click', alerta);
+inputUsuario.addEventListener('click', totalDeDesconto);
+
+inputFuncao.addEventListener('input', () => {
+    inputUsuario.removeEventListener('click', alerta);
     adquirirListsUsers();
 });
 
