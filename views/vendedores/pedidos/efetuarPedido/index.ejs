@@ -216,22 +216,22 @@
                     <p class="h4 mb-4">Novo Pedido</p>
 
                     <!-- Usuario -->
-                    <div class="form-row mb-4">
-                        <div class="col">
-                            <div class="">
-                                <select id="Usuario_input" name="usuario" class="form-control ">
-                                    <option disabled selected value="">Selecione o Usuário</option>
-                                    <!-- Carregar produtos com featch -->
+                    <div class="form-row mb-2">
+                        <div class="col text-start">
+                            <div class="mb-3">
+                                <label class="fs-6 fw-bold text-dark">Selecione o cliente:</label>
+                                <select id="Usuario_input" name="usuario" class="form-control " id="exampleFormControlSelect1" required>
                                 </select>
                             </div>
                         </div>
                     </div>
 
                     <!-- Produto -->
-                    <div class="form-row mb-4">
-                        <div class="col">
-                            <div class="">
-                                <select id="Produto_input" name="produto" class="form-control">
+                    <div class="form-row mb-2">
+                        <div class="col text-start">
+                            <div class="mb-3">
+                                <label class="fs-6 fw-bold text-dark">Selecione o produto:</label>
+                                <select id="Produto_input" name="produto" class="form-control" id="exampleFormControlSelect1" required>
                                     <option disabled selected value="">Selecione o Produto</option>
                                     <!-- Carregar produtos com featch -->
                                 </select>
@@ -241,27 +241,28 @@
 
                    
 
-                    <input id="Valor_Produto" name="valorProduto" id="defaultRegisterFormPassword" class="form-control mb-4"
-                        placeholder="Valor do produto" aria-describedby="defaultRegisterFormPasswordHelpBlock" value="" readonly>
+                    <div class="text-start mb-2">
+                        <label class="fs-6 fw-bold text-dark">Preço do produto:</label>
+                        <input id="Valor_Produto" name="valorProduto" id="defaultRegisterFormPassword" class="form-control mb-4"
+                            placeholder="Valor do produto" aria-describedby="defaultRegisterFormPasswordHelpBlock" value="" readonly
+                            required>
+                    </div>
 
                     <!-- Status -->
-                    <input id="Status_input" name="status" type="hidden" id="defaultRegisterFormPassword" class="form-control mb-4"
-                        placeholder="" aria-describedby="defaultRegisterFormPasswordHelpBlock" value="Desaprovado">
+                    <div class="text-start mb-2">
+                        <input id="Status_input" name="status" type="hidden" id="defaultRegisterFormPassword" class="form-control mb-4"
+                            placeholder="" aria-describedby="defaultRegisterFormPasswordHelpBlock" value="1" required>
+                    </div>
 
 
                     <!-- quantidade -->
-                    <input id="Quantidade_input" name="quantidade" type="number" id="defaultRegisterFormPassword" class="form-control mb-4"
-                        placeholder="Quantidade" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                    <div class="text-start mb-4">
+                        <label class="fs-6 fw-bold text-dark">Quantidade:</label>
+                        <input id="Quantidade_input" name="quantidade" type="number" id="defaultRegisterFormPassword"
+                            class="form-control mb-4" placeholder="Quantidade" aria-describedby="defaultRegisterFormPasswordHelpBlock"
+                            required>
+                    </div>
 
-                    <!-- Data inserida -->
-                    <input id="Data_produto" type="date" name="dataProduto" class="form-control mb-4" placeholder="Data"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock" readonly>
-                    
-                    <!-- Horas inserida -->
-                    <input id="Hora_produto" type="time" name="horaProduto" class="form-control mb-4" placeholder="Horas"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock" readonly>
-
-                    
                     <!-- Sign up button -->
                     <button id="Bt_avancar" class="btn btn btn-success my-4 btn-block" type="button">Avançar</button>
                     <button id="Bt_Enviar" class="btn btn btn-success my-4 btn-block" type="button">Enviar Pedido</button>
@@ -295,7 +296,7 @@
             </div>
           </div>
 
-          <a href="/vendedores/pedidos?user=<%= idCripted %>" class="ms-3">
+        <a href="/vendedores/pedidos?user=<%= idCripted %>" class="ms-3">
             <button type="button" class="btn btn-primary btn-lg mt-5">Voltar</button>
         </a>
 
@@ -318,28 +319,7 @@
         </footer>
     </main>
 
-    <!-- Data já preenchidas -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const dataInput = document.getElementById('Data_produto');
-            const horaInput = document.getElementById('Hora_produto');
-
-            const dataAtual = new Date();
-
-            const ano = dataAtual.getFullYear();
-            const mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
-            const dia = String(dataAtual.getDate()).padStart(2, '0');
-            const dataFormatada = `${ano}-${mes}-${dia}`;
-
-            const hora = String(dataAtual.getHours()).padStart(2, '0');
-            const minutos = String(dataAtual.getMinutes()).padStart(2, '0');
-
-            const horaFormatada = `${hora}:${minutos}`;
-
-            dataInput.value = dataFormatada;
-            horaInput.value = horaFormatada;
-        });
-    </script>
+   
 
     <script src="../../javascripts/core/popper.min.js"></script>
     <script src="../../javascripts/core/bootstrap.min.js"></script>
