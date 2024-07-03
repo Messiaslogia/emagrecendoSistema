@@ -1,4 +1,5 @@
 document.getElementById('DividaForm').addEventListener('submit', function (event) {
+    const Id_User = this.querySelector('#Id_User');
     event.preventDefault();
 
     const formulario = document.getElementById('DividaForm');
@@ -11,7 +12,7 @@ document.getElementById('DividaForm').addEventListener('submit', function (event
 
     axios.post(`/apiDividas/adicionarNovaDivida`, formData)
         .then(response => {
-            window.location.href = 'http://localhost:3030/admin/dividas'
+            window.location.href = `http://localhost:3030/admin/dividas?user=${Id_User}`
         })
         .catch(err => {
             console.error(err);

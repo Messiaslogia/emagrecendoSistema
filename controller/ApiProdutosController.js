@@ -24,9 +24,6 @@ class ProductController {
                 img: req.file ? req.file.path : '',
                 categoria: 1
             };
-
-            console.log(novo_produto);
-
                 axios.post(`${urls}adicionarProdutos`, novo_produto)
                     .then(resp => {
                         axios.post(`${urls}consultarProdutos`, {

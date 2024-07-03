@@ -21,7 +21,7 @@ router.get("/todosProdutosMateriais", ApiControllerProdutos.todosProdutosMateria
 
 
 
-router.post("/adicionarProduto",ApiControllerProdutos.uploadImagemProduto(), ApiControllerProdutos.addProduto);
-router.post("/editProduto/:id", ApiControllerProdutos.uploadImagemProduto(), ApiControllerProdutos.editProdutos)
+router.post("/adicionarProduto", verifyToken, ApiControllerProdutos.uploadImagemProduto(), ApiControllerProdutos.addProduto);
+router.post("/editProduto/:id", verifyToken, ApiControllerProdutos.uploadImagemProduto(), ApiControllerProdutos.editProdutos)
 
 module.exports = router

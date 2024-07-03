@@ -17,8 +17,13 @@ function totalDeDesconto(){
     // Quantidade de desconto
     axios.post(`${urlAllDesconto}quantidadeDeDescont`, { id: inputUsuario.value })
         .then((result) => {
-            inputDesconto.value = `R$ ${result.data[0].desconto_usuario.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-    })
+            console.log(result.data)
+            if(result.data != 0){
+                inputDesconto.value = `R$ ${result.data[0].desconto_usuario.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;     
+            }else{
+                inputDesconto.value = `R$ 0,00`
+            }
+        })
 };
 
 inputUsuario.addEventListener('click', alerta);

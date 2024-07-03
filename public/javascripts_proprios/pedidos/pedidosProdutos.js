@@ -2,8 +2,6 @@
 const url = "http://localhost:3030/apiProdutos/todosProdutosForm";
 const div_produtos = document.getElementById('Produto_input');
 const div_valorProdutos = document.getElementById('Valor_Produto');
-// const div_valorDistribuidor = document.getElementById('Valor_Distribuidor');
-// const div_valorRevenda = document.getElementById('Valor_Revenda');
 const input_select = document.querySelector('#Usuario_input');
 let funcao_usuario;
 

@@ -1,6 +1,8 @@
 const container_users = document.querySelector('#Container_Users');
 const url = "http://localhost:3030/apiProdutos/todosProdutosBrindes";
 const div_produtos = document.querySelector('#Tabela_de_produtos');
+const Id_User = document.querySelector('#Id_user').value;
+
 let itensPorPagina = 5;
 let listProduto;
 
@@ -64,9 +66,9 @@ function displayItens( page ){
                                           <span class="text-secondary text-xs font-weight-bold">${produto.data_adicao}</span>
                                       </td>
                                       <td class="align-middle">
-                                          <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiProdutos/dellProduto/${produto.id_produto}"><i
+                                          <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiProdutos/dellProduto/${produto.id_produto}?user=${Id_User}"><i
                                               class="material-icons text-sm me-2">delete</i>Deletar</a>
-                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiProdutos/editarProduto/${produto.id_produto}"><i class="material-icons text-sm me-2">edit</i>Editar</a>
+                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiProdutos/editarProduto/${produto.id_produto}?user=${Id_User}"><i class="material-icons text-sm me-2">edit</i>Editar</a>
                                       </td>
                                  </tr>
                          `
@@ -116,9 +118,9 @@ function displayItens( page ){
                                       </td>
                                       
                                       <td class="align-middle">
-                                          <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiProdutos/dellProduto/${produto.id_produto}"><i
+                                          <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiProdutos/dellProduto/${produto.id_produto}?user=${Id_User}"><i
                                               class="material-icons text-sm me-2">delete</i></a>
-                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiProdutos/editarProduto/${produto.id_produto}"><i class="material-icons text-sm me-2">edit</i></a>
+                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiProdutos/editarProduto/${produto.id_produto}?user=${Id_User}"><i class="material-icons text-sm me-2">edit</i></a>
                                       </td>
                                  </tr>
                          `

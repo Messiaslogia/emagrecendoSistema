@@ -338,7 +338,6 @@ function infoUser(id){
         id: id
     })
         .then(resp => {
-            console.log(resp.data)
             text_user.innerHTML = `Pedido feito por: ${resp.data[0].nome}`;
             text_end.innerHTML = `Endereço: ${resp.data[0].endereco}`
         })

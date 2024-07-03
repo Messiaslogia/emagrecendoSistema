@@ -1,5 +1,7 @@
 const div_tabela_de_produtos = document.querySelector('#Tabela_de_produtos');
-const url = "http://localhost:200/materiais/"
+const Id_User = document.querySelector('#Id_user').value;
+
+const url = "http://localhost:200/materiais/";
 const itensPorPagina = 5;
 let lista_de_materiais
 
@@ -73,9 +75,9 @@ function displayItens( page ){
                                       </td>
                                       
                                       <td class="align-middle">
-                                          <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiMateriais/dellProduto/${produto.id}"><i
+                                          <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiMateriais/dellProduto/${produto.id}?user=${Id_User}"><i
                                               class="material-icons text-sm me-2">delete</i></a>
-                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiMateriais/editarProduto/${produto.id}"><i class="material-icons text-sm me-2">edit</i></a>
+                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiMateriais/editarProduto/${produto.id}?user=${Id_User}"><i class="material-icons text-sm me-2">edit</i></a>
                                       </td>
                                  </tr>
                          `
@@ -112,9 +114,9 @@ function displayItens( page ){
                                       </td>
                                       
                                       <td class="align-middle">
-                                          <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiMateriais/dellProduto/${produto.id}"><i
+                                          <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiMateriais/dellProduto/${produto.id}?user=${Id_User}"><i
                                               class="material-icons text-sm me-2">delete</i></a>
-                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiMateriais/editarProduto/${produto.id}"><i class="material-icons text-sm me-2">edit</i></a>
+                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiMateriais/editarProduto/${produto.id}?user=${Id_User}"><i class="material-icons text-sm me-2">edit</i></a>
                                       </td>
                                  </tr>
                          `

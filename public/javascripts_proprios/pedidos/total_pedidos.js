@@ -1,7 +1,8 @@
 const container_users = document.querySelector('#Container_Users');
 const url = "http://localhost:3030/apiPedidos/todosPedidos";
 const urlQUantidade = "http://localhost:200/pedidos/quantidadeTotalDosPedidos"
-const div_pedidos = document.querySelector('#Tabela_de_pedidos')
+const div_pedidos = document.querySelector('#Tabela_de_pedidos');
+const Id_User = document.querySelector('#Id_User').value;
 let itensPorPagina = 5;
 let status_pedido;
 let listPedidos;
@@ -44,6 +45,7 @@ function adquirirListProdutos(){
         })
         .then( data => {
             listPedidos = data;
+            console.log(listPedidos)
         })
         .catch( err => {
             console.log(err);
@@ -190,18 +192,18 @@ function statusAlt(){
                 })
                     .then(resp => {
                         if(resp.data == true){
-                            axios.post('http://localhost:3030/apiPedidos/novoStatus', {
+                            axios.post(`http://localhost:3030/apiPedidos/novoStatus?user=${Id_User}`, {
                                 status: pedido.value,
                                 pedido: numeroDPedido
                             })
                                 .then(resp => {
-                                    window.location.href = 'http://localhost:3030/admin/aprovarPedido'
+                                    window.location.href = `http://localhost:3030/admin/aprovarPedido?user=${Id_User}`
                                 })
                                 .catch(err => {
                                     console.log(err)
                                 })
                         }else{
-                            e.target.value = "Desaprovado"
+                            e.target.value = "1"
                             alert(`O produto ${resp.data[0].nome} não possui quantidade suficiente`)
                             console.log(resp.data)
                         }
@@ -223,7 +225,7 @@ function dellFunction(){
         botao.addEventListener('click', (e) => {
             let idPedido = e.target.getAttribute('idAtributo');
 
-            axios.get(`/apiPedidos/dellPedidos/${idPedido}`)
+            axios.get(`/apiPedidos/dellPedidos/${idPedido}?user=${Id_User}`)
                 .then(resp => {
                     location.reload()
                 })

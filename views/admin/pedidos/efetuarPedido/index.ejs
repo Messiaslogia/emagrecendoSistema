@@ -34,6 +34,7 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
+    <input type="text" id="Id_User" value="<%= Id_User %>">
     <aside
         class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
         id="sidenav-main">
@@ -320,7 +321,7 @@
                             <div class="mb-3">
                                 <label class="fs-6 fw-bold text-dark">Selecione um brinde:</label>   
                                 <select id="Brinde_input" name="produto" class="form-control" id="exampleFormControlSelect1" required>
-                                    <option disabled selected value="">Nenhum Brinde</option>
+                                    <option disabled selected value="Sem Brinde">Nenhum Brinde</option>
                                     <!-- Carregar produtos com featch -->
                                 </select>
                             </div>

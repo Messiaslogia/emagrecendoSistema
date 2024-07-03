@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const Id_User = document.querySelector('#Id_User').value;
     const botaoAvancar = document.getElementById('Bt_avancar');
     const botaoEnviar = document.getElementById('Bt_Enviar');
     const usuarioInput = document.getElementById('Usuario_input');
@@ -17,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const dataAtual = new Date().toISOString().replace(/[-T:]/g, '').slice(0, -5);
         const numeroAleatorio = Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
         return `${numeroAleatorio}`;
-
     }
 
     // COLETA OS DADOS DO FORMULARIO
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         formData.forEach(pedido => {
-            axios.post('http://localhost:3030/apiPedidos/addPedidos', pedido)
+            axios.post(`http://localhost:3030/apiPedidos/addPedidos?user=${Id_User}`, pedido)
                 .then(resp => {
                     console.log(resp.data);
                 })
