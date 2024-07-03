@@ -1,24 +1,18 @@
-const url = "http://localhost:3030/vendedores/clienteVendedor"
+
+const url = "http://localhost:200/vendedor/clienteVendedor"
 const inputFuncao = document.getElementById('Funcao_input');
 const inputUsuario = document.getElementById('Usuario_input');
 const idDoVendedor = document.getElementById('idDoVendedor').value;
 
-document.addEventListener('DOMContentLoaded', () => {
-    adquirirListsUsers();
-});
 
-inputUsuario.addEventListener('click', alerta);
-inputUsuario.addEventListener('click', totalDeDesconto);
-
-inputFuncao.addEventListener('input', () => {
-    inputUsuario.removeEventListener('click', alerta);
-    adquirirListsUsers();
-});
 
 function adquirirListsUsers() {
-    axios.get(`${url}?idVendedor=${idDoVendedor}`)
-        .then(resp => {            
-            console.log(resp.data)
+    const funcaoUsuario = inputFuncao.value;
+
+    axios.get(`${url}?idVendedor=${idDoVendedor}&funcao=${funcaoUsuario}`)
+        .then(resp => {
+            console.log(resp.data);
+            inputUsuario.innerHTML = ''; // Limpar as opções existentes
             resp.data.forEach(user => {
                 inputUsuario.innerHTML += `<option value="${user.id_usuario}">${user.nome}</option>`;
             });
@@ -27,4 +21,11 @@ function adquirirListsUsers() {
             console.log(err);
         });
 }
+
+
+
+// Adicionar listener para o evento 'change'
+inputFuncao.addEventListener('change', () => {
+    adquirirListsUsers();
+});
 
