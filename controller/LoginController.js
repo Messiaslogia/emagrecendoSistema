@@ -7,8 +7,7 @@ class LoginController {
     }
 
     login(req, res) {
-        let Id_User = req.query.user;
-        res.render('admin/index', {Id_User});
+        res.render('admin/index', {Id_User: req.Id_User});
     }
 
     distribuidor(req, res) {

@@ -11,9 +11,7 @@ let produtosList = [];
 
 class ProductController {
     addProduto(req, res) {
-        try {
-            let id_gerente = cache.get('id_gerente');
-            
+        try {            
             let novo_produto = {
                 nome: req.body.nomeProduto,
                 descricao: req.body.descricaoProduto,
@@ -35,7 +33,7 @@ class ProductController {
                             id: resp.data
                         })
                             .then(resp => {
-                                res.redirect('/admin/produtos');
+                                res.redirect(`/admin/produtos?user=${req.Id_User}`);
                             })
                             .catch(err => console.log(err));
                     })
@@ -49,26 +47,21 @@ class ProductController {
     }
 
     dellProduto(req, res) {
-        let id_gerente = cache.get('id_gerente');
         let id_produto = req.params.id;
 
-        if (id_gerente != null && id_gerente != '') {
             axios.post(`${urls}deletarProdutos`, {
                 id: id_produto
             })
                 .then(resp => {
-                    res.redirect('/admin/produtos');
+                    res.redirect(`/admin/produtos?user=${req.Id_User}`);
                 })
                 .catch(err => {
                     console.log(err);
                     res.json(false);
                 });
-        }
     }
 
     allProdutos(req, res) {
-        let id_gerente = cache.get('id_gerente');
-
         axios.get(`${urls}todosProdutos`)
             .then(resp => {
                 res.json(resp.data);
@@ -123,7 +116,7 @@ class ProductController {
 
     editIndex(req, res) {
         let id = req.params.id;
-        res.render('admin/produtos/editarProduto', { id });
+        res.render('admin/produtos/editarProduto', { id, Id_User: req.Id_User });
     }
 
     editProdutos(req, res) {
@@ -157,7 +150,7 @@ class ProductController {
         axios.post(`${urls}editarProdutos`, novo_produto)
             .then(result => {
                 console.log('Produto editado com sucesso!');
-                res.redirect('/admin/produtos');
+                res.redirect(`/admin/produtos?user=${req.Id_User}`);
             })
             .catch(err => {
                 console.log(err);
@@ -189,8 +182,6 @@ class ProductController {
     }
 
     valorTotalProdutos(req, res) {
-        let id_gerente = cache.get('id_gerente');
-
         axios.get(`${urls}valorTotalEstoque`)
             .then(resp => {
                 res.json(resp.data);
@@ -202,8 +193,6 @@ class ProductController {
     }
 
     valorTotalBrindes(req, res) {
-        let id_gerente = cache.get('id_gerente');
-
         axios.get(`${urls}valorTotalEstoqueBrindes`)
             .then(resp => {
                 res.json(resp.data);

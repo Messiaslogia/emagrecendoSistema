@@ -7,6 +7,7 @@ let caseDividas;
 
 document.addEventListener('DOMContentLoaded', () => {
     id = document.querySelector('#Id_User').value
+    console.log(id)
     adquirirListProdutos();
     caseDividas = document.querySelector('#Total_Dividas');
     setTimeout(() => {
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function adquirirListProdutos(){
     let valor = 0
 
-    axios.get(`${url}?IdUsuario=${id}`)
+    axios.get(`${url}?user=${id}`)
         .then(resp => {
             listProduto = resp.data;
             listProduto.forEach(element => {

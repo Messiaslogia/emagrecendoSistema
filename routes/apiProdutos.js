@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const verifyToken  = require("../controller/token");
+
 const ApiControllerProdutos = require("../controller/ApiProdutosController")
 
 
@@ -9,8 +11,8 @@ router.get("/valorTotalMateriais", ApiControllerProdutos.valorTotalMateriais);
 router.get("/todoEstoque", ApiControllerProdutos.estoqueTotal);
 router.get("/todoEstoqueBrindes", ApiControllerProdutos.todoEstoqueBrindes);
 router.get("/todoEstoqueMateriais", ApiControllerProdutos.todoEstoqueMateriais);
-router.get("/dellProduto/:id", ApiControllerProdutos.dellProduto);
-router.get("/editarProduto/:id", ApiControllerProdutos.editIndex);
+router.get("/dellProduto/:id", verifyToken, ApiControllerProdutos.dellProduto);
+router.get("/editarProduto/:id", verifyToken, ApiControllerProdutos.editIndex);
 router.get("/consultProduto/:id", ApiControllerProdutos.consultProduto)
 router.get("/todosProdutosForm", ApiControllerProdutos.todosProdutos)
 router.get("/todosProdutos", ApiControllerProdutos.allProdutos);

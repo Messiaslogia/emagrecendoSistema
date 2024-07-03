@@ -11,8 +11,6 @@ const urls = "http://localhost:200/users/"
 // Controller
 class ApiControllerUsuarios {
     addUser(req, res) {
-        let id_user = cache.get('id_gerente');
-
         let newUser = {
             nome: req.body.nome,
             email: req.body.email,
@@ -43,7 +41,7 @@ class ApiControllerUsuarios {
                         .catch(err => {
                             console.log(err);
                         })
-                    res.redirect('/admin/usuarios');
+                    res.redirect(`/admin/usuarios?user=${req.Id_User}`);
                 })
                 .catch(err => {
                     console.log(err);
@@ -132,7 +130,7 @@ class ApiControllerUsuarios {
                 id: usuario
             })
                 .then(resp => {
-                    res.redirect('/admin/usuarios')
+                    res.redirect(`/admin/usuarios?user=${req.Id_User}`)
                 })
                 .catch(err => {
                     res.json(false)
@@ -146,12 +144,10 @@ class ApiControllerUsuarios {
     editIndex(req, res) {
         let id = req.params.id
 
-        res.render('admin/usuarios/editarUsuario', { id })
+        res.render('admin/usuarios/editarUsuario', { id, Id_User: req.Id_User })
     }
 
     editUser(req, res) {
-        let id_gerente = cache.get('id_gerente');
-
         let newUser = {
             id: req.params.id,
             nome: req.body.nome,
@@ -168,8 +164,7 @@ class ApiControllerUsuarios {
         if (id_gerente != null && id_gerente != '') {
             axios.post(`${urls}editUser`, newUser)
                 .then(resp => {
-                    console.log('truco')
-                    res.redirect('/admin/usuarios')
+                    res.redirect(`/admin/usuarios?user=${req.Id_User}`)
                 })
                 .catch(err => {
                     console.log(err);
@@ -179,7 +174,7 @@ class ApiControllerUsuarios {
     }
 
     allUsers(req, res) {
-        let id_gerente = cache.get('id_gerente');
+        let id_gerente = cache.get(`${req.Id_User}`);
   
             axios.post(`${urls}allUsers`, {
                 id: id_gerente

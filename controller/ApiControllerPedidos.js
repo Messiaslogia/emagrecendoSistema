@@ -86,7 +86,7 @@ class ApiControllerPedidos {
         let pedido = req.params.numero;
         let id_pedido = req.params.id;
         let id_user = req.query.idUsuario;
-        res.render('admin/pedidos/enviarProduto/formEnviarProduto', { pedido, id_pedido, id_user })
+        res.render('admin/pedidos/enviarProduto/formEnviarProduto', { pedido, id_pedido, id_user, Id_User: req.Id_User })
     }
 
     novaEntrega(req, res) {
@@ -102,7 +102,7 @@ class ApiControllerPedidos {
             hora: req.body.horaEntrega
         })
             .then(resp => {
-                res.redirect('/admin/pedidosConcluidos');
+                res.redirect(`/admin/pedidosConcluidos?user=${req.Id_User}`);
             })
             .catch(err => {
                 console.log(err);
