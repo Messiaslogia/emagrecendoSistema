@@ -1,5 +1,6 @@
 const express = require('express');
 
+
 const router = express.Router();
 const ApiControllerFinanceiro = require("../controller/ApiFinanceiro");
 
@@ -13,6 +14,7 @@ router.get('/todosDevedores', ApiControllerFinanceiro.todosDevedores);
 
 // ROUTER ENTREGAS
 router.get('/todasEntregas', ApiControllerFinanceiro.todasEntregas);
+
 
 
 

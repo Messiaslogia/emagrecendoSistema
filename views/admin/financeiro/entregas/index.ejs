@@ -102,7 +102,7 @@
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Páginas</a>
                         </li>
                         <li class="breadcrumb-item text-sm text-dark active" aria-current="page"><a
-                                href="/admin/financeiro">Financeiro</a></li>
+                                href="/admin/financeiro?user=<%= Id_User %>">Financeiro</a></li>
                     </ol>
                     <h6 class="font-weight-bolder mb-0">Pedidos Entregues</h6>
                 </nav>
@@ -247,7 +247,7 @@
             <div id="Card" class="card my-4 me-4">
                 <div class="card-header pb-0 px-3 d-flex justify-content-between">
                     <h6 class="mb-0">Infomações dos Pedidos Entregues:</h6>
-                    <a style="display: none;" href="/admin/adicionarProduto"><button type="button"
+                    <a style="display: none;" href="/admin/adicionarProduto?user=<%= Id_User %>"><button type="button"
                             class="btn btn-primary btn-lg">Adicionar
                             pedido</button></a>
 
@@ -372,7 +372,7 @@
             </div>
           </div>
     
-        <a href="/admin/financeiro" class="ms-3">
+        <a href="/admin/financeiro?user=<%= Id_User %>" class="ms-3">
             <button type="button" class="btn btn-primary btn-lg">Voltar</button>
         </a>
 

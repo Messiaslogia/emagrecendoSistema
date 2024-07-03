@@ -35,7 +35,7 @@
         <div class="sidenav-header text-center">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-                <a class=" m-0 " href="/users">
+                <a class=" m-0 " href="/users?user=<%= Id_User %>">
                     <img src="../../images/logo.png" class=" h-100" alt="main_logo">
                 </a>
         </div>
@@ -51,7 +51,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="/admin/dividas">
+                    <a class="nav-link text-white " href="/admin/dividas?user=<%= Id_User %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">receipt_long</i>
                         </div>
@@ -59,7 +59,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="/admin/adicionarProduto">
+                    <a class="nav-link text-white " href="/admin/adicionarProduto?user=<%= Id_User %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">add_circle_outline</i>
                         </div>
@@ -67,7 +67,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="/admin/adicionarUsuario">
+                    <a class="nav-link text-white " href="/admin/adicionarUsuario?user=<%= Id_User %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">person</i>
                         </div>
@@ -75,7 +75,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="/admin/efetuarPedido">
+                    <a class="nav-link text-white " href="/admin/efetuarPedido?user=<%= Id_User %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">add_shopping_cart</i>
                         </div>
@@ -306,7 +306,7 @@
                 </div>
     
                 <div class="col-lg-3 col-md-6 mt-4 mb-4">
-                    <a href="/admin/produtos">
+                    <a href="/admin/produtos?user=<%= Id_User %>">
                         <div class="card z-index-2  ">
                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
                                 <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
@@ -326,7 +326,7 @@
                 </div>
     
                 <div class="col-lg-3 col-md-6 mt-4 mb-4">
-                    <a href="/admin/pedidos">
+                    <a href="/admin/pedidos?user=<%= Id_User %>">
                         <div class="card z-index-2 ">
                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
                                 <div class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
@@ -348,7 +348,7 @@
                 </div>
     
                 <div class="col-lg-3 col-md-6 mt-4 mb-4">
-                    <a href="/admin/usuarios">
+                    <a href="/admin/usuarios?user=<%= Id_User %>">
                         <div class="card z-index-2 ">
                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
                                 <div class="bg-gradient-info shadow-info border-radius-lg py-3 pe-1">

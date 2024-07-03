@@ -34,7 +34,7 @@ class ControllerMaterial {
     }
 
     indexAdicionarMaterial(req, res){
-        res.render('admin/produtos/materiais/adicionarMaterial');
+        res.render('admin/produtos/materiais/adicionarMaterial', {Id_User: req.Id_User});
     }
 
     addMaterial(req, res){
@@ -51,7 +51,7 @@ class ControllerMaterial {
 
             axios.post(`${urls}adicionarMateriais`, novo_produto)
                 .then(resp => {
-                    res.redirect('/admin/produtos/materiais');
+                    res.redirect(`/admin/produtos/materiais?user=${req.Id_User}`);
                 })
                 .catch(err => {
                     console.log(err); 
@@ -66,7 +66,7 @@ class ControllerMaterial {
 
     indexEditMaterial(req, res){
         const id = req.params.idMateriais;
-        res.render('admin/produtos/materiais/editarMaterial', {id});
+        res.render('admin/produtos/materiais/editarMaterial', {id, Id_User: req.Id_User});
     }   
 
     editMaterial(req, res){
@@ -94,7 +94,7 @@ class ControllerMaterial {
 
         axios.post(`${urls}editarMaterial`, novo_produto)
             .then(result => {
-                res.redirect('/admin/produtos/materiais');
+                res.redirect(`/admin/produtos/materiais?user=${req.Id_User}`);
             })
             .catch(err => {
                 console.log(err);
@@ -106,7 +106,7 @@ class ControllerMaterial {
  
         axios.get(`${urls}deletandoMaterial/${id}`)
             .then(result => {
-                res.redirect('/admin/produtos/materiais');
+                res.redirect(`/admin/produtos/materiais?user=${req.Id_User}`);
             }) 
     }
 }

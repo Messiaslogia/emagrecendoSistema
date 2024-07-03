@@ -36,7 +36,7 @@
         <div class="sidenav-header text-center">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-                <a class=" m-0 " href="/users">
+                <a class=" m-0 " href="/users?user=<%= Id_User %>">
                     <img src="../../images/logo.png" class=" h-100" alt="main_logo">
                 </a>
         </div>
@@ -44,7 +44,7 @@
         <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/users">
+                    <a class="nav-link text-white" href="/users?user=<%= Id_User %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">dashboard</i>
                         </div>
@@ -53,7 +53,7 @@
                 </li>
     
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="/admin/financeiro">
+                    <a class="nav-link text-white " href="/admin/financeiro?user=<%= Id_User %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">assignment</i>
                         </div>
@@ -62,7 +62,7 @@
                 </li>
     
                 <li class="nav-item">
-                    <a class="nav-link text-white active bg-gradient-primary" href="/admin/produtos">
+                    <a class="nav-link text-white active bg-gradient-primary" href="/admin/produtos?user=<%= Id_User %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">store</i>
                         </div>
@@ -71,7 +71,7 @@
                 </li>
     
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="/admin/pedidos">
+                    <a class="nav-link text-white " href="/admin/pedidos?user=<%= Id_User %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">shopping_basket</i>
                         </div>
@@ -79,7 +79,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="/admin/usuarios">
+                    <a class="nav-link text-white " href="/admin/usuarios?user=<%= Id_User %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">person</i>
                         </div>
@@ -99,7 +99,7 @@
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Páginas</a>
                         </li>
-                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page"><a class="text-dark" href="/admin/produtos/brindes">Brindes</a></li>
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page"><a class="text-dark" href="/admin/produtos/brindes?user=<%= Id_User %>">Brindes</a></li>
                     </ol>
                     <h6 class="font-weight-bolder mb-0">Dashboard</h6>
                 </nav>
@@ -215,7 +215,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10 bg-light mt-4">
                 <form class="border border-light p-5" enctype="multipart/form-data" id="productForm" method="post"
-                    action="/apiBrindes/adicionarBrindes">
+                    action="/apiBrindes/adicionarBrindes?user=<%= Id_User %>">
 
                     
                     <p class="h4 mb-4 text-center">Novo Produto</p>
@@ -269,7 +269,7 @@
             </div>
         </div>
 
-    <a href="/admin/produtos/brindes" class="ms-3">
+    <a href="/admin/produtos/brindes?user=<%= Id_User %>" class="ms-3">
         <button type="button" class="btn btn-primary btn-l mt-5" style="background-color: #e91e63;">Voltar</button>
     </a>
 

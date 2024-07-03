@@ -9,7 +9,7 @@ const urls = "http://localhost:200/dividas/"
 
 class ApiControllerDividas {
     dividasTotais(req, res) {
-        let id_User = cache.get(`${req.query.IdUsuario}`)
+        let id_User = cache.get(`${req.Id_User}`)
 
         axios.get(`${urls}todasDividas?IdUser=${id_User}`)
             .then(resp => {
@@ -41,7 +41,7 @@ class ApiControllerDividas {
 
             axios.post(`${urls}novaDivida`, novaDivida)
                 .then(resp => {
-                    res.redirect('/admin/dividas');
+                    res.redirect(`/admin/dividas?user=${req.Id_User}`);
                 })
                 .catch(err => console.log(err))
         } catch (error) {
@@ -112,7 +112,7 @@ class ApiControllerDividas {
             id: divida
         })
             .then(resp => {
-                res.redirect('/admin/dividas');
+                res.redirect(`/admin/dividas?user=${req.Id_User}`);
             })
             .catch(err => {
                 console.log(err);
@@ -169,7 +169,7 @@ class ApiControllerDividas {
             .then((result) => {
                 console.log('Produto editado com sucesso!');
                 // produtosList = []
-                res.redirect('/admin/dividas');
+                res.redirect(`/admin/dividas?user=${req.Id_User}`);
             }).catch((err) => {
                 console.log(err);
             });
@@ -224,8 +224,7 @@ class ApiControllerDividas {
 
     editarDividaForm(req, res) {
         let id = req.params.id;
-        console.log(id)
-        res.render('admin/financeiro/dividas/editarDivida', { id });
+        res.render('admin/financeiro/dividas/editarDivida', { id, idUser: req.Id_User });
     };
 
     editarDividaFormDistribuidor(req, res) {

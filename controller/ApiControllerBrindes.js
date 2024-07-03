@@ -34,7 +34,7 @@ class ControllerBrindes {
     }
 
     indexAdicionarBrinde(req, res){
-        res.render('admin/produtos/brindes/adicionarBrinde');
+        res.render('admin/produtos/brindes/adicionarBrinde', {Id_User: req.Id_User});
     }
 
     addBrinde(req, res){
@@ -51,7 +51,7 @@ class ControllerBrindes {
 
             axios.post(`${urls}adicionarBrindes`, novo_produto)
                 .then(resp => {
-                    res.redirect('/admin/produtos/brindes');
+                    res.redirect(`/admin/produtos/brindes?user=${req.Id_User}`);
                 })
                 .catch(err => {
                     console.log(err); 
@@ -66,7 +66,7 @@ class ControllerBrindes {
 
     indexEditBrinde(req, res){
         const id = req.params.idBrinde;
-        res.render('admin/produtos/brindes/editarBrindes', {id});
+        res.render('admin/produtos/brindes/editarBrindes', {id, Id_User: req.Id_User});
     }   
 
     editBrinde(req, res){
@@ -94,7 +94,7 @@ class ControllerBrindes {
 
         axios.post(`${urls}editarBrinde`, novo_produto)
             .then(result => {
-                res.redirect('/admin/produtos/brindes');
+                res.redirect(`/admin/produtos/brindes?user=${req.Id_User}`);
             })
             .catch(err => {
                 console.log(err);
@@ -106,7 +106,7 @@ class ControllerBrindes {
  
         axios.get(`${urls}deletandoBrinde/${id}`)
             .then(result => {
-                res.redirect('/admin/produtos/brindes');
+                res.redirect(`/admin/produtos/brindes?user=${req.Id_User}`);
             })
     }
 }
