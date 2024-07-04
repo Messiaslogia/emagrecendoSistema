@@ -157,22 +157,29 @@ class VendedoresController {
     }
 
     registrarPedidos( req, res ){
+    
+        const vendedor = req.body.vendedor;
 
         let newPedido = {
             id_produto_FK: req.body.produto,
             id_usuario_FK: req.body.usuario,
             pedido: req.body.pedido,
             status: req.body.status,
+            quantidade: req.body.quantidade,
             valor: req.body.somaValorPedido,
             valorUnico: req.body.valorProduto.replace('R$ ', ''),
-            data: req.body.dataProduto,
-            hora: req.body.horaProduto,
-            quantidade: req.body.quantidade
         };
 
         axios.post(`http://localhost:200/pedidos/addPedidos`, newPedido)
             .then(resp => {
                 res.json(true);
+                axios.post(`http://localhost:200/pedidos/addVendaVendedor?vendedor=${vendedor}`, newPedido)
+                .then(resp=>{
+                    res.status(200).json({
+                        success: true,
+                        message: "Pedido registrado com sucesso",
+                    });
+                })
             })
             .catch(err => {
                 console.log(err);

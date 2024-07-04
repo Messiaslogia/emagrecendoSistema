@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const botaoAvancar = document.getElementById('Bt_avancar');
     const botaoEnviar = document.getElementById('Bt_Enviar');
     const usuarioInput = document.getElementById('Usuario_input');
-    const dataInput = document.getElementById('Data_produto');
-    const horaInput = document.getElementById('Hora_produto');
     const produtoInput = document.getElementById('Produto_input');
     const quantidade = document.getElementById('Quantidade_input');
     const numeroPedido = gerarNumeroPedido();
@@ -59,8 +57,6 @@ document.addEventListener('DOMContentLoaded', function () {
             elementoValor.value = '';
             elementoQuantidade.value = '';
             usuarioInput.disabled = true;
-            dataInput.readOnly = true;
-            horaInput.readOnly = true;
             produtoInput.value = '';
             quantidade.value = '';
 
@@ -79,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // EVENTO PARA ENVIAR OS DADOS AO CLICAR NO ENVIAR
     botaoEnviar.addEventListener('click', () => {
         const formData = coletaDadosForm();
+       
         let somaValorPedido = 0;
         formData.forEach(objeto => {
 

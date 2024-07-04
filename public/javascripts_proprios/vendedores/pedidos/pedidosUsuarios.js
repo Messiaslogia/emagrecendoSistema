@@ -4,6 +4,11 @@ const inputFuncao = document.getElementById('Funcao_input');
 const inputUsuario = document.getElementById('Usuario_input');
 const idDoVendedor = document.getElementById('idDoVendedor').value;
 
+function alerta() {
+    alert('Selecione uma função antes!!')
+};
+
+
 
 
 function adquirirListsUsers() {
@@ -27,5 +32,12 @@ function adquirirListsUsers() {
 // Adicionar listener para o evento 'change'
 inputFuncao.addEventListener('change', () => {
     adquirirListsUsers();
+});
+
+inputUsuario.addEventListener('click', (e) => {
+    if (inputFuncao.value === "") {
+        e.preventDefault();
+        alerta();
+    }
 });
 
