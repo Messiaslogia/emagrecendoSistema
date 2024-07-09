@@ -157,11 +157,10 @@ class VendedoresController {
     }
 
     registrarPedidos( req, res ){
-    
         const vendedor = req.body.vendedor;
-
         let newPedido = {
             id_produto_FK: req.body.produto,
+            id_vendedor_FK: req.body.vendedor,
             id_usuario_FK: req.body.usuario,
             pedido: req.body.pedido,
             status: req.body.status,
@@ -170,7 +169,7 @@ class VendedoresController {
             valorUnico: req.body.valorProduto.replace('R$ ', ''),
         };
 
-        axios.post(`http://localhost:200/pedidos/addPedidos`, newPedido)
+        axios.post(`http://localhost:200/pedidos/addPedidosVendedores`, newPedido)
             .then(resp => {
                 res.json(true);
                 axios.post(`http://localhost:200/pedidos/addVendaVendedor?vendedor=${vendedor}`, newPedido)
