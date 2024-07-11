@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // EVENTO PARA ENVIAR OS DADOS AO CLICAR NO ENVIAR
     botaoEnviar.addEventListener('click', () => {
         const formData = coletaDadosForm();
-       
+
         let somaValorPedido = 0;
         formData.forEach(objeto => {
 
@@ -98,6 +98,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.log(err);
                 })
         });
+
+        
 
         info_modal.innerHTML = `${formData[0].pedido}`;
         bt_modal.click();

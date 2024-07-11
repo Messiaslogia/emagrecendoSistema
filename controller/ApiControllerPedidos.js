@@ -210,6 +210,7 @@ class ApiControllerPedidos {
         axios.get(`${urls}todosPedidosVendedor?idDoVendedor=${idVendedor}`)
             .then(resp => {
                 res.json(resp.data)
+                // console.log(resp.data)
             })
             .catch(err => {
                 console.log(err);
@@ -219,7 +220,6 @@ class ApiControllerPedidos {
 
     pedidosAprovadosVendedor(req, res){
         const idVendedor = req.query.idVendedor;
-        console.log(idVendedor)
         axios.get(`${urls}pedidosAprovadosVendedor?idVendedor=${idVendedor}`)
             .then(resp => {
                 res.json(resp.data)
