@@ -98,7 +98,6 @@ class ApiControllerUsuarios {
                 console.log(err)
 
                 if (err.response) {
-
                     if (err.response.status === 401) {
                         return res.status(401).send('Credenciais Invalidas')
                     } else if (err.response.status === 404) {
@@ -143,7 +142,6 @@ class ApiControllerUsuarios {
 
     editIndex(req, res) {
         let id = req.params.id
-
         res.render('admin/usuarios/editarUsuario', { id, Id_User: req.Id_User })
     }
 
@@ -161,16 +159,14 @@ class ApiControllerUsuarios {
             telefone: req.body.telefone
         };
 
-        if (id_gerente != null && id_gerente != '') {
-            axios.post(`${urls}editUser`, newUser)
-                .then(resp => {
-                    res.redirect(`/admin/usuarios?user=${req.Id_User}`)
-                })
-                .catch(err => {
-                    console.log(err);
-                    res.json(false)
-                })
-        }
+        axios.post(`${urls}editUser`, newUser)
+            .then(resp => {
+                res.redirect(`/admin/usuarios?user=${req.Id_User}`)
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false)
+            })
     }
 
     allUsers(req, res) {
@@ -212,7 +208,7 @@ class ApiControllerUsuarios {
     }
 
     consultUser(req, res) {
-        let id_consult = req.params.id;
+        let id_consult = cache.get(`${req.Id_User}`);
 
             axios.post(`${urls}usuarioInfo`, {
                 id: id_consult
