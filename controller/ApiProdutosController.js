@@ -2,6 +2,7 @@ const axios = require('axios');
 const cache = require('../configs/cache');
 const multer = require('multer');
 const path = require('path');
+const fs = require('fs');
 
 // Base da URL
 const urls = "http://localhost:200/produtos/";
@@ -117,7 +118,6 @@ class ProductController {
     }
 
     editProdutos(req, res) {
-
         let novo_produto = {
             id: req.params.id,
             nome: req.body.nomeProduto,
@@ -128,9 +128,11 @@ class ProductController {
             preco_revenda: req.body.precoProdutoRepresentante.replace(' ', '').replace('R$', '').replace(',', '.'),
             preco_vendedor: req.body.precoProdutoVendedor.replace(' ', '').replace('R$', '').replace(',', '.'),
             preco_custo: req.body.precoCusto.replace(' ', '').replace('R$', '').replace(',', '.'),
-            categoria: 1,
-            img: req.file ? req.file.path : req.body.imagemProduto
+            categoria: req.body.categoria,
+            img: req.file ? req.file.path : req.body.imagemAtual
         };
+
+
 
         // Verifica se uma nova imagem foi enviada
         if (req.file) {
@@ -140,9 +142,7 @@ class ProductController {
             if (req.body.imagemAtual && fs.existsSync('public' + req.body.imagemAtual)) {
                 fs.unlinkSync('public' + req.body.imagemAtual); // Removendo a imagem antiga do servidor
             }
-        }
-
-        console.log(novo_produto);
+        };
 
         axios.post(`${urls}editarProdutos`, novo_produto)
             .then(result => {

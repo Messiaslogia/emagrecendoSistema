@@ -170,11 +170,7 @@ class ApiControllerUsuarios {
     }
 
     allUsers(req, res) {
-        let id_gerente = cache.get(`${req.Id_User}`);
-  
-            axios.post(`${urls}allUsers`, {
-                id: id_gerente
-            })
+            axios.post(`${urls}allUsers`)
                 .then(resp => {
                     console.log("Tabela consultada com sucesso!");
                     res.json(resp.data);

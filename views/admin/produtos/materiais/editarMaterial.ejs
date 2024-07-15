@@ -111,12 +111,29 @@
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
         
                     </div>
+
+                    <!-- Menu Superior Icon -->
                     <ul class="navbar-nav  justify-content-end">
-                        <li class="nav-item d-flex align-items-center">
-                            <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
+                        <li class="nav-item dropdown d-flex align-items-center">
+                            <a href="javascript:;" class="nav-link text-body font-weight-bold px-0" id="dropdownMenuButton_user"
+                             aria-expanded="false" data-bs-toggle="dropdown">
                                 <i class="fa fa-user me-sm-1"></i>
                             </a>
+                            <ul class="dropdown-menu dropdown-menu-end  px-2 py-3 me-sm-n4"
+                                aria-labelledby="dropdownMenuButton_user">
+                                    <li>
+                                        <a class="dropdown-item border-radius-md align-middle" href="/users/editarPerfil/?user=<%= Id_User %>">
+                                            <span class="material-symbols-outlined align-middle">settings </span> Editar
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item border-radius-md align-middle" href="/users/sair/?user=<%= Id_User %>">
+                                            <span class="material-symbols-outlined align-middle">login</span> Sair
+                                        </a>
+                                    </li>
+                            </ul>
                         </li>
+
                         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                                 <div class="sidenav-toggler-inner">
@@ -222,7 +239,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10 bg-light mt-4">
                 <form class="border border-light p-5" enctype="multipart/form-data" id="productForm" method="post"
-                action="/apiMateriais/editProduto/<%= id %>">
+                    action="/apiMateriais/editProduto/<%= id %>?user=<%= Id_User %>">
 
                 <input type="text" value="<%= id %>" style="display: none;" name="id" id="idProduto">
                     <p class="h4 mb-4 text-center">Novo Produto</p>

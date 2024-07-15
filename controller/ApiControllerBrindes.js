@@ -87,7 +87,6 @@ class ControllerBrindes {
 
             // Remove a antiga imagem se for diferente da nova
             if (req.body.imagemAtual && fs.existsSync('public' + req.body.imagemAtual)) {
-                console.log('cu')
                 fs.unlinkSync('public' + req.body.imagemAtual); // Removendo a imagem antiga do servidor
             }
         }

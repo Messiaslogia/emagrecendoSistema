@@ -107,12 +107,28 @@
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
 
                     </div>
+
                     <ul class="navbar-nav  justify-content-end">
-                        <li class="nav-item d-flex align-items-center">
-                            <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
+                        <li class="nav-item dropdown d-flex align-items-center">
+                            <a href="javascript:;" class="nav-link text-body font-weight-bold px-0" id="dropdownMenuButton_user"
+                             aria-expanded="false" data-bs-toggle="dropdown">
                                 <i class="fa fa-user me-sm-1"></i>
                             </a>
+                            <ul class="dropdown-menu dropdown-menu-end  px-2 py-3 me-sm-n4"
+                                aria-labelledby="dropdownMenuButton_user">
+                                    <li>
+                                        <a class="dropdown-item border-radius-md align-middle" href="/users/editarPerfil/?user=<%= idUser %>">
+                                            <span class="material-symbols-outlined align-middle">settings </span> Editar
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item border-radius-md align-middle" href="/users/sair/?user=<%= idUser %>">
+                                            <span class="material-symbols-outlined align-middle">login</span> Sair
+                                        </a>
+                                    </li>
+                            </ul>
                         </li>
+                        
                         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                                 <div class="sidenav-toggler-inner">
@@ -217,7 +233,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10 bg-light mt-4">
                 <!-- Default form register -->
-                <form class="text-center border border-light p-5" enctype="multipart/form-data" id="DividaForm">
+                <form class="text-center border border-light p-5" enctype="application/x-www-form-urlencoded" action="/apiDividas/adicionarNovaDivida?user=<%= idUser %>" method="post" id="DividaForm">
                     <p class="h4 mb-4">Nova Dívida</p>
 
                     <!-- Id da pessoa que registrou a divida -->
@@ -306,7 +322,8 @@
     <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../../javascripts_proprios/adicionarDivida.js"></script>
+
+    <!-- <script src="../../javascripts_proprios/adicionarDivida.js"></script> -->
     
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");

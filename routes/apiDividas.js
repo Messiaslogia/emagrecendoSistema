@@ -20,7 +20,7 @@ router.get("/editarDividaFormVendedor/:id", ApiControllerDividas.editarDividaFor
 router.get("/consultarDivida/:id", ApiControllerDividas.consultarDivida);
 
 
-router.post('/adicionarNovaDivida', verifyToken, upload.none(), ApiControllerDividas.adicionarDivida);
+router.post('/adicionarNovaDivida', verifyToken, ApiControllerDividas.adicionarDivida);
 router.post('/adicionarNovaDividaVendedor', ApiControllerDividas.adicionarDividaVendedor);
 router.post('/adicionarNovaDividaDistribuidor', ApiControllerDividas.adicionarDividaDistribuidor);
 router.post("/editarDivida/:id", verifyToken, ApiControllerDividas.editarDivida);

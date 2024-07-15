@@ -25,11 +25,10 @@ class ApiControllerDividas {
         let data = new Date;
         let mes = data.getMonth() + 1;
 
-
         try {
             let novaDivida = {
                 nome: req.body.nomeDivida,
-                id_user: req.body.idUser,
+                id_user: cache.get(req.Id_User),
                 descricao: req.body.descricaoDivida,
                 valor: parseFloat(req.body.valorDivida.replace('R$', '').replace(',', '.')),
                 data: req.body.dataDivida,
@@ -37,13 +36,14 @@ class ApiControllerDividas {
                 mes: mes
             }
 
-
+            console.log(novaDivida.id_user)
 
             axios.post(`${urls}novaDivida`, novaDivida)
                 .then(resp => {
                     res.redirect(`/admin/dividas?user=${req.Id_User}`);
                 })
                 .catch(err => console.log(err))
+
         } catch (error) {
             console.log(error)
         }

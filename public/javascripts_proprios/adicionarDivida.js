@@ -10,7 +10,7 @@ document.getElementById('DividaForm').addEventListener('submit', function (event
         console.log(pair[0] + ': ' + pair[1]);
     }
 
-    axios.post(`/apiDividas/adicionarNovaDivida`, formData)
+    axios.post(`/apiDividas/adicionarNovaDivida?user=${Id_User}`, formData)
         .then(response => {
             window.location.href = `http://localhost:3030/admin/dividas?user=${Id_User}`
         })

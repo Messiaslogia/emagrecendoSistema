@@ -7,7 +7,7 @@ router.get("/dellUser/:id", verifyToken, ApiControllerAdmin.dellUser);
 router.get("/clientesTotais", ApiControllerAdmin.clientesTotais);
 router.get("/userConsult", verifyToken,  ApiControllerAdmin.consultUser)
 router.get('/editUser/:id', verifyToken, ApiControllerAdmin.editIndex)
-router.get("/todosUsuarios", verifyToken, ApiControllerAdmin.allUsers);
+router.get("/todosUsuarios", ApiControllerAdmin.allUsers);
 router.get("/usuariosPedidos/:funcao", ApiControllerAdmin.usuariosPedidos);
 
 

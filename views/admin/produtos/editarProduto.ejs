@@ -111,12 +111,29 @@
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
         
                     </div>
+
+                    <!-- Menu Superior Icon -->
                     <ul class="navbar-nav  justify-content-end">
-                        <li class="nav-item d-flex align-items-center">
-                            <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
+                        <li class="nav-item dropdown d-flex align-items-center">
+                            <a href="javascript:;" class="nav-link text-body font-weight-bold px-0" id="dropdownMenuButton_user"
+                             aria-expanded="false" data-bs-toggle="dropdown">
                                 <i class="fa fa-user me-sm-1"></i>
                             </a>
+                            <ul class="dropdown-menu dropdown-menu-end  px-2 py-3 me-sm-n4"
+                                aria-labelledby="dropdownMenuButton_user">
+                                    <li>
+                                        <a class="dropdown-item border-radius-md align-middle" href="/users/editarPerfil/?user=<%= Id_User %>">
+                                            <span class="material-symbols-outlined align-middle">settings </span> Editar
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item border-radius-md align-middle" href="/users/sair/?user=<%= Id_User %>">
+                                            <span class="material-symbols-outlined align-middle">login</span> Sair
+                                        </a>
+                                    </li>
+                            </ul>
                         </li>
+                        
                         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                                 <div class="sidenav-toggler-inner">
@@ -222,7 +239,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10 bg-light mt-4">
                 <form class="border border-light p-5" enctype="multipart/form-data" id="productForm" method="post"
-                action="/apiProdutos/editProduto/<%= id %>">
+                    action="/apiProdutos/editProduto/<%= id %>?user=<%= Id_User %>">
                 <input type="text" value="<%= id %>" style="display: none;" name="id" id="idProduto">
                     <p class="h4 mb-4 text-center">Novo Produto</p>
         
@@ -273,7 +290,7 @@
         
                     <!-- Preço para Vendedor -->
                     <div class="form-group">
-                        <label for="Preco_produto_Vendedor" class="fs-6 fw-bold ">Preço para Vendedor</label>
+                        <label for="Preco_produto_Vendedor" class="fs-6 fw-bold">Preço para Vendedor</label>
                         <input id="Preco_produto_Vendedor" type="text" name="precoProdutoVendedor" class="form-control mb-4 "
                             placeholder="Ex: R$ 250,99" aria-describedby="defaultRegisterFormPhoneHelpBlock" required >
                     </div>
@@ -285,8 +302,16 @@
                             placeholder="Ex: R$ 100,00" aria-describedby="defaultRegisterFormPhoneHelpBlock" required
                             >
                     </div>
-        
-                    
+
+                    <!-- Categoria Input -->
+                    <div class="form-group">
+                        <label for="categoriaProdutos" class="fs-6 fw-bold ">Categoria do produto</label>
+                        <select id="categoriaProdutos" class="form-select ps-2" name="categoria">
+                            <option value="1">Produto Convencional</option>
+                            <option value="4">Emagrecedor</option>
+                            <option value="6">Linha Black</option>
+                        </select>
+                    </div>
 
                     <!-- Imagem do produto -->
                     <div class="form-group">
