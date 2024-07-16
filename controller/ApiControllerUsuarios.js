@@ -28,8 +28,6 @@ class ApiControllerUsuarios {
             nascimento: req.body.nascimento.replace(/[^\d]/g, '')
         };
 
-
-        if (id_user != null && id_user != '') {
             axios.post(`${urls}newUser`, newUser)
                 .then(resp => {
                     axios.post(`${urls}usuarioInfo`, {
@@ -47,10 +45,6 @@ class ApiControllerUsuarios {
                     console.log(err);
                     res.json(false)
                 })
-        } else {
-            console.log('Sem permição para cadastrar usuário')
-            res.json(false)
-        }
     }
 
     confirmLogin(req, res) {
