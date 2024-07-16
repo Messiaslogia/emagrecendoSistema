@@ -7,6 +7,7 @@ const url = "http://localhost:3030/vendedores/todosUsuariosVendedor";
 const inputsPages = document.querySelectorAll('#pageInput');
 let itensPorPagina = 5;
 let listUsuarios = [];
+let filteredUsuarios = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     adquirirListsUsers();
@@ -32,13 +33,13 @@ function filtro(status) {
             break;
         case "Futuros Clientes":
             // Filtrar apenas Futuros Clientes
-            let afiliados = listUsuarios.filter(user => user.funcao == '5');
-            displayFilteredItens(afiliados, 1);
+            filteredUsuarios = listUsuarios.filter(user => user.funcao == '5');
+            displayFilteredItens(1);
             break;
         case "Clientes":
             // Filtrar apenas Clientes
-            let representantes = listUsuarios.filter(user => user.funcao == '4');
-            displayFilteredItens(representantes, 1);
+            filteredUsuarios = listUsuarios.filter(user => user.funcao == '4');
+            displayFilteredItens(1);
             break;
         default:
             console.error(`Status '${status}' não reconhecido.`);
@@ -81,7 +82,7 @@ function displayItens(page) {
     paginas(page);
 }
 
-function displayFilteredItens(filteredUsuarios, page) {
+function displayFilteredItens(page) {
     let startIndex = (page - 1) * itensPorPagina;
     let endIndex = startIndex + itensPorPagina;
     let totalUsuarios = filteredUsuarios.length;
@@ -113,7 +114,7 @@ function displayFilteredItens(filteredUsuarios, page) {
             </li>`;
     });
 
-    paginasFiltered(page, filteredUsuarios.length);
+    paginasFiltered(page);
 }
 
 function paginas(page) {
@@ -128,14 +129,14 @@ function paginas(page) {
     }
 }
 
-function paginasFiltered(page, totalFiltered) {
-    const pageCont = Math.ceil(totalFiltered / itensPorPagina);
+function paginasFiltered(page) {
+    const pageCont = Math.ceil(filteredUsuarios.length / itensPorPagina);
     const containerPagination = document.querySelector('#pag_navigation_input');
 
     containerPagination.innerHTML = '';
 
     for (let i = 1; i <= pageCont; i++) {
         const activeClass = i === page ? 'active bg-primary text-light' : '';
-        containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayFilteredItens(filteredUsuarios, ${i})">${i}</a></li>`;
+        containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayFilteredItens(${i})">${i}</a></li>`;
     }
 }
