@@ -51,7 +51,6 @@ class VendedoresController {
 
             axios.post(`http://localhost:200/users/editUser`, newUser)
                 .then(resp => {
-                    console.log('truco')
                     res.redirect(`/vendedores/clientes?user=${idCripted}`)
                 })
                 .catch(err => {
@@ -67,7 +66,7 @@ class VendedoresController {
     }
 
     adicionarUsuario(req, res){
-        const idDoVendedor = req.query.user;
+        const idDoVendedor = cache.get(req.query.user);
         const idCripted = req.query.user;
         res.render('vendedores/clientes/adicionarUsuario', { idDoVendedor, idCripted });
     }

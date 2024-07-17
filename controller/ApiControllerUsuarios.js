@@ -283,7 +283,7 @@ class ApiControllerUsuarios {
 
     // VENDEDORES
     novoUsuarioParaVendedores(req, res){
-        const idCripted = req.query.user;
+        const idCripted = req.Id_User;
 
         let newUser = {
             idVendedor: req.body.idDoVendedor,

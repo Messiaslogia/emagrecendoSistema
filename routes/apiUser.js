@@ -23,7 +23,7 @@ router.post("/todosUsuariosPedido", ApiControllerAdmin.todosUsuariosPedido);
 router.post("/novoUsuarioParaDistribuidor", ApiControllerAdmin.novoUsuarioParaDistribuidor);
 
 // Vendedores
-router.post("/novoUsuarioParaVendedores", ApiControllerAdmin.novoUsuarioParaVendedores);
+router.post("/novoUsuarioParaVendedores", verifyToken, ApiControllerAdmin.novoUsuarioParaVendedores);
 
 
 

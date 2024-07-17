@@ -20,6 +20,7 @@ router.get('/dellUser/:id', VendedoresController.dellCliente)
 
 router.get('/editUser/:id', VendedoresController.editIndex);
 router.post("/edit/:id", VendedoresController.editUser);
+
 router.get('/adicionarUsuario', VendedoresController.adicionarUsuario);
 router.get('/adiconarVendas', VendedoresController.adicionarVendas);
 router.get('/adiconarDividasGerais', VendedoresController.adicionarDividasGerais);

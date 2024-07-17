@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 document.querySelector('#Name_input').value = userData.nome || '';
                 document.querySelector('#Email_input').value = userData.email || '';
-                document.querySelector('#Password_input').value = userData.senha || '';
+                // document.querySelector('#Password_input').value = userData.senha || '';
                 document.querySelector('#Telefone_input').value = userData.telefone || '';
                 document.querySelector('#CPF_input').value = userData.cpf || '';
                 document.querySelector('#Instagram_input').value = userData.instagram || '';
