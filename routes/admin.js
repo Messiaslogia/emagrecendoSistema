@@ -7,6 +7,7 @@ const verifyToken  = require("../controller/token");
  
 /* GET admin listing. */
 router.get('/usuarios', verifyToken, AdminController.usuariosIndex);
+router.get('/futurosClientes', verifyToken, AdminController.futurosClientes);
 
 // GET Produtos
 router.get('/produtos', verifyToken, AdminController.produtoIndex);

@@ -167,6 +167,18 @@ class ApiControllerUsuarios {
                 })
     }
 
+    todosFuturosClientes(req, res){
+        axios.post(`${urls}todosFuturosClientes`)
+            .then(resp => {
+                console.log("Tabela consultada com sucesso!");
+                res.json(resp.data);
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false);
+            })
+    }
+
     usuariosPedidos(req, res){
         let funcaoUsuario = req.params.funcao;
         axios.get(`${urls}usuariosPedidos/${funcaoUsuario}`)

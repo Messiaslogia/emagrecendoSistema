@@ -42,6 +42,10 @@ class AdminController{
         res.render('admin/usuarios/index', {Id_User: req.Id_User})
     }
 
+    futurosClientes(req, res){
+        res.render('admin/usuarios/futurosClientes', {Id_User:req.id_User});
+    }
+
 
 
     adicionarUsuario(req, res){

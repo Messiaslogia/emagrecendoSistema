@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="../../path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        <link rel="stylesheet" href="../../stylesheets/style.css">
+    <link rel="stylesheet" href="../../stylesheets/style.css">
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -38,10 +38,10 @@
         <div class="sidenav-header text-center">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-                <a class=" m-0 " href="/users?user=<%= Id_User %>">
-                    <img src="../../images/logo.png" class=" h-100" alt="main_logo">
-                </a>
-            
+            <a class=" m-0 " href="/users?user=<%= Id_User %>">
+                <img src="../../images/logo.png" class=" h-100" alt="main_logo">
+            </a>
+
         </div>
         <hr class="horizontal light mt-0 mb-2">
         <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
@@ -54,7 +54,7 @@
                         <span class="nav-link-text ms-1">Dashboard</span>
                     </a>
                 </li>
-        
+
                 <li class="nav-item">
                     <a class="nav-link text-white " href="/admin/financeiro?user=<%= Id_User %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -63,7 +63,7 @@
                         <span class="nav-link-text ms-1">Financeiro</span>
                     </a>
                 </li>
-        
+
                 <li class="nav-item">
                     <a class="nav-link text-white " href="/admin/produtos?user=<%= Id_User %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -72,7 +72,7 @@
                         <span class="nav-link-text ms-1">Produtos</span>
                     </a>
                 </li>
-        
+
                 <li class="nav-item">
                     <a class="nav-link text-white " href="/admin/pedidos?user=<%= Id_User %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -82,7 +82,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white active bg-gradient-primary" href="/admin/usuarios?user=<%= Id_User %>">
+                    <a class="nav-link text-white "
+                        href="/admin/usuarios?user=<%= Id_User %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">person</i>
                         </div>
@@ -91,7 +92,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/admin/futurosClientes?user=<%= Id_User %>">
+                    <a class="nav-link text-white active bg-gradient-primary" href="/admin/futurosClientes?user=<%= Id_User %>">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">group</i>
                         </div>
@@ -99,8 +100,8 @@
                     </a>
                 </li>
 
-                
-        
+
+
             </ul>
         </div>
     </aside>
@@ -111,9 +112,11 @@
             <div class="container-fluid py-1 px-3 nav_mobile">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Páginas</a>
+                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark"
+                                href="javascript:;">Páginas</a>
                         </li>
-                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page"><a href="/users?user=<%= Id_User %>">Dashboard</a></li>
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page"><a
+                                href="/users?user=<%= Id_User %>">Dashboard</a></li>
                     </ol>
                     <h6 class="font-weight-bolder mb-0">Usuários</h6>
                 </nav>
@@ -125,22 +128,24 @@
                     <!-- Menu Superior -->
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item dropdown d-flex align-items-center">
-                            <a href="javascript:;" class="nav-link text-body font-weight-bold px-0" id="dropdownMenuButton_user"
-                             aria-expanded="false" data-bs-toggle="dropdown">
+                            <a href="javascript:;" class="nav-link text-body font-weight-bold px-0"
+                                id="dropdownMenuButton_user" aria-expanded="false" data-bs-toggle="dropdown">
                                 <i class="fa fa-user me-sm-1"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end  px-2 py-3 me-sm-n4"
                                 aria-labelledby="dropdownMenuButton_user">
-                                    <li>
-                                        <a class="dropdown-item border-radius-md align-middle" href="/users/editarPerfil/?user=<%= Id_User %>">
-                                            <span class="material-symbols-outlined align-middle">settings </span> Editar
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item border-radius-md align-middle" href="/users/sair/?user=<%= Id_User %>">
-                                            <span class="material-symbols-outlined align-middle">login</span> Sair
-                                        </a>
-                                    </li>
+                                <li>
+                                    <a class="dropdown-item border-radius-md align-middle"
+                                        href="/users/editarPerfil/?user=<%= Id_User %>">
+                                        <span class="material-symbols-outlined align-middle">settings </span> Editar
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item border-radius-md align-middle"
+                                        href="/users/sair/?user=<%= Id_User %>">
+                                        <span class="material-symbols-outlined align-middle">login</span> Sair
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
@@ -154,11 +159,11 @@
                             </a>
                         </li>
                         <li class="nav-item px-2 d-flex align-items-center">
-                            
+
                         </li>
                         <li class="nav-item dropdown pe-2 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton"
-                                 aria-expanded="false" data-bs-toggle="dropdown">
+                                aria-expanded="false" data-bs-toggle="dropdown">
                                 <i class="fa fa-bell cursor-pointer"></i>
                             </a>
                             <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4"
@@ -247,12 +252,13 @@
         <div class="row" id="container_listUsers">
             <div class="col-md-12 mt-4">
                 <div class="card">
-                    <div class="card-header pb-0 px-3 d-flex justify-content-between align-items-center mobile_cadHeader">
+                    <div
+                        class="card-header pb-0 px-3 d-flex justify-content-between align-items-center mobile_cadHeader">
                         <h6 class="mb-0">Infomações dos Usuários</h6>
                         <div class="d-flex mobile_flex">
                             <div class="dropdown" id="button_filtro">
-                                <button class="btn bg-gradient-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn bg-gradient-primary dropdown-toggle" type="button"
+                                    id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                     Filtro
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -262,7 +268,8 @@
                                     <li class="dropdown-item" onclick="filtro('Vendedores')">Vendedores</li>
                                     <li class="dropdown-item" onclick="filtro('Clientes')">Clientes</li>
                                     <li class="dropdown-item" onclick="filtro('Representantes')">Representantes</li>
-                                    <li class="dropdown-item" onclick="filtro('AfiliadoRepresentante')">Afiliado do Representante</li>
+                                    <li class="dropdown-item" onclick="filtro('AfiliadoRepresentante')">Afiliado do
+                                        Representante</li>
                                 </ul>
                             </div>
                             <div>
@@ -274,8 +281,8 @@
                     </div>
                     <div class="card-body pt-4 p-3">
                         <ul class="list-group" id="Container_Users">
-                            
-                            
+
+
                         </ul>
                     </div>
                 </div>
@@ -283,7 +290,7 @@
 
             <nav aria-label="Page navigation example" class="mt-4">
                 <ul id="pag_navigation_input" class="pagination justify-content-end">
-            
+
                 </ul>
             </nav>
 
@@ -301,18 +308,18 @@
                                     document.write(new Date().getFullYear())
                                 </script>
                                 <i class="fa fa-heart"></i>
-    
+
                                 Emagrecendo
-                                    com Ela
+                                com Ela
                             </div>
                         </div>
                     </div>
                 </div>
             </footer>
-        
+
         </div>
     </main>
-   
+
 
 
 
@@ -324,12 +331,12 @@
     <script src="../../javascripts/plugins/perfect-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
-    
+
     <!-- Javascripts -->
-    <script src="../../javascripts_proprios/admin/user/todosUsuários.js"></script>
+    <script src="../../javascripts_proprios/admin/user/todosFuturosCliente.js"></script>
 
 
-   
+
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -344,7 +351,7 @@
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../../javascripts/material-dashboard.min.js?v=3.0.0"></script>
 
-    
+
 </body>
 
 </html>

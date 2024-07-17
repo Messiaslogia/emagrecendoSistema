@@ -9,6 +9,7 @@ router.get("/userConsultEdit",  ApiControllerAdmin.infoUsuario)
 router.get("/userConsult", verifyToken,  ApiControllerAdmin.consultUser)
 router.get('/editUser/:id', verifyToken, ApiControllerAdmin.editIndex)
 router.get("/todosUsuarios", ApiControllerAdmin.allUsers);
+router.get("/todosFuturosClientes", ApiControllerAdmin.todosFuturosClientes);
 router.get("/usuariosPedidos/:funcao", ApiControllerAdmin.usuariosPedidos);
 
 
