@@ -205,7 +205,8 @@ class VendedoresController {
     }
 
     todosUsuariosVendedor(req, res){
-        const idVendedor = req.query.idVendedor;
+        const idVendedor = cache.get(req.query.idVendedor);
+        
         axios.get(`${urls}todosUsuariosVendedor?idVendedor=${idVendedor}`)
             .then(users => {
                 res.json(users.data)

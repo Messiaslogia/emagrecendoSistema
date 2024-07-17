@@ -59,29 +59,22 @@ class ApiControllerUsuarios {
         },{
             rejectUnauthorized: false
           })
-            .then(resp => { 
-                const auth = resp.data.auth;
-                const identificador = auth.slice(0, 6);
-                
+            .then(resp => {  
+                let auth = resp.data.auth;
+                let identificador = auth.slice(0, 6);
+                cache.set(identificador, auth);
+
                 switch (resp.data.user.funcao) {
                     case 'Gerente':
-                        cache.set(identificador, auth)
                         return res.redirect(307, `/users?user=${identificador}`);
                     case '2':
-                        // const idCriptografadoDistribuidor = ecryptedIdUser(resp.data.id_usuario, process.env.SECRET_KEY);
-                        return res.redirect(`/distribuidor?user=${resp.data.user.id_usuario}`);
-
+                        return res.redirect(`/distribuidor?user=${identificador}`);
                     case '3':
-                        // const idCriptografadoVendedor = ecryptedIdUser(resp.data.id_usuario, process.env.SECRET_KEY);
-                        return res.redirect(`/vendedores?user=${resp.data.user.id_usuario}`);
-
-
+                        return res.redirect(`/vendedores?user=${identificador}`);
                     case '6':
-                        const idCriptografadoRepresentante = ecryptedIdUser(resp.data.id_usuario, process.env.SECRET_KEY);
                         return res.status(404).send("<script>alert('Função não cadastrada para utilização do sistema'); window.history.back();</script>")
 
                     case '7':
-                        // const idCriptografadoAfiliado = ecryptedIdUser(resp.data.id_usuario, process.env.SECRET_KEY);
                         return res.status(404).send("<script>alert('Função não cadastrada para utilização do sistema'); window.history.back();</script>")
 
                     default:
@@ -109,7 +102,6 @@ class ApiControllerUsuarios {
                     console.log(res.status(500) + 'Erro ao enviar requisição')
                     return res.status(500).send('Erro ao enviar requisição');
                 }
-
             })
     }
 
@@ -194,6 +186,20 @@ class ApiControllerUsuarios {
             .catch(err => {
                 console.log(err);
                 res.json(false);
+            })
+    }
+
+    infoUsuario(req, res){
+        const id_consult = req.query.idUser;
+
+        axios.post(`${urls}usuarioInfoEdit`, {
+            id: id_consult
+        })
+            .then(resp => {
+                res.json(resp.data)
+            })
+            .catch(err => {
+                console.log(err);
             })
     }
 

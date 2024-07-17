@@ -1,7 +1,6 @@
 const container_users = document.querySelector('#Container_Users');
 const inputVendedores = document.querySelector('#idVendedor');
-const criptedId = document.querySelector('#CriptedId').value;
-const idVendedor = inputVendedores.value;
+const tokenUser = document.querySelector('#Token').value
 
 const url = "http://localhost:3030/vendedores/todosUsuariosVendedor";
 const inputsPages = document.querySelectorAll('#pageInput');
@@ -14,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function adquirirListsUsers() {
-    axios.get(`${url}?idVendedor=${idVendedor}`)
+    axios.get(`${url}?idVendedor=${tokenUser}`)
         .then(data => {
             listUsuarios = data.data;
             setTimeout(() => {
@@ -72,7 +71,7 @@ function displayItens(page) {
                     <span class="mt-2 text-xs">Zona: <span class="text-dark font-weight-bold ms-sm-2">${regiao}</span></span>
                 </div>
                 <div class="ms-auto text-end">
-                    <a id="Bt_editUser" class="btn btn-link text-dark px-3 mb-0" href="/vendedores/editUser/${user.id_usuario}?user=${criptedId}">
+                    <a id="Bt_editUser" class="btn btn-link text-dark px-3 mb-0" href="/vendedores/editUser/${user.id_usuario}?user=${tokenUser}">
                         <i class="material-icons text-sm me-2">edit</i>Edit
                     </a>
                 </div>
@@ -107,7 +106,7 @@ function displayFilteredItens(page) {
                     <span class="mt-2 text-xs">Zona: <span class="text-dark font-weight-bold ms-sm-2">${regiao}</span></span>
                 </div>
                 <div class="ms-auto text-end">
-                    <a id="Bt_editUser" class="btn btn-link text-dark px-3 mb-0" href="/vendedores/editUser/${user.id_usuario}?user=${criptedId}">
+                    <a id="Bt_editUser" class="btn btn-link text-dark px-3 mb-0" href="/vendedores/editUser/${user.id_usuario}?user=${tokenUser}">
                         <i class="material-icons text-sm me-2">edit</i>Edit
                     </a>
                 </div>

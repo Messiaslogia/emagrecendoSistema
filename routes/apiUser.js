@@ -5,6 +5,7 @@ const ApiControllerAdmin = require("../controller/ApiControllerUsuarios")
 
 router.get("/dellUser/:id", verifyToken, ApiControllerAdmin.dellUser);
 router.get("/clientesTotais", ApiControllerAdmin.clientesTotais);
+router.get("/userConsultEdit",  ApiControllerAdmin.infoUsuario)
 router.get("/userConsult", verifyToken,  ApiControllerAdmin.consultUser)
 router.get('/editUser/:id', verifyToken, ApiControllerAdmin.editIndex)
 router.get("/todosUsuarios", ApiControllerAdmin.allUsers);
