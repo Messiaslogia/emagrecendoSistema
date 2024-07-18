@@ -23,14 +23,27 @@ class ApiControllerPedidos {
             desconto: req.body.desconto.replace('R$ ', '').replace(',', '.'),
         };
 
-        axios.post(`${urls}addPedidos`, newPedido)
-            .then(resp => {
-                res.json(true);
-            })
-            .catch(err => {
-                console.log(err);
-                res.json(false);
-            })
+        if(req.query.funcao == 'true'){
+            // Criando pedido para outros usuários
+            axios.post(`${urls}addPedidos?admin=false`, newPedido) 
+                .then(resp => {
+                    res.json(true);
+                })
+                .catch(err => {
+                    console.log(err);
+                    res.json(false);
+                })
+        }else{
+            // Criando pedido via admin
+            axios.post(`${urls}addPedidos?admin=true`, newPedido)
+                .then(resp => {
+                    res.json(true);
+                })   
+                .catch(err => {
+                    console.log(err);
+                    res.json(false);
+                })  
+        };
     }
 
     allPedidos(req, res) {
@@ -200,17 +213,15 @@ class ApiControllerPedidos {
                 console.log(err);
                 res.json(false)
             })
-        // const idDistribuidor = req.query.idDistribuidor;
-        // console.log(idDistribuidor);
     }
 
     // VENDEDORES
     todosOsPedidosVendedor(req, res){
         const idVendedor = req.query.idDoVendedor;
+        
         axios.get(`${urls}todosPedidosVendedor?idDoVendedor=${idVendedor}`)
             .then(resp => {
                 res.json(resp.data)
-                // console.log(resp.data)
             })
             .catch(err => {
                 console.log(err);

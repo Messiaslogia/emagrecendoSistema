@@ -98,12 +98,12 @@ class VendedoresController {
     }
 
     efetuarPedido(req, res){
-        const idDoVendedor = req.query.user;
+        const idDoVendedor = cache.get(req.query.user);
         const idCripted = req.query.user;
         res.render('vendedores/pedidos/efetuarPedido', { idDoVendedor, idCripted });
     }
 
-    pedidosConcluidos(req, res){
+    pedidosConcluidos(req, res){ 
         const idDoVendedor = cache.get(req.query.user);
         console.log(idDoVendedor)
         const idCripted = req.query.user;

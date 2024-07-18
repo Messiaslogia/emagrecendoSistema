@@ -1,19 +1,17 @@
 const container_users = document.querySelector('#Container_Users');
 const url = "http://localhost:3030/apiPedidos/todosOsPedidosVendedor";
 const urlQUantidade = "http://localhost:200/vendedor/quantidadeTotalDosPedidos";
-const idDoVendedor = document.getElementById('idDoVendedor').value
-const div_pedidos_naoaprovados = document.querySelector('#Tabela_de_pedidos')
+const div_pedidos_naoaprovados = document.querySelector('#Tabela_de_pedidos');
+const idDoVendedor = document.getElementById('idDoVendedor').value;
 let itensPorPagina = 5;
 let status_pedido;
 let listPedidos;
 
 document.addEventListener('DOMContentLoaded', () => {
     adquirirListPedidos();
-
     setTimeout(() => {
         displayItens(1, 0);
         dellFunction();
-
     }, [800])
 });
 
@@ -46,6 +44,8 @@ function adquirirListPedidos() {
             return response.json();
         })
         .then(data => {
+            console.log(data)
+
             listPedidos = data;
         })
         .catch(err => {
@@ -55,9 +55,6 @@ function adquirirListPedidos() {
 
 // Paginação
 function paginas(page, arrayindex) {
-    
-    
-
     const pageCont = Math.ceil(listPedidos[arrayindex].length / itensPorPagina);
     const containerPagination = document.querySelector('#pag_navigation_input');
     containerPagination.innerHTML = '';
@@ -107,8 +104,6 @@ function displayItens(page, arrayindex) {
         
     } else {
         pageItens.map(pedido => {
-
-
             div_pedidos_naoaprovados.innerHTML += `
              <tr>
                  <td>
@@ -174,7 +169,6 @@ function displayItens(page, arrayindex) {
 
 function dellFunction() {
     let botoes_deletar_pedido = document.querySelectorAll('#Button_Deletar_Pedido');
-
 
     botoes_deletar_pedido.forEach(botao => {
         botao.addEventListener('click', (e) => {
@@ -287,7 +281,7 @@ function criarModal(numeração){
             </tr>`;
 
             quantidadeTotalInfo = [];
-            valorTotalInfo = []
+            valorTotalInfo = [];
             bt_modal.click();
         })
         .catch(err => {
@@ -301,7 +295,8 @@ function infoUser(id){
     let text_end = document.querySelector('#Text_Endereco');
 
     text_user.innerHTML = '';
-    text_end.innerHTML = ''
+    text_end.innerHTML = '';
+
     axios.post('http://localhost:200/users/usuarioInfo', {
         id: id
     })
