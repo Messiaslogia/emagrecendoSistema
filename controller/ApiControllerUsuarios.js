@@ -106,11 +106,9 @@ class ApiControllerUsuarios {
     }
 
     dellUser(req, res) {
-        let id_user = cache.get('id_gerente')
         let usuario = req.params.id;
 
 
-        if (id_user != null && id_user != '') {
             axios.post(`${urls}deleteUser`, {
                 id: usuario
             })
@@ -120,10 +118,6 @@ class ApiControllerUsuarios {
                 .catch(err => {
                     res.json(false)
                 })
-        } else {
-            console.log('Sem permição para deletar usuário')
-            res.json(false)
-        }
     }
 
     editIndex(req, res) {

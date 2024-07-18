@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     let id = document.querySelector('#idUser').value;
 
-    axios.get(`/api/userConsult?user=${id}`)
+    axios.get(`/api/userConsultEdit?idUser=${id}`)
         .then((result) => {
             let userData = result.data[0];
-            console.log(result.data[0]);
 
                 document.querySelector('#Name_input').value = userData.nome || '';
                 document.querySelector('#Email_input').value = userData.email || '';
