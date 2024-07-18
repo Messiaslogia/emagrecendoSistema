@@ -231,41 +231,52 @@
         <!-- End Navbar -->
 
         <div class="row justify-content-center">
-            <div class="col-md-10 bg-light mt-4">
-                <!-- Default form register -->
-                <form class="text-center border border-light p-5" enctype="application/x-www-form-urlencoded" action="/apiDividas/adicionarNovaDivida?user=<%= idUser %>" method="post" id="DividaForm">
-                    <p class="h4 mb-4">Nova Dívida</p>
+    <div class="col-md-10 bg-light mt-4">
+        <!-- Default form register -->
+        <form class="text-center border border-light p-5" enctype="application/x-www-form-urlencoded" action="/apiDividas/novaDivida" method="post" id="DividaForm">
+            <p class="h4 mb-4">Nova Dívida</p>
 
-                    <!-- Id da pessoa que registrou a divida -->
-                    <input id="id_user" type="text" name="idUser" style="display: none;" value="<%= idUser %>">
+            <!-- Id do usuário (pode ser mantido como está, desde que corresponda ao campo esperado na API) -->
+            <input id="id_user" type="hidden" name="id_user" value="<%= idUser %>">
 
-                    <!-- Nome da Dívida -->
-                    <input id="Nome_divida" type="text" name="nomeDivida" class="form-control mb-4 " placeholder="Nome da Dívida"
-                       required >
-                
-                    <!-- Descrição da Dívida -->
-                    <input id="Descricao_Divida" type="text" name="descricaoDivida" class="form-control mb-4"
-                        placeholder="Descrição da Dívida" required>
-                
-                    <!-- Valor da Dívida -->
-                    <input id="Valor_divida" type="text" name="valorDivida" class="form-control mb-4" placeholder="Valor da Dívida"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock" required>
-                
-                    <!-- Data inserida -->
-                    <input id="Data_produto" type="date" name="dataDivida" class="form-control mb-4" placeholder="Data"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock" required>
-                
-                    <!-- Horas inseridas -->
-                    <input id="Hora_produto" type="time" name="horaDivida" class="form-control mb-4" placeholder="Horas"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock" required>
-                
-                    <!-- Botão de Cadastro -->
-                    <button id="Bt_submit" class="btn btn btn-success my-4 btn-block" type="submit">Cadastrar</button>
-                </form>
+            <!-- Nome da Dívida -->
+            <input id="nomeDivida" type="text" name="nome" class="form-control mb-4" placeholder="Nome da Dívida" required>
 
+            <!-- Descrição da Dívida -->
+            <input id="descricaoDivida" type="text" name="descricao" class="form-control mb-4" placeholder="Descrição da Dívida" required>
 
-            </div>
-        </div>
+            <!-- Valor da Dívida -->
+            <input id="valorDivida" type="text" name="valor" class="form-control mb-4" placeholder="Valor da Dívida" required>
+
+            <!-- Data de início da Dívida -->
+            <input id="dataInicioDivida" type="date" name="data_inicio" class="form-control mb-4" placeholder="Data de Início" required>
+
+            <!-- Data de término da Dívida (opcional, dependendo do tipo de dívida) -->
+            <input id="dataFimDivida" type="date" name="data_fim" class="form-control mb-4" placeholder="Data de Término">
+
+            <!-- Tipo de Dívida -->
+            <select id="tipoDivida" class="form-control mb-4" name="tipo" required>
+                <option value="" selected disabled>Selecione o tipo de dívida</option>
+                <option value="esporadica">Esporádica</option>
+                <option value="fixa">Fixa</option>
+                <option value="parcelada">Parcelada</option>
+            </select>
+
+            <!-- Número de parcelas (opcional, para dívidas parceladas) -->
+            <input id="numParcelasDivida" type="number" name="num_parcelas" class="form-control mb-4" placeholder="Número de Parcelas">
+
+            <!-- Parcela atual (opcional, para dívidas parceladas) -->
+            <input id="parcelaAtualDivida" type="number" name="parcela_atual" class="form-control mb-4" placeholder="Parcela Atual">
+
+            <!-- Valor da parcela (opcional, para dívidas parceladas) -->
+            <input id="valorParcelaDivida" type="text" name="valor_parcela" class="form-control mb-4" placeholder="Valor da Parcela">
+
+            <!-- Botão de Cadastro -->
+            <button id="Bt_submit" class="btn btn-success my-4 btn-block" type="submit">Cadastrar</button>
+        </form>
+    </div>
+</div>
+
 
         <a href="/admin/dividas?user=<%= idUser %>" class="ms-3">
             <button type="button" class="btn font-weight-bolder text-white mt-5" style="background-color: #e91e63;">Voltar</button>
@@ -325,253 +336,7 @@
 
     <!-- <script src="../../javascripts_proprios/adicionarDivida.js"></script> -->
     
-    <script>
-        var ctx = document.getElementById("chart-bars").getContext("2d");
-
-        new Chart(ctx, {
-            type: "bar",
-            data: {
-                labels: ["M", "T", "W", "T", "F", "S", "S"],
-                datasets: [{
-                    label: "Sales",
-                    tension: 0.4,
-                    borderWidth: 0,
-                    borderRadius: 4,
-                    borderSkipped: false,
-                    backgroundColor: "rgba(255, 255, 255, .8)",
-                    data: [50, 20, 10, 22, 50, 10, 40],
-                    maxBarThickness: 6
-                },],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
-                    }
-                },
-                interaction: {
-                    intersect: false,
-                    mode: 'index',
-                },
-                scales: {
-                    y: {
-                        grid: {
-                            drawBorder: false,
-                            display: true,
-                            drawOnChartArea: true,
-                            drawTicks: false,
-                            borderDash: [5, 5],
-                            color: 'rgba(255, 255, 255, .2)'
-                        },
-                        ticks: {
-                            suggestedMin: 0,
-                            suggestedMax: 500,
-                            beginAtZero: true,
-                            padding: 10,
-                            font: {
-                                size: 14,
-                                weight: 300,
-                                family: "Roboto",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                            color: "#fff"
-                        },
-                    },
-                    x: {
-                        grid: {
-                            drawBorder: false,
-                            display: true,
-                            drawOnChartArea: true,
-                            drawTicks: false,
-                            borderDash: [5, 5],
-                            color: 'rgba(255, 255, 255, .2)'
-                        },
-                        ticks: {
-                            display: true,
-                            color: '#f8f9fa',
-                            padding: 10,
-                            font: {
-                                size: 14,
-                                weight: 300,
-                                family: "Roboto",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                },
-            },
-        });
-
-
-        var ctx2 = document.getElementById("chart-line").getContext("2d");
-
-        new Chart(ctx2, {
-            type: "line",
-            data: {
-                labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                datasets: [{
-                    label: "Mobile apps",
-                    tension: 0,
-                    borderWidth: 0,
-                    pointRadius: 5,
-                    pointBackgroundColor: "rgba(255, 255, 255, .8)",
-                    pointBorderColor: "transparent",
-                    borderColor: "rgba(255, 255, 255, .8)",
-                    borderColor: "rgba(255, 255, 255, .8)",
-                    borderWidth: 4,
-                    backgroundColor: "transparent",
-                    fill: true,
-                    data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
-                    maxBarThickness: 6
-
-                }],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
-                    }
-                },
-                interaction: {
-                    intersect: false,
-                    mode: 'index',
-                },
-                scales: {
-                    y: {
-                        grid: {
-                            drawBorder: false,
-                            display: true,
-                            drawOnChartArea: true,
-                            drawTicks: false,
-                            borderDash: [5, 5],
-                            color: 'rgba(255, 255, 255, .2)'
-                        },
-                        ticks: {
-                            display: true,
-                            color: '#f8f9fa',
-                            padding: 10,
-                            font: {
-                                size: 14,
-                                weight: 300,
-                                family: "Roboto",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                    x: {
-                        grid: {
-                            drawBorder: false,
-                            display: false,
-                            drawOnChartArea: false,
-                            drawTicks: false,
-                            borderDash: [5, 5]
-                        },
-                        ticks: {
-                            display: true,
-                            color: '#f8f9fa',
-                            padding: 10,
-                            font: {
-                                size: 14,
-                                weight: 300,
-                                family: "Roboto",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                },
-            },
-        });
-
-        var ctx3 = document.getElementById("chart-line-tasks").getContext("2d");
-
-        new Chart(ctx3, {
-            type: "line",
-            data: {
-                labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                datasets: [{
-                    label: "Mobile apps",
-                    tension: 0,
-                    borderWidth: 0,
-                    pointRadius: 5,
-                    pointBackgroundColor: "rgba(255, 255, 255, .8)",
-                    pointBorderColor: "transparent",
-                    borderColor: "rgba(255, 255, 255, .8)",
-                    borderWidth: 4,
-                    backgroundColor: "transparent",
-                    fill: true,
-                    data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-                    maxBarThickness: 6
-
-                }],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
-                    }
-                },
-                interaction: {
-                    intersect: false,
-                    mode: 'index',
-                },
-                scales: {
-                    y: {
-                        grid: {
-                            drawBorder: false,
-                            display: true,
-                            drawOnChartArea: true,
-                            drawTicks: false,
-                            borderDash: [5, 5],
-                            color: 'rgba(255, 255, 255, .2)'
-                        },
-                        ticks: {
-                            display: true,
-                            padding: 10,
-                            color: '#f8f9fa',
-                            font: {
-                                size: 14,
-                                weight: 300,
-                                family: "Roboto",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                    x: {
-                        grid: {
-                            drawBorder: false,
-                            display: false,
-                            drawOnChartArea: false,
-                            drawTicks: false,
-                            borderDash: [5, 5]
-                        },
-                        ticks: {
-                            display: true,
-                            color: '#f8f9fa',
-                            padding: 10,
-                            font: {
-                                size: 14,
-                                weight: 300,
-                                family: "Roboto",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                },
-            },
-        });
-    </script>
+    
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
