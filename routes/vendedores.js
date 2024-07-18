@@ -1,6 +1,7 @@
 const express = require('express');
 const  router = express.Router();
 const VendedoresController = require('../controller/VendedoresController');
+const verifyToken  = require("../controller/token");
 
 
 
@@ -28,7 +29,7 @@ router.get('/todosUsuariosVendedor', VendedoresController.todosUsuariosVendedor)
 router.get('/usuarioPedidos', VendedoresController.todosUsuariosVendedor);
 
 router.post('/addPedidos', VendedoresController.registrarPedidos);
-router.post('/adicionarVendas', VendedoresController.registrarVendas);
+router.post('/adicionarVendas', verifyToken, VendedoresController.registrarVendas);
 
 
 

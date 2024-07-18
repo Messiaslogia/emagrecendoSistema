@@ -12,7 +12,7 @@ const axios = require('axios') ;
 class VendedoresController {
 
     vendedorIndex(req, res){
-        const idDoVendedor = req.query.user;
+        const idDoVendedor = cache.get(req.query.user);
         const idCripted = req.query.user;
         res.render('vendedores/index', { idDoVendedor, idCripted });
     }
@@ -32,8 +32,6 @@ class VendedoresController {
     editUser(req, res) {
         const idCripted = req.query.user;
 
-        
-        
         let newUser = {
             id: req.params.id,
             nome: req.body.nome,
@@ -88,13 +86,13 @@ class VendedoresController {
     }
 
     vendas(req, res){
-        const idDoVendedor = req.query.user;
+        const idDoVendedor = cache.get(req.query.user);
         const idCripted = req.query.user;
         res.render('vendedores/vendas/index', { idDoVendedor, idCripted });
     }
 
     pedidos(req, res){
-        const idDoVendedor = req.query.user;
+        const idDoVendedor = cache.get(req.query.user);
         const idCripted = req.query.user;
         res.render('vendedores/pedidos/index', { idDoVendedor, idCripted });
     }
@@ -106,37 +104,38 @@ class VendedoresController {
     }
 
     pedidosConcluidos(req, res){
-        const idDoVendedor = req.query.user;
+        const idDoVendedor = cache.get(req.query.user);
+        console.log(idDoVendedor)
         const idCripted = req.query.user;
         res.render('vendedores/pedidos/pedidosConcluidos', { idDoVendedor, idCripted });
     }
 
     aprovarPedido(req, res){
-        const idDoVendedor = req.query.user;
+        const idDoVendedor = cache.get(req.query.user);
         const idCripted = req.query.user;
         res.render('vendedores/pedidos/aprovacao', { idDoVendedor, idCripted });
     }
 
     dividasGerais(req, res){
-        const idDoVendedor = req.query.user;
+        const idDoVendedor = cache.get(req.query.user);
         const idCripted = req.query.user;
         res.render('vendedores/vendas/dividasGerais', { idDoVendedor, idCripted });
     }
 
     vendasEfetuadas(req, res){
-        const idDoVendedor = req.query.user;
+        const idDoVendedor = cache.get(req.query.user);
         const idCripted = req.query.user;
         res.render('vendedores/vendas/vendasReais', { idDoVendedor, idCripted });
     }
 
     adicionarVendas(req, res){
-        const idDoVendedor = req.query.user;
+        const idDoVendedor = cache.get(req.query.user);
         const idCripted = req.query.user;
         res.render('vendedores/vendas/vendasReais/adicionarVenda', { idDoVendedor, idCripted });
     }
 
     registrarVendas(req, res){
-        const idCripted = req.query.user;
+        const idCripted = req.Id_User;
 
         let novaVenda = {
             idVendedor: req.body.idVendedor,
@@ -186,7 +185,7 @@ class VendedoresController {
     }
 
     adicionarDividasGerais(req, res){
-        const idDoVendedor = req.query.user;
+        const idDoVendedor = cache.get(req.query.user);
         const idCripted = req.query.user;
         res.render('vendedores/vendas/dividasGerais/adicionarVenda', { idDoVendedor, idCripted });
     }

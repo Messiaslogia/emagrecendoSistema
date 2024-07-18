@@ -43,7 +43,7 @@ class AdminController{
     }
 
     futurosClientes(req, res){
-        res.render('admin/usuarios/futurosClientes', {Id_User:req.id_User});
+        res.render('admin/usuarios/futurosClientes', {Id_User:req.Id_User});
     }
 
 

@@ -256,22 +256,6 @@
                         class="card-header pb-0 px-3 d-flex justify-content-between align-items-center mobile_cadHeader">
                         <h6 class="mb-0">Infomações dos Usuários</h6>
                         <div class="d-flex mobile_flex">
-                            <div class="dropdown" id="button_filtro">
-                                <button class="btn bg-gradient-primary dropdown-toggle" type="button"
-                                    id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Filtro
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li class="dropdown-item" onclick="filtro('Todos')">Todos</li>
-                                    <li class="dropdown-item" onclick="filtro('Afiliados')">Afiliados</li>
-                                    <li class="dropdown-item" onclick="filtro('Distribuidores')">Distribuidores</li>
-                                    <li class="dropdown-item" onclick="filtro('Vendedores')">Vendedores</li>
-                                    <li class="dropdown-item" onclick="filtro('Clientes')">Clientes</li>
-                                    <li class="dropdown-item" onclick="filtro('Representantes')">Representantes</li>
-                                    <li class="dropdown-item" onclick="filtro('AfiliadoRepresentante')">Afiliado do
-                                        Representante</li>
-                                </ul>
-                            </div>
                             <div>
                                 <a href="/admin/adicionarUsuario?user=<%= Id_User %>" class="ms-3">
                                     <button type="button" class="btn btn-primary btn-lg">Adicionar Usuários</button>

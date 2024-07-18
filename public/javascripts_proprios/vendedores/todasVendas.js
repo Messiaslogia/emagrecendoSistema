@@ -11,13 +11,13 @@ let tabela_pedidos = document.querySelector('#Tabela_modal');
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    adquirirListProdutos();
+    adquirirListVendas();
     setTimeout(() => {
         displayItens(1);
     }, [800]);
 });
 
-function adquirirListProdutos() {
+function adquirirListVendas() {
     axios.get(`${url}?idVendedor=${id_user}`)
         .then(resp => {
             listProduto = resp.data;
@@ -30,17 +30,20 @@ function adquirirListProdutos() {
 
 async function filtroUsers(){
    await listProduto.forEach((venda, index) => {
-        axios.post('http://localhost:200/users/usuarioInfo', {
+        axios.post('http://localhost:200/users/usuarioInfo?vendas=true', {
             id: venda.id_cliente_FK
         })
-            .then(resp => {listUser[venda.id_venda] = (resp.data)})
+            .then(resp => {
+                listUser[venda.id_venda] = (resp.data);
+                console.log(listUser)
+            })
     })
 }
 
 function paginas(page) {
     const pageCont = Math.ceil(listProduto.length / itensPorPagina);
     const containerPagination = document.querySelector('#pag_navigation_input');
-    containerPagination.innerHTML = ''
+    containerPagination.innerHTML = '';
 
     for (let i = 1; i <= pageCont; i++) {
         const activeClass = (i === page) ? 'bg-primary text-light' : '';
@@ -54,6 +57,7 @@ function displayItens(page) {
     let endIndex = startIndex + itensPorPagina;
     let reversePedidos = listProduto.slice().reverse();
     let pageItens = reversePedidos.slice(startIndex, endIndex);
+    
     // Exibindo os itens
     div_entregas.innerHTML = '';
 

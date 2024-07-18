@@ -1,13 +1,15 @@
-const url = "http://localhost:3030/apiDividas/todasDividas/";
+const url = "http://localhost:3030/apiDividas/todasDividas";
 const div_dividas = document.querySelector('#Tabela_de_dividas');
 const idCripted = document.querySelector('#Cripted').value;
+
 let id;
 let itensPorPagina = 5;
 let listProduto;
 let caseDividas;
 
 document.addEventListener('DOMContentLoaded', () => {
-    id = document.querySelector('#Id_User').value
+    id = document.querySelector('#Id_User').value;
+
     adquirirListProdutos();
     // caseDividas = document.querySelector('#Total_Dividas');
     setTimeout(() => {
@@ -18,12 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
 function adquirirListProdutos(){
     let valor = 0
 
-    axios.get(`${url}?IdUsuario=${id}`)
+    axios.get(`${url}?user=${idCripted}`)
         .then(resp => {
-            console.log(resp)
             listProduto = resp.data;
-
-            // caseDividas.innerHTML = `R$ ${valor.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`;
+            // caseDividas.innerHTML = `R$ ${valor}`;
         })
         .catch(err => {
             console.log(err);
@@ -44,6 +44,7 @@ function paginas(page) {
 function displayItens(page) {
     let startIndex = (page - 1) * itensPorPagina;
     let endIndex = startIndex + itensPorPagina;
+
     let reversePedidos = listProduto.slice().reverse();
     let pageItens = reversePedidos.slice(startIndex, endIndex);
 

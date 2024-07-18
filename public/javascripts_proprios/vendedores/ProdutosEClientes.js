@@ -1,6 +1,6 @@
 let urlProdutoseClientes = "http://localhost:200/vendedor/listaDeProdutosEClientes";
 let idVendedor = document.querySelector('#Id_user').value;
-let infoProduto
+let infoProduto;
 
 
 axios.get(`${urlProdutoseClientes}?idVendedor=${idVendedor}`)
