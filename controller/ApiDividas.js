@@ -49,6 +49,11 @@ class ApiControllerDividas {
         }
     };
 
+    addNovaDivida(req, res){
+        console.log(req.body);
+        return;
+    }
+
     adicionarDividaVendedor(req, res) {
         let data = new Date;
         let mes = data.getMonth() + 1;

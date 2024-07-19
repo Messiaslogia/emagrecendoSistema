@@ -17,6 +17,7 @@
     <link href="stylesheets/nucleo-svg.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/imask"></script>
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
@@ -231,51 +232,90 @@
         <!-- End Navbar -->
 
         <div class="row justify-content-center">
-    <div class="col-md-10 bg-light mt-4">
-        <!-- Default form register -->
-        <form class="text-center border border-light p-5" enctype="application/x-www-form-urlencoded" action="/apiDividas/novaDivida" method="post" id="DividaForm">
-            <p class="h4 mb-4">Nova Dívida</p>
+            <div class="col-md-10 bg-light mt-4">
+                <form class="text-center border border-light p-5" enctype="application/x-www-form-urlencoded" action="/apiDividas/addNovaDivida" method="post"
+                    id="DividaForm">
+                    <p class="h4 mb-4 text-center">Nova Dívida</p>
+        
+                    <input id="id_user" type="hidden" name="id_user" value="<%= idUser %>">
+        
+                    <!-- Tipo de Dívida -->
+                    <div class="form-row mb-2">
+                        <div class="col text-start">
+                            <div class="mb-3">
+                                <label for="tipoDivida">Tipo de Dívida</label>
+                                <select id="tipoDivida" class="form-control" name="tipo" required>
+                                    <option value="" selected disabled>Selecione o tipo de dívida</option>
+                                    <option value="1">Esporádica</option>
+                                    <option value="2">Fixa</option>
+                                    <option value="3">Parcelada</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Nome da Dívida -->
+                    <div class="form-row mb-2">
+                        <div class="col text-start">
+                            <div class="mb-3">
+                                <label for="nomeDivida">Nome da Dívida</label>
+                                <input id="nomeDivida" type="text" name="nome" class="form-control" placeholder="EX: Divida Cartão" required>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Descrição da Dívida -->
+                    <div class="form-row mb-2">
+                        <div class="col text-start">
+                            <div class="mb-3">
+                                <label for="descricaoDivida">Descrição da Dívida</label>
+                                <input id="descricaoDivida" type="text" name="descricao" class="form-control" placeholder="EX: Divida do ..."
+                                    required>
+                            </div>
+                        </div>
+                    </div>
+        
+                    
+                    <!-- Valor da Dívida -->
+                    <div class="form-row mb-2">
+                        <div class="col text-start">
+                            <div class="mb-3">
+                                <label for="valorDivida">Valor da Dívida</label>
+                                <input id="valorDivida" type="text" name="valor" class="form-control" placeholder="EX: R$50" required>
+                            </div>
+                        </div>
+                    </div>
 
-            <!-- Id do usuário (pode ser mantido como está, desde que corresponda ao campo esperado na API) -->
-            <input id="id_user" type="hidden" name="id_user" value="<%= idUser %>">
-
-            <!-- Nome da Dívida -->
-            <input id="nomeDivida" type="text" name="nome" class="form-control mb-4" placeholder="Nome da Dívida" required>
-
-            <!-- Descrição da Dívida -->
-            <input id="descricaoDivida" type="text" name="descricao" class="form-control mb-4" placeholder="Descrição da Dívida" required>
-
-            <!-- Valor da Dívida -->
-            <input id="valorDivida" type="text" name="valor" class="form-control mb-4" placeholder="Valor da Dívida" required>
-
-            <!-- Data de início da Dívida -->
-            <input id="dataInicioDivida" type="date" name="data_inicio" class="form-control mb-4" placeholder="Data de Início" required>
-
-            <!-- Data de término da Dívida (opcional, dependendo do tipo de dívida) -->
-            <input id="dataFimDivida" type="date" name="data_fim" class="form-control mb-4" placeholder="Data de Término">
-
-            <!-- Tipo de Dívida -->
-            <select id="tipoDivida" class="form-control mb-4" name="tipo" required>
-                <option value="" selected disabled>Selecione o tipo de dívida</option>
-                <option value="esporadica">Esporádica</option>
-                <option value="fixa">Fixa</option>
-                <option value="parcelada">Parcelada</option>
-            </select>
-
-            <!-- Número de parcelas (opcional, para dívidas parceladas) -->
-            <input id="numParcelasDivida" type="number" name="num_parcelas" class="form-control mb-4" placeholder="Número de Parcelas">
-
-            <!-- Parcela atual (opcional, para dívidas parceladas) -->
-            <input id="parcelaAtualDivida" type="number" name="parcela_atual" class="form-control mb-4" placeholder="Parcela Atual">
-
-            <!-- Valor da parcela (opcional, para dívidas parceladas) -->
-            <input id="valorParcelaDivida" type="text" name="valor_parcela" class="form-control mb-4" placeholder="Valor da Parcela">
-
-            <!-- Botão de Cadastro -->
-            <button id="Bt_submit" class="btn btn-success my-4 btn-block" type="submit">Cadastrar</button>
-        </form>
-    </div>
-</div>
+                    <!-- Data de início da Dívida -->
+                    <div class="form-row mb-2" id="divDataInicio">
+                        <div class="col text-start">
+                            <div class="mb-3">
+                                <label for="dataInicioDivida">Data de Início da Dívida</label>
+                                <input id="dataInicioDivida" type="text" name="data_inicio" class="form-control" placeholder="EX: 01/09/1998">
+                            </div>
+                        </div>
+                    </div>
+        
+                    
+                    
+        
+                    <!-- Número de parcelas (opcional, para dívidas parceladas) -->
+                    <div class="form-row mb-2" id="divParcelasDivida">
+                        <div class="col text-start">
+                            <div class="mb-3">
+                                <label for="numParcelasDivida">Número de Parcelas</label>
+                                <input id="numParcelasDivida" type="number" name="num_parcelas" class="form-control" placeholder="EX: 3"
+                                    min="1" max="12">
+                                <small id="parcelasHelp" class="form-text text-muted">O número de parcelas deve estar entre 1 e 12.</small>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Botão de Cadastro -->
+                    <button id="Bt_submit" class="btn btn-success my-4 btn-block" type="submit">Cadastrar</button>
+                </form>
+            </div>
+        </div>
 
 
         <a href="/admin/dividas?user=<%= idUser %>" class="ms-3">
@@ -300,31 +340,7 @@
             </div>
         </footer>
     </main>
-    <!-- Data já preenchidas -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const dataInput = document.getElementById('Data_produto');
-            const horaInput = document.getElementById('Hora_produto');
-
-            const dataAtual = new Date();
-
-            const ano = dataAtual.getFullYear();
-            const mes = String(dataAtual.getMonth() + 1).padStart(2, '0');
-            const dia = String(dataAtual.getDate()).padStart(2, '0');
-            const dataFormatada = `${ano}-${mes}-${dia}`;
-
-            const hora = String(dataAtual.getHours()).padStart(2, '0');
-            const minutos = String(dataAtual.getMinutes()).padStart(2, '0');
-
-            const horaFormatada = `${hora}:${minutos}`;
-
-            dataInput.value = dataFormatada;
-            horaInput.value = horaFormatada;
-        });
-    </script>
-
-
-
+    
 
     <!--   Core JS Files   -->
     <script src="../../javascripts/core/popper.min.js"></script>
@@ -334,9 +350,6 @@
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <!-- <script src="../../javascripts_proprios/adicionarDivida.js"></script> -->
-    
-    
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -346,6 +359,72 @@
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
     </script>
+
+    <!--Mostra inputs das Parcelas  -->
+    <script>
+        // Máscara para o campo "Valor"
+        IMask(
+            document.getElementById('valorDivida'),
+            {
+                mask: 'R$ num',
+                blocks: {
+                    num: {
+                        mask: Number,
+                        thousandsSeparator: '.',
+                        padFractionalZeros: true,
+                        radix: ',',
+                        scale: 2,
+                        normalizeZeros: true,
+                        integerDigits: 10,
+                        max: 9999999999
+                    }
+                }
+            }
+        );
+
+        // Máscara para o campo "Data"
+        IMask(
+            document.getElementById('dataInicioDivida'),
+            {
+                mask: '00/00/0000',
+                blocks: {
+                    '0': {
+                        mask: IMask.MaskedRange,
+                        from: 0,
+                        to: 9
+                    },
+                    '00': {
+                        mask: IMask.MaskedRange,
+                        from: 0,
+                        to: 31
+                    },
+                    '0000': {
+                        mask: IMask.MaskedRange,
+                        from: 2000,
+                        to: 2100
+                    }
+                }
+            }
+        );
+
+        let tipoDivida = document.getElementById('tipoDivida');
+        let divDataInicio = document.getElementById('divDataInicio');
+        let divParcelasDivida = document.getElementById('divParcelasDivida');
+
+        divDataInicio.style.display = "none";
+        divParcelasDivida.style.display = "none";
+
+        tipoDivida.addEventListener('change', () => {
+            if (tipoDivida.value === "3") { 
+                divDataInicio.style.display = "block";
+                divParcelasDivida.style.display = "block";
+            } else {
+                divDataInicio.style.display = "none";
+                divParcelasDivida.style.display = "none";
+            }
+        });
+    </script>
+
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
