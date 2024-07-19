@@ -27,4 +27,22 @@
         padding: 0% !important;
         padding: 3.3vw 2vw !important;
     }
+
+    .mobile_cadHeader{
+        display: block !important;
+    }
+
+    .mobile_cadHeader button{
+        padding: 10% 5% !important;
+        font-size: 3vw !important;
+    }
+
+    .mobile_flex div{
+        margin: 2% 5%;
+    }
+
+    #dropdownMenuButton{
+        padding: 0% !important;
+        padding: 5% 5% !important;
+    }
 }

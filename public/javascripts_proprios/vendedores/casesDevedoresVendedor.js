@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     axios.get(`${urlCases}?idVendedor=${id_distribuidor}`)
         .then(resp => {
-            document.querySelector('#Valor_d_Divida').innerHTML = `R$ ${resp.data[0].toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`;
+            document.querySelector('#Valor_d_Divida').innerHTML = `R$ ${resp.data[0]}`;
             document.querySelector('#Quantidade_D_Devedores').innerHTML = `${resp.data[1]}`;
         })  
         .catch(err => {

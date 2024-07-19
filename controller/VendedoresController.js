@@ -105,7 +105,6 @@ class VendedoresController {
 
     pedidosConcluidos(req, res){ 
         const idDoVendedor = cache.get(req.query.user);
-        console.log(idDoVendedor)
         const idCripted = req.query.user;
         res.render('vendedores/pedidos/pedidosConcluidos', { idDoVendedor, idCripted });
     }
@@ -191,13 +190,13 @@ class VendedoresController {
     }
 
     dividasPedidos(req, res){
-        const idDoVendedor = req.query.user;
+        const idDoVendedor = cache.get(req.query.user);
         const idCripted = req.query.user;
         res.render('vendedores/vendas/dividasPedidos', { idDoVendedor, idCripted });
     }
 
     entregasConcluidas(req, res){
-        const idDoVendedor = req.query.user;
+        const idDoVendedor = cache.get(req.query.user);
         const idCripted = req.query.user;
         res.render('vendedores/vendas/entregasConcluidas', { idDoVendedor, idCripted });
     }

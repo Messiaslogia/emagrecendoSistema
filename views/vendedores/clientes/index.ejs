@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="../../path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="../../stylesheets/style.css">
+    <link rel="stylesheet" href="../../stylesheets/mobile/user_view/index.css">
     
 </head>
 
@@ -227,7 +228,7 @@
                 <div class="card">
                     <div class="card-header pb-0 px-3 d-flex justify-content-between align-items-center mobile_cadHeader">
                         <h6 class="mb-0">Informações dos Clientes</h6>
-                        <div class="d-flex">
+                        <div class="d-flex mobile_flex">
                             <div class="dropdown me-3" id="button_filtro">
                                 <button class="btn bg-gradient-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -239,7 +240,7 @@
                                     <li class="dropdown-item" onclick="filtro('Futuros Clientes')">Futuros Clientes</li>
                                 </ul>
                             </div>
-                            <a href="/vendedores/adicionarUsuario?user=<%= idCripted %>">
+                            <a href="/vendedores/adicionarUsuario?user=<%= idCripted %>" class="ms-3">
                                 <button type="button" class="btn btn-primary btn-lg">Adicionar Usuários</button>
                             </a>
                         </div>

@@ -30,6 +30,7 @@ function adquirirListProdutos(){
         })
         .then( data => {
             allPedidos = data;
+            console.log(allPedidos)
         })
         .catch( err => {
             console.log(err)

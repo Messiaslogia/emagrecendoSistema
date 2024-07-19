@@ -16,12 +16,9 @@ let filtroButton = document.querySelectorAll('#dropdownMenuButton');
 
 document.addEventListener('DOMContentLoaded', () => {
     adquirirListProdutos();
-
     setTimeout(() => {
         displayItens( 1, 0 );
-        dellFunction();
-
-       
+        dellFunction();  
     }, [300])
 });
 

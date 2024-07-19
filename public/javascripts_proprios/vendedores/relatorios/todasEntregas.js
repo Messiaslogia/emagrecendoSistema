@@ -21,6 +21,7 @@ function adquirirListProdutos() {
     axios.get(`${url}?idVendedor=${id_user}`)
         .then(resp => {
             listProduto = resp.data;
+            console.log(listProduto)
         })
         .catch(err => {
             console.log(err);

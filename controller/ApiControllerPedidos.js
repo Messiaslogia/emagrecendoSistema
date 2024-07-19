@@ -220,7 +220,7 @@ class ApiControllerPedidos {
         const idVendedor = req.query.idDoVendedor;
         
         axios.get(`${urls}todosPedidosVendedor?idDoVendedor=${idVendedor}`)
-            .then(resp => {
+            .then(resp => { 
                 res.json(resp.data)
             })
             .catch(err => {
