@@ -21,6 +21,19 @@ class ApiControllerDividas {
             })
     };
 
+    todasDividasAdmin(req, res){
+        let id_User = cache.get(`${req.Id_User}`)
+
+        axios.get(`${urls}todasDividasAdmin?IdUser=${id_User}`)
+            .then(resp => {
+                res.json(resp.data);
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false);
+            })
+    };
+
     adicionarDivida(req, res) {
         let data = new Date;
         let mes = data.getMonth() + 1;
