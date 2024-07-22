@@ -50,8 +50,28 @@ class ApiControllerDividas {
     };
 
     addNovaDivida(req, res){
-        console.log(req.body);
-        return;
+
+        try {
+            let novoPedido = {
+                id_user: cache.get(req.Id_User),
+                tipo: req.body.tipo,
+                nome: req.body.nome,
+                descricao: req.body.descricao,
+                valor: req.body.valor,
+                data_inicio: req.body.data_inicio,
+                num_parcelas: req.body.num_parcelas
+            }
+            axios.post(`${urls}novaDividaAdmin`, novoPedido)
+                .then(resp => {
+                    res.redirect(`/admin/dividas?user=${req.Id_User}`);
+                })
+                .catch(err =>{
+                    console.log(err)
+                })
+        } catch (error) {
+            console.log(error)
+        }
+        
     }
 
     adicionarDividaVendedor(req, res) {

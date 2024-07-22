@@ -7,7 +7,7 @@ let caseDividas;
 
 document.addEventListener('DOMContentLoaded', () => {
     id = document.querySelector('#Id_User').value
-    console.log('cu')
+    console.log(id);
     adquirirListProdutos();
     caseDividas = document.querySelector('#Total_Dividas');
     setTimeout(() => {
