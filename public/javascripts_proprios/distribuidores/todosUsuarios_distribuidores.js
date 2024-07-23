@@ -1,6 +1,7 @@
 const container_users = document.querySelector('#Container_Users');
 const inputDistribuidor = document.querySelector('#idDistribuidor');
-const idCripted = document.querySelector('#idUser').value;
+const idDistribuidor = document.querySelector('#idUser').value;
+const idCripted = document.querySelector('#idUserCripter').value;
 
 
 const url = "http://localhost:3030/distribuidor/todosUsuariosDistribuidores";
@@ -14,10 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function adquirirListsUsers() {
-    const idDistribuidor = inputDistribuidor.value
     axios.get(`${url}?idDistribuidor=${idDistribuidor}`)
         .then(data => {
-            console.log(data.data)
+            console.log(data.data);
             listUsuarios = data.data;
             setTimeout(() => {
                 displayItens(1, 0)

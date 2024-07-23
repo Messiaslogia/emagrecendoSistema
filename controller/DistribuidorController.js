@@ -8,43 +8,43 @@ const { ecryptedIdUser, decryptUserId } = require('../configs/cripto');
 class DistribuidorController{
 
     distribuidorIndex(req, res){
-        let idDoDistribuidor = req.query.user;
-        let idCripted = req.query.user;
+        let idDoDistribuidor = cache.get(req.Id_User);
+        let idCripted = req.Id_User;
         res.render('distribuidores/index', { idDoDistribuidor, idCripted });
     }
 
     usuarios(req, res){
-        let idDoDistribuidor = req.query.user;
-        let idCripted = req.query.user;
+        let idDoDistribuidor = cache.get(req.Id_User);
+        let idCripted = req.Id_User;
         res.render('distribuidores/usuarios/index', { idDoDistribuidor, idCripted });
     }
 
     vendas(req, res){
-        let idDoDistribuidor = req.query.user;
-        let idCripted = req.query.user;
+        let idDoDistribuidor = cache.get(req.Id_User);
+        let idCripted = req.Id_User;
         res.render('distribuidores/vendas/index', { idDoDistribuidor, idCripted });
     }
 
     pedidos(req, res){
-        let idDoDistribuidor = req.query.user;
-        let idCripted = req.query.user;
+        let idDoDistribuidor = cache.get(req.Id_User);
+        let idCripted = req.Id_User;
         res.render('distribuidores/pedidos/index', { idDoDistribuidor, idCripted });
     }
 
     adicionarUsuario(req, res){
-        let idDoDistribuidor = req.query.user;
-        let idCripted = req.query.user;
+        let idDoDistribuidor = cache.get(req.Id_User);
+        let idCripted = req.Id_User;
         res.render('distribuidores/usuarios/adicionarUsuario',{idDoDistribuidor, idCripted});
     }
 
     adicionarVenda(req, res){
-        let idDoDistribuidor = req.query.user;
-        let idCripted = req.query.user;
+        let idDoDistribuidor = cache.get(req.Id_User);
+        let idCripted = req.Id_User;
         res.render('distribuidores/vendas/realVendas/adicionarVenda',{idDoDistribuidor, idCripted});
     }
 
     adicionarVendaPost(req, res){
-        const idCripted = req.query.user;
+        const idCripted = req.Id_User;
 
         let novaVenda = {
             idDistribuidor: req.body.idDistribuidor,
@@ -69,56 +69,57 @@ class DistribuidorController{
     }
 
     adicionarDividaGeral(req, res){
-        let idDoDistribuidor = req.query.user;
-        let idCripted = req.query.user;
+        let idDoDistribuidor = cahce.get(req.Id_User);
+        let idCripted = req.Id_User;
         res.render('distribuidores/vendas/registrarVenda/adicionarVenda',{idDoDistribuidor, idCripted});
     }
 
     efetuarPedido(req, res){
-        let idDoDistribuidor = req.query.user;
-        let idCripted = req.query.user;
+        let idDoDistribuidor = cache.get(req.Id_User);
+        let idCripted = req.Id_User;
         res.render('distribuidores/pedidos/efetuarPedido/index', { idDoDistribuidor, idCripted });
 
     }
 
     pedidosConcluidos(req, res){
-        let idDoDistribuidor = req.query.user;
-        let idCripted = req.query.user;
+        let idDoDistribuidor = cache.get(req.Id_User);
+        let idCripted = req.Id_User;
         res.render('distribuidores/pedidos/pedidosConcluidos/index', { idDoDistribuidor, idCripted });
     }
 
     aprovarPedido(req, res){
-        let idDoDistribuidor = req.query.user;
-        let idCripted = req.query.user;
+        let idDoDistribuidor = cache.get(req.Id_User);
+        let idCripted = req.Id_User;
         res.render('distribuidores/pedidos/aprovacao/index', { idDoDistribuidor, idCripted });
     }
 
     indexVendas(req, res){
-        let idDoDistribuidor = req.query.user;
-        let idCripted = req.query.user;
+        let idDoDistribuidor = cache.get(req.Id_User);
+        let idCripted = req.Id_User;
         res.render('distribuidores/vendas/realVendas', { idDoDistribuidor, idCripted });
     }
 
     vendasEfetuadas(req, res){
-        var idUser = req.query.user;
-        let idCripted = req.query.user;
+        var idUser = cache.get(req.Id_User);
+        let idCripted = req.Id_User;
         res.render('distribuidores/vendas/registrarVenda/index', { idUser, idCripted });
     }
 
     dividasPedidos(req, res){
-        var idUser = req.query.user;
-        let idCripted = req.query.user;
+        var idUser = cache.get(req.Id_User);
+        let idCripted = req.Id_User;
         res.render('distribuidores/vendas/dividasPedidos/index', { idUser, idCripted });
     }
 
     entregasConcluidas(req, res){
-        var idUser = req.query.user;
-        let idCripted = req.query.user;
+        var idUser = cache.get(req.Id_User);
+        let idCripted = req.Id_User;
         res.render('distribuidores/vendas/entregasConcluidas/index', { idUser, idCripted });
     }
 
     todosRepresentantes(req, res) {
         const idDistribuidor = req.query.idDistribuidor; 
+
         axios.get(`${urls}todosRepresentantes?idDistribuidor=${idDistribuidor}`)
             .then(resp => {
                 let data = resp.data;
@@ -158,12 +159,13 @@ class DistribuidorController{
 
     editIndex(req, res){
         const id = req.params.id
-        const idCripted = req.query.user;
+        const idCripted = req.Id_User;
         res.render('distribuidores/usuarios/editarUsuario', { id, idCripted })
     }
 
     editUser(req, res) {
-        const idCripted = req.query.user; 
+        const idCripted = req.Id_User; 
+
         const newUser = {
             id: req.params.id,
             nome: req.body.nome,
@@ -180,22 +182,19 @@ class DistribuidorController{
             face: req.body.facebooks,
         };
 
-        console.log(newUser)
-
-            axios.post(`${urls}editUser`, newUser)
-                .then(resp => {
-                    console.log('truco')
-                    res.redirect(`/distribuidor/usuarios?user=${idCripted}`)
-                })
-                .catch(err => {
-                    console.log(err);
-                    res.json(false)
-                })
+        axios.post(`${urls}editUser`, newUser)
+            .then(resp => {
+                res.redirect(`/distribuidor/usuarios?user=${idCripted}`)
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false)
+            })
     }
 
     dellUser(req, res) {
         const usuario = req.params.id;
-        const idCripted = req.query.user;
+        const idCripted = req.Id_User;
 
         axios.post(`http://localhost:200/users/deleteUser`, {
             id: usuario

@@ -2,15 +2,11 @@
 const url = "http://localhost:3030/distribuidor/todosRepresentantes";
 const div_produtos = document.getElementById('Representante_input');
 const inputDistribuidor = document.getElementById('idDistribuidor');
-
 const valorDistribuidor = inputDistribuidor.value;
-
-console.log(valorDistribuidor)
 
 document.addEventListener('DOMContentLoaded', () => {
     listaRepresentantes(valorDistribuidor);
 });
-
 
 
 function listaRepresentantes(valorDistribuidor) {

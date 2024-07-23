@@ -5,31 +5,31 @@ const verifyToken  = require("../controller/token");
 
 
 
-router.get('', VendedoresController.vendedorIndex);
-router.get('/clientes', VendedoresController.clientes);
-router.get('/futurosUsuarios', VendedoresController.futurosClientes);
-router.get('/vendas', VendedoresController.vendas);
-router.get('/pedidos', VendedoresController.pedidos);
-router.get('/efetuarPedido', VendedoresController.efetuarPedido);
-router.get('/pedidosConcluidos', VendedoresController.pedidosConcluidos);
-router.get('/aprovarPedido', VendedoresController.aprovarPedido);
-router.get('/dividasGeraisVendedor', VendedoresController.dividasGerais)
-router.get('/vendasEfetuadas', VendedoresController.vendasEfetuadas);
-router.get('/dividasPedidos', VendedoresController.dividasPedidos);
-router.get('/entregasConcluidas', VendedoresController.entregasConcluidas);
-router.get('/dellUser/:id', VendedoresController.dellCliente)
+router.get('', verifyToken, VendedoresController.vendedorIndex);
+router.get('/clientes', verifyToken, VendedoresController.clientes);
+router.get('/futurosUsuarios', verifyToken, VendedoresController.futurosClientes);
+router.get('/vendas', verifyToken, VendedoresController.vendas);
+router.get('/pedidos', verifyToken, VendedoresController.pedidos);
+router.get('/efetuarPedido', verifyToken, VendedoresController.efetuarPedido);
+router.get('/pedidosConcluidos', verifyToken, VendedoresController.pedidosConcluidos);
+router.get('/aprovarPedido', verifyToken, VendedoresController.aprovarPedido);
+router.get('/dividasGeraisVendedor', verifyToken, VendedoresController.dividasGerais)
+router.get('/vendasEfetuadas', verifyToken, VendedoresController.vendasEfetuadas);
+router.get('/dividasPedidos', verifyToken, VendedoresController.dividasPedidos);
+router.get('/entregasConcluidas', verifyToken, VendedoresController.entregasConcluidas);
+router.get('/dellUser/:id', verifyToken, VendedoresController.dellCliente)
 
-router.get('/editUser/:id', VendedoresController.editIndex);
-router.post("/edit/:id", VendedoresController.editUser);
+router.get('/editUser/:id', verifyToken, VendedoresController.editIndex);
+router.post("/edit/:id", verifyToken, VendedoresController.editUser);
 
-router.get('/adicionarUsuario', VendedoresController.adicionarUsuario);
-router.get('/adiconarVendas', VendedoresController.adicionarVendas);
-router.get('/adiconarDividasGerais', VendedoresController.adicionarDividasGerais);
-router.get('/todosUsuariosVendedor', VendedoresController.todosUsuariosVendedor);
-router.get('/usuarioPedidos', VendedoresController.todosUsuariosVendedor);
+router.get('/adicionarUsuario', verifyToken,  VendedoresController.adicionarUsuario);
+router.get('/adiconarVendas', verifyToken, VendedoresController.adicionarVendas);
+router.get('/adiconarDividasGerais', verifyToken, VendedoresController.adicionarDividasGerais);
+router.get('/todosUsuariosVendedor', verifyToken, VendedoresController.todosUsuariosVendedor);
+router.get('/usuarioPedidos', verifyToken, VendedoresController.todosUsuariosVendedor);
 
-router.post('/addPedidos', VendedoresController.registrarPedidos);
-router.post('/adicionarVendas', verifyToken, VendedoresController.registrarVendas);
+router.post('/addPedidos', verifyToken, VendedoresController.registrarPedidos);
+router.post('/adicionarVendas', verifyToken, verifyToken, VendedoresController.registrarVendas);
 
 
 
