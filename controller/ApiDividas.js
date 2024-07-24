@@ -26,6 +26,8 @@ class ApiControllerDividas {
 
         axios.get(`${urls}todasDividasAdmin?IdUser=${id_User}`)
             .then(resp => {
+                console.log(resp.data)
+                return
                 res.json(resp.data);
             })
             .catch(err => {
