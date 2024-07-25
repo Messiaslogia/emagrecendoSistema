@@ -1,4 +1,4 @@
-const url = "http://localhost:3030/apiDividas/todasDividasAdmin/";
+const url = "http://localhost:3030/apiDividas/dividasAdmin/";
 const div_dividas = document.querySelector('#Tabela_de_dividas');
 let id;
 let itensPorPagina = 5;
@@ -6,8 +6,7 @@ let listProduto = [];
 let caseDividas;
 
 document.addEventListener('DOMContentLoaded', () => {
-    id = document.querySelector('#Id_User').value;
-    console.log(id);
+    id = document.getElementById('Id_User').value;
     adquirirListProdutos();
     caseDividas = document.querySelector('#Total_Dividas');
     setTimeout(() => {
@@ -17,24 +16,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function adquirirListProdutos() {
     let valor = 0;
-
-    axios.get(`${url}?IdUser=${id}`)
+    axios.get(`http://localhost:3030/apiDividas/dividasAdmin/?user=${id}`)
         .then(resp => {
+            console.log("Resposta do front:", resp.data);
             if (resp.data && resp.data.dividas) {
-                console.log(resp.data);
-                return // Verifique a estrutura dos dados retornados
                 listProduto = resp.data.dividas;
                 listProduto.forEach(element => {
-                    valor += parseFloat(element.valor);
+                    valor += parseFloat(element.valor_total || element.valor);  // Adicionei 'valor_total' para considerar as dívidas parceladas
                 });
                 caseDividas.innerHTML = `R$ ${valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
                 displayItens(1); // Exibir os itens após carregar os dados
             } else {
-                console.error('Dados de resposta inesperados', resp.data);
+                console.error('Dados de resposta inesperados');
+                div_dividas.innerHTML = '<tr><td colspan="5" class="text-center">Nenhuma dívida encontrada</td></tr>';
             }
         })
         .catch(err => {
             console.log(err);
+            div_dividas.innerHTML = '<tr><td colspan="5" class="text-center">Erro ao carregar dívidas</td></tr>';
         });
 };
 
@@ -68,12 +67,12 @@ function displayItens(page) {
                 <td>
                     <div class="d-flex px-2 py-1">
                         <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">${divida.nome}</h6>
+                            <h6 class="mb-0 text-sm">${divida.nome || divida.id_divida_parcelada}</h6>  <!-- Ajustado para exibir nome ou id_divida_parcelada -->
                         </div>
                     </div>
                 </td>
                 <td class="text-center">
-                    <p class="text-xs font-weight-bold mb-0">R$ ${divida.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                    <p class="text-xs font-weight-bold mb-0">R$ ${(divida.valor || divida.valor_total).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>  <!-- Ajustado para exibir valor ou valor_total -->
                 </td>
                 <td class="align-middle text-center text-sm">
                     <span class="">${new Date(divida.data_inicio).toLocaleDateString('pt-BR')}</span>

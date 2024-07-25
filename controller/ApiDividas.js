@@ -9,6 +9,7 @@ const urls = "http://localhost:200/dividas/"
 
 class ApiControllerDividas {
     dividasTotais(req, res) {
+        console.log("Teste dividas")
         let id_User = cache.get(`${req.Id_User}`)
 
         axios.get(`${urls}todasDividas?IdUser=${id_User}`)
@@ -21,20 +22,18 @@ class ApiControllerDividas {
             })
     };
 
-    todasDividasAdmin(req, res){
-        let id_User = cache.get(`${req.Id_User}`)
-
+    dividasAdmin(req, res) {
+        let id_User = cache.get(`${req.Id_User}`);
         axios.get(`${urls}todasDividasAdmin?IdUser=${id_User}`)
             .then(resp => {
-                console.log(resp.data)
-                return
+                console.log(resp.data);  // Certifique-se de que os dados estão sendo recebidos corretamente
                 res.json(resp.data);
             })
             .catch(err => {
                 console.log(err);
-                res.json(false);
-            })
-    };
+                res.status(500).json({ error: "Erro ao obter dados das dívidas." });
+            });
+    }
 
     adicionarDivida(req, res) {
         let data = new Date;

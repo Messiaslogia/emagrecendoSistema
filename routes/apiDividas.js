@@ -10,16 +10,15 @@ const ApiControllerDividas = require("../controller/ApiDividas");
 const upload = multer();
 
 router.get('/todasDividas', verifyToken, ApiControllerDividas.dividasTotais);
-router.get('/todasDividasAdmin', verifyToken, ApiControllerDividas.todasDividasAdmin);
+router.get('/dividasAdmin', verifyToken, ApiControllerDividas.dividasAdmin);
 router.get('/deletarDivida/:id', verifyToken, ApiControllerDividas.deletarDivida);
-router.get('/deletarDividaDistribuidor/:id',  ApiControllerDividas.deletarDividaDistribuidor);
+router.get('/deletarDividaDistribuidor/:id', ApiControllerDividas.deletarDividaDistribuidor);
 router.get('/deletarDividaVendedor/:id', ApiControllerDividas.deletarDividaVendedor);
 
 router.get("/editarDividaForm/:id", verifyToken, ApiControllerDividas.editarDividaForm);
 router.get("/editarDividaFormDistribuidor/:id", ApiControllerDividas.editarDividaFormDistribuidor);
 router.get("/editarDividaFormVendedor/:id", ApiControllerDividas.editarDividaFormVendedor);
 router.get("/consultarDivida/:id", ApiControllerDividas.consultarDivida);
-
 
 router.post('/adicionarNovaDivida', verifyToken, ApiControllerDividas.adicionarDivida);
 router.post('/addNovaDivida', verifyToken, ApiControllerDividas.addNovaDivida);
