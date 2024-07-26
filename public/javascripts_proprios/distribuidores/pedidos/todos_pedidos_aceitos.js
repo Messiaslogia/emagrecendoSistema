@@ -1,5 +1,5 @@
-const container_users = document.querySelector('#Container_Users');
 const url = "http://localhost:3030/apiPedidos/pedidosAprovadosDistribuidor";
+const container_users = document.querySelector('#Container_Users');
 const idDistribuidor = document.getElementById('idDistribuidor').value;
 console.log(idDistribuidor);
 
@@ -21,8 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         displayItens( 1, 0 );
         dellFunction();
-
-       
     }, [300])
 });
 
@@ -103,7 +101,7 @@ function displayItens(page, arrayindex){
                     </td>
 
                     <td class="align-middle text-center text-sm text-center">
-                        <p class="text-xs font-weight-bold mb-0 text-center">${pedido.valor}</p>
+                        <p class="text-xs font-weight-bold mb-0 text-center">${pedido.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                     </td>
                     
                     <td class="align-middle text-center">
@@ -132,7 +130,7 @@ function displayItens(page, arrayindex){
                     </td>
 
                     <td class="align-middle text-center text-sm text-center">
-                        <p class="text-xs font-weight-bold mb-0 text-center">${pedido.valor}</p>
+                        <p class="text-xs font-weight-bold mb-0 text-center">${pedido.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                     </td>
                     
                     <td class="align-middle text-center">

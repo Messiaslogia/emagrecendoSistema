@@ -1,6 +1,6 @@
+const url = `http://localhost:200/distribuidores/todosDevedores`;
 const container_users = document.querySelector('#Container_Users');
-const id = document.querySelector('#Id_User').value
-const url = `http://localhost:200/distribuidores/todosDevedores?idDistribuidor=${id}`;
+const id = document.querySelector('#Id_User').value;
 let itensPorPagina = 5;
 var devedores;
 
@@ -17,17 +17,16 @@ let filtroButton = document.querySelectorAll('#dropdownMenuButton');
 document.addEventListener('DOMContentLoaded', () => {
     RequisitandoDevedores();
     setTimeout(() => {
-        todosOsVendedores(1)
+        todosOsVendedores(1);
     }, 300);
 })
 function RequisitandoDevedores(){
-    axios.get(`${url}`)
+    axios.get(`${url}?idDistribuidor=${id}`)
         .then(resp => {
             devedores = resp.data;
-            console.log(devedores);
         })
         .catch(err => {
-            console.log(err)
+            console.log(err);
         })
 }
 
@@ -46,7 +45,7 @@ function todosOsVendedores(page){
     let inicio = (page - 1) * itensPorPagina;
     let final = inicio + itensPorPagina;
     let ordemDosDevedores = devedores.slice().reverse() || devedores;
-    let pageDevedor = ordemDosDevedores.slice(inicio, final)
+    let pageDevedor = ordemDosDevedores.slice(inicio, final);
 
     div_Devedores.innerHTML = '';
     pageDevedor.map(devedor => {
@@ -75,7 +74,7 @@ function todosOsVendedores(page){
              </tr>
          `
                          
-    })
+    });
 
     setTimeout(() => {
         let bt_produtos = document.querySelectorAll('#Info_pedidos');
@@ -86,14 +85,13 @@ function todosOsVendedores(page){
                 criarModal(number_pedido);
             })
         })
-    }, [300])
+    }, [300]);
 
     paginas(page);
 }
 
 function statusAlt() {
     let status_pedido = document.querySelectorAll('#Pedido_input');
-
 
     status_pedido.forEach(pedido => {
         pedido.addEventListener('change', (e) => {
@@ -109,8 +107,8 @@ function statusAlt() {
                 .catch(err => {
                     console.log(err)
                 })
-        })
-    })
+        });
+    });
 }
 
 function dellFunction() {

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(id_distribuidor)
     axios.get(`${urlCasesVendas}?idDistribuidor=${id_distribuidor}`)
         .then(resp => {
-            document.querySelector('#Valor_pedidos').innerHTML = `R$ ${resp.data[0].toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`;
+            document.querySelector('#Valor_pedidos').innerHTML = `R$ ${resp.data[0].toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
             document.querySelector('#Vendido_pedidos').innerHTML = `R$ ${resp.data[1]}`;
         })  
         .catch(err => {
@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     axios.get(`${urlDividas}?idDistribuidor=${id_distribuidor}`)
         .then(resp => {
-            document.querySelector('#Valor_d_Divida').innerHTML = `R$ ${resp.data[0].toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`;
+            document.querySelector('#Valor_d_Divida').innerHTML = `R$ ${resp.data[0].toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
         })  
-        .catch(err => {
+        .catch(err => {-
             console.log(err);
         })
 })

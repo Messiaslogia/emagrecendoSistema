@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="../../path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link  href="../../stylesheets/mobile/pedidos_view/index.css" rel="stylesheet" />
         
 </head>
 
@@ -287,7 +288,7 @@
                 </div>
             </div>
 <div class="card-group mt-5">
-    <div class="card" data-animation="true">
+    <div class="card" data-animation="true" id="Card_View">
         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
             <a id="Efetuar_PedidoIptu" class="d-block blur-shadow-image">
                 <img src="/images/Efetuar-Pedido.gif" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
@@ -305,7 +306,7 @@
         </div>
         
     </div>
-    <div class="card" data-animation="true">
+    <div class="card" data-animation="true" id="Card_View">
         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
             <a class="d-block blur-shadow-image" href="/distribuidor/pedidosConcluidos?user=<%= idCripted %>">
                 <img src="/images/Pedidos-feitos.gif" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
@@ -326,7 +327,7 @@
         <hr class="dark horizontal my-0">
         
     </div>
-    <div class="card" data-animation="true">
+    <div class="card" data-animation="true" id="Card_View">
         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
             <a class="d-block blur-shadow-image" href="/distribuidor/aprovarPedido?user=<%= idCripted %>">
                 <img src="/images/Esperando-Pedido.gif" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">

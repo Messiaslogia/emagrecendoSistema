@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     axios.get(`${urlCases}?idDistribuidor=${id_distribuidor}`)
         .then(resp => {
-            document.querySelector('#VendasTotaisdistribuidor').innerHTML = `R$ ${resp.data.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`;
+            document.querySelector('#VendasTotaisdistribuidor').innerHTML = `R$ ${resp.data.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
             // document.querySelector('#DividasTotaisdistribuidor').innerHTML = `R$ ${resp.data[1]}`;
         })  
         .catch(err => {
