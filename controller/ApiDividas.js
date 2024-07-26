@@ -9,9 +9,7 @@ const urls = "http://localhost:200/dividas/"
 
 class ApiControllerDividas {
     dividasTotais(req, res) {
-        console.log("Teste dividas")
         let id_User = cache.get(`${req.Id_User}`)
-
         axios.get(`${urls}todasDividas?IdUser=${id_User}`)
             .then(resp => {
                 res.json(resp.data);

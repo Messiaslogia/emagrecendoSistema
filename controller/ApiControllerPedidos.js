@@ -11,6 +11,7 @@ const urls = "http://localhost:200/pedidos/"
 class ApiControllerPedidos {
 
     addPedidos(req, res) {
+        
         let newPedido = {
             id_produto_FK: req.body.produto,
             id_usuario_FK: req.body.usuario,
@@ -19,8 +20,8 @@ class ApiControllerPedidos {
             valor: req.body.somaValorPedido,
             valorUnico: req.body.valorProduto.replace('R$ ', '').replace(',', '.'),
             quantidade: req.body.quantidade,
-            escolher_usar: req.body.escolher_usar,
-            desconto: req.body.desconto.replace('R$ ', '').replace(',', '.'),
+            // escolher_usar: req.body.escolher_usar,
+            // desconto: req.body.desconto.replace('R$ ', '').replace(',', '.'),
         };
 
         if(req.query.funcao == 'true'){
@@ -193,9 +194,10 @@ class ApiControllerPedidos {
     // DISTRIBUIDORES
     todosOsPedidosDistribuidor(req, res){
         const idDistribuidor = req.query.idDistribuidor;
+        console.log('CUUUU', idDistribuidor)
         axios.get(`${urls}todosPedidosDistribuidor?idDistribuidor=${idDistribuidor}`)
             .then(resp => {
-                res.json(resp.data)
+                res.json(resp.data);
             })
             .catch(err => {
                 console.log(err);

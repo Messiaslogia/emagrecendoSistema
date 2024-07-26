@@ -2,15 +2,13 @@ const url = "http://localhost:3030/apiDividas/todasDividas/";
 const div_dividas = document.querySelector('#Tabela_de_dividas');
 const idCripted = document.querySelector('#idUser').value;
 
-let id;
+let id = document.querySelector('#Id_User').value;
+let caseDividas = document.querySelector('#DividasGerais');
 let itensPorPagina = 5;
 let listProduto;
-let caseDividas;
 
 document.addEventListener('DOMContentLoaded', () => {
-    id = document.querySelector('#Id_User').value
     adquirirListProdutos();
-    caseDividas = document.querySelector('#Total_Dividas');
     setTimeout(() => {
         displayItens(1);
     }, [300]);
@@ -19,13 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
 function adquirirListProdutos(){
     let valor = 0
 
-    axios.get(`${url}?IdUsuario=${id}`)
+    axios.get(`${url}?user=${idCripted}`)
         .then(resp => {
             listProduto = resp.data;
             listProduto.forEach(element => {
                 valor = valor + element.valor
             });
-            caseDividas.innerHTML = `R$ ${valor.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`;
+            caseDividas.innerHTML = `R$ ${valor}`;
         })
         .catch(err => {
             console.log(err);
@@ -63,7 +61,7 @@ function displayItens(page) {
                                           </div>
                                       </td>
                                       <td class="text-center">
-                                          <p class="text-xs font-weight-bold mb-0">R$ ${divida.valor.toFixed(2)}</p>
+                                          <p class="text-xs font-weight-bold mb-0">R$ ${divida.valor}</p>
                                       </td>
                                       <td class="align-middle text-center text-sm">
                                           <span class="">${divida.data}</span>
@@ -79,7 +77,6 @@ function displayItens(page) {
                                  </tr>
                          `
     });
-
     paginas(page); // Chama a função de paginação passando a página atual após renderizar os itens
 }
 

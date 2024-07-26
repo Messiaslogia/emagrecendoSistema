@@ -44,7 +44,7 @@ class DistribuidorController{
     }
 
     adicionarVendaPost(req, res){
-        const idCripted = req.Id_User;
+        const idCripted = req.Id_User; 
 
         let novaVenda = {
             idDistribuidor: req.body.idDistribuidor,
@@ -55,7 +55,6 @@ class DistribuidorController{
             valorTotal: parseFloat(req.body.valorVenda.replace('R$ ', '')) * req.body.quantidadeVenda,
             data: req.body.dataVenda,
         };
-
         
         axios.post(`${urls}adicionarVenda`, novaVenda) 
             .then(resp => {
@@ -69,7 +68,7 @@ class DistribuidorController{
     }
 
     adicionarDividaGeral(req, res){
-        let idDoDistribuidor = cahce.get(req.Id_User);
+        let idDoDistribuidor = cache.get(req.Id_User);
         let idCripted = req.Id_User;
         res.render('distribuidores/vendas/registrarVenda/adicionarVenda',{idDoDistribuidor, idCripted});
     }

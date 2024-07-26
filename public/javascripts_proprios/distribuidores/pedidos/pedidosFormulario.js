@@ -94,8 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         formData.forEach(pedido => {
-            console.log(pedido);
-            axios.post('http://localhost:3030/apiPedidos/addPedidos', pedido)
+            axios.post('http://localhost:3030/apiPedidos/addPedidos?funcao=true', pedido)
                 .then(resp => {
                     console.log(resp.data);
                 })
