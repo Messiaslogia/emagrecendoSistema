@@ -73,6 +73,8 @@ class ApiControllerDividas {
                 data_inicio: req.body.data_inicio,
                 num_parcelas: req.body.num_parcelas
             }
+
+            
             axios.post(`${urls}novaDividaAdmin`, novoPedido)
                 .then(resp => {
                     res.redirect(`/admin/dividas?user=${req.Id_User}`);
