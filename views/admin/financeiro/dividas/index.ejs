@@ -30,7 +30,7 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
-    <input id="Id_User" type="text" value="<%= idUser %>" style="display: block;">
+    <input id="Id_User" type="text" value="<%= idUser %>" style="display: none;">
 
     <aside
         class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
@@ -272,6 +272,20 @@
                         <div class="dropdown">
                             <button class="btn bg-gradient-primary btn-lg dropdown-toggle mx-1" type="button" id="dropdownMenuButton"
                                 data-bs-toggle="dropdown" aria-expanded="false">
+                                Filtro
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <div class="d-flex flex-column">
+                                    <button class="btn btn-link p-0 m-0 border-0 bg-transparent" onclick="filtro('todos')"><li class="dropdown-item">Todas</li></button>
+                                    <button class="btn btn-link p-0 m-0 border-0 bg-transparent" onclick="filtro('parcelada')"><li class="dropdown-item">Parcelada</li></button>
+                                    <button class="btn btn-link p-0 m-0 border-0 bg-transparent" onclick="filtro('fixa')"><li class="dropdown-item">Fixa</li></button>
+                                    <button class="btn btn-link p-0 m-0 border-0 bg-transparent" onclick="filtro('esporádica')"><li class="dropdown-item">Esporádica</li></button>
+                                </div>
+                            </ul>
+                        </div> 
+                        <div class="dropdown">
+                            <button class="btn bg-gradient-primary btn-lg dropdown-toggle mx-1" type="button" id="dropdownMenuButton"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 Ver Relátorio
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -313,6 +327,12 @@
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Data</th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Status</th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Deletar ou Editar</th>
                                     
                                 </tr>
                             </thead>
@@ -373,7 +393,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <script src="../../javascripts_proprios/total_dividas_admin.js"></script>
+    <script src="../../javascripts_proprios/admin/total_dividas_admin.js"></script>
 
 
     <script>
