@@ -20,7 +20,8 @@ class AdminController{
     }
 
     dividasIndex(req, res){
-        res.render('admin/financeiro/dividas/index', {idUser: req.Id_User});
+        const userJWT = cache.get(req.Id_User)
+        res.render('admin/financeiro/dividas/index', {idUser: req.Id_User, userJWT});
     }
 
     adicionarDivida(req, res){
