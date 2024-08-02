@@ -18,7 +18,6 @@ function adquirirListProdutos() {
     let valor = 0;
     axios.get(`http://localhost:3030/apiDividas/dividasAdmin/?user=${id}`)
         .then(resp => {
-            console.log("Resposta do front:", resp.data);
             if (resp.data && resp.data.dividas) {
                 listProduto = resp.data.dividas;
                 listProduto.forEach(element => {
@@ -27,7 +26,6 @@ function adquirirListProdutos() {
                 caseDividas.innerHTML = `R$ ${valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
                 displayItens(1, 'todos'); // Exibir os itens após carregar os dados
             } else {
-                console.error('Dados de resposta inesperados');
                 div_dividas.innerHTML = '<tr><td colspan="5" class="text-center">Nenhuma dívida encontrada</td></tr>';
             }
         })
@@ -93,7 +91,6 @@ function displayItens(page, status) {
     };
 
     div_dividas.innerHTML = '';
-    console.log(pageItens)
     pageItens.map(divida => {
         div_dividas.innerHTML += `
             <tr>
