@@ -227,7 +227,7 @@ class ApiControllerPedidos {
             })
             .catch(err => {
                 console.log(err);
-                res.json(false)
+                res.json(false);
             })
     }
 
