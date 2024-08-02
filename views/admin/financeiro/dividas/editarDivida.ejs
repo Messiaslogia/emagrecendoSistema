@@ -238,35 +238,89 @@
                     <input type="file" id="imageInput" name="imagemProduto" accept="image/png, image/jpeg">
                     <button type="button" id="Bt_submi">Enviar</button>
                 </form>
-                <!-- Default form register -->
-                <form class="text-center border border-light p-5" enctype="application/x-www-form-urlencoded" id="productForm" method="POST" action="/apiDividas/editarDivida/<%= idUser %>">
-                    <input type="text" value="<%= idUser %>" style="display: none;" name="id" id="idDivida">
-                    <p class="h4 mb-4">Editar Divida</p>
-        
-                    <!-- First name -->
-                    <input id="Nome_divida" type="text" name="nomeDivida" class="form-control mb-4" placeholder="Nome da Divida">
-                    
-                    
-                    <!-- Descricao -->
-                    <input id="Descricao_Divida" type="text" name="descricaoDivida" class="form-control mb-4"
-                        placeholder="Descrição da Divida">
-                    
-                    <!-- Quantidade_produto -->
-                    <input id="Valor_divida" type="text" name="valorDivida" class="form-control mb-4" placeholder="Valor da Divida"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock">
-                    
-                    
-                    
-                    <!-- Data inserida -->
-                    <input id="Data_produto" type="date" name="dataDivida" class="form-control mb-4" placeholder="Data"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock">
-                    
-                    <!-- Horas inserida -->
-                    <input id="Hora_produto" type="time" name="horaDivida" class="form-control mb-4" placeholder="Horas"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock">
-                    
-                    <!-- Sign up button -->
-                    <button id="" class="btn btn btn-success my-4 btn-block" type="submits">Cadastrar</button>
+                <form class="text-center border border-light p-5" enctype="application/x-www-form-urlencoded"
+                    action="/apiDividas/addNovaDivida?user=<%= idUser %>" method="post" id="DividaForm">
+                    <p class="h4 mb-4 text-center">Nova Dívida</p>
+                
+                    <input id="id_user" type="hidden" name="id_user" value="<%= idUser %>">
+                
+                    <!-- Tipo de Dívida -->
+                    <div class="form-row mb-2">
+                        <div class="col text-start">
+                            <div class="mb-3">
+                                <label for="tipoDivida">Tipo de Dívida</label>
+                                <select id="tipoDivida" class="form-control" name="tipo" required>
+                                    <option value="" selected disabled>Selecione o tipo de dívida</option>
+                                    <option value="1">Esporádica</option>
+                                    <option value="2">Fixa</option>
+                                    <option value="3">Parcelada</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Nome da Dívida -->
+                    <div class="form-row mb-2">
+                        <div class="col text-start">
+                            <div class="mb-3">
+                                <label for="nomeDivida">Nome da Dívida</label>
+                                <input id="nomeDivida" type="text" name="nome" class="form-control" placeholder="EX: Divida Cartão"
+                                    required>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Descrição da Dívida -->
+                    <div class="form-row mb-2">
+                        <div class="col text-start">
+                            <div class="mb-3">
+                                <label for="descricaoDivida">Descrição da Dívida</label>
+                                <input id="descricaoDivida" type="text" name="descricao" class="form-control"
+                                    placeholder="EX: Divida do ..." required>
+                            </div>
+                        </div>
+                    </div>
+                
+                
+                    <!-- Valor da Dívida -->
+                    <div class="form-row mb-2">
+                        <div class="col text-start">
+                            <div class="mb-3">
+                                <label for="valorDivida">Valor da Dívida</label>
+                                <input id="valorDivida" type="text" name="valor" class="form-control" placeholder="EX: R$50" required>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Data de início da Dívida -->
+                    <div class="form-row mb-2" id="divDataInicio">
+                        <div class="col text-start">
+                            <div class="mb-3">
+                                <label for="dataInicioDivida">Data de Início da Dívida</label>
+                                <input id="dataInicioDivida" type="text" name="data_inicio" class="form-control"
+                                    placeholder="EX: 01/09/1998">
+                            </div>
+                        </div>
+                    </div>
+                
+                
+                
+                
+                    <!-- Número de parcelas (opcional, para dívidas parceladas) -->
+                    <div class="form-row mb-2" id="divParcelasDivida">
+                        <div class="col text-start">
+                            <div class="mb-3">
+                                <label for="numParcelasDivida">Número de Parcelas</label>
+                                <input id="numParcelasDivida" type="number" name="num_parcelas" class="form-control" placeholder="EX: 3"
+                                    min="1" max="12">
+                                <small id="parcelasHelp" class="form-text text-muted">O número de parcelas deve estar entre 1 e
+                                    12.</small>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Botão de Cadastro -->
+                    <button id="Bt_submit" class="btn btn-success my-4 btn-block" type="submit">Cadastrar</button>
                 </form>
         
         
