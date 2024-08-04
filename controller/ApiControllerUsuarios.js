@@ -182,7 +182,7 @@ class ApiControllerUsuarios {
             })
     }
 
-    clientesTotais(res) {
+    clientesTotais(req, res) {
         axios.get(`${urls}allClientes`)
             .then(resp => {
                 res.json(resp.data)
@@ -190,7 +190,7 @@ class ApiControllerUsuarios {
             .catch(err => {
                 console.log(err);
                 res.json(false);
-            })
+            }) 
     }
 
     infoUsuario(req, res){
