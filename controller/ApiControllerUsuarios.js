@@ -2,8 +2,6 @@ require('dotenv').config();
 
 const axios = require('axios');
 const cache = require('../configs/cache');
-const { use } = require('../routes');
-const { ecryptedIdUser, decryptUserId } = require('../configs/cripto');
 
 // Base da URL
 const urls = "http://localhost:200/users/"
@@ -33,7 +31,7 @@ class ApiControllerUsuarios {
                     axios.post(`${urls}usuarioInfo`, {
                         id: resp.data
                     })
-                        .then(resp => {
+                        .then(() => {
                             console.log('OK')
                         })
                         .catch(err => {
@@ -112,10 +110,10 @@ class ApiControllerUsuarios {
             axios.post(`${urls}deleteUser`, {
                 id: usuario
             })
-                .then(resp => {
+                .then(() => {
                     res.redirect(`/admin/usuarios?user=${req.Id_User}`)
                 })
-                .catch(err => {
+                .catch(() => {
                     res.json(false)
                 })
     }
@@ -140,7 +138,7 @@ class ApiControllerUsuarios {
         };
 
         axios.post(`${urls}editUser`, newUser)
-            .then(resp => {
+            .then(() => {
                 res.redirect(`/admin/usuarios?user=${req.Id_User}`)
             })
             .catch(err => {
@@ -149,7 +147,7 @@ class ApiControllerUsuarios {
             })
     }
 
-    allUsers(req, res) {
+    allUsers(res) {
             axios.post(`${urls}allUsers`)
                 .then(resp => {
                     console.log("Tabela consultada com sucesso!");
@@ -161,7 +159,7 @@ class ApiControllerUsuarios {
                 })
     }
 
-    todosFuturosClientes(req, res){
+    todosFuturosClientes(res){
         axios.post(`${urls}todosFuturosClientes`)
             .then(resp => {
                 console.log("Tabela consultada com sucesso!");
@@ -179,12 +177,12 @@ class ApiControllerUsuarios {
             .then(resp => {
                 res.json(resp.data)
                 res.status(200);
-            }).catch(err =>{
+            }).catch(() =>{
 
             })
     }
 
-    clientesTotais(req, res) {
+    clientesTotais(res) {
         axios.get(`${urls}allClientes`)
             .then(resp => {
                 res.json(resp.data)
@@ -272,7 +270,7 @@ class ApiControllerUsuarios {
                     axios.post(`${urls}usuarioInfo`, {
                         id: resp.data
                     })
-                        .then(resp => {
+                        .then(() => {
                             console.log('OK')
                         })
                         .catch(err => {
@@ -313,7 +311,7 @@ class ApiControllerUsuarios {
                 axios.post(`${urls}usuarioInfo`, {
                     id: resp.data
                 })
-                    .then(resp => {
+                    .then(() => {
                         console.log('OK')
                     })
                     .catch(err => {

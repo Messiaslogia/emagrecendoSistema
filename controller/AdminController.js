@@ -1,4 +1,4 @@
-const cache = require('../configs/cache')
+const cache = require('../configs/cache');
 
 class AdminController{
 

@@ -22,6 +22,7 @@ const adminRouter = require('./routes/admin');
 const distribuidorRouter = require('./routes/distribuidor');
 const produtosRouter = require('./routes/apiProdutos');
 const vendedores = require('./routes/vendedores');
+const alertas = require('./routes/alertas');
 
 
 
@@ -35,11 +36,13 @@ const apiBrindes = require('./routes/apiBrindes');
 const apiMateriais = require('./routes/apiMateriais');
 
 
+
 // Rotas
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
 app.use('/distribuidor', distribuidorRouter);
 app.use('/vendedores', vendedores);
+app.use('/alertas', alertas);
 
 
 // API ROTAS
