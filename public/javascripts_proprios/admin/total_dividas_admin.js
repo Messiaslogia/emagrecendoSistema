@@ -18,6 +18,8 @@ function adquirirListProdutos() {
     let valor = 0;
     axios.get(`http://localhost:3030/apiDividas/dividasAdmin/?user=${id}`)
         .then(resp => {
+            // console.log(resp.data);
+            // return;
             if (resp.data && resp.data.dividas) {
                 listProduto = resp.data.dividas;
                 listProduto.forEach(element => {
@@ -92,27 +94,28 @@ function displayItens(page, status) {
 
     div_dividas.innerHTML = '';
     pageItens.map(divida => {
+        console.log(divida.tipo);
         div_dividas.innerHTML += `
             <tr>
                 <td>
                     <div class="d-flex px-2 py-1">
                         <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">${divida.nome || divida.id_divida_parcelada}</h6>  <!-- Ajustado para exibir nome ou id_divida_parcelada -->
+                            <h6 class="mb-0 text-sm">${divida.nome || divida.id_divida_parcelada}</h6>
                         </div>
                     </div>
                 </td>
                 <td>
                     <div class="d-flex px-2 py-1">
                         <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">${divida.descricao ? divida.descricao : "Divida sem descritivo"}</h6>  <!-- Ajustado para exibir nome ou id_divida_parcelada -->
+                            <h6 class="mb-0 text-sm">${divida.descricao ? divida.descricao : "Divida sem descritivo"}</h6>
                         </div>
                     </div>
                 </td>
                 <td class="text-center">
-                    <p class="text-xs font-weight-bold mb-0">R$ ${(divida.valor || divida.valor_total).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>  <!-- Ajustado para exibir valor ou valor_total -->
+                    <p class="text-xs font-weight-bold mb-0">R$ ${(divida.valor || divida.valor_total).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                 </td>
                 <td class="text-center">
-                    <p class="text-xs font-weight-bold mb-0">${(divida.tipo ? divida.tipo : `${divida.parcelas}x Parcelas`)}</p>  <!-- Ajustado para exibir valor ou valor_total -->
+                    <p class="text-xs font-weight-bold mb-0">${(divida.tipo ? divida.tipo : `${divida.parcelas}x Parcelas`)}</p>
                 </td>
                 <td class="align-middle text-center text-sm">
                     <span class="">${new Date(divida.data_inicio).toLocaleDateString('pt-BR')}</span>
@@ -121,8 +124,11 @@ function displayItens(page, status) {
                     <span class="text-secondary text-xs font-weight-bold">${divida.status}</span>
                 </td>
                 <td class="align-middle text-center">
+                    ${divida.tipo !== 'parcelada' ? 
+                        `<a class="btn btn-link text-dark px-3 mb-0" href="/apiDividas/editarDividaForm/${divida.id_divida}?user=${id}"><i class="material-icons text-sm me-2">edit</i>Editar</a>`
+                        : ''
+                    }
                     <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiDividas/deletarDivida/${divida.id_divida}?user=${id}"><i class="material-icons text-sm me-2">delete</i>Deletar</a>
-                    <a class="btn btn-link text-dark px-3 mb-0" href="/apiDividas/editarDividaForm/${divida.id_divida}?user=${id}"><i class="material-icons text-sm me-2">edit</i>Editar</a>
                 </td>
             </tr>
         `;

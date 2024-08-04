@@ -24,7 +24,6 @@ class ApiControllerDividas {
         let id_User = cache.get(`${req.Id_User}`);
         axios.get(`${urls}todasDividasAdmin?IdUser=${id_User}`)
             .then(resp => {
-                console.log(resp.data);  // Certifique-se de que os dados estão sendo recebidos corretamente
                 res.json(resp.data);
             })
             .catch(err => {
@@ -193,16 +192,15 @@ class ApiControllerDividas {
     };
 
     editarDivida(req, res) {
+        
         let nova_divida = {
-            id: req.body.id,
-            nome: req.body.nomeDivida,
-            descricao: req.body.descricaoDivida,
-            valor: parseFloat(req.body.valorDivida.replace('R$', '').replace(',', '.')),
-            data: req.body.dataDivida,
-            hora: req.body.horaDivida,
+            id: req.body.id_divida,
+            tipo: req.body.tipo,
+            nome: req.body.nome,
+            descricao: req.body.descricao,
+            valor: parseFloat(req.body.valor.replace('R$', '').replace(',', '.')),
+            data: req.body.data_inicio
         };
-
-        console.log(nova_divida)
 
         axios.post(`${urls}editDividas`, nova_divida)
             .then((result) => {
@@ -263,7 +261,10 @@ class ApiControllerDividas {
 
     editarDividaForm(req, res) {
         let id = req.params.id;
-        res.render('admin/financeiro/dividas/editarDivida', { id, idUser: req.Id_User });
+        // console.log(req.Id_User);
+        // console.log(id);
+        // return;
+        res.render('admin/financeiro/dividas/editarDivida', { id: id, idUser: req.Id_User });
     };
 
     editarDividaFormDistribuidor(req, res) {
@@ -282,11 +283,14 @@ class ApiControllerDividas {
 
     consultarDivida(req, res) {
         let id_divida = req.params.id;
+        
 
         axios.post(`${urls}consultarDividas`, {
             id: id_divida
         })
             .then((result) => {
+                // console.log(result.data);
+                // return
                 res.json(result.data);
             }).catch((err) => {
                 console.log(err);

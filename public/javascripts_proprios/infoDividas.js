@@ -1,13 +1,21 @@
-document.addEventListener('DOMContentLoaded', () =>{
-    let id_produto = document.querySelector('#idDivida').value;
-
-    axios.get(`http://localhost:3030/apiDividas/consultarDivida/${id_produto}`)
+document.addEventListener('DOMContentLoaded', () => {
+    let id_divida = document.querySelector('#id_divida');
+    axios.get(`http://localhost:3030/apiDividas/consultarDivida/${id_divida.value}`)
         .then((result) => {
-            document.querySelector('#Nome_divida').value = result.data[0].nome;
-            document.querySelector('#Descricao_Divida').value = result.data[0].descricao;
-            document.querySelector('#Valor_divida').value = result.data[0].valor;
-            document.querySelector('#Data_produto').value = result.data[0].data;
-            document.querySelector('#Hora_produto').value = result.data[0].hora;
+            console.log(result.data);
+            console.log(result.data[0].tipo);
+
+            // Preencher os campos do formulário com os dados recebidos
+            let data = result.data[0];
+            document.querySelector('#tipoDivida').value = data.tipo; // Tipo de dívida
+            document.querySelector('#nomeDivida').value = data.nome; // Nome da dívida
+            document.querySelector('#descricaoDivida').value = data.descricao; // Descrição da dívida
+            document.querySelector('#valorDivida').value = data.valor; // Valor da dívida
+            document.querySelector('#dataInicioDivida').value = new Date(data.data_inicio).toISOString().slice(0, 10); // Data de início
+            // Verificar se há número de parcelas
+            if (data.num_parcelas) {
+                document.querySelector('#numParcelasDivida').value = data.num_parcelas; // Número de parcelas
+            }
 
         }).catch((err) => {
             console.log(err);

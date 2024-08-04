@@ -17,6 +17,7 @@
     <link href="stylesheets/nucleo-svg.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/imask"></script>
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
@@ -234,96 +235,61 @@
 
         <div class="row justify-content-center">
             <div class="col-md-10 bg-light mt-4">
-                <form id="uploadForm" enctype="multipart/form-data" style="display: none;">
-                    <input type="file" id="imageInput" name="imagemProduto" accept="image/png, image/jpeg">
-                    <button type="button" id="Bt_submi">Enviar</button>
-                </form>
-                <form class="text-center border border-light p-5" enctype="application/x-www-form-urlencoded"
-                    action="/apiDividas/addNovaDivida?user=<%= idUser %>" method="post" id="DividaForm">
-                    <p class="h4 mb-4 text-center">Nova Dívida</p>
-                
+                <form class="text-center border border-light p-5" action="/apiDividas/editarDivida?user=<%= idUser %>"
+                    method="post" id="DividaForm">
+                    <p class="h4 mb-4 text-center">Editar Dívida</p>
                     <input id="id_user" type="hidden" name="id_user" value="<%= idUser %>">
-                
+                    <input id="id_divida" type="hidden" name="id_divida" value="<%= id %>">
                     <!-- Tipo de Dívida -->
                     <div class="form-row mb-2">
                         <div class="col text-start">
-                            <div class="mb-3">
-                                <label for="tipoDivida">Tipo de Dívida</label>
-                                <select id="tipoDivida" class="form-control" name="tipo" required>
-                                    <option value="" selected disabled>Selecione o tipo de dívida</option>
-                                    <option value="1">Esporádica</option>
-                                    <option value="2">Fixa</option>
-                                    <option value="3">Parcelada</option>
-                                </select>
-                            </div>
+                            <label for="tipoDivida">Tipo de Dívida</label>
+                            <select id="tipoDivida" class="form-control" name="tipo" required>
+                                <option value="" selected disabled>Selecione o tipo de dívida</option>
+                                <option value="esporádica">Esporádica</option>
+                                <option value="fixa">Fixa</option>
+                            </select>
                         </div>
                     </div>
-                
                     <!-- Nome da Dívida -->
                     <div class="form-row mb-2">
                         <div class="col text-start">
-                            <div class="mb-3">
-                                <label for="nomeDivida">Nome da Dívida</label>
-                                <input id="nomeDivida" type="text" name="nome" class="form-control" placeholder="EX: Divida Cartão"
-                                    required>
-                            </div>
+                            <label for="nomeDivida">Nome da Dívida</label>
+                            <input id="nomeDivida" type="text" name="nome" class="form-control" required>
                         </div>
                     </div>
-                
                     <!-- Descrição da Dívida -->
                     <div class="form-row mb-2">
                         <div class="col text-start">
-                            <div class="mb-3">
-                                <label for="descricaoDivida">Descrição da Dívida</label>
-                                <input id="descricaoDivida" type="text" name="descricao" class="form-control"
-                                    placeholder="EX: Divida do ..." required>
-                            </div>
+                            <label for="descricaoDivida">Descrição da Dívida</label>
+                            <input id="descricaoDivida" type="text" name="descricao" class="form-control" required>
                         </div>
                     </div>
-                
-                
                     <!-- Valor da Dívida -->
                     <div class="form-row mb-2">
                         <div class="col text-start">
-                            <div class="mb-3">
-                                <label for="valorDivida">Valor da Dívida</label>
-                                <input id="valorDivida" type="text" name="valor" class="form-control" placeholder="EX: R$50" required>
-                            </div>
+                            <label for="valorDivida">Valor da Dívida</label>
+                            <input id="valorDivida" type="text" name="valor" class="form-control" required>
                         </div>
                     </div>
-                
-                    <!-- Data de início da Dívida -->
+                    <!-- Data de Início da Dívida -->
                     <div class="form-row mb-2" id="divDataInicio">
                         <div class="col text-start">
-                            <div class="mb-3">
-                                <label for="dataInicioDivida">Data de Início da Dívida</label>
-                                <input id="dataInicioDivida" type="text" name="data_inicio" class="form-control"
-                                    placeholder="EX: 01/09/1998">
-                            </div>
+                            <label for="dataInicioDivida">Data de Início da Dívida</label>
+                            <input id="dataInicioDivida" type="date" name="data_inicio" class="form-control">
                         </div>
                     </div>
-                
-                
-                
-                
-                    <!-- Número de parcelas (opcional, para dívidas parceladas) -->
+                    <!-- Número de Parcelas -->
                     <div class="form-row mb-2" id="divParcelasDivida">
                         <div class="col text-start">
-                            <div class="mb-3">
-                                <label for="numParcelasDivida">Número de Parcelas</label>
-                                <input id="numParcelasDivida" type="number" name="num_parcelas" class="form-control" placeholder="EX: 3"
-                                    min="1" max="12">
-                                <small id="parcelasHelp" class="form-text text-muted">O número de parcelas deve estar entre 1 e
-                                    12.</small>
-                            </div>
+                            <label for="numParcelasDivida">Número de Parcelas</label>
+                            <input id="numParcelasDivida" type="number" name="num_parcelas" class="form-control" min="1"
+                                max="12">
                         </div>
                     </div>
-                
-                    <!-- Botão de Cadastro -->
-                    <button id="Bt_submit" class="btn btn-success my-4 btn-block" type="submit">Cadastrar</button>
+                    <!-- Botão de Envio -->
+                    <button id="Bt_submit" class="btn btn-success my-4 btn-block" type="submit">Atualizar</button>
                 </form>
-        
-        
             </div>
         </div>
 
@@ -363,266 +329,77 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../../javascripts_proprios/infoDividas.js"></script>
 
-    <script>
-        var ctx = document.getElementById("chart-bars").getContext("2d");
-
-        new Chart(ctx, {
-            type: "bar",
-            data: {
-                labels: ["M", "T", "W", "T", "F", "S", "S"],
-                datasets: [{
-                    label: "Sales",
-                    tension: 0.4,
-                    borderWidth: 0,
-                    borderRadius: 4,
-                    borderSkipped: false,
-                    backgroundColor: "rgba(255, 255, 255, .8)",
-                    data: [50, 20, 10, 22, 50, 10, 40],
-                    maxBarThickness: 6
-                },],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
+     <script>
+        // Máscara para o campo "Valor"
+        IMask(
+            document.getElementById('valorDivida'),
+            {
+                mask: 'R$ num',
+                blocks: {
+                    num: {
+                        mask: Number,
+                        thousandsSeparator: '.',
+                        padFractionalZeros: true,
+                        radix: ',',
+                        scale: 2,
+                        normalizeZeros: true,
+                        integerDigits: 10,
+                        max: 9999999999
                     }
-                },
-                interaction: {
-                    intersect: false,
-                    mode: 'index',
-                },
-                scales: {
-                    y: {
-                        grid: {
-                            drawBorder: false,
-                            display: true,
-                            drawOnChartArea: true,
-                            drawTicks: false,
-                            borderDash: [5, 5],
-                            color: 'rgba(255, 255, 255, .2)'
-                        },
-                        ticks: {
-                            suggestedMin: 0,
-                            suggestedMax: 500,
-                            beginAtZero: true,
-                            padding: 10,
-                            font: {
-                                size: 14,
-                                weight: 300,
-                                family: "Roboto",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                            color: "#fff"
-                        },
-                    },
-                    x: {
-                        grid: {
-                            drawBorder: false,
-                            display: true,
-                            drawOnChartArea: true,
-                            drawTicks: false,
-                            borderDash: [5, 5],
-                            color: 'rgba(255, 255, 255, .2)'
-                        },
-                        ticks: {
-                            display: true,
-                            color: '#f8f9fa',
-                            padding: 10,
-                            font: {
-                                size: 14,
-                                weight: 300,
-                                family: "Roboto",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                },
-            },
-        });
-
-
-        var ctx2 = document.getElementById("chart-line").getContext("2d");
-
-        new Chart(ctx2, {
-            type: "line",
-            data: {
-                labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                datasets: [{
-                    label: "Mobile apps",
-                    tension: 0,
-                    borderWidth: 0,
-                    pointRadius: 5,
-                    pointBackgroundColor: "rgba(255, 255, 255, .8)",
-                    pointBorderColor: "transparent",
-                    borderColor: "rgba(255, 255, 255, .8)",
-                    borderColor: "rgba(255, 255, 255, .8)",
-                    borderWidth: 4,
-                    backgroundColor: "transparent",
-                    fill: true,
-                    data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
-                    maxBarThickness: 6
-
-                }],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
-                    }
-                },
-                interaction: {
-                    intersect: false,
-                    mode: 'index',
-                },
-                scales: {
-                    y: {
-                        grid: {
-                            drawBorder: false,
-                            display: true,
-                            drawOnChartArea: true,
-                            drawTicks: false,
-                            borderDash: [5, 5],
-                            color: 'rgba(255, 255, 255, .2)'
-                        },
-                        ticks: {
-                            display: true,
-                            color: '#f8f9fa',
-                            padding: 10,
-                            font: {
-                                size: 14,
-                                weight: 300,
-                                family: "Roboto",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                    x: {
-                        grid: {
-                            drawBorder: false,
-                            display: false,
-                            drawOnChartArea: false,
-                            drawTicks: false,
-                            borderDash: [5, 5]
-                        },
-                        ticks: {
-                            display: true,
-                            color: '#f8f9fa',
-                            padding: 10,
-                            font: {
-                                size: 14,
-                                weight: 300,
-                                family: "Roboto",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                },
-            },
-        });
-
-        var ctx3 = document.getElementById("chart-line-tasks").getContext("2d");
-
-        new Chart(ctx3, {
-            type: "line",
-            data: {
-                labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                datasets: [{
-                    label: "Mobile apps",
-                    tension: 0,
-                    borderWidth: 0,
-                    pointRadius: 5,
-                    pointBackgroundColor: "rgba(255, 255, 255, .8)",
-                    pointBorderColor: "transparent",
-                    borderColor: "rgba(255, 255, 255, .8)",
-                    borderWidth: 4,
-                    backgroundColor: "transparent",
-                    fill: true,
-                    data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-                    maxBarThickness: 6
-
-                }],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
-                    }
-                },
-                interaction: {
-                    intersect: false,
-                    mode: 'index',
-                },
-                scales: {
-                    y: {
-                        grid: {
-                            drawBorder: false,
-                            display: true,
-                            drawOnChartArea: true,
-                            drawTicks: false,
-                            borderDash: [5, 5],
-                            color: 'rgba(255, 255, 255, .2)'
-                        },
-                        ticks: {
-                            display: true,
-                            padding: 10,
-                            color: '#f8f9fa',
-                            font: {
-                                size: 14,
-                                weight: 300,
-                                family: "Roboto",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                    x: {
-                        grid: {
-                            drawBorder: false,
-                            display: false,
-                            drawOnChartArea: false,
-                            drawTicks: false,
-                            borderDash: [5, 5]
-                        },
-                        ticks: {
-                            display: true,
-                            color: '#f8f9fa',
-                            padding: 10,
-                            font: {
-                                size: 14,
-                                weight: 300,
-                                family: "Roboto",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                },
-            },
-        });
-    </script>
-    <script>
-        var win = navigator.platform.indexOf('Win') > -1;
-        if (win && document.querySelector('#sidenav-scrollbar')) {
-            var options = {
-                damping: '0.5'
+                }
             }
-            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-        }
+        );
+
+        // Máscara para o campo "Data"
+        IMask(
+            document.getElementById('dataInicioDivida'),
+            {
+                mask: '00/00/0000',
+                blocks: {
+                    '0': {
+                        mask: IMask.MaskedRange,
+                        from: 0,
+                        to: 9
+                    },
+                    '00': {
+                        mask: IMask.MaskedRange,
+                        from: 0,
+                        to: 31
+                    },
+                    '0000': {
+                        mask: IMask.MaskedRange,
+                        from: 2000,
+                        to: 2100
+                    }
+                }
+            }
+        );
+
+        let tipoDivida = document.getElementById('tipoDivida');
+        let divDataInicio = document.getElementById('divDataInicio');
+        let divParcelasDivida = document.getElementById('divParcelasDivida');
+
+
+        divParcelasDivida.style.display = "none";
+
+        tipoDivida.addEventListener('change', () => {
+            if (tipoDivida.value === "parcelada") { 
+                divDataInicio.style.display = "block";
+                divParcelasDivida.style.display = "block";
+            } else {
+        
+                divParcelasDivida.style.display = "none";
+            }
+        });
     </script>
+   
+   
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../../javascripts/material-dashboard.min.js?v=3.0.0"></script>
+
+    
 
     
         
