@@ -1,0 +1,33 @@
+.animacaoAlerta {
+    color: rgb(250, 250, 0);
+    animation: shake 1s steps(5, end) infinite;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite; /* Adiciona um delay antes de iniciar a animação */
+  }
+
+.hoverAlert:hover{
+      /* opacity: 0.5; */
+      z-index: 1;
+}
+
+.inHoverAlert{
+  margin-top: 1%;
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  padding: 7% 0%;
+  opacity: 1;
+  top: 0;
+  left: 0;
+}
+
+.inHoverAlert > span{
+  font-size: 2rem;
+}
+
+  
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-1px); }
+  20%, 40%, 60%, 80% { transform: translateX(1px); }
+}
