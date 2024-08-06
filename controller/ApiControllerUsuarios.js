@@ -193,6 +193,28 @@ class ApiControllerUsuarios {
             }) 
     }
 
+    totalVendidoDistribuidores(req, res){
+        axios.get(`${urls}totalVendidoDistribuidores`)
+            .then(resp => {
+                res.json(resp.data)
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false);
+            })
+    }
+
+    totalVendidoVendedores(req, res){
+        axios.get(`${urls}totalVendidoVendedores`)
+            .then(resp => {
+                res.json(resp.data)
+            })
+            .catch(err => {
+                console.log(err);
+                res.json(false);
+            })
+    }
+
     infoUsuario(req, res){
         const id_consult = req.query.idUser;
 

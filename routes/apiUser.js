@@ -11,6 +11,8 @@ router.get('/editUser/:id', verifyToken, ApiControllerAdmin.editIndex)
 router.get("/todosUsuarios", ApiControllerAdmin.allUsers);
 router.get("/todosFuturosClientes", ApiControllerAdmin.todosFuturosClientes);
 router.get("/usuariosPedidos/:funcao", ApiControllerAdmin.usuariosPedidos);
+router.get("/totalVendidoDistribuidores", ApiControllerAdmin.totalVendidoDistribuidores);
+router.get("/totalVendidoVendedores", ApiControllerAdmin.totalVendidoVendedores);
 
 
 
