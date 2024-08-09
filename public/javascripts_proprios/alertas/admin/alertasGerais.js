@@ -16,12 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function exibir_alertas(array){
-    console.log(array)
+
     array.forEach(element => { 
         if(element.length != 0){ //Verifica se existe qualquer alerta, se existir troca o ícone
             bt_alerta.style.display = "block";
             bt_alerta.classList.add('animacaoAlerta');
             document.querySelector('#SemNotificacao').style.display = "none";
+        }else{
+            div_dos_alertas.innerHTML = `<li class="mb-2" id="AlertaGeral">Sem alertas no momento</li>`;
         }
     });
 
