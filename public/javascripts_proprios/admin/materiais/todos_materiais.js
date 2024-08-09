@@ -1,5 +1,5 @@
 const div_tabela_de_produtos = document.querySelector('#Tabela_de_produtos');
-const Id_User = document.querySelector('#Id_user').value;
+const Id_User = document.querySelector('#Id_User').value;
 
 const url = "http://localhost:200/materiais/";
 const itensPorPagina = 5;

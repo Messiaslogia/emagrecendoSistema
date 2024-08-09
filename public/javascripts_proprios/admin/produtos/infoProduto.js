@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     let id_produto = document.querySelector('#idProduto').value;
 
-    axios.get(`http://localhost:3030/apiProdutos/consultProduto/${id_produto}`)
+    axios.get(`/apiProdutos/consultProduto/${id_produto}`)
         .then((result) => {
             let produto = result.data[0];
             console.log(produto)

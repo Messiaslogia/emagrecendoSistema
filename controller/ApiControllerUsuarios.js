@@ -147,7 +147,7 @@ class ApiControllerUsuarios {
             })
     }
 
-    allUsers(res) {
+    allUsers(req, res) {
             axios.post(`${urls}allUsers`)
                 .then(resp => {
                     console.log("Tabela consultada com sucesso!");
@@ -159,7 +159,7 @@ class ApiControllerUsuarios {
                 })
     }
 
-    todosFuturosClientes(res){
+    todosFuturosClientes(req, res){
         axios.post(`${urls}todosFuturosClientes`)
             .then(resp => {
                 console.log("Tabela consultada com sucesso!");

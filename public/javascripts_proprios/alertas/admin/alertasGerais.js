@@ -1,13 +1,13 @@
 const url_alertas_admin = "/alertas/alertasGeraisAdmin";
 const url_alertas_dell = "/alertas/dellAlertas";
-const id_user = document.querySelector('#Id_User').value;
+const id_user_alert = document.querySelector('#Id_User').value
 const div_dos_alertas = document.querySelector('#DivAlertas');
 const bt_alerta = document.querySelector('#TemNotificacao');
 let alertas;
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    axios.get(`${url_alertas_admin}?user=${id_user}`)
+    axios.get(`${url_alertas_admin}?user=${id_user_alert}`)
         .then((result) => {
             exibir_alertas(result.data);
         }).catch((err) => {
@@ -89,7 +89,7 @@ function hoverAlert(){
 
 function removerAlerta(id){
     // Remover alertas já visualizados
-    axios.get(`${url_alertas_dell}?user=${id_user}&idAlerta=${id}`)
+    axios.get(`${url_alertas_dell}?user=${id_user_alert}&idAlerta=${id}`)
         .then(resp => {
             location.reload();
         })

@@ -17,7 +17,7 @@ router.post('/distribuidores', LoginController.distribuidor)
 router.post('/vendedores', LoginController.vendedor)
 
 
-
+  
 
 
 module.exports = router;
