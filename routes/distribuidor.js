@@ -10,6 +10,7 @@ router.get('/vendas', verifyToken, DistribuidorController.vendas);
 router.get('/pedidos', verifyToken, DistribuidorController.pedidos);
 router.get('/adicionarUsuario', verifyToken, DistribuidorController.adicionarUsuario);
 router.get('/adicionarDividaGeral', verifyToken, DistribuidorController.adicionarDividaGeral);
+router.get('/adicionarEntrega', verifyToken, DistribuidorController.adicionarEntrega);
 router.get('/adicionarVendas', verifyToken, DistribuidorController.adicionarVenda);
 router.get('/editarUsuario/:id', verifyToken, DistribuidorController.editIndex)
 
@@ -23,6 +24,7 @@ router.get('/vendasRegistro', verifyToken, DistribuidorController.indexVendas);
 router.get('/dividasGerais', verifyToken, DistribuidorController.vendasEfetuadas);
 router.get('/dividasPedidos', verifyToken, DistribuidorController.dividasPedidos);
 router.get('/entregasConcluidas', verifyToken, DistribuidorController.entregasConcluidas);
+router.get('/entregasClientes', verifyToken, DistribuidorController.entregasClientes);
 
 
 // DISTRIBUIDOR

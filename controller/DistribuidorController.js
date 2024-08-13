@@ -73,6 +73,12 @@ class DistribuidorController{
         res.render('distribuidores/vendas/registrarVenda/adicionarVenda',{idDoDistribuidor, idCripted});
     }
 
+    adicionarEntrega(req, res){
+        let idDoDistribuidor = cache.get(req.Id_User);
+        let idCripted = req.Id_User;
+        res.render('distribuidores/vendas/entregasClientes/adicionarEntrega', { idDoDistribuidor, idCripted });
+    }
+
     efetuarPedido(req, res){
         let idDoDistribuidor = cache.get(req.Id_User);
         let idCripted = req.Id_User;
@@ -102,6 +108,12 @@ class DistribuidorController{
         var idUser = cache.get(req.Id_User);
         let idCripted = req.Id_User;
         res.render('distribuidores/vendas/registrarVenda/index', { idUser, idCripted });
+    }
+
+    entregasClientes(req, res){
+        var idUser = cache.get(req.Id_User);
+        let idCripted = req.Id_User;
+        res.render('distribuidores/vendas/entregasClientes/index', { idUser, idCripted });
     }
 
     dividasPedidos(req, res){
