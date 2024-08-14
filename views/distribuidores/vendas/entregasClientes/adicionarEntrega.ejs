@@ -246,13 +246,28 @@
                         </div>
                     </div>
 
-                    <!-- Empresa_responsavel -->
-                    <input id="Empresa_responsavel" type="text" name="descricaoDivida" class="form-control mb-4"
-                        placeholder="Empresa responsavel pela entrega" required>
+                    <input id="empresa_responsavel" type="text" name="empresa_responsavel" class="form-control mb-4"
+                        placeholder="Empresa responsável pela entrega" required>
 
-                    <!-- Quantidade_produto -->
-                    <input id="Valor_divida" type="number" name="valorDivida" class="form-control mb-4"
-                        placeholder="Valor da Entrega" aria-describedby="defaultRegisterFormPhoneHelpBlock" required>
+
+
+                    <!-- valor_entrega -->
+                    <input id="valor_entrega" type="number" name="valor_entrega" class="form-control mb-4" placeholder="Valor da Entrega"
+                        aria-describedby="defaultRegisterFormPhoneHelpBlock" required>
+
+
+                    <div class="form-row mb-4">
+                        <div class="col">
+                            <div class="">
+                                <select id="status_entrega" name="status_entrega" class="form-control ">
+                                    <option disabled selected value="" required>Selecione o Status</option>
+                                    <option value="entregue" required>Entregue</option>
+                                    <option value="caminho" required>Caminho</option>
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Sign up button -->
                     <button id="Bt_submit" class="btn btn btn-success my-4 btn-block" type="submit">Registrar </button>

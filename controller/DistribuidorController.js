@@ -203,19 +203,24 @@ class DistribuidorController{
             })
     }
 
-    cadastrarEntregaRepresentante(req, res){
-        const id = req.params.id
-        const idCripted = req.Id_User;
-        axios.post(`http://localhost:200/distribuidores/cadastrarEntregaRepresentante`, {
-            id: id
-        })
-            .then(resp => {
-                console.log(resp.data)
-            })
-            .catch(err => {
-                res.json(false)
-            })
+    cadastrarEntregaRepresentante(req, res) {
+        // Capturando os valores enviados pelo formulário
+        const { idUser, usuario, empresa_responsavel, valor_entrega, status_entrega } = req.body;
+
+        // Log dos dados recebidos para verificação
+        console.log("ID do Usuário:", idUser);
+        console.log("Representante:", usuario);
+        console.log("Empresa Responsável:", empresa_responsavel);
+        console.log("Valor da Entrega:", valor_entrega);
+        console.log("Status da Entrega:", status_entrega);
+
+        // Aqui você pode adicionar a lógica para salvar esses dados no banco de dados ou realizar outras ações
+
+        // Enviar uma resposta ao cliente
+        res.json({ success: true, message: "Entrega cadastrada com sucesso!" });
     }
+
+
 
     dellUser(req, res) {
         const usuario = req.params.id;
