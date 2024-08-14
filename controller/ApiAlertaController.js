@@ -5,7 +5,8 @@ const url_base = 'http://localhost:200/alertas'
 class Alertas_Controller{
 
     consultandoAlertasAdmin( req, res ){
-        axios.get(`${url_base}/alertasAdmin`)
+        const id = cache.get(req.Id_User);
+        axios.get(`${url_base}/alertasAdmin?user=${id}`)
             .then((result) => {
                 res.json(result.data);
             }).catch((err) => {
