@@ -16,6 +16,7 @@ router.get('/editarUsuario/:id', verifyToken, DistribuidorController.editIndex)
 
 router.post('/adicionarVendas', verifyToken, DistribuidorController.adicionarVendaPost);
 router.post('/edit/:id', verifyToken, DistribuidorController.editUser)
+router.post('/cadastrarEntregaRepresentante/:id', verifyToken, DistribuidorController.cadastrarEntregaRepresentante)
 
 router.get('/efetuarPedido', verifyToken, DistribuidorController.efetuarPedido);
 router.get('/pedidosConcluidos', verifyToken, DistribuidorController.pedidosConcluidos);

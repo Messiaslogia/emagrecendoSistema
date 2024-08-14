@@ -203,6 +203,20 @@ class DistribuidorController{
             })
     }
 
+    cadastrarEntregaRepresentante(req, res){
+        const id = req.params.id
+        const idCripted = req.Id_User;
+        axios.post(`http://localhost:200/distribuidores/cadastrarEntregaRepresentante`, {
+            id: id
+        })
+            .then(resp => {
+                console.log(resp.data)
+            })
+            .catch(err => {
+                res.json(false)
+            })
+    }
+
     dellUser(req, res) {
         const usuario = req.params.id;
         const idCripted = req.Id_User;
