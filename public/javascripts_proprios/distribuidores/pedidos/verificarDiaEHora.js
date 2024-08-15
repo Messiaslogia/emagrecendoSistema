@@ -1,5 +1,5 @@
 let bt = document.querySelectorAll('#Efetuar_PedidoIptu');
-const idCripted = document.querySelector('#Cripted').value
+const idCripted = document.querySelector('#idUser').value
   function verificarDiaEHora() {
     const agora = new Date();
     const diaDaSemana = agora.getDay(); // 0 (domingo) a 6 (sábado)

@@ -59,7 +59,7 @@ class ApiControllerUsuarios {
           })
             .then(resp => {  
                 let auth = resp.data.auth;
-                let identificador = auth.slice(0, 6);
+                let identificador = auth.replace(/[aeiou]/g, '*');
                 cache.set(identificador, auth);
 
                 switch (resp.data.user.funcao) {

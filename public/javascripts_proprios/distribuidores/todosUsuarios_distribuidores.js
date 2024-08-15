@@ -1,10 +1,10 @@
 const container_users = document.querySelector('#Container_Users');
 const inputDistribuidor = document.querySelector('#idDistribuidor');
-const idDistribuidor = document.querySelector('#idUser').value;
-const idCripted = document.querySelector('#idUserCripter').value;
+const idDistribuidor = document.querySelector('#idUserCripter').value;
+const idCripted = document.querySelector('#idUser').value;
 
 
-const url = "http://localhost:3030/distribuidor/todosUsuariosDistribuidores";
+const url = "/distribuidor/todosUsuariosDistribuidores";
 const inputsPages = document.querySelectorAll('#pageInput')
 let itensPorPagina = 5;
 let listUsuarios

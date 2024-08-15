@@ -11,7 +11,7 @@ const urls = "http://localhost:200/pedidos/"
 class ApiControllerPedidos {
 
     addPedidos(req, res) {
-        
+
         let newPedido = {
             id_produto_FK: req.body.produto,
             id_usuario_FK: req.body.usuario,
@@ -20,6 +20,7 @@ class ApiControllerPedidos {
             valor: req.body.somaValorPedido,
             valorUnico: req.body.valorProduto.replace('R$ ', '').replace(',', '.'),
             quantidade: req.body.quantidade,
+            brinde: (req.body.brinde == 'Sem Brinde') ? null : req.body.brinde
             // escolher_usar: req.body.escolher_usar,
             // desconto: req.body.desconto.replace('R$ ', '').replace(',', '.'),
         };

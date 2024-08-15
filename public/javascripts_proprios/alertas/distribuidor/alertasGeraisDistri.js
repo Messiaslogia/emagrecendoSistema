@@ -1,10 +1,9 @@
 const url_alertas_admin = "/alertas/alertasGeraisAdmin";
 const url_alertas_dell = "/alertas/dellAlertas";
-const id_user_alert = document.querySelector('#idDistribuidorCrip').value
+const id_user_alert = document.querySelector('#idUser').value
 const div_dos_alertas = document.querySelector('#DivAlertas');
 const bt_alerta = document.querySelector('#TemNotificacao');
 let alertas;
-
 
 document.addEventListener('DOMContentLoaded', () => {
     axios.get(`${url_alertas_admin}?user=${id_user_alert}`)
@@ -21,13 +20,11 @@ function exibir_alertas(array){
             bt_alerta.style.display = "block";
             bt_alerta.classList.add('animacaoAlerta');
             document.querySelector('#SemNotificacao').style.display = "none";
-        }else{
-            return div_dos_alertas.innerHTML = `<li class="mb-2" id="AlertaGeral">Sem alertas no momento</li>`;
         }
     });
 
-    array[0].forEach(alerta => {
-        div_dos_alertas.innerHTML = '';
+    // Mesmo padrão alterando somente as informações de acordo com o conteúdo do alerta
+    array[1].forEach(alerta => {
         div_dos_alertas.innerHTML += `
             <li class="mb-2" id="AlertaGeral">
                 <a class="dropdown-item border-radius-md hoverAlert">
@@ -41,7 +38,7 @@ function exibir_alertas(array){
                         </div>
                         <div class="d-flex flex-column justify-content-center ms-3">
                             <h6 class="text-sm font-weight-normal mb-1">
-                                <span class="font-weight-bold">${alerta.mensagem}<br> ${alerta.nome_produto}</span>
+                                <span class="font-weight-bold">${alerta.mensagem}<br> ${alerta.numero_pedido}</span>
                             </h6>
                             <p class="text-xs text-secondary mb-0">
                                 <span class="material-symbols-outlined me-1 align-middle" style="font-size: 120%">
@@ -61,8 +58,7 @@ function exibir_alertas(array){
         `
     });
 
-    array[1].forEach(alerta => {
-        div_dos_alertas.innerHTML = '';
+    array[2].forEach(alerta => {
         div_dos_alertas.innerHTML += `
             <li class="mb-2" id="AlertaGeral">
                 <a class="dropdown-item border-radius-md hoverAlert">
@@ -76,7 +72,7 @@ function exibir_alertas(array){
                         </div>
                         <div class="d-flex flex-column justify-content-center ms-3">
                             <h6 class="text-sm font-weight-normal mb-1">
-                                <span class="font-weight-bold">${alerta.mensagem}<br> ${alerta.numero_pedido}</span>
+                                <span class="font-weight-bold">${alerta.mensagem}</span>
                             </h6>
                             <p class="text-xs text-secondary mb-0">
                                 <span class="material-symbols-outlined me-1 align-middle" style="font-size: 120%">

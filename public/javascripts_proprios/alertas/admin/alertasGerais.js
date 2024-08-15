@@ -22,8 +22,6 @@ function exibir_alertas(array){
             bt_alerta.style.display = "block";
             bt_alerta.classList.add('animacaoAlerta');
             document.querySelector('#SemNotificacao').style.display = "none";
-        }else{
-            div_dos_alertas.innerHTML = `<li class="mb-2" id="AlertaGeral">Sem alertas no momento</li>`;
         }
     });
 
@@ -61,7 +59,7 @@ function exibir_alertas(array){
         `
     });
 
-    array[1].forEach(alerta => {
+    array[3].forEach(alerta => {
         div_dos_alertas.innerHTML += `
             <li class="mb-2" id="AlertaGeral">
                 <a class="dropdown-item border-radius-md hoverAlert">
@@ -75,7 +73,7 @@ function exibir_alertas(array){
                         </div>
                         <div class="d-flex flex-column justify-content-center ms-3">
                             <h6 class="text-sm font-weight-normal mb-1">
-                                <span class="font-weight-bold">${alerta.mensagem}<br> ${alerta.numero_pedido}</span>
+                                <span class="font-weight-bold">${alerta.mensagem}<br> ${alerta.nome_produto}</span>
                             </h6>
                             <p class="text-xs text-secondary mb-0">
                                 <span class="material-symbols-outlined me-1 align-middle" style="font-size: 120%">
@@ -94,6 +92,8 @@ function exibir_alertas(array){
             </li>
         `
     });
+
+    
 
     alertas = document.querySelectorAll('#AlertaGeral'); // Salva todos os alertas para serem manipulados depois
     hoverAlert();
