@@ -1,4 +1,4 @@
-const urlProdutos = "http://localhost:3030/apiProdutos/todosProdutosForm";
+const urlProdutos = "/apiProdutos/todosProdutosForm";
 const div_produtos = document.getElementById('Produto_input');
 const div_valorDistribuidor = document.getElementById('Valor_Produto');
 const div_valorRevenda = document.getElementById('Valor_Revenda');

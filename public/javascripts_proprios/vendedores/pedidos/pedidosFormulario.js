@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const produtoInput = document.getElementById('Produto_input');
     const quantidade = document.getElementById('Quantidade_input');
     const numeroPedido = gerarNumeroPedido();
-    const idCripted = document.querySelector('#Cripted').value
+    const idCripted = document.querySelector('#idUser').value
 
     // Modal
     const bt_modal = document.querySelector('#Button_Modal');

@@ -1,5 +1,5 @@
 const container_users = document.querySelector('#Container_Users');
-const url = "http://localhost:3030/apiPedidos/todosOsPedidosVendedor";
+const url = "/apiPedidos/todosOsPedidosVendedor";
 const urlQUantidade = "http://localhost:200/vendedor/quantidadeTotalDosPedidos";
 const div_pedidos_naoaprovados = document.querySelector('#Tabela_de_pedidos');
 const idDoVendedor = document.getElementById('idDoVendedor').value;

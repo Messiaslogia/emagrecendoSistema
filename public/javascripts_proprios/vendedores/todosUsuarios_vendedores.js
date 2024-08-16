@@ -1,6 +1,6 @@
 const container_users = document.querySelector('#Container_Users');
 const inputVendedores = document.querySelector('#idVendedor');
-const tokenUser = document.querySelector('#Token').value
+const tokenUser = document.querySelector('#idUser').value;
 
 const url = "http://localhost:3030/vendedores/todosUsuariosVendedor";
 const inputsPages = document.querySelectorAll('#pageInput');

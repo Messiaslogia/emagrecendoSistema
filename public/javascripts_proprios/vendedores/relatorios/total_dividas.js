@@ -1,6 +1,6 @@
 const url = "http://localhost:3030/apiDividas/todasDividas";
 const div_dividas = document.querySelector('#Tabela_de_dividas');
-const idCripted = document.querySelector('#Cripted').value;
+const idCripted = document.querySelector('#idUser').value;
 
 let id;
 let itensPorPagina = 5;
