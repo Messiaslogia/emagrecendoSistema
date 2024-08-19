@@ -25,7 +25,7 @@ router.post("/edit/:id", verifyToken, VendedoresController.editUser);
 router.get('/adicionarUsuario', verifyToken,  VendedoresController.adicionarUsuario);
 router.get('/adiconarVendas', verifyToken, VendedoresController.adicionarVendas);
 router.get('/adiconarDividasGerais', verifyToken, VendedoresController.adicionarDividasGerais);
-router.get('/todosUsuariosVendedor', verifyToken, VendedoresController.todosUsuariosVendedor);
+router.get('/todosUsuariosVendedor', VendedoresController.todosUsuariosVendedor);
 router.get('/usuarioPedidos', verifyToken, VendedoresController.todosUsuariosVendedor);
 
 router.post('/addPedidos', verifyToken, VendedoresController.registrarPedidos);

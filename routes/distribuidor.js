@@ -12,7 +12,9 @@ router.get('/adicionarUsuario', verifyToken, DistribuidorController.adicionarUsu
 router.get('/adicionarDividaGeral', verifyToken, DistribuidorController.adicionarDividaGeral);
 router.get('/adicionarEntrega', verifyToken, DistribuidorController.adicionarEntrega);
 router.get('/adicionarVendas', verifyToken, DistribuidorController.adicionarVenda);
-router.get('/editarUsuario/:id', verifyToken, DistribuidorController.editIndex)
+router.get('/editarUsuario/:id', verifyToken, DistribuidorController.editIndex);
+router.get('/editarEntrega', verifyToken, DistribuidorController.editEntregaRepresentantes);
+
 
 router.post('/adicionarVendas', verifyToken, DistribuidorController.adicionarVendaPost);
 router.post('/edit/:id', verifyToken, DistribuidorController.editUser)

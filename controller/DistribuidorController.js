@@ -171,7 +171,14 @@ class DistribuidorController{
     editIndex(req, res){
         const id = req.params.id
         const idCripted = req.Id_User;
-        res.render('distribuidores/usuarios/editarUsuario', { id, idCripted })
+        res.render('distribuidores/usuarios/editarUsuario', { id, idCripted });
+    }
+
+    
+    editEntregaRepresentantes(req, res){
+        const idCripted = req.Id_User;
+        const entregaID = req.query.entrega;
+        res.render('distribuidores/vendas/entregasClientes/editarVenda', { idCripted, entregaID })
     }
 
     editUser(req, res) {

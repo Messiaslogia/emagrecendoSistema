@@ -1,9 +1,9 @@
-const urlDistri = "http://localhost:200/distribuidores/todasEntregasRepresentantes";
+const urlDistri = "http://localhost:200/distribuidores";
 const div_entregas = document.querySelector('#Tabela_de_dividas_representantes');
 
-
 const id_user = document.querySelector('#Id_User').value;
-console.log(id_user);
+const idCriptedUser = document.querySelector('#idUser').value;
+
 let itensPorPaginaRepre = 5;
 let listProdutoRepre;
 
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function adquirirListProdutos() {
-    axios.get(`${urlDistri}?idDistribuidor=${id_user}`)
+    axios.get(`${urlDistri}/todasEntregasRepresentantes?idDistribuidor=${id_user}`)
         .then(resp => {
             listProdutoRepre = resp.data;
             // Certifique-se de que os dados são armazenados na variável correta
@@ -51,23 +51,33 @@ function displayItens(page) {
 
     // Exibindo os itens na tabela
     div_entregas.innerHTML = '';
-    pageItens.forEach(divida => {
+    pageItens.forEach(entrega => {
         div_entregas.innerHTML += `
             <tr>
                 <td class="align-middle text-center">
-                    <p class="text-xs font-weight-bold mb-0">${divida.nome_representante}</p>
+                    <p class="text-xs font-weight-bold mb-0">${entrega.nome_representante}</p>
                 </td>
                 <td class="align-middle text-center">
-                    <p class="text-xs font-weight-bold mb-0">${divida.numero_pedido}</p>
+                    <p class="text-xs font-weight-bold mb-0">${entrega.numero_pedido}</p>
                 </td>
                 <td class="align-middle text-center">
-                    <p class="text-xs font-weight-bold mb-0">${divida.nome_empresa}</p>
+                    <p class="text-xs font-weight-bold mb-0">${entrega.nome_empresa}</p>
                 </td>
                 <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold">R$ ${divida.valor_entrega.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
+                    <span class="text-secondary text-xs font-weight-bold">R$ ${entrega.valor_entrega.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
                 </td>
                 <td class="align-middle text-center">
-                    <span class="badge badge-sm bg-gradient-success">${divida.status_entrega}</span>
+                    <span class="badge badge-sm bg-gradient-success">${entrega.status}</span>
+                </td>
+                <td class="class="align-middle text-center">
+                    <a id="Bt_editUser" class="btn btn-link text-dark px-3 mb-0" href="/distribuidor/editarEntrega/?user=${idCriptedUser}&entrega=${entrega.id}">
+                        <i class="material-icons text-sm me-2">edit</i>Edit
+                    </a>
+                </td>
+                <td class="class="align-middle text-center">
+                    <a idEntrega="${entrega.id}" id="Button_Deletar_Entrega" class="btn btn-link text-danger text-gradient mb-0"">
+                         <i class="material-icons text-sm me-2">delete</i>
+                     Deletar</a>
                 </td>
             </tr>
         `;
@@ -83,10 +93,24 @@ function displayItens(page) {
             });
         });
     }, [300]);
-
+    deleteEntregas();
     paginas(page);
 }
 
+function deleteEntregas(){
+    const todosBotoesDeleteEntrega = document.querySelectorAll('#Button_Deletar_Entrega');
+    todosBotoesDeleteEntrega.forEach(botao => {
+        botao.addEventListener('click', (e) => {
+            const idEntrega = e.target.getAttribute('idEntrega');
+            axios.get(`${urlDistri}/deletarEntregaDistribuidor?idEntrega=${idEntrega}`)
+                .then((result) => {
+                    window.location.reload();
+                }).catch((err) => {
+                    console.log(err);
+                });
+        })
+    })
+}
 
 
 

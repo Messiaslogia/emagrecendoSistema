@@ -161,36 +161,29 @@
 
         <div class="row justify-content-center">
             <div class="col-md-10 bg-light mt-4">
-                <form id="uploadForm" enctype="multipart/form-data" style="display: none;">
-                    <input type="file" id="imageInput" name="imagemProduto" accept="image/png, image/jpeg">
-                    <button type="button" id="Bt_submi">Enviar</button>
-                </form>
                 <!-- Default form register -->
-                <form class="text-center border border-light p-5" enctype="application/x-www-form-urlencoded" id="productForm" method="POST" action="/apiDividas/editarDividaDistribuidor/<%=id%>?user=<%= idCripted %>">
-                    <input type="text" value="<%= id %>" style="display: none;" name="id" id="idDivida">
-                    <p class="h4 mb-4">Editar Produto</p>
+                <form class="text-center border border-light p-5" enctype="application/x-www-form-urlencoded" id="productForm" method="POST" action="/apiDividas/editarDividaDistribuidor/<%= entregaID %>?user=<%= idCripted %>">
+                    <input type="text" value="<%= entregaID %>" style="display: none;" name="id" id="idEntrega">
+                    <p class="h4 mb-4">Editar Entrega</p>
         
-                    <!-- First name -->
-                    <input id="Nome_divida" type="text" name="nomeDivida" class="form-control mb-4" placeholder="Nome da Divida">
+                    <!-- Numero do Pedido -->
+                    <input id="Numero_pedido" type="text" name="numero_pedido" class="form-control mb-4">
                     
                     
-                    <!-- Descricao -->
-                    <input id="Descricao_Divida" type="text" name="descricaoDivida" class="form-control mb-4"
-                        placeholder="Descrição da Divida">
+                    <!-- Nome da Empresa -->
+                    <input id="Nome_empresa" type="text" name="nome_empresa" class="form-control mb-4">
                     
-                    <!-- Quantidade_produto -->
-                    <input id="Valor_divida" type="number" name="valorDivida" class="form-control mb-4" placeholder="Valor da Divida"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock">
-                    
-                    
+                    <!-- Valor da Entrega -->
+                    <input id="Valor_Entrega" type="number" name="valor_entrega" class="form-control mb-4">
+
+                    <!-- Valor da Entrega -->
+                    <select id="Status_entrega" name="status_entrega" class="form-control ">
+                        <option value="entregue" required>Entregue</option>
+                        <option value="caminho" required>A caminho!</option>
+                    </select>
                     
                     <!-- Data inserida -->
-                    <input id="Data_produto" type="date" name="dataDivida" class="form-control mb-4" placeholder="Data"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock">
-                    
-                    <!-- Horas inserida -->
-                    <input id="Hora_produto" type="time" name="horaDivida" class="form-control mb-4" placeholder="Horas"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                    <input id="Data_produto" type="date" name="data_criacao" class="form-control mb-4" style="display: none;">
                     
                     <!-- Sign up button -->
                     <button id="" class="btn btn btn-success my-4 btn-block" type="submits">Cadastrar</button>
@@ -200,7 +193,7 @@
             </div>
         </div>
 
-        <a href="/distribuidor/dividasGerais?user=<%= idCripted %>" class="ms-3">
+        <a href="/distribuidor/entregasClientes?user=<%= idCripted %>" class="ms-3">
             <button type="button" class="btn mt-5 font-weight-bolder text-white p-3" style="background-color: #e91e63;">Voltar</button>
         </a>
 
@@ -235,7 +228,8 @@
     <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../../javascripts_proprios/infoDividas.js"></script>
+
+    <script src="../../javascripts_proprios/distribuidores/relatorios/infoEntregaRepresentantes.js"></script>
     <script src="../../javascripts_proprios/alertas/distribuidor/alertasGeraisDistri.js"></script>
 
     <script>

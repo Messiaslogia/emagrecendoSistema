@@ -2,7 +2,7 @@ const container_users = document.querySelector('#Container_Users');
 const inputVendedores = document.querySelector('#idVendedor');
 const tokenUser = document.querySelector('#idUser').value;
 
-const url = "http://localhost:3030/vendedores/todosUsuariosVendedor";
+const url = "/vendedores/todosUsuariosVendedor";
 const inputsPages = document.querySelectorAll('#pageInput');
 let itensPorPagina = 5;
 let listUsuarios = [];
@@ -16,6 +16,7 @@ function adquirirListsUsers() {
     axios.get(`${url}?idVendedor=${tokenUser}`)
         .then(data => {
             listUsuarios = data.data;
+            console.log(listUsuarios)
             setTimeout(() => {
                 displayItens(1);
             }, 300);
