@@ -1,4 +1,4 @@
-const urlProdutos = "http://localhost:3030/apiProdutos/todosProdutosForm";
+const urlProdutos = "/apiProdutos/todosProdutosForm";
 const div_produtos = document.getElementById('Produto_input');
 const div_valorDistribuidor = document.getElementById('Valor_Distribuidor');
 const div_valorRevenda = document.getElementById('Valor_Revenda');
@@ -24,7 +24,7 @@ function listaNomesProdutos(){
 
 div_produtos.addEventListener('change', function () {
     var valor = div_produtos.value
-    axios.get(`http://localhost:3030/apiProdutos/consultProduto/${valor}`)
+    axios.get(`/apiProdutos/consultProduto/${valor}`)
         .then((result) => {
             div_valorDistribuidor.value = `R$ ${result.data[0].preco_distribuidor}`;
         }).catch((err) =>{

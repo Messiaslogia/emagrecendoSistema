@@ -1,5 +1,5 @@
 
-const url = "http://localhost:3030/distribuidor/todosRepresentantes";
+const url = "/distribuidor/todosRepresentantes";
 const div_produtos = document.getElementById('usuario_representante');
 const inputDistribuidor = document.getElementById('Id_user');
 const valorDistribuidor = inputDistribuidor.value;

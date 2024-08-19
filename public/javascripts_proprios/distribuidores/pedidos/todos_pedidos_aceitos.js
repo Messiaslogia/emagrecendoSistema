@@ -1,4 +1,4 @@
-const url = "http://localhost:3030/apiPedidos/pedidosAprovadosDistribuidor";
+const url = "/apiPedidos/pedidosAprovadosDistribuidor";
 const container_users = document.querySelector('#Container_Users');
 const idDistribuidor = document.getElementById('idDistribuidor').value;
 console.log(idDistribuidor);
@@ -167,7 +167,7 @@ function statusAlt(){
                 let numeroDPedido = e.target.getAttribute('number_pedido');
                 let metodoDPagamento = status_pagamento[index].value;
 
-                axios.post('http://localhost:3030/apiPedidos/novoStatus', {
+                axios.post('/apiPedidos/novoStatus', {
                     status: pedido.value,
                     pedido: numeroDPedido,
                     pagamento: metodoDPagamento

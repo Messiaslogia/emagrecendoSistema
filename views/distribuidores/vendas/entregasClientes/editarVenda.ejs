@@ -162,7 +162,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10 bg-light mt-4">
                 <!-- Default form register -->
-                <form class="text-center border border-light p-5" enctype="application/x-www-form-urlencoded" id="productForm" method="POST" action="/apiDividas/editarDividaDistribuidor/<%= entregaID %>?user=<%= idCripted %>">
+                <form class="text-center border border-light p-5" enctype="application/x-www-form-urlencoded" id="productForm" method="POST" action="/distribuidor/editarEntrega?entrega=<%= entregaID %>&user=<%= idCripted %>">
                     <input type="text" value="<%= entregaID %>" style="display: none;" name="id" id="idEntrega">
                     <p class="h4 mb-4">Editar Entrega</p>
         
@@ -186,7 +186,7 @@
                     <input id="Data_produto" type="date" name="data_criacao" class="form-control mb-4" style="display: none;">
                     
                     <!-- Sign up button -->
-                    <button id="" class="btn btn btn-success my-4 btn-block" type="submits">Cadastrar</button>
+                    <button class="btn btn btn-success my-4 btn-block" type="submits">Cadastrar</button>
                 </form>
         
         

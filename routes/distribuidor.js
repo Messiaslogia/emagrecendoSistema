@@ -19,6 +19,7 @@ router.get('/editarEntrega', verifyToken, DistribuidorController.editEntregaRepr
 router.post('/adicionarVendas', verifyToken, DistribuidorController.adicionarVendaPost);
 router.post('/edit/:id', verifyToken, DistribuidorController.editUser)
 router.post('/cadastrarEntregaRepresentante', verifyToken, DistribuidorController.cadastrarEntregaRepresentante);
+router.post('/editarEntrega', verifyToken, DistribuidorController.editEntregaRepresentantesPost);
 
 
 router.get('/efetuarPedido', verifyToken, DistribuidorController.efetuarPedido);

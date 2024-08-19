@@ -181,6 +181,24 @@ class DistribuidorController{
         res.render('distribuidores/vendas/entregasClientes/editarVenda', { idCripted, entregaID })
     }
 
+    editEntregaRepresentantesPost(req, res){
+        const idDistribuidor = req.Id_User;
+        const entrega = req.query.entrega;
+        const updateEntrega = {
+            numero_pedido : req.body.numero_pedido,
+            nome_empresa : req.body.nome_empresa,
+            valor_entrega : req.body.valor_entrega,
+            status : req.body.status_entrega,
+        }
+
+        axios.post(`${urls}/editEntrega?entrega=${entrega}`, updateEntrega)
+            .then((result) => {
+                res.redirect(`/distribuidor/entregasClientes?user=${idDistribuidor}`);
+            }).catch((err) => {
+                console.log(err);
+            });
+    }
+
     editUser(req, res) {
         const idCripted = req.Id_User; 
 

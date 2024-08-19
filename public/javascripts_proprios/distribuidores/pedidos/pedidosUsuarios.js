@@ -1,4 +1,4 @@
-const url = "http://localhost:3030/distribuidor/usuarioPedidos"
+const url = "/distribuidor/usuarioPedidos"
 const inputUsuario = document.getElementById('Usuario_input');
 const idDistribuidor = document.getElementById('idDistribuidor').value;
 

@@ -1,5 +1,5 @@
 const container_users = document.querySelector('#Container_Users');
-const url = "http://localhost:3030/apiPedidos/todosOsPedidosDistribuidor";
+const url = "/apiPedidos/todosOsPedidosDistribuidor";
 const urlQUantidade = "http://localhost:200/pedidos/quantidadeTotalDosPedidos";
 const idDistribuidor = document.getElementById('idDistribuidor').value
 const div_pedidos = document.querySelector('#Tabela_de_pedidos')
@@ -158,12 +158,12 @@ function statusAlt() {
         pedido.addEventListener('change', (e) => {
             let numeroDPedido = e.target.getAttribute('number_pedido');
 
-            axios.post('http://localhost:3030/apiPedidos/novoStatus', {
+            axios.post('/apiPedidos/novoStatus', {
                 status: pedido.value,
                 pedido: numeroDPedido
             })
                 .then(resp => {
-                    window.location.href = 'http://localhost:3030/admin/aprovarPedido'
+                    window.location.href = '/admin/aprovarPedido'
                 })
                 .catch(err => {
                     console.log(err)
