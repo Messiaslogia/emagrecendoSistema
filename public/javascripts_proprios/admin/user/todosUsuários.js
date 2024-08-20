@@ -61,8 +61,7 @@ function displayItens( page, arrayindex ){
     let reversePedidos = arrayPedidos.slice().reverse();
     let pageItens = reversePedidos.slice(startIndex, endIndex);
 
-    console.log(pageItens)
-   container_users.innerHTML = '';
+    container_users.innerHTML = '';
 
    // Exibindo os itens
     pageItens.map(user => {

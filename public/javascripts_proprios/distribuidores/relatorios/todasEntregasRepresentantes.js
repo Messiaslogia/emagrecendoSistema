@@ -19,11 +19,16 @@ document.addEventListener('DOMContentLoaded', () => {
         displayItens(1);
     }, [300]);
 });
-
+ 
 function adquirirListProdutos() {
     axios.get(`${urlDistri}/todasEntregasRepresentantes?idDistribuidor=${id_user}`)
         .then(resp => {
+            let somaValor = 0
             listProdutoRepre = resp.data;
+            listProdutoRepre.forEach(entrega => {
+                somaValor = somaValor + entrega.valor_entrega;
+            });
+            document.querySelector('#CaseEntregas').innerHTML = `R$ ${somaValor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
             // Certifique-se de que os dados são armazenados na variável correta
         })
         .catch(err => {
@@ -34,11 +39,40 @@ function adquirirListProdutos() {
 function paginas(page) {
     const pageCont = Math.ceil(listProdutoRepre.length / itensPorPaginaRepre);
     const containerPagination = document.querySelector('#pag_navigation_input');
-    containerPagination.innerHTML = ''
+    containerPagination.innerHTML = '';
 
-    for (let i = 1; i <= pageCont; i++) {
-        const activeClass = (i === page) ? 'bg-primary text-light' : '';
-        containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link  ${activeClass}" onclick="displayItens(${i})">${i}</a></li>`;
+    const maxPagesToShow = 5;
+
+    if (pageCont <= maxPagesToShow) {
+        for (let i = 1; i <= pageCont; i++) {
+            const activeClass = (i === page) ? 'active bg-primary text-light' : '';
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i})">${i}</a></li>`;
+        }
+    } else {
+        if (page <= maxPagesToShow - 1) {
+            for (let i = 1; i <= maxPagesToShow; i++) {
+                const activeClass = (i === page) ? 'active bg-primary text-light' : '';
+                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i})">${i}</a></li>`;
+            }
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link">...</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(${pageCont})">${pageCont}</a></li>`;
+        } else if (page >= pageCont - maxPagesToShow + 2) {
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(1)">1</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link">...</a></li>`;
+            for (let i = pageCont - maxPagesToShow + 1; i <= pageCont; i++) {
+                const activeClass = (i === page) ? 'active bg-primary text-light' : '';
+                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i})">${i}</a></li>`;
+            }
+        } else {
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(1)">1</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link">...</a></li>`;
+            for (let i = page - 1; i <= page + 1; i++) {
+                const activeClass = (i === page) ? 'active bg-primary text-light' : '';
+                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i})">${i}</a></li>`;
+            }
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link">...</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(${pageCont})">${pageCont}</a></li>`;
+        }
     }
 };
 
