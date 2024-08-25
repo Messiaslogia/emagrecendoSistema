@@ -70,10 +70,12 @@ function displayItens(page) {
                                       <td class="align-middle text-center">
                                           <span class="text-secondary text-xs font-weight-bold">${divida.hora}</span>
                                       </td>
-                                      <td class="align-middle">
+                                      <td class="align-middle text-center">
+                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiDividas/editarDividaFormVendedor/${divida.id_divida}?user=${idCripted}"><i class="material-icons text-sm me-2">edit</i>Editar</a>
+                                      </td>
+                                      <td class="align-middle text-center">
                                           <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiDividas/deletarDividaVendedor/${divida.id_divida}?user=${idCripted}"><i
                                               class="material-icons text-sm me-2">delete</i>Deletar</a>
-                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiDividas/editarDividaFormVendedor/${divida.id_divida}?user=${idCripted}"><i class="material-icons text-sm me-2">edit</i>Editar</a>
                                       </td>
                                  </tr>
                          `

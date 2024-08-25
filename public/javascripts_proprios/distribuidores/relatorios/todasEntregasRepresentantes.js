@@ -88,27 +88,27 @@ function displayItens(page) {
     pageItens.forEach(entrega => {
         div_entregas.innerHTML += `
             <tr>
-                <td class="align-middle text-center">
+                <td class="align-middle text-center mx-auto">
                     <p class="text-xs font-weight-bold mb-0">${entrega.nome_representante}</p>
                 </td>
-                <td class="align-middle text-center">
+                <td class="align-middle text-center mx-auto">
                     <p class="text-xs font-weight-bold mb-0">${entrega.numero_pedido}</p>
                 </td>
-                <td class="align-middle text-center">
+                <td class="align-middle text-center mx-auto">
                     <p class="text-xs font-weight-bold mb-0">${entrega.nome_empresa}</p>
                 </td>
-                <td class="align-middle text-center">
+                <td class="align-middle text-center mx-auto">
                     <span class="text-secondary text-xs font-weight-bold">R$ ${entrega.valor_entrega.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
                 </td>
-                <td class="align-middle text-center">
+                <td class="align-middle text-center mx-auto">
                     <span class="badge badge-sm bg-gradient-success">${entrega.status}</span>
                 </td>
-                <td class="class="align-middle text-center">
+                <td class="align-middle text-center mx-auto">
                     <a id="Bt_editUser" class="btn btn-link text-dark px-3 mb-0" href="/distribuidor/editarEntrega/?user=${idCriptedUser}&entrega=${entrega.id}">
                         <i class="material-icons text-sm me-2">edit</i>Edit
                     </a>
                 </td>
-                <td class="class="align-middle text-center">
+                <td class="align-middle text-center mx-auto">
                     <a idEntrega="${entrega.id}" id="Button_Deletar_Entrega" class="btn btn-link text-danger text-gradient mb-0"">
                          <i class="material-icons text-sm me-2">delete</i>
                      Deletar</a>

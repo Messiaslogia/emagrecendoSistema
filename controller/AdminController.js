@@ -8,7 +8,8 @@ class AdminController{
     }
 
     entregasIndex(req, res) {
-        res.render('admin/financeiro/entregas/index', {Id_User: req.Id_User});
+        const idUser = cache.get(req.Id_User);
+        res.render('admin/financeiro/entregas/index', {Id_User: req.Id_User, idUser});
     }
 
     vendasIndex(req, res){

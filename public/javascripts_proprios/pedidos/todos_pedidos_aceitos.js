@@ -1,5 +1,5 @@
 const container_users = document.querySelector('#Container_Users');
-const url = "http://localhost:3030/apiPedidos/todosPedidosAceitos";
+const url = "/apiPedidos/todosPedidosAceitos";
 const Id_User = document.querySelector('#Id_User').value;
 
 // Div globais para funções de render e status
