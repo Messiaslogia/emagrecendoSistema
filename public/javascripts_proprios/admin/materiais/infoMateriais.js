@@ -1,4 +1,4 @@
-const url = 'http://localhost:200/materiais/'
+const url = 'https://apiemagrecendo.com/materiais/'
 
 document.addEventListener('DOMContentLoaded', () => {
     const id_materiais = document.querySelector('#idProduto').value;

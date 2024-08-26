@@ -1,4 +1,4 @@
-const urlPedidosTotal = "http://localhost:3030/apiPedidos/"
+const urlPedidosTotal = "https://sistemaemagrecendo.com/apiPedidos/"
 
 document.addEventListener('DOMContentLoaded', () => {
     const valorTotal = document.querySelector('#Valor_pedidos');

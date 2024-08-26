@@ -5,7 +5,7 @@ const fs = require('fs');
 
 
 // Base da URL
-const urls = "http://localhost:200/brindes/";
+const urls = "https://apiemagrecendo.com/brindes/";
 
 class ControllerBrindes {
 

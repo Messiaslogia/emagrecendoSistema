@@ -1,4 +1,4 @@
-const url = 'http://localhost:200/brindes/'
+const url = 'https://apiemagrecendo.com/brindes/'
 
 document.addEventListener('DOMContentLoaded', () => {
     const id_brinde = document.querySelector('#idProduto').value;

@@ -1,5 +1,5 @@
 const container_users = document.querySelector('#Container_Users');
-const url = "http://localhost:3030/apiFinanceiro/todosDevedores";
+const url = "https://sistemaemagrecendo.com/apiFinanceiro/todosDevedores";
 let itensPorPagina = 5;
 var devedores;
 

@@ -1,4 +1,4 @@
-const url = "http://localhost:3030/apiDividas/todasDividas/";
+const url = "https://sistemaemagrecendo.com/apiDividas/todasDividas/";
 const div_dividas = document.querySelector('#Tabela_de_dividas');
 let id;
 let itensPorPagina = 5;

@@ -4,7 +4,7 @@ const cache = require('../configs/cache');
 
 // Base da URL
 
-const urls = "http://localhost:200/dividas/"
+const urls = "https://apiemagrecendo.com/dividas/"
 
 
 class ApiControllerDividas {

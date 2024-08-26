@@ -1,4 +1,4 @@
-const url = "http://localhost:3030/apiDividas/dividasAdmin/";
+const url = "https://sistemaemagrecendo.com/apiDividas/dividasAdmin/";
 let itensPorPagina = 5;
 let listProduto = [];
 
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function adquirirListProdutos() {
     let valor = 0;
-    axios.get(`http://localhost:3030/apiDividas/dividasAdmin/?user=${id}`)
+    axios.get(`https://sistemaemagrecendo.com/apiDividas/dividasAdmin/?user=${id}`)
         .then(resp => {
             // console.log(resp.data);
             // return;

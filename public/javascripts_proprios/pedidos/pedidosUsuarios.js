@@ -1,6 +1,6 @@
 
-const urlUsuarios = "http://localhost:200/users/allUsersPedidosAdmin";
-const urlAllDesconto = "http://localhost:200/desconto/";
+const urlUsuarios = "https://apiemagrecendo.com/users/allUsersPedidosAdmin";
+const urlAllDesconto = "https://apiemagrecendo.com/desconto/";
 const inputDesconto = document.querySelector('#Desconto_input');
 const inputFuncao = document.getElementById('Funcao_input');
 const div_produto = document.getElementById('Produto_input');

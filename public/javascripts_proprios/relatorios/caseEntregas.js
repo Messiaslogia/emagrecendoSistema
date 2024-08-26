@@ -1,5 +1,5 @@
 let caseDeEntregas = document.querySelector('#Case_De_Dividas');
-let urlCases = "http://localhost:200/financeiro/casesDEntregas"
+let urlCases = "https://apiemagrecendo.com/financeiro/casesDEntregas"
 
 
 document.addEventListener('DOMContentLoaded', () => {

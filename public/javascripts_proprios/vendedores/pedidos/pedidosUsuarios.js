@@ -1,5 +1,5 @@
 
-const url = "http://localhost:200/vendedor/clienteVendedor"
+const url = "https://apiemagrecendo.com/vendedor/clienteVendedor"
 const inputFuncao = document.getElementById('Funcao_input');
 const inputUsuario = document.getElementById('Usuario_input');
 

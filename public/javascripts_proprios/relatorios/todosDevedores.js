@@ -1,5 +1,5 @@
 const container_users = document.querySelector('#Container_Users');
-const url = "http://localhost:3030/apiFinanceiro/todosDevedores";
+const url = "https://sistemaemagrecendo.com/apiFinanceiro/todosDevedores";
 let itensPorPagina = 5;
 var devedores;
 
@@ -145,7 +145,7 @@ function statusAlt(){
             pedido.addEventListener('change', (e) => {
                 let numeroDPedido = e.target.getAttribute('number_pedido');
 
-                axios.post('http://localhost:3030/apiPedidos/novoStatus', {
+                axios.post('https://sistemaemagrecendo.com/apiPedidos/novoStatus', {
                     status: pedido.value,
                     pedido: numeroDPedido
                 })
@@ -170,7 +170,7 @@ function criarModal(numeração){
     pedido_number.innerHTML = '';
     tabela_pedidos.innerHTML = '';
     
-    axios.post('http://localhost:200/pedidos/consultPedido', {
+    axios.post('https://apiemagrecendo.com/pedidos/consultPedido', {
         numero: numeração
     })
         .then(resp => {
@@ -182,7 +182,7 @@ function criarModal(numeração){
                 quantidadeTotalInfo.push(pedido.quantidade);
 
 
-                axios.post('http://localhost:200/produtos/consultarProdutos', {
+                axios.post('https://apiemagrecendo.com/produtos/consultarProdutos', {
                     id: pedido.id_produto_FK
                 })
                     .then(produto => {
@@ -243,7 +243,7 @@ function infoUser(id){
 
     text_user.innerHTML = '';
     text_end.innerHTML = ''
-    axios.post('http://localhost:200/users/usuarioInfo', {
+    axios.post('https://apiemagrecendo.com/users/usuarioInfo', {
         id: id
     })
         .then(resp => {

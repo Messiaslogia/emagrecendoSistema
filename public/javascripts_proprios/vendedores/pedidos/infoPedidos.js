@@ -1,4 +1,4 @@
-const urlPedidosTotal = "http://localhost:200/vendedor/casesDesaprovadosVendedor"
+const urlPedidosTotal = "https://apiemagrecendo.com/vendedor/casesDesaprovadosVendedor"
 const idVendedor = document.querySelector('#idDoVendedor').value;
 
 document.addEventListener('DOMContentLoaded', () => {

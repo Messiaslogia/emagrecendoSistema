@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         
         formData.forEach(pedido => {
-            axios.post(`http://localhost:3030/vendedores/addPedidos?user=${idCripted}`, pedido)
+            axios.post(`https://sistemaemagrecendo.com/vendedores/addPedidos?user=${idCripted}`, pedido)
                 .then(resp => {
                     console.log(resp.data);
                 })

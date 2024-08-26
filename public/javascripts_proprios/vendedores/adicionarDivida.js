@@ -12,7 +12,7 @@
 
 //     axios.post('/apiDividas/adicionarNovaDividaVendedor', formData)
 //         .then(response => {
-//             window.location.href = 'http://localhost:3030/vendedores/vendasEfetuadas'
+//             window.location.href = 'https://sistemaemagrecendo.com/vendedores/vendasEfetuadas'
 //         })
 //         .catch(err => {
 //             console.error(err);

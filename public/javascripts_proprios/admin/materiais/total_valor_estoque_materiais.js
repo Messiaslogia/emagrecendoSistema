@@ -1,6 +1,6 @@
 const div_valor = document.querySelector('#Total_ValorEmEstoque');
 const div_quantidade = document.querySelector('#Total_Estoque');
-const url_valoresTotais = "http://localhost:200/materiais/"
+const url_valoresTotais = "https://apiemagrecendo.com/materiais/"
 
 document.addEventListener('DOMContentLoaded', () => {
     axios.get(`${url_valoresTotais}valoresTotaisMateriais`)

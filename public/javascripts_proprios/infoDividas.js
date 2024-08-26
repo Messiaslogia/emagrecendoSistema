@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     let id_divida = document.querySelector('#id_divida');
-    axios.get(`http://localhost:3030/apiDividas/consultarDivida/${id_divida.value}`)
+    axios.get(`https://sistemaemagrecendo.com/apiDividas/consultarDivida/${id_divida.value}`)
         .then((result) => {
             console.log(result.data);
             console.log(result.data[0].tipo);

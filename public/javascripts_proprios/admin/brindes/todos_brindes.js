@@ -1,7 +1,7 @@
 const div_tabela_de_produtos = document.querySelector('#Tabela_de_produtos');
 const Id_User = document.querySelector('#Id_User').value;
 
-const url = "http://localhost:200/brindes/";
+const url = "https://apiemagrecendo.com/brindes/";
 const itensPorPagina = 5;
 let lista_de_brindes
 

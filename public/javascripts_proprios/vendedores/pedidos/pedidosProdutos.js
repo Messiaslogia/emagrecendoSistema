@@ -24,7 +24,7 @@ function listaNomesProdutos(){
 
 div_produtos.addEventListener('change', function () {
     var valor = div_produtos.value
-    axios.get(`http://localhost:3030/apiProdutos/consultProduto/${valor}`)
+    axios.get(`https://sistemaemagrecendo.com/apiProdutos/consultProduto/${valor}`)
         .then((result) => {
             div_valorDistribuidor.value = `R$ ${result.data[0].preco_revenda.toFixed(2)}`;
         }).catch((err) =>{

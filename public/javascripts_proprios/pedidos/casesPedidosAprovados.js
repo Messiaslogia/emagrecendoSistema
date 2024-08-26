@@ -1,4 +1,4 @@
-const urlCasesAprovados = "http://localhost:3030/apiPedidos/valorPedidosAprovados";
+const urlCasesAprovados = "https://sistemaemagrecendo.com/apiPedidos/valorPedidosAprovados";
 let listaDosPedidosAprovados
 
 

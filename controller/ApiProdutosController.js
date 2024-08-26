@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs');
 
 // Base da URL
-const urls = "http://localhost:200/produtos/";
+const urls = "https://apiemagrecendo.com/produtos/";
 
 // Variáveis Globais
 let produtosList = [];

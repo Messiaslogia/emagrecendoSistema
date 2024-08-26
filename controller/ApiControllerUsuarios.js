@@ -4,7 +4,7 @@ const axios = require('axios');
 const cache = require('../configs/cache');
 
 // Base da URL
-const urls = "http://localhost:200/users/"
+const urls = "https://apiemagrecendo.com/users/"
 
 // Controller
 class ApiControllerUsuarios {
@@ -63,7 +63,7 @@ class ApiControllerUsuarios {
                 cache.set(identificador, auth);
 
                 switch (resp.data.user.funcao) {
-                    case 'Gerente':
+                    case '1':
                         return res.redirect(307, `/users?user=${identificador}`);
                     case '2':
                         return res.redirect(`/distribuidor?user=${identificador}`);

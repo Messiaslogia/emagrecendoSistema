@@ -1,5 +1,5 @@
 const idEntrega = document.querySelector('#idEntrega').value;
-const urlEntrega = "http://localhost:200/distribuidores/infoEntrega";
+const urlEntrega = "https://apiemagrecendo.com/distribuidores/infoEntrega";
 
 document.addEventListener('DOMContentLoaded', () => {
     axios.get(`${urlEntrega}?entrega=${idEntrega}`)

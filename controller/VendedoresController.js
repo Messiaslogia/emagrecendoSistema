@@ -1,7 +1,7 @@
 
 require('dotenv').config();
 var cache = require('../configs/cache');
-const urls = "http://localhost:200/vendedor/";
+const urls = "https://apiemagrecendo.com/vendedor/";
 const { ecryptedIdUser, decryptUserId } = require('../configs/cripto');
 
 
@@ -47,7 +47,7 @@ class VendedoresController {
             facebook: req.body.facebooks,
         };
 
-            axios.post(`http://localhost:200/users/editUser`, newUser)
+            axios.post(`https://apiemagrecendo.com/users/editUser`, newUser)
                 .then(resp => {
                     res.redirect(`/vendedores/clientes?user=${idCripted}`)
                 })
@@ -166,10 +166,10 @@ class VendedoresController {
             valorUnico: req.body.valorProduto.replace('R$ ', ''),
         };
 
-        axios.post(`http://localhost:200/pedidos/addPedidosVendedores`, newPedido)
+        axios.post(`https://apiemagrecendo.com/pedidos/addPedidosVendedores`, newPedido)
             .then(resp => {
                 res.json(true);
-                axios.post(`http://localhost:200/pedidos/addVendaVendedor?vendedor=${vendedor}`, newPedido)
+                axios.post(`https://apiemagrecendo.com/pedidos/addVendaVendedor?vendedor=${vendedor}`, newPedido)
                 .then(resp=>{
                     res.status(200).json({
                         success: true,
@@ -230,7 +230,7 @@ class VendedoresController {
 
         axios.post(`${urls}novaVenda`, novaVenda)
             .then(resp => {
-                res.redirect(`http://localhost:3030/vendedores/vendasEfetuadas?user=${idCripted}`)
+                res.redirect(`https://sistemaemagrecendo.com/vendedores/vendasEfetuadas?user=${idCripted}`)
             })
             .catch(err => {
                 res.json(false)

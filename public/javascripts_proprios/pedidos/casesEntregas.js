@@ -1,4 +1,4 @@
-const urlCases = "http://localhost:3030/apiPedidos/casesEntregas"
+const urlCases = "https://sistemaemagrecendo.com/apiPedidos/casesEntregas"
 
 
 

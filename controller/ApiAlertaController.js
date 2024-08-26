@@ -1,6 +1,6 @@
 const cache = require('../configs/cache');
 const axios = require('axios');
-const url_base = 'http://localhost:200/alertas'
+const url_base = 'https://apiemagrecendo.com/alertas'
 
 class Alertas_Controller{
 

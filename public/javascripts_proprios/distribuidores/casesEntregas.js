@@ -1,5 +1,5 @@
-let urlCasesVendas = "http://localhost:200/distribuidores/casesAprovadosDistribuidor";
-let urlDividas = "http://localhost:200/distribuidores/casesDevedoresDistribuidor"
+let urlCasesVendas = "https://apiemagrecendo.com/distribuidores/casesAprovadosDistribuidor";
+let urlDividas = "https://apiemagrecendo.com/distribuidores/casesDevedoresDistribuidor"
 let id_distribuidor = document.querySelector('#Id_User').value;
 
 document.addEventListener('DOMContentLoaded', () => {

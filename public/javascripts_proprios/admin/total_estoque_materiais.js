@@ -1,6 +1,6 @@
 const h2_Estoque = document.querySelector('#Total_Estoque');
 const h2_ValorEmEstoque = document.querySelector('#Total_ValorEmEstoque');
-const urlEstoqueGeral = "http://localhost:200/produtos/"
+const urlEstoqueGeral = "https://apiemagrecendo.com/produtos/"
 
 document.addEventListener('DOMContentLoaded', () => {
     axios.get(`${urlEstoqueGeral}/estoqueGeral`)

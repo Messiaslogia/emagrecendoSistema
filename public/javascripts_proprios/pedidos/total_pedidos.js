@@ -1,6 +1,6 @@
 const container_users = document.querySelector('#Container_Users');
-const url = "http://localhost:3030/apiPedidos/todosPedidos";
-const urlQUantidade = "http://localhost:200/pedidos/quantidadeTotalDosPedidos"
+const url = "https://sistemaemagrecendo.com/apiPedidos/todosPedidos";
+const urlQUantidade = "https://apiemagrecendo.com/pedidos/quantidadeTotalDosPedidos"
 const div_pedidos = document.querySelector('#Tabela_de_pedidos');
 const Id_User = document.querySelector('#Id_User').value;
 let itensPorPagina = 5;
@@ -215,17 +215,17 @@ function statusAlt(){
             pedido.addEventListener('change', (e) => {
                 let numeroDPedido = e.target.getAttribute('number_pedido');
 
-                axios.post(`http://localhost:200/pedidos/consultPedidoEstoque`, {
+                axios.post(`https://apiemagrecendo.com/pedidos/consultPedidoEstoque`, {
                     numero_do_pedido: numeroDPedido
                 })
                     .then(resp => {
                         if(resp.data == true){
-                            axios.post(`http://localhost:3030/apiPedidos/novoStatus?user=${Id_User}`, {
+                            axios.post(`https://sistemaemagrecendo.com/apiPedidos/novoStatus?user=${Id_User}`, {
                                 status: pedido.value,
                                 pedido: numeroDPedido
                             })
                                 .then(resp => {
-                                    window.location.href = `http://localhost:3030/admin/aprovarPedido?user=${Id_User}`
+                                    window.location.href = `https://sistemaemagrecendo.com/admin/aprovarPedido?user=${Id_User}`
                                 })
                                 .catch(err => {
                                     console.log(err)
@@ -302,7 +302,7 @@ function criarModal(numeração){
     pedido_number.innerHTML = '';
     tabela_pedidos.innerHTML = '';
     
-    axios.post('http://localhost:200/pedidos/consultPedido', {
+    axios.post('https://apiemagrecendo.com/pedidos/consultPedido', {
         numero: numeração
     })
         .then(resp => {
@@ -314,7 +314,7 @@ function criarModal(numeração){
                 quantidadeTotalInfo.push(pedido.quantidade);
 
 
-                axios.post('http://localhost:200/produtos/consultarProdutos', {
+                axios.post('https://apiemagrecendo.com/produtos/consultarProdutos', {
                     id: pedido.id_produto_FK
                 })
                     .then(produto => {
@@ -383,7 +383,7 @@ function infoUser(id){
 
     text_user.innerHTML = '';
     text_end.innerHTML = ''
-    axios.post('http://localhost:200/users/usuarioInfo', {
+    axios.post('https://apiemagrecendo.com/users/usuarioInfo', {
         id: id
     })
         .then(resp => {

@@ -2,7 +2,7 @@ const axios = require('axios');
 const cache = require('../configs/cache');
 
 // Base da URL
-const urls = "http://localhost:200/financeiro/"
+const urls = "https://apiemagrecendo.com/financeiro/"
 
 class ApiControllerFinanceiro {
     getTodosRelatorios(req, res) {

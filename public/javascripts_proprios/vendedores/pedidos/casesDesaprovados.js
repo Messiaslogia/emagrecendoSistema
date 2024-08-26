@@ -1,4 +1,4 @@
-let urlCases = "http://localhost:200/vendedor/casesDesaprovadosDistribuidores"
+let urlCases = "https://apiemagrecendo.com/vendedor/casesDesaprovadosDistribuidores"
 let id_vendedor = document.querySelector('#Id_User').value;
 
 document.addEventListener('DOMContentLoaded', () => {

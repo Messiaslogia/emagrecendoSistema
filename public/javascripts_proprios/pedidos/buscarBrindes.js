@@ -1,5 +1,5 @@
 const inputBrindes = document.querySelector('#Brinde_input');
-const urlAllBrindes = "http://localhost:200/brindes/";
+const urlAllBrindes = "https://apiemagrecendo.com/brindes/";
 
 document.addEventListener('DOMContentLoaded', () => {
     axios.get(`${urlAllBrindes}todosBrindes`)

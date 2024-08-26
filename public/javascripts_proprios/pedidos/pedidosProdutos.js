@@ -1,5 +1,5 @@
 
-const url = "http://localhost:3030/apiProdutos/todosProdutosForm";
+const url = "https://sistemaemagrecendo.com/apiProdutos/todosProdutosForm";
 const div_produtos = document.getElementById('Produto_input');
 const div_valorProdutos = document.getElementById('Valor_Produto');
 const input_select = document.querySelector('#Usuario_input');
@@ -34,7 +34,7 @@ input_select.addEventListener('change', () => {
 div_produtos.addEventListener('change', function () {
     var valor = div_produtos.value;
 
-    axios.get(`http://localhost:3030/apiProdutos/consultProduto/${valor}`)
+    axios.get(`https://sistemaemagrecendo.com/apiProdutos/consultProduto/${valor}`)
         .then((result) => {
             switch (funcao_usuario) {
                 case '1':

@@ -54,7 +54,7 @@ function criarModal(numeracao){
     pedido_number.innerHTML = '';
     tabela_pedidos.innerHTML = '';
     
-    axios.post('http://localhost:200/pedidos/consultPedido', {
+    axios.post('https://apiemagrecendo.com/pedidos/consultPedido', {
         numero: numeracao
     })
         .then(resp => {
@@ -66,7 +66,7 @@ function criarModal(numeracao){
                 quantidadeTotalInfo.push(pedido.quantidade);
 
 
-                axios.post('http://localhost:200/produtos/consultarProdutos', {
+                axios.post('https://apiemagrecendo.com/produtos/consultarProdutos', {
                     id: pedido.id_produto_FK
                 })
                     .then(produto => {
@@ -126,7 +126,7 @@ function infoUser(id){
 
     text_user.innerHTML = '';
     text_end.innerHTML = ''
-    axios.post('http://localhost:200/users/usuarioInfo', {
+    axios.post('https://apiemagrecendo.com/users/usuarioInfo', {
         id: id
     })
         .then(resp => {

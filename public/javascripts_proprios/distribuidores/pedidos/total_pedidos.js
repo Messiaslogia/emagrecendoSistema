@@ -1,6 +1,6 @@
 const container_users = document.querySelector('#Container_Users');
 const url = "/apiPedidos/todosOsPedidosDistribuidor";
-const urlQUantidade = "http://localhost:200/pedidos/quantidadeTotalDosPedidos";
+const urlQUantidade = "https://apiemagrecendo.com/pedidos/quantidadeTotalDosPedidos";
 const idDistribuidor = document.getElementById('idDistribuidor').value
 const div_pedidos = document.querySelector('#Tabela_de_pedidos')
 let itensPorPagina = 5;
@@ -259,7 +259,7 @@ function criarModal(numeração){
     pedido_number.innerHTML = '';
     tabela_pedidos.innerHTML = '';
     
-    axios.post('http://localhost:200/pedidos/consultPedido', {
+    axios.post('https://apiemagrecendo.com/pedidos/consultPedido', {
         numero: numeração
     })
         .then(async resp => {
@@ -271,7 +271,7 @@ function criarModal(numeração){
                 valorTotalInfo.push(pedido.valor);
 
 
-               await axios.post('http://localhost:200/produtos/consultarProdutos', {
+               await axios.post('https://apiemagrecendo.com/produtos/consultarProdutos', {
                     id: pedido.id_produto_FK
                 })
                     .then( produto => {
@@ -333,7 +333,7 @@ function infoUser(id){
 
     text_user.innerHTML = '';
     text_end.innerHTML = ''
-    axios.post('http://localhost:200/users/usuarioInfo', {
+    axios.post('https://apiemagrecendo.com/users/usuarioInfo', {
         id: id
     })
         .then(resp => {

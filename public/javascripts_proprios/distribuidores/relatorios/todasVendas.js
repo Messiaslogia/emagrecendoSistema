@@ -1,4 +1,4 @@
-const urlVendas = "http://localhost:200/distribuidores/todasVendas";
+const urlVendas = "https://apiemagrecendo.com/distribuidores/todasVendas";
 const div_entregas = document.querySelector('#Tabela_de_vendas');
 const id_user = document.querySelector('#Id_User').value;
 let itensPorPagina = 5;
@@ -29,7 +29,7 @@ function adquirirListProdutos() {
 
 async function filtroUsers(){
     await listProduto.forEach((venda, index) => {
-         axios.post('http://localhost:200/users/usuarioInfo', {
+         axios.post('https://apiemagrecendo.com/users/usuarioInfo', {
              id: venda.id_cliente_FK
          })
              .then(resp => {listUser[venda.id_venda] = (resp.data)})
@@ -128,7 +128,7 @@ function criarModal(numeração){
     pedido_number.innerHTML = '';
     tabela_pedidos.innerHTML = '';
     
-    axios.post('http://localhost:200/vendedor/consultVenda', {
+    axios.post('https://apiemagrecendo.com/vendedor/consultVenda', {
         idVenda: numeração
     })
         .then(resp => {

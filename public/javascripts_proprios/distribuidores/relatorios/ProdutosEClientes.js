@@ -1,4 +1,4 @@
-let urlProdutoseClientes = "http://localhost:200/distribuidores/listaDeProdutosEClientes";
+let urlProdutoseClientes = "https://apiemagrecendo.com/distribuidores/listaDeProdutosEClientes";
 let idDistribuidor = document.querySelector('#Id_user').value;
 let infoProduto
 

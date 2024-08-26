@@ -1,5 +1,5 @@
 const h2_Estoque = document.querySelector('#Total_Pedidos');
-const urlQuantidadePedidos = "http://localhost:3030/apiPedidos/quantidadePedidos";
+const urlQuantidadePedidos = "https://sistemaemagrecendo.com/apiPedidos/quantidadePedidos";
 
 
 console.log(h2_Estoque)

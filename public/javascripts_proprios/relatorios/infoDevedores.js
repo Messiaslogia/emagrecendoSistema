@@ -1,6 +1,6 @@
 const divValorDevedores = document.querySelector('#Valor_Total_Devedores');
 const divQuantidadeDevedores = document.querySelector('#Quantidade_d_devedores');
-const urlInfo = 'http://localhost:200/financeiro/casesDevedores'
+const urlInfo = 'https://apiemagrecendo.com/financeiro/casesDevedores'
 
 
 document.addEventListener('DOMContentLoaded', () => {

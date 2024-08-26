@@ -1,4 +1,4 @@
-const urlFinanceiro = "http://localhost:3030/apiFinanceiro/"
+const urlFinanceiro = "https://sistemaemagrecendo.com/apiFinanceiro/"
 let infosMensais;
 let infosSemanais;
 

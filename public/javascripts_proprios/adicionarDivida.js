@@ -12,7 +12,7 @@ document.getElementById('DividaForm').addEventListener('submit', function (event
 
     axios.post(`/apiDividas/adicionarNovaDivida?user=${Id_User}`, formData)
         .then(response => {
-            window.location.href = `http://localhost:3030/admin/dividas?user=${Id_User}`
+            window.location.href = `https://sistemaemagrecendo.com/admin/dividas?user=${Id_User}`
         })
         .catch(err => {
             console.error(err);

@@ -3,7 +3,7 @@ const cache = require('../configs/cache');
 const { use } = require('../routes');
 
 // Base da URL
-const urls = "http://localhost:200/pedidos/"
+const urls = "https://apiemagrecendo.com/pedidos/"
 
 
 

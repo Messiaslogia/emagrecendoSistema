@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 var cache = require('../configs/cache');
-const urls = "http://localhost:200/distribuidores/";
+const urls = "https://apiemagrecendo.com/distribuidores/";
 const axios = require('axios');
 const { ecryptedIdUser, decryptUserId } = require('../configs/cripto');
 
@@ -259,7 +259,7 @@ class DistribuidorController{
         const usuario = req.params.id;
         const idCripted = req.Id_User;
 
-        axios.post(`http://localhost:200/users/deleteUser`, {
+        axios.post(`https://apiemagrecendo.com/users/deleteUser`, {
             id: usuario
         })
             .then(resp => {

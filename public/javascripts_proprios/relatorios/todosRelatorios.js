@@ -1,4 +1,4 @@
-const urlAllFinanceiro = "http://localhost:3030/apiFinanceiro/todasVendas"
+const urlAllFinanceiro = "https://sistemaemagrecendo.com/apiFinanceiro/todasVendas"
 const div_relatorio = document.querySelector('#Tabela_de_Relatorios')
 const itensPorPagina = 5;
 let allRelatoriosFinanceiro;
@@ -140,7 +140,7 @@ function criarModal(numero){
     div_ValorTotal.innerHTML = ''
 
 
-    axios.get(`http://localhost:3030/apiFinanceiro//consultarRelatorio/${numero}`)
+    axios.get(`https://sistemaemagrecendo.com/apiFinanceiro//consultarRelatorio/${numero}`)
         .then(resp => {
             let infoCortada = resp.data[0].info_usuario.split(',');
 

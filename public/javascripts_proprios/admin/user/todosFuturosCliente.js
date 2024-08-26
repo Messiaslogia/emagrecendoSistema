@@ -2,7 +2,7 @@ const container_users = document.querySelector('#Container_Users');
 const inputsPages = document.querySelectorAll('#pageInput');
 const id_user = document.querySelector('#Id_User').value
 
-const urls = "http://localhost:3030/api/todosFuturosClientes";
+const urls = "https://sistemaemagrecendo.com/api/todosFuturosClientes";
 let itensPorPagina = 5;
 let listUsuarios;
 

@@ -1,7 +1,7 @@
 var cache = require('../configs/cache');
 const axios = require('axios');
 
-const urlsUser = 'http://localhost:200/users/';
+const urlsUser = 'https://apiemagrecendo.com/users/';
 
 class LoginController {
 

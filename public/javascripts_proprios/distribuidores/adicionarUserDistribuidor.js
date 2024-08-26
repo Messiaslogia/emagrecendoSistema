@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let cpfInput = document.querySelector('#CPF_input').value;
         let confirm = 0
 
-       await axios.post('http://localhost:200/users/verifyCPF', {cpfInput})
+       await axios.post('https://apiemagrecendo.com/users/verifyCPF', {cpfInput})
             .then(respCpf => {
                 if(respCpf.data == true){
                     confirm++
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
 
-        await axios.post('http://localhost:200/users/verifyEmail', {emailInput})
+        await axios.post('https://apiemagrecendo.com/users/verifyEmail', {emailInput})
             .then(respEmail => {
                 if(respEmail.data == true){
                     confirm++
