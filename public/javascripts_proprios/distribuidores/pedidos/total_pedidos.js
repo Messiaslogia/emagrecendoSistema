@@ -122,13 +122,13 @@ function displayItens(page, arrayindex) {
                      </div>
                  </td>
                  <td>
-                     <p class="text-xs font-weight-bold mb-0">${pedido.status}</p>
+                     <p class="text-xs font-weight-bold mb-0 text-center">${pedido.status == 1 ? 'Desaprovado' : 'Recusado'}</p>
                  </td>
                  <td class="align-middle text-center text-sm">
                      <span class="badge badge-sm bg-gradient-success">${pedido.quantidadeTotal}</span>
                  </td>
                  <td class="align-middle text-center">
-                     <span class="text-secondary text-xs font-weight-bold">${pedido.data}</span>
+                     <span class="text-secondary text-xs font-weight-bold">${pedido.data_criacao.split('T')[0].split('-').reverse().join('/')}</span>
                  </td>
              </tr>
          `
@@ -151,13 +151,13 @@ function displayItens(page, arrayindex) {
                      </div>
                  </td>
                  <td>
-                     <p class="text-xs font-weight-bold mb-0 text-center">${pedido.status}</p>
+                     <p class="text-xs font-weight-bold mb-0 text-center">${pedido.status == 1 ? 'Desaprovado' : 'Recusado'}</p>
                  </td>
                  <td class="align-middle text-center text-sm text-center">
                      <span class="badge badge-sm bg-gradient-success">${pedido.quantidadeTotal}</span>
                  </td>
                  <td class="align-middle text-center">
-                     <span class="text-secondary text-xs font-weight-bold">${pedido.data}</span>
+                     <span class="text-secondary text-xs font-weight-bold">${pedido.data_criacao.split('T')[0].split('-').reverse().join('/')}</span>
                  </td>
              </tr>
          `

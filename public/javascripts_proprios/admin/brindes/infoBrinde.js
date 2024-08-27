@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('#Nome_produto').value = result.data[0].nome
             document.querySelector('#Descricao_produto').value = result.data[0].descricao
             document.querySelector('#Quantidade_produto').value = result.data[0].quantidade
-            document.querySelector('#Preco_produto').value = result.data[0].preco;
+            document.querySelector('#Preco_produto').value = `R$ ${result.data[0].preco}`;
 
             if (result.data[0].img) {
                 document.querySelector('#currentImage').src = '/' + result.data[0].img;

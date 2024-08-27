@@ -29,32 +29,32 @@ function paginas(page) {
     if (pageCont <= maxPagesToShow) {
         for (let i = 1; i <= pageCont; i++) {
             const activeClass = (i === page) ? 'active bg-primary text-light' : '';
-            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i}, ${array})">${i}</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i})">${i}</a></li>`;
         }
     } else {
         if (page <= maxPagesToShow - 1) {
             for (let i = 1; i <= maxPagesToShow; i++) {
                 const activeClass = (i === page) ? 'active bg-primary text-light' : '';
-                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i}, ${array})">${i}</a></li>`;
+                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i})">${i}</a></li>`;
             }
             containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link">...</a></li>`;
-            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(${pageCont}, ${array})">${pageCont}</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(${pageCont})">${pageCont}</a></li>`;
         } else if (page >= pageCont - maxPagesToShow + 2) {
-            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(1, ${array})">1</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(1)">1</a></li>`;
             containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link">...</a></li>`;
             for (let i = pageCont - maxPagesToShow + 1; i <= pageCont; i++) {
                 const activeClass = (i === page) ? 'active bg-primary text-light' : '';
-                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i}, ${array})">${i}</a></li>`;
+                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i})">${i}</a></li>`;
             }
         } else {
-            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(1, ${array})">1</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(1)">1</a></li>`;
             containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link">...</a></li>`;
             for (let i = page - 1; i <= page + 1; i++) {
                 const activeClass = (i === page) ? 'active bg-primary text-light' : '';
-                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i}, ${array})">${i}</a></li>`;
+                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i})">${i}</a></li>`;
             }
             containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link">...</a></li>`;
-            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(${pageCont}, ${array})">${pageCont}</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(${pageCont})">${pageCont}</a></li>`;
         }
     }
 }
@@ -96,7 +96,7 @@ function displayItens( page ){
                                       </td>
 
                                       <td class="align-middle text-center text-sm">
-                                          <p class="text-xs font-weight-bold mb-0">${produto.categoria === 1 ? 'Produto' : produto.categoria === 2 ? 'Material' : 'Brinde'}</p>
+                                          <p class="text-xs font-weight-bold mb-0">${'Brinde'}</p>
                                       </td class="align-middle text-center text-sm">
                                      
                                       <td class="align-middle text-center">
@@ -104,9 +104,9 @@ function displayItens( page ){
                                       </td>
                                       
                                       <td class="align-middle">
+                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiBrindes/editarProduto/${produto.id}?user=${Id_User}"><i class="material-icons text-sm me-2">edit</i></a>
                                           <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiBrindes/dellProduto/${produto.id}?user=${Id_User}"><i
                                               class="material-icons text-sm me-2">delete</i></a>
-                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiBrindes/editarProduto/${produto.id}?user=${Id_User}"><i class="material-icons text-sm me-2">edit</i></a>
                                       </td>
                                  </tr>
                          `
@@ -135,7 +135,7 @@ function displayItens( page ){
                                       </td>
 
                                       <td class="align-middle text-center text-sm">
-                                          <p class="text-xs font-weight-bold mb-0">${produto.categoria === 1 ? 'Produto' : produto.categoria === 2 ? 'Material' : 'Brinde'}</p>
+                                          <p class="text-xs font-weight-bold mb-0">${'Brinde'}</p>
                                       </td class="align-middle text-center text-sm">
                                      
                                       <td class="align-middle text-center">
@@ -143,9 +143,9 @@ function displayItens( page ){
                                       </td>
                                       
                                       <td class="align-middle">
+                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiBrindes/editarProduto/${produto.id}?user=${Id_User}"><i class="material-icons text-sm me-2">edit</i></a>
                                           <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="/apiBrindes/dellProduto/${produto.id}?user=${Id_User}"><i
                                               class="material-icons text-sm me-2">delete</i></a>
-                                          <a class="btn btn-link text-dark px-3 mb-0" href="/apiBrindes/editarProduto/${produto.id}?user=${Id_User}"><i class="material-icons text-sm me-2">edit</i></a>
                                       </td>
                                  </tr>
                          `

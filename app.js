@@ -16,6 +16,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+// Cache-Control Headers
+// app.use((req, res, next) => {
+//   res.setHeader('Cache-Control', 'no-store');
+//   res.setHeader('Pragma', 'no-cache');
+//   res.setHeader('Expires', '0');
+//   next();
+// });
+
+
 // Controllers
 const indexRouter = require('./routes/index');
 const adminRouter = require('./routes/admin');

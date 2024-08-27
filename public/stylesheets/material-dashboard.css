@@ -13334,7 +13334,7 @@ body.dark-version {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
     cursor: pointer; }
-  .dropdown .dropdown-toggle:after,
+  /* .dropdown .dropdown-toggle:after,
   .dropup .dropdown-toggle:after,
   .dropstart .dropdown-toggle:after,
   .dropend .dropdown-toggle:after {
@@ -13342,7 +13342,7 @@ body.dark-version {
     font: normal normal normal 14px/1 FontAwesome;
     border: none;
     vertical-align: middle;
-    font-weight: 600; }
+    font-weight: 600; } */
   .dropdown .dropdown-toggle.show:after,
   .dropup .dropdown-toggle.show:after,
   .dropstart .dropdown-toggle.show:after,

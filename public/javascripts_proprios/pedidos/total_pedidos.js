@@ -111,7 +111,7 @@ function displayItens(page, arrayindex){
              div_pedidos.innerHTML += `
              <tr>
                  <td>
-                     <div class="d-flex px-2 py-1">
+                     <div class="d-flex px-2 py-1 align-items-center text-center align-middle justify-content-center">
                          <div class="cursor-pointer">
                              <i id="Info_pedidos" number_pedido="${pedido.numero_do_pedido}" class="material-icons cursor-pointer">info</i>
                          </div>
@@ -121,25 +121,25 @@ function displayItens(page, arrayindex){
                      </div>
                  </td>
                  <td>
-                     <p class="text-xs font-weight-bold mb-0">${pedido.status}</p>
+                     <p class="text-xs font-weight-bold mb-0 text-center">${pedido.status == 1 ? 'Desaprovado' : 'Recusado'}</p>
                  </td>
                  <td class="align-middle text-center text-sm">
                      <span class="badge badge-sm bg-gradient-success">${pedido.quantidadeTotal}</span>
                  </td>
                  <td class="align-middle text-center">
-                     <span class="text-secondary text-xs font-weight-bold">${pedido.data}</span>
+                     <span class="text-secondary text-xs font-weight-bold">${pedido.data_criacao.split('T')[0].split('-').reverse().join('/')}</span>
                  </td>
                  <td class="align-middle">
                      <select id="Pedido_input" number_pedido="${pedido.numero_do_pedido}" name="produto" class="form-control">
                         <option selected disabled value="Desaprovado">--</option>
-                        
                         <option value="6">Aprovado</option>
                         <option value="7">Recusado</option>
                      </select>
                      
                  </td>
 
-                 <td><a idAtributo="${pedido.numero_do_pedido}" id="Button_Deletar_Pedido" class="btn btn-link text-danger text-gradient mb-0"">
+                 <td class=" align-middle text-center">
+                 <a idAtributo="${pedido.numero_do_pedido}" id="Button_Deletar_Pedido" class="btn btn-link text-danger text-gradient mb-0"">
                          <i class="material-icons text-sm me-2">delete</i>
                      Deletar</a></td>
              </tr>
@@ -153,7 +153,7 @@ function displayItens(page, arrayindex){
              div_pedidos.innerHTML += `
              <tr>
                  <td>
-                     <div class="d-flex px-2 py-1">
+                     <div class="d-flex px-2 py-1 align-items-center text-center align-middle justify-content-center">
                          <div class="cursor-pointer">
                              <i id="Info_pedidos" number_pedido="${pedido.numero_do_pedido}" class="material-icons cursor-pointer">info</i>
                          </div>
@@ -163,13 +163,13 @@ function displayItens(page, arrayindex){
                      </div>
                  </td>
                  <td>
-                     <p class="text-xs font-weight-bold mb-0">${pedido.status}</p>
+                     <p class="text-xs font-weight-bold mb-0 text-center">${pedido.status == 1 ? 'Desaprovado' : 'Recusado'}</p>
                  </td>
                  <td class="align-middle text-center text-sm">
                      <span class="badge badge-sm bg-gradient-success">${pedido.quantidadeTotal}</span>
                  </td>
                  <td class="align-middle text-center">
-                     <span class="text-secondary text-xs font-weight-bold">${pedido.data}</span>
+                     <span class="text-secondary text-xs font-weight-bold">${pedido.data_criacao.split('T')[0].split('-').reverse().join('/')}</span>
                  </td>
                  <td class="align-middle">
                      <select id="Pedido_input" number_pedido="${pedido.numero_do_pedido}" name="produto" class="form-control" >
@@ -182,7 +182,7 @@ function displayItens(page, arrayindex){
                     
                  </td>
 
-                 <td class="align-middle" ">
+                 <td class="align-middle text-center">
                      <a idAtributo="${pedido.numero_do_pedido}" id="Button_Deletar_Pedido" class="btn btn-link text-danger text-gradient mb-0">
                          <i class="material-icons text-sm me-2">delete</i>
                      Deletar</a>
