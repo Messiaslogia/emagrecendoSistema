@@ -307,7 +307,6 @@ function criarModal(numeração){
     })
         .then(resp => {
             infoUser(resp.data[0].id_usuario_FK);
-
             resp.data.forEach(pedido => {
                 pedido_number.innerHTML = numeração;
                 valorTotalInfo.push(pedido.valor);
@@ -329,13 +328,13 @@ function criarModal(numeração){
                                 <p class="text-xs font-weight-bold mb-0">${produto.data[0].nome}</p>
                             </td>
                             <td class="align-middle text-center text-sm">
-                                <span class="badge badge-sm bg-gradient-success">R$ ${precoProduto.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
+                                <span class="badge badge-sm bg-gradient-success">R$ ${precoProduto.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                             </td>
                             <td class="align-middle text-center">
                                 <span class="text-secondary text-xs font-weight-bold">${pedido.quantidade}</span>
                             </td>
                             <td class="align-middle text-center text-sm">
-                                <span class="badge badge-sm bg-gradient-success">R$ ${valorTotalProduto.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
+                                <span class="badge badge-sm bg-gradient-success">R$ ${valorTotalProduto.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                             </td>
                             
                         </tr>`;
@@ -351,7 +350,7 @@ function criarModal(numeração){
 
             quantidadeTotalInfo.forEach((total, index) => {
                 quantidade = quantidade + total;
-                valor = valorTotalInfo[0];
+                valor = valor + valorTotalInfo[index];
             });
 
             tabela_pedidos.innerHTML += `
@@ -360,7 +359,7 @@ function criarModal(numeração){
                     <p class="text-xs font-weight-bold mb-0">Total</p>
                 </td>
                 <td class="align-middle text-center text-sm">
-                    <span class="badge badge-sm bg-gradient-success">R$ ${valor.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
+                    <span class="badge badge-sm bg-gradient-success">R$ ${valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </td>
                 <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold">${quantidade}</span>

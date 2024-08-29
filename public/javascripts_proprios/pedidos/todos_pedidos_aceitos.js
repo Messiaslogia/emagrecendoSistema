@@ -140,7 +140,7 @@ function displayItens(page, arrayindex){
             div_pedidos.innerHTML += `
                 <tr>
                     <td>
-                        <div class="d-flex px-2 py-1">
+                        <div class="d-flex px-2 py-1 align-items-center text-center align-middle justify-content-center">
                             <div class="cursor-pointer">
                                 <i id="Info_pedidos" number_pedido="${pedido.numero_do_pedido}" class="material-icons cursor-pointer">info</i>
                             </div>
@@ -150,7 +150,7 @@ function displayItens(page, arrayindex){
                         </div>
                     </td>
                     <td>
-                        <p class="text-xs font-weight-bold mb-0">${pedido.status}</p>
+                        <p class="text-xs font-weight-bold mb-0 text-center">Pago</p>
                     </td>
                     <td class="align-middle text-center text-sm">
                         <select class="badge badge-sm bg-gradient-secondary" disabled>
@@ -163,7 +163,7 @@ function displayItens(page, arrayindex){
                         </select>
                     </td>   
                     <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">${pedido.data}</span>
+                        <span class="text-secondary text-xs font-weight-bold">${pedido.data_criacao.split('T')[0].split('-').reverse().join('/')}</span>
                     </td>
                     <td class="align-middle text-center" >
                         <a class="btn btn-link text-info text-gradient mb-0" href="/apiPedidos/statusEntregas/${pedido.numero_do_pedido}/${pedido.id_pedido}?idUsuario=${pedido.id_usuario_FK}&user=${Id_User}">
@@ -184,7 +184,7 @@ function displayItens(page, arrayindex){
             div_pedidos.innerHTML += `
                 <tr>
                     <td>
-                        <div class="d-flex px-2 py-1">
+                        <div class="d-flex px-2 py-1 align-items-center text-center align-middle justify-content-center">
                             <div class="cursor-pointer">
                                 <i id="Info_pedidos" number_pedido="${pedido.numero_do_pedido}" class="material-icons cursor-pointer">info</i>
                             </div>
@@ -194,7 +194,7 @@ function displayItens(page, arrayindex){
                         </div>
                     </td>
                     <td>
-                        <p class="text-xs font-weight-bold mb-0">${pedido.status}</p>
+                        <p class="text-xs font-weight-bold mb-0 text-center">${pedido.status == 5 ? "Devendo" : "Pendente"}</p>
                     </td>
                     <td class="align-middle text-center text-sm">
                         <select id="Pagamento_input" class="badge badge-sm bg-gradient-success">
@@ -218,7 +218,7 @@ function displayItens(page, arrayindex){
                         </select>
                     </td>
                     <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">${pedido.data}</span>
+                        <span class="text-secondary text-xs font-weight-bold">${pedido.data_criacao.split('T')[0].split('-').reverse().join('/')}</span>
                     </td>
                     <td class="align-middle text-center">
                         <select id="Pedido_input" number_pedido="${pedido.numero_do_pedido}" name="produto" class="form-control ">
@@ -258,14 +258,13 @@ function displayItens(page, arrayindex){
 function statusAlt(){
     let status_pedido = document.querySelectorAll('#Pedido_input');
     let status_pagamento = document.querySelectorAll('#Pagamento_input');
-    let status_banco = document.querySelector('#Banco_input');
+    let status_banco = document.querySelectorAll('#Banco_input');
 
         status_pedido.forEach((pedido, index) => {
             pedido.addEventListener('change', (e) => {
                 let numeroDPedido = e.target.getAttribute('number_pedido');
                 let metodoDPagamento = status_pagamento[index].value;
-                let bancoDPagamento = status_banco.value;
-
+                let bancoDPagamento = status_banco[index].value;
                 axios.post('https://sistemaemagrecendo.com/apiPedidos/novoStatus', {
                     status: pedido.value,
                     pedido: numeroDPedido,
@@ -285,14 +284,13 @@ function statusAlt(){
 function dellFunction(){
     let botoes_deletar_pedido = document.querySelectorAll('#Button_Deletar_Pedido');
     
-
     botoes_deletar_pedido.forEach(botao => {
         botao.addEventListener('click', (e) => {
             let idPedido = e.target.getAttribute('idAtributo');
 
             axios.get(`/apiPedidos/dellPedidos/${idPedido}`)
                 .then(resp => {
-                    location.reload()
+                    location.reload();
                 })
                 .catch(err => {
                     console.log(err);
@@ -362,7 +360,7 @@ function criarModal(numeração){
                                 <p class="text-xs font-weight-bold mb-0">${produto.data[0].nome}</p>
                             </td>
                             <td class="align-middle text-center text-sm">
-                                <span class="badge badge-sm bg-gradient-success">R$ ${valorTotal.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
+                                <span class="badge badge-sm bg-gradient-success">R$ ${valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                             </td>
                             <td class="align-middle text-center">
                                 <span class="text-secondary text-xs font-weight-bold">${pedido.quantidade}</span>
@@ -380,7 +378,7 @@ function criarModal(numeração){
 
             quantidadeTotalInfo.forEach((total, index) => {
                 quantidade = quantidade + total;
-                valor = valorTotalInfo[0];
+                valor = valor +  valorTotalInfo[index];
             });
 
             tabela_pedidos.innerHTML += `
@@ -389,7 +387,7 @@ function criarModal(numeração){
                     <p class="text-xs font-weight-bold mb-0">Total</p>
                 </td>
                 <td class="align-middle text-center text-sm">
-                    <span class="badge badge-sm bg-gradient-success">R$ ${valor.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
+                    <span class="badge badge-sm bg-gradient-success">R$ ${valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </td>
                 <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold">${quantidade}</span>

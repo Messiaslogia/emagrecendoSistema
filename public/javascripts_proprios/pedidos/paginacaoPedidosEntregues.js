@@ -89,7 +89,7 @@ function displayItens( page, arrayindex ){
                 div_pedidos.innerHTML += `
                 <tr>
                 <td>
-                    <div class="d-flex px-2 py-1">
+                    <div class="d-flex px-2 py-1 align-items-center text-center align-middle justify-content-center">
                         <div class="cursor-pointer">
                             <i id="Info_pedidos" number_pedido="${pedido.numero_do_pedido}" class="material-icons cursor-pointer">info</i>
                         </div>
@@ -99,21 +99,21 @@ function displayItens( page, arrayindex ){
                     </div>
                 </td>
                 <td>
-                    <p class="text-xs font-weight-bold mb-0">${pedido.codigo_rastreio}</p>
+                    <p class="text-xs font-weight-bold mb-0 text-center">${pedido.codigo_rastreio}</p>
                 </td>
-                <td class="align-middle text-center text-sm">
+                <td class="align-middle text-center text-sm text-center">
                     <span class="text-secondary text-xs font-weight-bold">${pedido.endereco}</span>
                 </td>
                 <td class="align-middle text-center">
-                    <span class="badge badge-sm bg-gradient-success">R$ ${pedido.valor_da_entrega.toFixed(2)}</span>
+                    <span class="badge badge-sm bg-gradient-success">R$ ${pedido.valor_da_entrega.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </td>
                 <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold">${pedido.empresa}</span>
                 </td>
                 <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold">${pedido.data}</span>
+                    <span class="text-secondary text-xs font-weight-bold">${new Date(pedido.data).toLocaleDateString('pt-BR')}</span>
                 </td>
-                <td class="align-middle text-center" ">
+                <td class="align-middle text-center">
                     <select id="Pedido_input" number_pedido="${pedido.numero_do_pedido}" name="produto" class="form-control cursor-pointer">
                         <option selected disabled value="8">--</option>
                         <option class="cursor-pointer" value="8">A caminho!</option>
@@ -122,7 +122,7 @@ function displayItens( page, arrayindex ){
                     </select>
                 </td>
 
-                <td class="align-middle">
+                <td class="align-middle text-center">
                     <a idAtributo="${pedido.numero_do_pedido}" id="Button_Deletar_Pedido" class="btn btn-link text-danger text-gradient mb-0">
                         <i class="material-icons text-sm me-2">delete</i>
                     Deletar</a>
@@ -136,7 +136,7 @@ function displayItens( page, arrayindex ){
                 div_pedidos.innerHTML += `
                 <tr>
                 <td>
-                    <div class="d-flex px-2 py-1">
+                    <div class="d-flex px-2 py-1 align-items-center text-center align-middle justify-content-center">
                         <div class="cursor-pointer">
                             <i id="Info_pedidos" number_pedido="${pedido.numero_do_pedido}" class="material-icons cursor-pointer">info</i>
                         </div>
@@ -146,19 +146,19 @@ function displayItens( page, arrayindex ){
                     </div>
                 </td>
                 <td>
-                    <p class="text-xs font-weight-bold mb-0">${pedido.codigo_rastreio}</p>
+                    <p class="text-xs font-weight-bold mb-0 text-center">${pedido.codigo_rastreio}</p>
                 </td>
                 <td class="align-middle text-center text-sm">
-                    <span class="text-secondary text-xs font-weight-bold">${pedido.endereco}</span>
+                    <span class="text-secondary text-xs font-weight-bold text-center">${pedido.endereco}</span>
                 </td>
                 <td class="align-middle text-center">
-                    <span class="badge badge-sm bg-gradient-success">R$ ${pedido.valor_da_entrega.toFixed(2)}</span>
+                    <span class="badge badge-sm bg-gradient-success text-center">R$ ${pedido.valor_da_entrega.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </td>
                 <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold">${pedido.empresa}</span>
+                    <span class="text-secondary text-xs font-weight-bold text-center">${pedido.empresa}</span>
                 </td>
                 <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold">${pedido.data}</span>
+                    <span class="text-secondary text-xs font-weight-bold text-center">${new Date(pedido.data).toLocaleDateString('pt-BR')}</span>
                 </td>
                 <td class="align-middle text-center" disabled>
                         <option selected class="cursor-pointer" value="Entregue">Entregue</option>
@@ -284,7 +284,7 @@ function criarModal(numeração){
                                 <p class="text-xs font-weight-bold mb-0">${produto.data[0].nome}</p>
                             </td>
                             <td class="align-middle text-center text-sm">
-                                <span class="badge badge-sm bg-gradient-success">R$ ${valorTotal.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
+                                <span class="badge badge-sm bg-gradient-success">R$ ${valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                             </td>
                             <td class="align-middle text-center">
                                 <span class="text-secondary text-xs font-weight-bold">${pedido.quantidade}</span>
@@ -311,7 +311,7 @@ function criarModal(numeração){
                     <p class="text-xs font-weight-bold mb-0">Total</p>
                 </td>
                 <td class="align-middle text-center text-sm">
-                    <span class="badge badge-sm bg-gradient-success">R$ ${valor.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
+                    <span class="badge badge-sm bg-gradient-success">R$ ${valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </td>
                 <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold">${quantidade}</span>
