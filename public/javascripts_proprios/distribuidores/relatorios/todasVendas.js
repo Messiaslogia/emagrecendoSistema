@@ -92,16 +92,16 @@ function displayItens(page) {
                                         <i id="Info_pedidos" id_daVenda="${venda.id_venda}" class="material-icons cursor-pointer me-2">info</i><h6 class="mb-0 text-sm">${listUser[venda.id_venda][0].nome}</h6>
                                       </td>
                                       <td class="text-center">
-                                          <p class="text-xs font-weight-bold mb-0">R$ ${venda.valor_total}</p>
+                                          <p class="text-xs font-weight-bold mb-0">R$ ${venda.valor_total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                                       </td>
                                       <td class="align-middle text-center text-sm">
                                           <span class="">${venda.quantidade_total}</span>
                                       </td>
                                       <td class="align-middle text-center">
-                                          <span class="text-secondary text-xs font-weight-bold">R$ ${venda.valor_unitario}</span>
+                                          <span class="text-secondary text-xs font-weight-bold">R$ ${venda.valor_unitario.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                                       </td>
                                        <td class="align-middle text-center">
-                                          <span class="text-secondary text-xs font-weight-bold">${venda.data}</span>
+                                          <span class="text-secondary text-xs font-weight-bold">${new Date(venda.data).toLocaleDateString('pt-BR')}</span>
                                       </td>
                                  </tr>
                          `
@@ -140,10 +140,10 @@ function criarModal(numeração){
                     <p class="text-xs font-weight-bold mb-0">${resp.data[1].nome}</p>
                 </td>
                 <td class="align-middle text-center text-sm">
-                    <span class="badge badge-sm bg-gradient-success">R$ ${resp.data[0].valor_unitario.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
+                    <span class="badge badge-sm bg-gradient-success">R$ ${resp.data[0].valor_unitario.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </td>
                 <td class="align-middle text-center text-sm">
-                    <span class="badge badge-sm bg-gradient-success">R$ ${resp.data[0].valor_total.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
+                    <span class="badge badge-sm bg-gradient-success">R$ ${resp.data[0].valor_total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </td>
                 <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold">${resp.data[0].quantidade_total}</span>

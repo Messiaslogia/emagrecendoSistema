@@ -68,32 +68,32 @@ function paginas(page, arrayindex) {
     if (pageCont <= maxPagesToShow) {
         for (let i = 1; i <= pageCont; i++) {
             const activeClass = (i === page) ? 'active bg-primary text-light' : '';
-            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i}, ${array})">${i}</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i}, ${arrayindex})">${i}</a></li>`;
         }
     } else {
         if (page <= maxPagesToShow - 1) {
             for (let i = 1; i <= maxPagesToShow; i++) {
                 const activeClass = (i === page) ? 'active bg-primary text-light' : '';
-                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i}, ${array})">${i}</a></li>`;
+                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i}, ${arrayindex})">${i}</a></li>`;
             }
             containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link">...</a></li>`;
-            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(${pageCont}, ${array})">${pageCont}</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(${pageCont}, ${arrayindex})">${pageCont}</a></li>`;
         } else if (page >= pageCont - maxPagesToShow + 2) {
-            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(1, ${array})">1</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(1, ${arrayindex})">1</a></li>`;
             containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link">...</a></li>`;
             for (let i = pageCont - maxPagesToShow + 1; i <= pageCont; i++) {
                 const activeClass = (i === page) ? 'active bg-primary text-light' : '';
-                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i}, ${array})">${i}</a></li>`;
+                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i}, ${arrayindex})">${i}</a></li>`;
             }
         } else {
-            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(1, ${array})">1</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(1, ${arrayindex})">1</a></li>`;
             containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link">...</a></li>`;
             for (let i = page - 1; i <= page + 1; i++) {
                 const activeClass = (i === page) ? 'active bg-primary text-light' : '';
-                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i}, ${array})">${i}</a></li>`;
+                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i}, ${arrayindex})">${i}</a></li>`;
             }
             containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link">...</a></li>`;
-            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(${pageCont}, ${array})">${pageCont}</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(${pageCont}, ${arrayindex})">${pageCont}</a></li>`;
         }
     }
 }
@@ -124,11 +124,11 @@ function displayItens(page, arrayindex){
                         </div>
                     </td>
                     <td>
-                        <p class="text-xs font-weight-bold mb-0 text-center">${pedido.status}</p>
+                        <p class="text-xs font-weight-bold mb-0 text-center">Pago</p>
                     </td>
 
                     <td class="align-middle text-center text-sm text-center">
-                        <p class="text-xs font-weight-bold mb-0 text-center">R$ ${pedido.valor.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</p>
+                        <p class="text-xs font-weight-bold mb-0 text-center">R$ ${pedido.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                     </td>
                     <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold text-center">${pedido.banco}</span>
@@ -137,7 +137,7 @@ function displayItens(page, arrayindex){
                         <span class="text-secondary text-xs font-weight-bold text-center">${pedido.pago_com}</span>
                     </td>
                     <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold text-center">${pedido.data}</span>
+                        <span class="text-secondary text-xs font-weight-bold text-center">${pedido.data_criacao.split('T')[0].split('-').reverse().join('/')}</span>
                     </td> 
                 </tr>
             `
@@ -158,11 +158,11 @@ function displayItens(page, arrayindex){
                         </div>
                     </td>
                     <td>
-                        <p class="text-xs font-weight-bold mb-0 text-center">${pedido.status}</p>
+                        <p class="text-xs font-weight-bold mb-0 text-center">${pedido.status == 5 ? "Devendo" : "Pendente"}</p>
                     </td>
 
                     <td class="align-middle text-center text-sm text-center">
-                        <p class="text-xs font-weight-bold mb-0 text-center">R$ ${pedido.valor.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</p>
+                        <p class="text-xs font-weight-bold mb-0 text-center">R$ ${pedido.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                     </td>
                     <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold text-center">${pedido.banco}</span>
@@ -171,7 +171,7 @@ function displayItens(page, arrayindex){
                         <span class="text-secondary text-xs font-weight-bold text-center">${pedido.pago_com}</span>
                     </td>
                     <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold text-center">${pedido.data}</span>
+                        <span class="text-secondary text-xs font-weight-bold text-center">${pedido.data_criacao.split('T')[0].split('-').reverse().join('/')}</span>
                     </td> 
                 </tr>
             `
@@ -292,7 +292,7 @@ function criarModal(numeração){
                                 <p class="text-xs font-weight-bold mb-0">${produto.data[0].nome}</p>
                             </td>
                             <td class="align-middle text-center text-sm">
-                                <span class="badge badge-sm bg-gradient-success">R$ ${valorTotal.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
+                                <span class="badge badge-sm bg-gradient-success">R$ ${valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                             </td>
                             <td class="align-middle text-center">
                                 <span class="text-secondary text-xs font-weight-bold">${pedido.quantidade}</span>
@@ -310,7 +310,7 @@ function criarModal(numeração){
 
             quantidadeTotalInfo.forEach((total, index) => {
                 quantidade = quantidade + total;
-                valor =  valorTotalInfo[0];
+                valor = valor + valorTotalInfo[index];
             });
 
             tabela_pedidos.innerHTML += `
@@ -319,7 +319,7 @@ function criarModal(numeração){
                     <p class="text-xs font-weight-bold mb-0">Total</p>
                 </td>
                 <td class="align-middle text-center text-sm">
-                    <span class="badge badge-sm bg-gradient-success">R$ ${valor.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
+                    <span class="badge badge-sm bg-gradient-success">R$ ${valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </td>
                 <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold">${quantidade}</span>

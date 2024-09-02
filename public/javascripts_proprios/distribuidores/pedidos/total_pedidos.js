@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
         displayItens(1, 0);
-        dellFunction();
 
     }, [300])
 });
@@ -28,11 +27,9 @@ function filtro(status) {
     switch (status) {
         case "Desaprovados":
             displayItens(1, 0);
-            dellFunction();
             break
         case "Recusados":
             displayItens(1, 1);
-            dellFunction();
             break
         default:
             console.log("Erro");
@@ -165,7 +162,7 @@ function displayItens(page, arrayindex) {
         statusAlt();
     }
 
-
+    dellFunction();
     setTimeout(() => {
         let bt_produtos = document.querySelectorAll('#Info_pedidos');
 

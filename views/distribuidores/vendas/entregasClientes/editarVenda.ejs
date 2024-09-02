@@ -93,11 +93,11 @@
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/distribuidor/dividasGerais?user=<%= idCripted %>">Páginas</a>
+                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/distribuidor/entregasClientes?user=<%= idCripted %>">Páginas</a>
                         </li>
-                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Divida</li>
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Entrega</li>
                     </ol>
-                    <h6 class="font-weight-bolder mb-0">Editar Divida</h6>
+                    <h6 class="font-weight-bolder mb-0">Editar Entrega</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -174,7 +174,7 @@
                     <input id="Nome_empresa" type="text" name="nome_empresa" class="form-control mb-4">
                     
                     <!-- Valor da Entrega -->
-                    <input id="Valor_Entrega" type="number" name="valor_entrega" class="form-control mb-4">
+                    <input id="Valor_entrega" type="text" name="valor_entrega" class="form-control mb-4">
 
                     <!-- Valor da Entrega -->
                     <select id="Status_entrega" name="status_entrega" class="form-control ">
@@ -222,6 +222,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!--   Core JS Files   -->
+    <script src="https://unpkg.com/imask"></script>
     <script src="../../javascripts/core/popper.min.js"></script>
     <script src="../../javascripts/core/bootstrap.min.js"></script>
     <script src="../../javascripts/plugins/perfect-scrollbar.min.js"></script>
@@ -231,6 +232,7 @@
 
     <script src="../../javascripts_proprios/distribuidores/relatorios/infoEntregaRepresentantes.js"></script>
     <script src="../../javascripts_proprios/alertas/distribuidor/alertasGeraisDistri.js"></script>
+    <script src="../../javascripts_proprios/imask/valor.js"></script>
 
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");

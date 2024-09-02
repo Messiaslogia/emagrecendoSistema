@@ -55,7 +55,7 @@ function displayItens( page, arrayindex ){
     // Define inicio e fim
     let startIndex = (page - 1) * itensPorPagina;
     let endIndex = startIndex + itensPorPagina;
-
+ 
     // Inverte o array e mantém somente aqueles referente ao inicio e fim
     let arrayPedidos = listUsuarios[arrayindex];
     let reversePedidos = arrayPedidos.slice().reverse();

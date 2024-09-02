@@ -110,7 +110,7 @@ class ApiControllerPedidos {
             id_user: req.body.id_user,
             numero: req.body.numero_do_pedido,
             codigo: req.body.codigo_rastreio,
-            valor: req.body.valor_entrega,
+            valor: req.body.valor_entrega.replace('R$ ', '').replace(',', '.'),
             empresa: req.body.empresa,
             endereco: req.body.endereco,
             data: req.body.dataEntrega,

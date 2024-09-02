@@ -32,19 +32,40 @@ class VendedoresController {
     editUser(req, res) {
         const idCripted = req.Id_User;
 
-        let newUser = {
-            id: req.params.id,
-            nome: req.body.nome,
-            email: req.body.email,
-            telefone: req.body.telefone.replace(/[^\d]/g, ''),
-            cpf: req.body.cpf.replace(/[^\d]/g, ''),
-            cep: req.body.cep.replace(/[^\d]/g, ''),
-            endereco: req.body.endereco,
-            bairro: req.body.bairro,
-            numero_endereco: parseInt(req.body.numerodoendereco),
-            regiao: req.body.regiao,
-            instagram: req.body.instagram,
-            facebook: req.body.facebooks,
+        let newUser
+        if(req.body.senha){
+            newUser = {
+                id: req.params.id,
+                nome: req.body.nome,
+                email: req.body.email,
+                senha: req.body.senha,
+                telefone: req.body.telefone,
+                nascimento: req.body.nascimento,
+                cpf: req.body.cpf,
+                cep:req.body.cep,
+                endereco: req.body.endereco,
+                bairro: req.body.bairro,
+                numero_endereco: req.body.numerodoendereco,
+                regiao: req.body.regiao,
+                insta: req.body.instagram,
+                face: req.body.facebooks,
+            };
+        }else {
+            newUser = {
+                id: req.params.id,
+                nome: req.body.nome,
+                email: req.body.email,
+                nascimento: req.body.nascimento,
+                telefone: req.body.telefone,
+                cpf: req.body.cpf,
+                cep:req.body.cep,
+                endereco: req.body.endereco,
+                bairro: req.body.bairro,
+                numero_endereco: req.body.numerodoendereco,
+                regiao: req.body.regiao,
+                insta: req.body.instagram,
+                face: req.body.facebooks,
+            };
         };
 
             axios.post(`https://apiemagrecendo.com/users/editUser`, newUser)

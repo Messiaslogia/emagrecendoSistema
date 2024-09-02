@@ -2,7 +2,6 @@
 const url = "https://apiemagrecendo.com/vendedor/clienteVendedor"
 const inputFuncao = document.getElementById('Funcao_input');
 const inputUsuario = document.getElementById('Usuario_input');
-
 const idDoVendedor = document.getElementById('idDoVendedor').value;
 
 function alerta() {
@@ -16,6 +15,7 @@ function adquirirListsUsers() {
     axios.get(`${url}?idVendedor=${idDoVendedor}&funcao=${funcaoUsuario}`)
         .then(resp => {
             inputUsuario.innerHTML = ''; // Limpar as opções existentes
+            console.log(resp)
             resp.data.forEach(user => {
                 inputUsuario.innerHTML += `<option value="${user.id_usuario}">${user.nome}</option>`;
             });

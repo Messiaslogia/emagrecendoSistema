@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let id = document.querySelector('#idUser').value;
+    let id = document.querySelector('#idUserEdit').value;
 
-    axios.get(`/api/userConsultEdit?idUser=${id}`)
+    axios.get(`https://apiemagrecendo.com/users/usuarioInfoEditUser?user=${id}`)
         .then((result) => {
             let userData = result.data[0];
-            console.log(result.data[0]);
 
                 document.querySelector('#Name_input').value = userData.nome || '';
                 document.querySelector('#Email_input').value = userData.email || '';
-                // document.querySelector('#Password_input').value = userData.senha || '';
+                document.querySelector('#Password_input').value = '';
+                document.querySelector('#Nascimento_input').value = userData.nascimento || '';
                 document.querySelector('#Telefone_input').value = userData.telefone || '';
                 document.querySelector('#CPF_input').value = userData.cpf || '';
                 document.querySelector('#Instagram_input').value = userData.instagram || '';
@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelector('#Endereco_input').value = userData.endereco || '';
                 document.querySelector('#Bairro_input').value = userData.bairro || '';
                 document.querySelector('#Numero_input').value = userData.numero_endereco || '';
+                document.querySelector('#Instagram_input').value = userData.instagram || '';
+                document.querySelector('#Facebooks_input').value = userData.facebook || '';
         }).catch((err) => {
             console.log(err);
         });

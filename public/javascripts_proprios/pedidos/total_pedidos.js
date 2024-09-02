@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
         displayItens( 1, 0 );
-        dellFunction();
     }, [300])
 });
 
@@ -26,11 +25,9 @@ function filtro(status){
     switch (status){
         case "1":
             displayItens(1, 0);
-            dellFunction();
             break
         case "7":
             displayItens(1, 1);
-            dellFunction();
             break
         default:
             console.log("Erro");
@@ -145,7 +142,7 @@ function displayItens(page, arrayindex){
              </tr>
          `
      })
-     statusAlt()
+     statusAlt();
     }else{
          pageItens.map(pedido => {
 
@@ -193,6 +190,7 @@ function displayItens(page, arrayindex){
          statusAlt();
     }
 
+    dellFunction();
     setTimeout(() => {
         let bt_produtos = document.querySelectorAll('#Info_pedidos');
 
@@ -248,7 +246,6 @@ function statusAlt(){
 function dellFunction(){
     let botoes_deletar_pedido = document.querySelectorAll('#Button_Deletar_Pedido');
     
-
     botoes_deletar_pedido.forEach(botao => {
         botao.addEventListener('click', (e) => {
             let idPedido = e.target.getAttribute('idAtributo');

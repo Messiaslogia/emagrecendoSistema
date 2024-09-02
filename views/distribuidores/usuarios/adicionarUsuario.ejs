@@ -159,7 +159,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10 bg-light mt-4">
                 <!-- Default form register -->
-                <form id="MyForm" class="text-center border border-light p-5" action="/api/novoUsuarioParaDistribuidor?user=<%= idCripted %>" method="post" enctype="application/x-www-form-urlencoded">
+                <form id="MyForm"  class="text-center border border-light p-5" action="/api/novoUsuarioParaDistribuidor?user=<%= idCripted %>" method="post" enctype="application/x-www-form-urlencoded">
                 
                     <p class="h4 mb-4">Novo Usuário</p>
                         <input id="idDistribuidor" name="distribuidor" type="text" style="display: none;" class="form-control" value="<%= idDoDistribuidor %>" required>
@@ -281,6 +281,7 @@
     <script src="../../javascripts_proprios/distribuidores/todos_representantes.js"></script>
     <script src="../../javascripts_proprios/distribuidores/adicionarUserDistribuidor.js"></script>
     <script src="../../javascripts_proprios/admin/user/consulta_cep.js"></script>
+    <script src="../../javascripts_proprios/admin/user/adicionarUser.js"></script>
     <script src="../../javascripts_proprios/alertas/distribuidor/alertasGeraisDistri.js"></script>
 
 

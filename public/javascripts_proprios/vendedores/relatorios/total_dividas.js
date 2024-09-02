@@ -35,9 +35,38 @@ function paginas(page) {
     const containerPagination = document.querySelector('#pag_navigation_input');
     containerPagination.innerHTML = '';
 
-    for (let i = 1; i <= pageCont; i++) {
-        const activeClass = (i === page) ? 'bg-primary text-light' : '';
-        containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link  ${activeClass}" onclick="displayItens(${i})">${i}</a></li>`;
+    const maxPagesToShow = 5;
+
+    if (pageCont <= maxPagesToShow) {
+        for (let i = 1; i <= pageCont; i++) {
+            const activeClass = (i === page) ? 'active bg-primary text-light' : '';
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i})">${i}</a></li>`;
+        }
+    } else {
+        if (page <= maxPagesToShow - 1) {
+            for (let i = 1; i <= maxPagesToShow; i++) {
+                const activeClass = (i === page) ? 'active bg-primary text-light' : '';
+                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i})">${i}</a></li>`;
+            }
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link">...</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(${pageCont})">${pageCont}</a></li>`;
+        } else if (page >= pageCont - maxPagesToShow + 2) {
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(1)">1</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link">...</a></li>`;
+            for (let i = pageCont - maxPagesToShow + 1; i <= pageCont; i++) {
+                const activeClass = (i === page) ? 'active bg-primary text-light' : '';
+                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i})">${i}</a></li>`;
+            }
+        } else {
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(1)">1</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link">...</a></li>`;
+            for (let i = page - 1; i <= page + 1; i++) {
+                const activeClass = (i === page) ? 'active bg-primary text-light' : '';
+                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="displayItens(${i})">${i}</a></li>`;
+            }
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link">...</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="displayItens(${pageCont})">${pageCont}</a></li>`;
+        }
     }
 }
 
@@ -62,10 +91,10 @@ function displayItens(page) {
                                           </div>
                                       </td>
                                       <td class="text-center">
-                                          <p class="text-xs font-weight-bold mb-0">R$ ${divida.valor}</p>
+                                          <p class="text-xs font-weight-bold mb-0">R$ ${divida.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                                       </td>
                                       <td class="align-middle text-center text-sm">
-                                          <span class="">${divida.data}</span>
+                                          <span class="">${new Date(divida.data).toLocaleDateString('pt-BR')}</span>
                                       </td>
                                       <td class="align-middle text-center">
                                           <span class="text-secondary text-xs font-weight-bold">${divida.hora}</span>

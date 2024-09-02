@@ -42,7 +42,7 @@ div_produtos.addEventListener('change', function () {
                     break;
 
                 case '2':
-                    div_valorProdutos.value = `R$ ${result.data[0].preco_distribuidor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+                    div_valorProdutos.value = `R$ ${result.data[0].preco_distribuidor}`;
                     break;
 
                 case '3':

@@ -156,7 +156,7 @@
                 <!-- Default form register -->
                 <form class="text-center border border-light p-5" action="/distribuidor/edit/<%= id %>?user=<%= idCripted %>" method="post" enctype="application/x-www-form-urlencoded">
 
-                    <input type="text" style="display: none;" value="<%= id %>" id="idUser">
+                    <input type="text" style="display: none;" value="<%= id %>" id="idUserEdit">
                     <p class="h4 mb-4">Editar Usuário</p>
                     
                     
@@ -164,27 +164,47 @@
                         <h5 class="text-dark">Informações Pessoais</h5>
                     
                         <div class="form-row mb-4">
-                            <div class="col">
+                            <div class="col text-start">
                                 <!-- First name -->
+                                <label for="Password_input" class="text-start fs-4">Nome:</label>
                                 <input id="Name_input" name="nome" type="text" class="form-control" placeholder="Nome completo">
                             </div>
                         </div>
-                    
+
                         <!-- E-mail -->
-                        <input id="Email_input" name="email" type="email" class="form-control mb-4" placeholder="E-mail">
-                    
+                        <div class="text-start">
+                            <label for="Email_input" class="text-start fs-4">Email:</label>
+                            <input id="Email_input" name="email" type="email" class="form-control mb-4" placeholder="E-mail">
+                        </div>
+                        
+                        
                         <!-- Password -->
-                        <input id="Password_input" name="password" type="hidden" class="form-control mb-4" placeholder="Senha"
+                        <div class="text-start">
+                            <label for="Password_input" class="text-start fs-4">Senha:</label>
+                            <input id="Password_input" name="senha" type="text" class="form-control mb-4" placeholder="Senha"
                             aria-describedby="defaultRegisterFormPasswordHelpBlock">
-                    
-                    
+                        </div>
+
                         <!-- Phone number -->
-                        <input id="Telefone_input" name="telefone" type="text" class="form-control mb-4" placeholder="Whatsapp"
+                        <div class="text-start">
+                            <label for="Telefone_input" class="text-start fs-4">Telefone:</label>
+                            <input id="Telefone_input" name="telefone" type="text" class="form-control mb-4" placeholder="Whatsapp"
                             aria-describedby="defaultRegisterFormPhoneHelpBlock">
-                    
+                        </div>
+
                         <!-- CPF -->
-                        <input id="CPF_input" name="cpf" type="text" class="form-control mb-4" placeholder="CPF"
+                        <div class="text-start">
+                            <label for="CPF_input" class="text-start fs-4">CPF:</label>
+                            <input id="CPF_input" name="cpf" type="text" class="form-control mb-4" placeholder="CPF"
                             aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                        </div>
+
+                        <!-- Nascimento -->
+                        <div class="text-start">
+                            <label for="Nascimento" class="text-start fs-4">Data de Nascimento:</label>
+                            <input id="Nascimento_input" name="nascimento" type="text" class="form-control mb-4" placeholder="Nascimento"
+                            aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                        </div>
                     
                         <hr>
                     </section>
@@ -273,8 +293,13 @@
     <script src="../../javascripts/plugins/perfect-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
-    <script src="../../javascripts_proprios/admin/user/infoUser.js"></script>
+    <script src="../../javascripts_proprios/infoUser.js"></script>
     <script src="../../javascripts/material-dashboard.min.js?v=3.0.0"></script>
+
+    <script src="../../javascripts_proprios/imask/cep.js"></script>
+    <script src="../../javascripts_proprios/imask/telefone.js"></script>
+    <script src="../../javascripts_proprios/imask/aniversario.js"></script>
+    <script src="../../javascripts_proprios/imask/cpf.js"></script>
 
     <script src="../../javascripts_proprios/alertas/distribuidor/alertasGeraisDistri.js"></script>
 

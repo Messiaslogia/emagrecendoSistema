@@ -93,7 +93,7 @@ function displayItens(page) {
                                           <p class="text-xs font-weight-bold mb-0">R$ ${divida.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                                       </td>
                                       <td class="align-middle text-center text-sm">
-                                          <span class="">${divida.data}</span>
+                                          <span class="">${new Date(divida.data).toLocaleDateString('pt-BR')}</span>
                                       </td>
                                       <td class="align-middle text-center">
                                           <span class="text-secondary text-xs font-weight-bold">${divida.hora}</span>

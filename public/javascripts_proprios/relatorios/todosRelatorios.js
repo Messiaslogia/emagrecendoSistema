@@ -86,17 +86,17 @@ function showItens(page){
                         </div>
                     </div>
                 </td>
-                <td>
-                    <p class="text-xs font-weight-bold mb-0">${relatorio.numero_do_pedido}</p>
-                </td>
                 <td class="align-middle text-center text-sm">
-                    <p class="text-xs font-weight-bold mb-0">R$ ${relatorio.valor.toFixed(2)}</p>
+                    <p class="text-xs font-weight-bold mb-0">R$ ${relatorio.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                 </td>
                 <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold">${relatorio.data}</span>
+                    <span class="text-secondary text-xs font-weight-bold">R$ ${relatorio.valor_d_entrega.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </td>
                 <td class="align-middle text-center">
-                    <p class="text-xs font-weight-bold mb-0">${relatorio.valor + relatorio.valor_d_entrega}</p>
+                    <p class="text-xs font-weight-bold mb-0">R$ ${(relatorio.valor + relatorio.valor_d_entrega).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                </td>
+                <td>
+                    <p class="text-xs font-weight-bold mb-0 text-center">${relatorio.data}</p>
                 </td>
             </tr>
         `

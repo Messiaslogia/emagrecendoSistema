@@ -62,16 +62,13 @@ function displayItens(page) {
                                           <p class="text-xs font-weight-bold mb-0">${divida.codigo_rastreio}</p>
                                       </td>
                                       <td class="align-middle text-center text-sm">
-                                          <span class="">R$ ${divida.valor_da_entrega}</span>
+                                          <span class="">R$ ${divida.valor_da_entrega.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                                       </td>
                                       <td class="align-middle text-center">
                                           <span class="text-secondary text-xs font-weight-bold">${divida.empresa}</span>
                                       </td>
                                        <td class="align-middle text-center">
-                                          <span class="text-secondary text-xs font-weight-bold">${divida.data}</span>
-                                      </td>
-                                      <td class="align-middle text-center">
-                                          <span class="text-secondary text-xs font-weight-bold">${divida.hora}</span>
+                                          <span class="text-secondary text-xs font-weight-bold">${new Date(divida.data).toLocaleDateString('pt-BR')}</span>
                                       </td>
                                  </tr>
                          `
@@ -189,6 +186,9 @@ function criarModal(numeração){
                             <td>
                                 <p class="text-xs font-weight-bold mb-0">${produto.data[0].nome}</p>
                             </td>
+                            <td>
+                                <p class="text-xs font-weight-bold mb-0">${pedido.status == 8 ? "A Caminho!" : pedido.status == 4 ? "Enntregue" : "Nâo Entregue"}</p>
+                            </td>
                             <td class="align-middle text-center text-sm">
                                 <span class="badge badge-sm bg-gradient-success">R$ ${valorTotal.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
                             </td>
@@ -215,6 +215,9 @@ function criarModal(numeração){
             <tr>
                 <td>
                     <p class="text-xs font-weight-bold mb-0">Total</p>
+                </td>
+                <td>
+                    <p class="text-xs font-weight-bold mb-0"></p>
                 </td>
                 <td class="align-middle text-center text-sm">
                     <span class="badge badge-sm bg-gradient-success">R$ ${valor.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>

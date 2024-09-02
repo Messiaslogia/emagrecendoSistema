@@ -39,7 +39,7 @@
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
                 <a class=" m-0 " href="/users?user=<%= Id_User %>">
-                    <img src="../../images/logo.png" class=" h-100" alt="main_logo">
+                    <img src="/images/logo.png" class=" h-100" alt="main_logo">
                 </a>
         </div>
         <hr class="horizontal light mt-0 mb-2">
@@ -134,7 +134,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item d-xl-none ps-3 pb-1 d-flex align-items-center">
+                    <li class="nav-item d-xl-none px-1 pb-1 d-flex align-items-center">
                         <a class="nav-link text-body p-0" id="iconNavbarSidenav">
                             <div class="sidenav-toggler-inner">
                                 <i class="sidenav-toggler-line"></i>
@@ -180,8 +180,8 @@
                     <!-- Usuario -->
                     <div class="form-row mb-4">
                         <div class="col">
-                            <div class="">
-                                <input class="form-control" type="text" name="codigo_rastreio" id="Codigo_rastreio" placeholder="Código de Rastreio">
+                            <div>
+                                <input class="form-control" type="text" name="codigo_rastreio" id="Codigo_rastreio" placeholder="Código de Rastreio" required>
                             </div>
                         </div>
                     </div>
@@ -189,8 +189,8 @@
                     <!-- Endereço -->
                     <div class="form-row mb-4">
                         <div class="col">
-                            <div class="">
-                                <input class="form-control" type="text" name="endereco" id="Endereço_input" placeholder="Endereço">
+                            <div>
+                                <input class="form-control" type="text" name="endereco" id="Endereço_input" placeholder="Endereço" required>
                             </div>
                         </div>
                     </div>
@@ -198,8 +198,8 @@
                     <!-- Produto -->
                     <div class="form-row mb-4">
                         <div class="col">
-                            <div class="">
-                                <select id="Empresas_input" name="empresa" class="form-control">
+                            <div>
+                                <select id="Empresas_input" name="empresa" class="form-control" required>
                                     <option disabled selected value="">Selecione a Empresa</option>
                                     <option value="Correios">Correios</option>
                                     <option value="Loggi">Loggi</option>
@@ -211,22 +211,21 @@
                     <!-- Valor -->
                     <div class="form-row mb-4">
                         <div class="col">
-                            <div class="">
-                                <input class="form-control" type="number" name="valor_entrega" id="Valor_entrega"
-                                    placeholder="Valor da entrega">
+                            <div>
+                                <input class="form-control" type="text" name="valor_entrega" id="Valor_entrega"
+                                    placeholder="Valor da entrega" required>
                             </div>
                         </div>
                     </div>
 
                     <!-- Data inserida -->
                     <input id="Data_produto" type="date" name="dataEntrega" class="form-control mb-4" placeholder="Data"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock" readonly>
+                        aria-describedby="defaultRegisterFormPhoneHelpBlock" readonly style="display: none;">
                     
                     <!-- Horas inserida -->
                     <input id="Hora_produto" type="time" name="horaEntrega" class="form-control mb-4" placeholder="Horas"
-                        aria-describedby="defaultRegisterFormPhoneHelpBlock" readonly>
+                        aria-describedby="defaultRegisterFormPhoneHelpBlock" readonly style="display: none;">
 
-                
                     <button id="Bt_Enviar" class="btn btn btn-success my-4 btn-block" type="submit">Enviar Pedido</button>
                 </form>
             </div>
@@ -307,20 +306,23 @@
         });
     </script>
 
-    <script src="../../javascripts/core/popper.min.js"></script>
-    <script src="../../javascripts/core/bootstrap.min.js"></script>
-    <script src="../../javascripts/plugins/perfect-scrollbar.min.js"></script>
-    <script src="../../javascripts/plugins/smooth-scrollbar.min.js"></script>
-    <script src="../../javascripts/plugins/chartjs.min.js"></script>
+
+    <script src="https://unpkg.com/imask"></script>
+    <script src="/javascripts/core/popper.min.js"></script>
+    <script src="/javascripts/core/bootstrap.min.js"></script>
+    <script src="/javascripts/plugins/perfect-scrollbar.min.js"></script>
+    <script src="/javascripts/plugins/smooth-scrollbar.min.js"></script>
+    <script src="/../javascripts/plugins/chartjs.min.js"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script src="../../javascripts/material-dashboard.min.js?v=3.0.0"></script>
+    <script src="/javascripts/material-dashboard.min.js?v=3.0.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
     <!-- <script src="../../javascripts_proprios/pedidos/pedidosUsuarios.js"></script>
     <script src="../../javascripts_proprios/pedidos/pedidosProdutos.js"></script>
     <script src="../../javascripts_proprios/pedidos/pedidosFormulario.js"></script> -->
-    <script src="../../javascripts_proprios/alertas/admin/alertasGerais.js"></script>
+    <script src="/javascripts_proprios/alertas/admin/alertasGerais.js"></script>
+    <script src="/javascripts_proprios/imask/valor.js"></script>
 
 </body>
 

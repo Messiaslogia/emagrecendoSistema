@@ -20,9 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function adquirirListProdutos() {
     axios.get("https://sistemaemagrecendo.com/apiFinanceiro/todasEntregas")
         .then(resp => {
-            listProduto = resp.data;
-            console.log(listProduto)
-            
+            listProduto = resp.data;     
         })
         .catch(err => {
             console.log(err);
@@ -93,7 +91,7 @@ function displayItens(page) {
                                           <span class="text-secondary text-xs font-weight-bold">${divida.empresa}</span>
                                       </td>
                                        <td class="align-middle text-center">
-                                          <span class="text-secondary text-xs font-weight-bold">${divida.data}</span>
+                                          <span class="text-secondary text-xs font-weight-bold">${new Date(divida.data).toLocaleDateString('pt-BR', { year: 'numeric', month: '2-digit', day: '2-digit' })}</span>
                                       </td>
                                       <td class="align-middle text-center">
                                           <span class="text-secondary text-xs font-weight-bold">${divida.hora}</span>

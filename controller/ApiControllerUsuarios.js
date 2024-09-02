@@ -124,18 +124,42 @@ class ApiControllerUsuarios {
     }
 
     editUser(req, res) {
-        let newUser = {
-            id: req.params.id,
-            nome: req.body.nome,
-            email: req.body.email,
-            password: req.body.senha,
-            cpf: req.body.cpf,
-            insta: req.body.instagram,
-            face: req.body.facebooks,
-            funcao: req.body.funcao,
-            regiao: req.body.regiao,
-            telefone: req.body.telefone
-        };
+        let newUser;
+        
+        if(req.body.password){
+            newUser = {
+                id: req.params.id,
+                nome: req.body.nome,
+                email: req.body.email,
+                password: req.body.password,
+                cpf: req.body.cpf.replace(/[^\d]/g, ''),
+                insta: req.body.instagram,
+                nascimento: req.body.nascimento.replace(/[^\d]/g, ''),
+                face: req.body.facebooks,
+                regiao: req.body.regiao,
+                cep: req.body.cep.replace(/[^\d]/g, ''),
+                endereco: req.body.endereco,
+                bairro: req.body.bairro,
+                numero_endereco: req.body.numerodoendereco,
+                telefone: req.body.telefone
+            };
+        } else {
+            newUser = {
+                id: req.params.id,
+                nome: req.body.nome,
+                email: req.body.email,
+                cpf: req.body.cpf,
+                cep: req.body.cep.replace(/[^\d]/g, ''),
+                nascimento: req.body.nascimento.replace(/[^\d]/g, ''),
+                endereco: req.body.endereco,
+                bairro: req.body.bairro,
+                numero_endereco: req.body.numerodoendereco,
+                insta: req.body.instagram,
+                face: req.body.facebooks,
+                regiao: req.body.regiao,
+                telefone: req.body.telefone
+            };
+        }
 
         axios.post(`${urls}editUser`, newUser)
             .then(() => {

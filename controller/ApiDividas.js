@@ -163,7 +163,7 @@ class ApiControllerDividas {
         const id = req.params.id;
         const idCripted = req.query.user;
 
-        axios.post(`${urls}deletarDividas`, {id})
+        axios.post(`${urls}deletarDividasOutrosUsuarios`, {id})
             .then(resp => {
                 res.redirect(`/distribuidor/dividasGerais?user=${idCripted}`);
             })
@@ -175,12 +175,10 @@ class ApiControllerDividas {
     };
 
     deletarDividaVendedor(req, res) {
-        let divida = req.params.id;
+        let id = req.params.id;
         const idCripted = req.query.user;
 
-        axios.post(`${urls}deletarDividas`, {
-            id: divida
-        })
+        axios.post(`${urls}deletarDividasOutrosUsuarios`, {id})
             .then(resp => {
                 res.redirect(`/vendedores/dividasGeraisVendedor?user=${idCripted}`);
             })
@@ -219,16 +217,13 @@ class ApiControllerDividas {
             id: req.body.id,
             nome: req.body.nomeDivida,
             descricao: req.body.descricaoDivida,
-            valor: parseFloat(req.body.valorDivida.replace('R$', '').replace(',', '.')),
+            valor: parseFloat(req.body.valorDivida.replace('R$', '').replace(' ', '').replace(',', '.')),
             data: req.body.dataDivida,
-            hora: req.body.horaDivida,
         };
 
-        console.log(nova_divida)
-
-        axios.post(`${urls}editDividas`, nova_divida)
+        axios.post(`${urls}editDividasOutrosUsuarios`, nova_divida)
             .then((result) => {
-                console.log('Produto editado com sucesso!');
+                console.log('Divida editado com sucesso!');
                 // produtosList = []
                 res.redirect(`/distribuidor/dividasGerais?user=${idCripted}`);
             }).catch((err) => {
@@ -245,14 +240,11 @@ class ApiControllerDividas {
             descricao: req.body.descricaoDivida,
             valor: parseFloat(req.body.valorDivida.replace('R$', '').replace(',', '.')),
             data: req.body.dataDivida,
-            hora: req.body.horaDivida,
         };
 
-        console.log(nova_divida)
-
-        axios.post(`${urls}editDividas`, nova_divida)
+        axios.post(`${urls}editDividasOutrosUsuarios`, nova_divida)
             .then((result) => {
-                console.log('Produto editado com sucesso!');
+                console.log('Divida editado com sucesso!');
                 res.redirect(`/vendedores/dividasGeraisVendedor?user=${idCripted}`);
             }).catch((err) => {
                 console.log(err);

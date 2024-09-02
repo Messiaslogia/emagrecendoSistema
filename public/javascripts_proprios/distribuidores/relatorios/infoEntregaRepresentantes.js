@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(result)
             document.querySelector('#Numero_pedido').value = result.data[0].numero_pedido;
             document.querySelector('#Nome_empresa').value = result.data[0].nome_empresa;
-            document.querySelector('#Valor_Entrega').value = result.data[0].valor_entrega;
+            document.querySelector('#Valor_entrega').value = result.data[0].valor_entrega;
             document.querySelector('#Status_entrega').value = result.data[0].status;
         }).catch((err) => {
            console.log(err); 

@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(resp => {
             lista_de_brindes = resp.data
         })
-
-
     setTimeout(() => {
         displayItens(1);
     }, [300]);

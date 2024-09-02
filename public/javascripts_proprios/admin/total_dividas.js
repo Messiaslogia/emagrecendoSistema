@@ -91,7 +91,7 @@ function displayItens(page) {
                                           </div>
                                       </td>
                                       <td class="text-center">
-                                          <p class="text-xs font-weight-bold mb-0">R$ ${divida.valor.toFixed(2)}</p>
+                                          <p class="text-xs font-weight-bold mb-0">R$ ${divida.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                                       </td>
                                       <td class="align-middle text-center text-sm">
                                           <span class="">${divida.data}</span>

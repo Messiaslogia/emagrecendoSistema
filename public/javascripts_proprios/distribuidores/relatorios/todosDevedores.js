@@ -4,8 +4,6 @@ const id = document.querySelector('#Id_User').value;
 let itensPorPagina = 5;
 var devedores;
 
-
-
 const div_Devedores = document.querySelector('#Tabela_de_Devedores');
 
 // Modal Variaveis
@@ -79,9 +77,9 @@ function todosOsVendedores(page){
     div_Devedores.innerHTML = '';
     pageDevedor.map(devedor => {
         div_Devedores.innerHTML += `
-                                  <tr>
+            <tr>
                  <td>
-                     <div class="d-flex px-2 py-1">
+                     <div class="d-flex px-2 py-1 align-items-center text-center align-middle justify-content-center">
                          <div class="cursor-pointer text-center justify-content-center">
                              <i id="Info_pedidos" number_pedido="${devedor.numero_do_pedido}" class="material-icons cursor-pointer ms-5">info</i>
                          </div>
@@ -91,13 +89,13 @@ function todosOsVendedores(page){
                      </div>
                  </td>
                  <td>
-                     <p class="text-xs text-center font-weight-bold mb-0">${devedor.status}</p>
+                     <p class="text-xs text-center font-weight-bold mb-0">Devendo</p>
                  </td>
                  <td class="align-middle text-center text-sm">
                      <span class="badge badge-sm bg-gradient-success">${devedor.quantidade}</span>
                  </td>
                  <td class="align-middle text-center">
-                     <span class="text-secondary text-xs font-weight-bold">${devedor.data}</span>
+                     <span class="text-secondary text-xs font-weight-bold">${devedor.data_criacao.split('T')[0].split('-').reverse().join('/')}</span>
                  </td>
                  
              </tr>
@@ -115,8 +113,8 @@ function todosOsVendedores(page){
             })
         })
     }, [300]);
-
     paginas(page);
+    dellFunction();
 }
 
 function statusAlt() {
@@ -142,7 +140,6 @@ function statusAlt() {
 
 function dellFunction() {
     let botoes_deletar_pedido = document.querySelectorAll('#Button_Deletar_Pedido');
-
 
     botoes_deletar_pedido.forEach(botao => {
         botao.addEventListener('click', (e) => {
@@ -190,7 +187,7 @@ function criarModal(numeração){
                                 <p class="text-xs font-weight-bold mb-0">${produto.data[0].nome}</p>
                             </td>
                             <td class="align-middle text-center text-sm">
-                                <span class="badge badge-sm bg-gradient-success">R$ ${valorTotal.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
+                                <span class="badge badge-sm bg-gradient-success">R$ ${valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                             </td>
                             <td class="align-middle text-center">
                                 <span class="text-secondary text-xs font-weight-bold">${pedido.quantidade}</span>
@@ -217,7 +214,7 @@ function criarModal(numeração){
                     <p class="text-xs font-weight-bold mb-0">Total</p>
                 </td>
                 <td class="align-middle text-center text-sm">
-                    <span class="badge badge-sm bg-gradient-success">R$ ${valor.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</span>
+                    <span class="badge badge-sm bg-gradient-success">R$ ${valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </td>
                 <td class="align-middle text-center">
                     <span class="text-secondary text-xs font-weight-bold">${quantidade}</span>

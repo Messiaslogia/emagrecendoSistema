@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
         displayItens( 1, 0 );
-        dellFunction();
     }, [300])
 });
 
@@ -42,15 +41,12 @@ function filtro(status){
     switch (status){
         case "Pago":
             displayItens(1, 1);
-            dellFunction();
             break
         case "Aprovado":
             displayItens(1, 0);
-            dellFunction();
             break
         case "Devendo":
             displayItens(1, 2);
-            dellFunction();
             break
         default:
             console.log("Erro");
@@ -125,7 +121,7 @@ function displayItens(page, arrayindex){
                         </div>
                     </td>
                     <td>
-                        <p class="text-xs font-weight-bold mb-0 text-center">${pedido.status}</p>
+                        <p class="text-xs font-weight-bold mb-0 text-center">Pago</p>
                     </td>
 
                     <td class="align-middle text-center text-sm text-center">
@@ -133,7 +129,7 @@ function displayItens(page, arrayindex){
                     </td>
                     
                     <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold text-center">${pedido.data}</span>
+                        <span class="text-secondary text-xs font-weight-bold text-center">${pedido.data_criacao.split('T')[0].split('-').reverse().join('/')}</span>
                     </td> 
                 </tr>
             `
@@ -154,7 +150,7 @@ function displayItens(page, arrayindex){
                         </div>
                     </td>
                     <td>
-                        <p class="text-xs font-weight-bold mb-0 text-center">${pedido.status}</p>
+                        <p class="text-xs font-weight-bold mb-0 text-center">${pedido.status == 5 ? "Devendo" : "Pendente"}</p>
                     </td>
 
                     <td class="align-middle text-center text-sm text-center">
@@ -162,14 +158,14 @@ function displayItens(page, arrayindex){
                     </td>
                     
                     <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold text-center">${pedido.data}</span>
+                        <span class="text-secondary text-xs font-weight-bold text-center">${pedido.data_criacao.split('T')[0].split('-').reverse().join('/')}</span>
                     </td> 
                 </tr>
             `
         })
         statusAlt()
    }
-
+   dellFunction();
    setTimeout(() => {
     let bt_produtos = document.querySelectorAll('#Info_pedidos');
 

@@ -129,7 +129,7 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item d-xl-none ps-3 pb-1 d-flex align-items-center">
+                        <li class="nav-item d-xl-none px-1 pb-1 d-flex align-items-center">
                             <a class="nav-link text-body p-0" id="iconNavbarSidenav">
                                 <div class="sidenav-toggler-inner">
                                     <i class="sidenav-toggler-line"></i>
@@ -165,7 +165,7 @@
             <div class="col-md-10 bg-light mt-4">
                 <!-- Default form register -->
                 <form class="text-center border border-light p-5" action="/api/edit/<%= id %>?user=<%= Id_User %>" method="post" enctype="application/x-www-form-urlencoded">
-                    <input type="text" style="display: none;" value="<%= id %>" id="idUser">
+                    <input type="text" style="display: none;" value="<%= id %>" id="idUserEdit">
                     <p class="h4 mb-4">Editar Usuário</p>
                 
 
@@ -175,25 +175,45 @@
                         <div class="form-row mb-4">
                             <div class="col">
                                 <!-- First name -->
+                                <label for="Password_input" class="text-start fs-4">Nome:</label>
                                 <input id="Name_input" name="nome" type="text" class="form-control" placeholder="Nome completo">
                             </div>
                         </div>
 
                         <!-- E-mail -->
-                        <input id="Email_input" name="email" type="email" class="form-control mb-4" placeholder="E-mail">
-                                        
+                        <div class="text-start">
+                            <label for="Email_input" class="text-start fs-4">Email:</label>
+                            <input id="Email_input" name="email" type="email" class="form-control mb-4" placeholder="E-mail">
+                        </div>
+                        
+                        
                         <!-- Password -->
-                        <input id="Password_input" name="password" type="text" class="form-control mb-4" placeholder="Senha"
+                        <div class="text-start">
+                            <label for="Password_input" class="text-start fs-4">Senha:</label>
+                            <input id="Password_input" name="password" type="text" class="form-control mb-4" placeholder="Senha"
                             aria-describedby="defaultRegisterFormPasswordHelpBlock">
-
+                        </div>
 
                         <!-- Phone number -->
-                        <input id="Telefone_input" name="phone" type="text"  class="form-control mb-4" placeholder="Whatsapp"
+                        <div class="text-start">
+                            <label for="Telefone_input" class="text-start fs-4">Telefone:</label>
+                            <input id="Telefone_input" name="telefone" type="text" class="form-control mb-4" placeholder="Whatsapp"
                             aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                        </div>
 
                         <!-- CPF -->
-                        <input id="CPF_input" name="cpf" type="text" class="form-control mb-4" placeholder="CPF"
+                        <div class="text-start">
+                            <label for="CPF_input" class="text-start fs-4">CPF:</label>
+                            <input id="CPF_input" name="cpf" type="text" class="form-control mb-4" placeholder="CPF"
                             aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                        </div>
+
+                        <!-- Nascimento -->
+                        <div class="text-start">
+                            <label for="Nascimento" class="text-start fs-4">Data de Nascimento:</label>
+                            <input id="Nascimento_input" name="nascimento" type="text" class="form-control mb-4" placeholder="Nascimento"
+                            aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                        </div>
 
                         <hr>
                     </section>
@@ -283,9 +303,12 @@
     <script src="../../javascripts/plugins/chartjs.min.js"></script>
 
     <!-- Scripts -->
-    <script src="../../javascripts_proprios/admin/user/infoUser.js"></script>
+    <script src="../../javascripts_proprios/infoUser.js"></script>
     <script src="../../javascripts_proprios/alertas/admin/alertasGerais.js"></script>
-    
+    <script src="../../javascripts_proprios/imask/cep.js"></script>
+    <script src="../../javascripts_proprios/imask/telefone.js"></script>
+    <script src="../../javascripts_proprios/imask/aniversario.js"></script>
+    <script src="../../javascripts_proprios/imask/cpf.js"></script>
 
 
 

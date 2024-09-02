@@ -35,9 +35,38 @@ function paginas(page) {
     const containerPagination = document.querySelector('#pag_navigation_input');
     containerPagination.innerHTML = '';
 
-    for (let i = 1; i <= pageCont; i++) {
-        const activeClass = (i === page) ? 'active bg-primary text-light' : '';
-        containerPagination.innerHTML += `<li class="page-item cursor-pointer "><a class="page-link ${activeClass}" onclick="todosOsVendedores(${i})">${i}</a></li>`;
+    const maxPagesToShow = 5;
+
+    if (pageCont <= maxPagesToShow) {
+        for (let i = 1; i <= pageCont; i++) {
+            const activeClass = (i === page) ? 'active bg-primary text-light' : '';
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="todosOsVendedores(${i})">${i}</a></li>`;
+        }
+    } else {
+        if (page <= maxPagesToShow - 1) {
+            for (let i = 1; i <= maxPagesToShow; i++) {
+                const activeClass = (i === page) ? 'active bg-primary text-light' : '';
+                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="todosOsVendedores(${i})">${i}</a></li>`;
+            }
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link">...</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="todosOsVendedores(${pageCont})">${pageCont}</a></li>`;
+        } else if (page >= pageCont - maxPagesToShow + 2) {
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="todosOsVendedores(1)">1</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link">...</a></li>`;
+            for (let i = pageCont - maxPagesToShow + 1; i <= pageCont; i++) {
+                const activeClass = (i === page) ? 'active bg-primary text-light' : '';
+                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="todosOsVendedores(${i})">${i}</a></li>`;
+            }
+        } else {
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="todosOsVendedores(1)">1</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link">...</a></li>`;
+            for (let i = page - 1; i <= page + 1; i++) {
+                const activeClass = (i === page) ? 'active bg-primary text-light' : '';
+                containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link ${activeClass}" onclick="todosOsVendedores(${i})">${i}</a></li>`;
+            }
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link">...</a></li>`;
+            containerPagination.innerHTML += `<li class="page-item cursor-pointer"><a class="page-link" onclick="todosOsVendedores(${pageCont})">${pageCont}</a></li>`;
+        }
     }
 }
 
@@ -52,7 +81,7 @@ function todosOsVendedores(page){
         div_Devedores.innerHTML += `
             <tr>
                  <td>
-                     <div class="d-flex px-2 py-1">
+                     <div class="d-flex px-2 py-1 align-items-center text-center align-middle justify-content-center">
                          <div class="cursor-pointer">
                              <i id="Info_pedidos" number_pedido="${devedor.numero_do_pedido}" class="material-icons cursor-pointer">info</i>
                          </div>
@@ -62,16 +91,16 @@ function todosOsVendedores(page){
                      </div>
                  </td>
                  <td>
-                     <p class="text-xs font-weight-bold mb-0">${devedor.status}</p>
+                     <p class="text-xs font-weight-bold mb-0 text-center">Devendo</p>
                  </td>
                  <td class="align-middle text-center">
-                     <span class="text-secondary text-xs font-weight-bold">R$ ${devedor.valor}</span>
+                     <span class="text-secondary text-xs font-weight-bold">R$ ${devedor.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                  </td>
                  <td class="align-middle text-center text-sm">
                      <span class="badge badge-sm bg-gradient-success">${devedor.quantidadeTotal}</span>
                  </td>
                  <td class="align-middle text-center">
-                     <span class="text-secondary text-xs font-weight-bold">${devedor.data}</span>
+                     <span class="text-secondary text-xs font-weight-bold">${devedor.data_criacao.split('T')[0].split('-').reverse().join('/')}</span>
                  </td>
              </tr>
          `                  

@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     adquirirListProdutos();
     setTimeout(() => {
         filtro('A caminho!');
-        dellFunction();
     }, [300])
 });
 
@@ -38,15 +37,12 @@ function filtro(status){
     switch (status){
         case "A caminho!":
             displayItens(1, 1);
-            dellFunction();
             break
         case "Entregues":
             displayItens(1, 2);
-            dellFunction();
             break
         case "Não Entregues":
             displayItens(1, 3);
-            dellFunction();
             break
           
     }
@@ -188,6 +184,7 @@ function displayItens( page, arrayindex ){
     }, [300])
 
     statusAlt()
+    dellFunction();
     paginas(page, arrayindex);
 };
 
