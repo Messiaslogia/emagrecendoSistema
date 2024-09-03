@@ -69,10 +69,8 @@ function showItens(page){
     let reversePedidos = allRelatoriosFinanceiro.slice().reverse();
     let pageItens = reversePedidos.slice(startIndex, endIndex);
 
-
     div_relatorio.innerHTML = '';
 
-    
     pageItens.map(relatorio => {
         div_relatorio.innerHTML += `
             <tr>
@@ -157,7 +155,7 @@ function criarModal(numero){
             div_pedidoNumber.innerHTML = resp.data[0].numero_do_pedido;
             div_Pedido.innerHTML = resp.data[0].info_produtos;
             div_QuantidadeTotal.innerHTML = `Quantidade: ${resp.data[0].quantidade_total}`;
-            div_ValorTotal.innerHTML = `Total: R$ ${resp.data[0].valor}`
+            div_ValorTotal.innerHTML = `Total: R$ ${resp.data[0].valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
         })
         .catch(err => {
             console.log(err);
