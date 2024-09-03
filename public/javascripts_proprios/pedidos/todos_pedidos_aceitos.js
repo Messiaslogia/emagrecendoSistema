@@ -166,7 +166,7 @@ function displayItens(page, arrayindex){
                         Enviar</a>
                     </td>
 
-                    <td class="align-middle ">
+                    <td class="align-middle text-center">
                         <a idAtributo="${pedido.numero_do_pedido}" id="Button_Deletar_Pedido" class="btn btn-link text-danger text-gradient mb-0">
                             <i class="material-icons text-sm me-2">delete</i>
                         Deletar</a>
@@ -225,7 +225,7 @@ function displayItens(page, arrayindex){
                     </td>
 
                     
-                    <td class="align-middle " >
+                    <td class="align-middle text-center" >
                         <a idAtributo="${pedido.numero_do_pedido}" id="Button_Deletar_Pedido" class="btn btn-link text-danger text-gradient mb-0">
                             <i class="material-icons text-sm me-2">delete</i>
                         Deletar</a>
