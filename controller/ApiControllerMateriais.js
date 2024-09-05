@@ -70,16 +70,18 @@ class ControllerMaterial {
     }   
 
     editMaterial(req, res){
+        console.log(req.body);
+
         const novo_produto = {
             id: req.params.id,
             nome: req.body.nomeProduto,
             descricao: req.body.descricaoProduto,
             quantidade: req.body.quantidadeProduto,
-            preco: req.body.precoProduto.replace(' ', '').replace('R$', '').replace(',', '.'),
+            preco: req.body.precoProduto.replace(' ', '').replace('R$ ', '').replace(',', '.'),
             img: req.body.imagemAtual,
             categoria: 2
         };
-
+ 
 
         // Verifica se uma nova imagem foi enviada
         if (req.file) {
@@ -87,7 +89,6 @@ class ControllerMaterial {
 
             // Remove a antiga imagem se for diferente da nova
             if (req.body.imagemAtual && fs.existsSync('public' + req.body.imagemAtual)) {
-                console.log('cu')
                 fs.unlinkSync('public' + req.body.imagemAtual); // Removendo a imagem antiga do servidor
             }
         }

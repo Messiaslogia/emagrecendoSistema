@@ -10,8 +10,8 @@ router.get('/editarProduto/:idMateriais', verifyToken, MateriaisController.index
 router.get('/dellProduto/:id', verifyToken, MateriaisController.deletandoMaterial)
 
 
-router.post('/adicionarMateriais', verifyToken, MateriaisController.uploadImagemProduto(), MateriaisController.addMaterial); 
-router.post('/editProduto/:id', verifyToken, MateriaisController.uploadImagemProduto(), MateriaisController.editMaterial); 
+router.post('/adicionarMateriais', verifyToken,  MateriaisController.addMaterial); 
+router.post('/editProduto/:id', verifyToken,  MateriaisController.editMaterial); 
 
 
 module.exports = router

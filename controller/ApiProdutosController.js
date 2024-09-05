@@ -11,6 +11,7 @@ const urls = "https://apiemagrecendo.com/produtos/";
 let produtosList = [];
 
 class ProductController {
+
     addProduto(req, res) {
         try {            
             let novo_produto = {
@@ -25,6 +26,7 @@ class ProductController {
                 img: req.file ? req.file.path : '',
                 categoria: 1
             };
+
                 axios.post(`${urls}adicionarProdutos`, novo_produto)
                     .then(resp => {
                         axios.post(`${urls}consultarProdutos`, {
@@ -154,29 +156,44 @@ class ProductController {
             });
     }
 
-    uploadImagemProduto() {
-        const storage = multer.diskStorage({
-            destination: function (req, file, cb) {
-                cb(null, 'public/images/produtos');
-            },
-            filename: function (req, file, cb) {
-                cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+   uploadImagemProduto() {
+    const storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            // Define o caminho relativo ao diretório atual
+            const uploadPath = path.resolve(__dirname, '../public/images/produtos');
+            cb(null, uploadPath);
+        },
+        filename: function (req, file, cb) {
+            cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+        }
+    });
+
+    const upload = multer({ storage: storage }).single('imagemProduto');
+
+	console.error(upload);
+console.error(storage);
+
+    return function (req, res, next) {
+        upload(req, res, function (err) {
+            if (err instanceof multer.MulterError) {
+                console.error('Erro do Multer durante o upload:', err.message, err.stack);
+                return res.status(500).json({
+                    message: 'Erro durante o upload.',
+                    error: err.message
+                });
+            } else if (err) {
+                console.error('Erro desconhecido durante o upload:', err.message, err.stack);
+                return res.status(500).json({
+                    message: 'Erro desconhecido durante o upload.',
+                    error: err.message
+                });
             }
+            next();
         });
+    };
+}
 
-        const upload = multer({ storage: storage }).single('imagemProduto');
 
-        return function (req, res, next) {
-            upload(req, res, function (err) {
-                if (err instanceof multer.MulterError) {
-                    return res.status(500).json({ message: 'Erro durante o upload.' });
-                } else if (err) {
-                    return res.status(500).json({ message: 'Erro desconhecido durante o upload.' });
-                }
-                next();
-            });
-        };
-    }
 
     valorTotalProdutos(req, res) {
         axios.get(`${urls}valorTotalEstoque`)

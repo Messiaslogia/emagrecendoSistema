@@ -70,12 +70,14 @@ class ControllerBrindes {
     }   
 
     editBrinde(req, res){
+        console.log(req.body);
+
         const novo_produto = {
             id: req.params.id,
             nome: req.body.nomeProduto,
             descricao: req.body.descricaoProduto,
             quantidade: req.body.quantidadeProduto,
-            preco: req.body.precoProduto.replace(' ', '').replace('R$', '').replace(',', '.'),
+            preco: req.body.precoProduto.replace(' ', '').replace('R$ ', '').replace(',', '.'),
             img: req.body.imagemAtual,
             categoria: 2
         };

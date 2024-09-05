@@ -10,8 +10,8 @@ router.get('/editarProduto/:idBrinde', verifyToken, BrindesController.indexEditB
 router.get('/dellProduto/:id', verifyToken, BrindesController.deletandoBrinde)
 
 
-router.post('/adicionarBrindes', verifyToken,  BrindesController.uploadImagemProduto(), BrindesController.addBrinde); 
-router.post('/editProduto/:id', verifyToken, BrindesController.uploadImagemProduto(), BrindesController.editBrinde); 
+router.post('/adicionarBrindes', verifyToken,  BrindesController.addBrinde); 
+router.post('/editProduto/:id', verifyToken, BrindesController.editBrinde); 
 
 
 module.exports = router

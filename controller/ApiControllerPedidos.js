@@ -20,9 +20,9 @@ class ApiControllerPedidos {
             valor: req.body.somaValorPedido,
             valorUnico: req.body.valorProduto.replace('R$ ', '').replace(',', '.'),
             quantidade: req.body.quantidade,
-            brinde: (req.body.brinde == 'Sem Brinde') ? null : req.body.brinde
-            // escolher_usar: req.body.escolher_usar,
-            // desconto: req.body.desconto.replace('R$ ', '').replace(',', '.'),
+            brinde: (req.body.brinde == 'Sem Brinde') ? null : req.body.brinde,
+            escolher_usar: req.body.escolher_usar,
+            desconto: req.body.desconto.replace('R$ ', '').replace(',', '.'),
         };
 
         if(req.query.funcao == 'true'){
