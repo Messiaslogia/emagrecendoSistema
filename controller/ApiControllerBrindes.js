@@ -40,6 +40,8 @@ class ControllerBrindes {
     addBrinde(req, res){
         try {       
             
+            // console.log(req.body);
+            // return;
             let novo_produto = {
                 nome: req.body.nomeProduto,
                 descricao: req.body.descricaoProduto,

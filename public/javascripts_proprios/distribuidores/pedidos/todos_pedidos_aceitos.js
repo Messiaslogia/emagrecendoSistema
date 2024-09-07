@@ -268,7 +268,7 @@ function criarModal(numeração){
     })
         .then(resp => {
 
-            infoUser(resp.data[0].id_usuario_FK);
+            infoUser(resp.data[0]);
 
             resp.data.forEach(pedido => {
                 pedido_number.innerHTML = numeração;
@@ -331,21 +331,31 @@ function criarModal(numeração){
 };
 
 
-function infoUser(id){
+function infoUser(pedido){
     let text_user = document.querySelector('#Text_user');
     let text_end = document.querySelector('#Text_Endereco');
+    let text_desconto = document.querySelector('#Text_Desconto');
+    let text_brinde = document.querySelector('#Text_Brinde');
 
     text_user.innerHTML = '';
-    text_end.innerHTML = ''
+    text_end.innerHTML = '';
+    text_desconto.innerHTML = '';
+    text_brinde.innerHTML = '';
+
     axios.post('https://apiemagrecendo.com/users/usuarioInfo', {
-        id: id
+        id: pedido.id_usuario_FK
     })
         .then(resp => {
-            console.log(resp.data)
             text_user.innerHTML = `Pedido feito por: ${resp.data[0].nome}`;
-            text_end.innerHTML = `Endereço: ${resp.data[0].endereco}`
+            text_end.innerHTML = `Endereço: ${resp.data[0].endereco}`;
+            text_desconto.innerHTML = `Desconto: R$${pedido.valor_desconto == null ? "0,00" : pedido.valor_desconto.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;      
         })
         .catch(err => {
             console.log('erro ao consultar o usuário: ', err)
         })
+
+    axios.get(`https://apiemagrecendo.com/pedidos/consultBrinde?brinde=${pedido.id_brinde_FK}`)
+        .then(brinde => { 
+            text_brinde.innerHTML = `Brinde: ${brinde.data[0].nome || "Sem Brinde"}`;
+        });
 };

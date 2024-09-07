@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         formData.forEach(pedido => {
-            axios.post('https://sistemaemagrecendo.com/apiPedidos/addPedidos?funcao=true', pedido)
+            axios.post('https://sistemaemagrecendo.com/apiPedidos/addPedidosDistribuidor', pedido)
                 .then(resp => {
                     console.log(resp.data);
                 })

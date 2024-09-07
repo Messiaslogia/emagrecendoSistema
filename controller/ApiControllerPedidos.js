@@ -48,6 +48,27 @@ class ApiControllerPedidos {
         };
     }
 
+    addPedidosDistribuidor( req, res ){
+        let newPedido = {
+            id_produto_FK: req.body.produto,
+            id_usuario_FK: req.body.usuario,
+            pedido: req.body.pedido,
+            status: req.body.status,
+            valor: req.body.somaValorPedido,
+            valorUnico: req.body.valorProduto.replace('R$ ', '').replace(',', '.'),
+            quantidade: req.body.quantidade,
+        };
+
+        axios.post(`${urls}addPedidosDistribuidor`, newPedido) 
+                .then(resp => {
+                    res.json(true);
+                })
+                .catch(err => {
+                    console.log(err);
+                    res.json(false);
+                })
+    }
+
     allPedidos(req, res) {
         axios.get(`${urls}allPedidos`)
             .then(resp => {

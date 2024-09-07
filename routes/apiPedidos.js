@@ -6,6 +6,8 @@ const ApiControllerPedidos = require("../controller/ApiControllerPedidos");
 
 
 router.post('/addPedidos',  ApiControllerPedidos.addPedidos);
+router.post('/addPedidosDistribuidor',  ApiControllerPedidos.addPedidosDistribuidor);
+
 router.post('/novoStatus', ApiControllerPedidos.newStatus);
 router.post('/statusEntrega', verifyToken, ApiControllerPedidos.novaEntrega)
 
